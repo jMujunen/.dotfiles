@@ -1,0 +1,17 @@
+[Plugins]
+org.kde.ActivityManager.VirtualDesktopSwitchEnabled=true
+
+[activities]
+2c765c72-78ac-4fc4-859c-539652ee4f7b=Random
+8fab4b45-8c3d-4755-82c1-9a563626c4e3=Code
+cc8c482b-b846-4ec9-b458-b0f349cd6b1a=Default
+
+[activities-icons]
+2c765c72-78ac-4fc4-859c-539652ee4f7b=862B_AutoHotkey.0
+8fab4b45-8c3d-4755-82c1-9a563626c4e3=format-text-code
+cc8c482b-b846-4ec9-b458-b0f349cd6b1a=computer-symbolic
+
+[main]
+currentActivity=cc8c482b-b846-4ec9-b458-b0f349cd6b1a
+runningActivities=8fab4b45-8c3d-4755-82c1-9a563626c4e3,cc8c482b-b846-4ec9-b458-b0f349cd6b1a
+stoppedActivities=2c765c72-78ac-4fc4-859c-539652ee4f7b

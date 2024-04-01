@@ -1,0 +1,5 @@
+[ConfigFile]
+use=kgammarc
+
+[SyncBox]
+sync=yes

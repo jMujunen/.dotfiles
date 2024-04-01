@@ -1,0 +1,9 @@
+[AC][Display]
+DimDisplayWhenIdle=false
+DisplayBrightness=62
+TurnOffDisplayWhenIdle=false
+
+[AC][SuspendAndShutdown]
+AutoSuspendIdleTimeoutSec=7200
+PowerButtonAction=8
+SleepMode=3

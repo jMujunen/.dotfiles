@@ -1,0 +1,14 @@
+[$Version]
+update_info=kscreenlocker.upd:0.1-autolock
+
+[Daemon]
+Autolock=false
+LockGrace=60
+LockOnResume=false
+
+[Greeter]
+WallpaperPlugin=net.sub-pop.kdewallhavenwallpaper
+
+[Greeter][Wallpaper][net.sub-pop.kdewallhavenwallpaper][General]
+Query=linux rice
+WallpaperDelay=10

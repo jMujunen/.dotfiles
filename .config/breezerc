@@ -1,0 +1,8 @@
+[Common]
+OutlineCloseButton=true
+OutlineIntensity=OutlineLow
+ShadowSize=ShadowSmall
+
+[Style]
+DockWidgetDrawFrame=true
+MenuItemDrawStrongFocus=false

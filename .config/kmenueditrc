@@ -1,0 +1,13 @@
+[General]
+SplitterSizes=434,671
+
+[MainWindow]
+2 screens: Height=1052
+2 screens: Width=1920
+2 screens: Window-Maximized=true
+2 screens: XPosition=1920
+2 screens: YPosition=28
+DP-2 HDMI-0=DP-2
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAAAAB4AAAAPuAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
+ToolBarsMovable=Disabled

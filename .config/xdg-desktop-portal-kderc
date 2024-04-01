@@ -1,0 +1,8 @@
+[FileDialogSize]
+2 screens: Height=662
+2 screens: Width=980
+
+[KFileDialog Settings]
+Recent Files[$e]=Clip.mp4,file:$HOME/Downloads/Clip (trimmed).mp4,file:$HOME/Downloads/Clip.mp4
+Recent URLs[$e]=file:$HOME/Downloads/,file:$HOME/
+detailViewIconSize=16

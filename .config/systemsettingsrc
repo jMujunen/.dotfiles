@@ -1,0 +1,20 @@
+[KFileDialog Settings]
+Recent Files[$e]=init.sh,file:$HOME/Docs/tmp.kksrc,file:$HOME/.var/app/com.jagex.Launcher/jagexcache/Media/sniper-rifle-firing-shot-1-39789.mp3,file:$HOME/scripts/startup/init.sh
+Recent URLs[$e]=file:$HOME/scripts/startup/,file:$HOME/.var/app/com.jagex.Launcher/jagexcache/Media/,file:$HOME/Docs/
+detailViewIconSize=16
+iconViewIconSize=64
+
+[MainWindow]
+1920x1080 screen: Height=700
+1920x1080 screen: Width=1748
+1920x1080 screen: XPosition=0
+1920x1080 screen: YPosition=28
+2 screens: Height=941
+2 screens: Width=1350
+2 screens: XPosition=364
+2 screens: YPosition=28
+DP-2 HDMI-0=HDMI-0
+HDMI-0=HDMI-0
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAAAABUYAAAOtAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
+ToolBarsMovable=Disabled
