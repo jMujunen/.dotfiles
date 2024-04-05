@@ -136,13 +136,26 @@ fi
 
 # Aliases
 neofetch
-colorscript  -e panes
 source ~/.bash_aliases
 # Env Vars
-export PATH=$PATH:/home/joona/.spicetify
-export PATH=/home/joona/python:$PATH
-export PATH=/home/joona/scripts:$PATH
-export PYTHONPATH=/home/joona/python:$PYTHONPATH
-export PYTHONPATH=/home/joona/python/modules:$PYTHONPATH
+export PATH=$PATH:~/.spicetify
+export PATH=~/python:$PATH
+export PATH=~/scripts:$PATH
+export PYTHONPATH=~/python:$PYTHONPATH
+export PYTHONPATH=~/python/modules:$PYTHONPATH
 # export QT_PLUGIN_PATH=/usr/lib/qt/plugins
 export TESSDATA_PREFIX=/usr/share/tessdata
+export GBM_BACKEND=nvidia-drm
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export GDK_BACKEND=wayland
+export MOZ_ENABLE_WAYLAND=1
+export QT_ENABLE_HIGHDPI_SCALING=1
+export QT_QPA_PLATFORM=wayland
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
+# For tty consoles
+setfont ter-114n 2>/dev/null
+
+# Hidden
+if [ -f ~/.bash_aliases_ ]; then
+    . ~/.bash_aliases_
+fi
