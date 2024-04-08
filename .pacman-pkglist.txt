@@ -1,4 +1,7 @@
 ack
+alsa-utils
+android-sdk-cmdline-tools-latest
+android-tools
 appmenu-gtk-module
 ark
 autokey-common
@@ -20,6 +23,7 @@ breeze-plymouth
 calc
 cmake
 conky
+corectrl
 cowsay
 darktable
 dict
@@ -35,6 +39,7 @@ expac
 feh
 ffmpeg
 firefox
+firefox-extension-arch-search
 flatpak-builder
 flatpak-kcm
 gimgview
@@ -52,6 +57,7 @@ hawck-git
 htop
 hwinfo
 icoutils
+inkscape
 intel-ucode
 ipython
 iwd
@@ -69,6 +75,7 @@ kitty-gruvbox-theme-git
 kitty-img
 kitty-shell-integration-shade-transparency-patch
 kitty-terminfo
+klipper
 konsole
 kscreen
 kwrited
@@ -87,11 +94,11 @@ meson
 micro
 nano
 neofetch
-netbeans
 network-manager-applet
 networkmanager
 nmon
 ntfs-3g
+nvclock
 nvidia-dkms
 nvidia-settings
 obs-studio
@@ -142,6 +149,7 @@ python-plyer
 python-psutil
 python-pyautogui
 python-pymsgbox
+python-pyqtgraph
 python-pysimplegui
 python-pysimpleguiqt
 python-pytesseract
@@ -153,6 +161,7 @@ rdfind
 rpi-imager
 rsync
 samba
+sbctl
 screen
 sddm
 shell-color-scripts
@@ -160,11 +169,14 @@ signal-desktop
 slock
 smartmontools
 sof-firmware
+spectacle
 speedtest-cli
 spotify
 ssh-tools
+sshfs
 steam
 sway
+systemd-ukify
 terminus-font
 thunderbird
 tilda
@@ -191,6 +203,8 @@ winetricks
 wireless_tools
 wireplumber
 wl-clipboard
+wlrctl
+wlroots
 x11vnc
 xbindkeys
 xclip
@@ -207,4 +221,5 @@ xterm
 yay
 yazi
 ydotool
+zenmap
 zram-generator
