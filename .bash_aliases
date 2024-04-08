@@ -1,11 +1,13 @@
 #
-# ~/.bash_aliases - Joona="s Bash Aliases
+# ~/.bash_aliases - Joonas Bash Aliases
 #
 
 # Modular Variables
 
-enable_wayland="--enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland"
-
+# Enable Wayland if not X11
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+  enable_wayland="--enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland"
+fi
 
 alias back="cd $OLDPWD"
 alias bte=". ~/.bash_functions && bte"
@@ -36,6 +38,7 @@ alias get_weather="python3 /home/joona/python/weather_widget.py"
 alias ipy="python3 -m IPython"
 alias ipython="python3 -m IPython"
 alias kitty="kitty --detach -T"
+alias kwin.showDebugConsole='qdbus6 org.kde.KWin /KWin org.kde.KWin.showDebugConsole'
 alias la="ls -lpha --group-directories-first"
 #alias lc="ls -lFgo"
 alias lg="ls -ph --group-directories-first"
@@ -43,8 +46,10 @@ alias ll="ls -lph --group-directories-first"
 #alias lls="ls -lshg"
 alias logs=". ~/.bash_functions && logs"
 alias lscripts=". ~/.bash_functions && list_scripts"
+alias lsd="ls -d */"
 #alias ls="ls --color=auto"
-alias lt="ls -ltph --group-directories-first"
+alias lt="ls -altr --group-directories-first"
+alias lss="ls -alshr --group-directories-first"
 alias m="micro"
 # alias mv="mv -i"
 alias mv="mv -iv"
@@ -66,6 +71,7 @@ alias send-sms=". ~/.bash_functions && send-sms"
 alias sizeof=". ~/.bash_functions && sizeof"
 # alias sp="spotify --show-console --log-file=Logs/spotify.log &"
 alias sudonset="sudo nvidia-settings &"
+alias venv='source venv/bin/activate'
 alias sunset="openrgb -p sunset &"
 alias tnew="tmux new -s"
 alias up=". ~/.bash_functions && up"
@@ -78,21 +84,15 @@ alias workspace_python="vscodium $enable_wayland ~/Code/Workspace/Python.code-wo
 alias workspace_pyside6="vscodium $enable_wayland ~/Code/Workspace/pyside6.code-workspace &"
 alias workspace_psg="vscodium $enable_wayland ~/Code/Workspace/PySimpleGUI.code-workspace &"
 alias workspace_pi="vscodium $enable_wayland ~/Code/Workspace/RPi.code-workspace &"
-
+alias workspace_ella="vscodium $enable_wayland ~/Code/Workspace/data_entry.code-workspace &"
 alias workspace="cd ~/Code/Workspace/ && ls -ltuph --group-directories-first"
 alias w="wezterm start --always-new-process"
 alias xclip="xclip -selection clipboard"
 alias x="exit"
 alias yay="yay --color=always --removemake"
 
-alias osmc='ssh osmc@10.0.0.87'
-alias pihole='ssh joona@10.0.0.132'
-alias scp='. ~/.bash_functions && scp'
-#     scp osmc local/file /path/to/remote/file
-#     scp osmc -i ~/.ssh/osmc osmc
-#     scp osmc -i ~/.ssh/osmc osmc@10.0.0.87
-
-
 alias myscp='scp -i ~/.ssh/$1'
 alias myremotefile='user@remote_server:/path/to/destination/'
 alias mycomplexscp='myscp /path/to/local/file myremotefile'
+
+alias sctldr='systemctl daemon-reload'

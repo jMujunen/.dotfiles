@@ -159,3 +159,6 @@ setfont ter-114n 2>/dev/null
 if [ -f ~/.bash_aliases_ ]; then
     . ~/.bash_aliases_
 fi
+export ANDROID_HOME='/opt/android-sdk'
+export ANDROID_SDK_ROOT='/opt/android-sdk'
+export PATH="${PATH}:${ANDROID_HOME}/cmdline-tools/latest/bin"

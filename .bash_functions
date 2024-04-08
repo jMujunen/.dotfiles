@@ -200,7 +200,7 @@ function fdisk_less_verbose() {
 }
 function osrs_hydra() {
   cd /home/joona/python/macros/
-  sudo python3 hydra_poison.py
+  sudo python3 count_hydra_attacks.py
 }
 function ffs() {
   for arg in "$@"; do
