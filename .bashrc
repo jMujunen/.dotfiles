@@ -139,7 +139,7 @@ neofetch
 source ~/.bash_aliases
 # Env Vars
 export PATH=$PATH:~/.spicetify
-export PATH=~/python:$PATH
+export PATH=~/python/scripts:$PATH
 export PATH=~/scripts:$PATH
 export PYTHONPATH=~/python:$PYTHONPATH
 export PYTHONPATH=~/python/modules:$PYTHONPATH

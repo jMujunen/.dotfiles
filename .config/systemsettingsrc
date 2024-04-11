@@ -1,6 +1,6 @@
 [KFileDialog Settings]
-Recent Files[$e]=init.sh,file:$HOME/Docs/tmp.kksrc,file:$HOME/.var/app/com.jagex.Launcher/jagexcache/Media/sniper-rifle-firing-shot-1-39789.mp3,file:$HOME/scripts/startup/init.sh
-Recent URLs[$e]=file:$HOME/scripts/startup/,file:$HOME/.var/app/com.jagex.Launcher/jagexcache/Media/,file:$HOME/Docs/
+Recent Files[$e]=file:$HOME/scripts/hydra,file:$HOME/Docs/tmp.kksrc,file:$HOME/.var/app/com.jagex.Launcher/jagexcache/Media/sniper-rifle-firing-shot-1-39789.mp3,file:$HOME/scripts/startup/init.sh
+Recent URLs[$e]=file:$HOME/scripts/startup/,file:$HOME/.var/app/com.jagex.Launcher/jagexcache/Media/,file:$HOME/Docs/,file:$HOME/scripts/,file:$HOME/Downloads/,file:$HOME/
 detailViewIconSize=16
 iconViewIconSize=64
 

@@ -10,7 +10,7 @@ Switch to Next Keyboard Layout=Meta+Alt+K,Meta+Alt+K,Switch to Next Keyboard Lay
 _k_friendly_name=Keyboard Layout Switcher
 
 [kaccess]
-Toggle Screen Reader On and Off=Meta+Alt+S,Meta+Alt+S,Toggle Screen Reader On and Off
+Toggle Screen Reader On and Off=none,Meta+Alt+S,Toggle Screen Reader On and Off
 _k_friendly_name=Accessibility
 
 [kcm_touchpad]
@@ -64,6 +64,7 @@ AutotileSwapAbove=Meta+Ctrl+K,none,Autotile: Swap Above
 AutotileSwapBelow=Meta+Ctrl+J,none,Autotile: Swap Below
 AutotileSwapLeft=Meta+Ctrl+H,none,Autotile: Swap Left
 AutotileSwapRight=Meta+Ctrl+L,none,Autotile: Swap Right
+Cube=Meta+C,Meta+C,Toggle Cube
 Cycle Overview=none,none,Cycle through Overview and Grid View
 Cycle Overview Opposite=none,none,Cycle through Grid View and Overview
 Decrease Opacity=none,,Decrease Opacity of Active Window by 5%
@@ -75,6 +76,21 @@ ExposeClassCurrentDesktop=none,none,Toggle Present Windows (Window class on curr
 Exquisite=Ctrl+Alt+D,none,Exquisite
 Grid View=Meta+G,Meta+G,Toggle Grid View
 Increase Opacity=none,,Increase Opacity of Active Window by 5%
+KZones: Cycle layouts=none,none,KZones: Cycle layouts
+KZones: Move active window to next zone=Ctrl+Alt+Right,none,KZones: Move active window to next zone
+KZones: Move active window to previous zone=Ctrl+Alt+Left,none,KZones: Move active window to previous zone
+KZones: Move active window to zone 1=Ctrl+Alt+Num+1,none,KZones: Move active window to zone 1
+KZones: Move active window to zone 2=Ctrl+Alt+Num+2,none,KZones: Move active window to zone 2
+KZones: Move active window to zone 3=Ctrl+Alt+Num+3,none,KZones: Move active window to zone 3
+KZones: Move active window to zone 4=Ctrl+Alt+Num+4,none,KZones: Move active window to zone 4
+KZones: Move active window to zone 5=Ctrl+Alt+Num+5,none,KZones: Move active window to zone 5
+KZones: Move active window to zone 6=Ctrl+Alt+Num+6,none,KZones: Move active window to zone 6
+KZones: Move active window to zone 7=Ctrl+Alt+Num+7,none,KZones: Move active window to zone 7
+KZones: Move active window to zone 8=Ctrl+Alt+Num+8,none,KZones: Move active window to zone 8
+KZones: Move active window to zone 9=Ctrl+Alt+Num+9,none,KZones: Move active window to zone 9
+KZones: Switch to next window in current zone=Ctrl+Alt+Up,none,KZones: Switch to next window in current zone
+KZones: Switch to previous window in current zone=Ctrl+Alt+Down,none,KZones: Switch to previous window in current zone
+KZones: Toggle zone overlay=Ctrl+Alt+C,none,KZones: Toggle zone overlay
 Kill Window=Meta+Ctrl+Esc,Meta+Ctrl+Esc,Kill Window
 MinimizeAll=Meta+Shift+D,none,MinimizeAll
 Move Tablet to Next Output=none,none,Move the tablet to the next output
@@ -85,6 +101,24 @@ MoveZoomLeft=none,none,Move Zoomed Area to Left
 MoveZoomRight=none,none,Move Zoomed Area to Right
 MoveZoomUp=none,none,Move Zoomed Area Upwards
 Overview=Meta+W,Meta+W,Toggle Overview
+Quick Tile Wide: FUll Width Top=Meta+Ctrl+Num+8,none,Quick Tile Wide: FUll Width Top
+Quick Tile Wide: Full Width Bottom=none,none,Quick Tile Wide: Full Width Bottom
+Quick Tile Wide: Full Width and Height=Meta+Ctrl+Num+5,none,Quick Tile Wide: Full Width and Height
+Quick Tile Wide: ⎹⇠⅓⇢⎸ Bottom Left=Meta+Num+1,none,Quick Tile Wide: ⎹⇠⅓⇢⎸ Bottom Left
+Quick Tile Wide: ⎹⇠⅓⇢⎸ Bottom Middle=Meta+Num+2,none,Quick Tile Wide: ⎹⇠⅓⇢⎸ Bottom Middle
+Quick Tile Wide: ⎹⇠⅓⇢⎸ Bottom Right=Meta+Num+3,none,Quick Tile Wide: ⎹⇠⅓⇢⎸ Bottom Right
+Quick Tile Wide: ⎹⇠⅓⇢⎸ Left=Meta+Num+4,none,Quick Tile Wide: ⎹⇠⅓⇢⎸ Left
+Quick Tile Wide: ⎹⇠⅓⇢⎸ Middle=Meta+Num+5,none,Quick Tile Wide: ⎹⇠⅓⇢⎸ Middle
+Quick Tile Wide: ⎹⇠⅓⇢⎸ Right=Meta+Num+6,none,Quick Tile Wide: ⎹⇠⅓⇢⎸ Right
+Quick Tile Wide: ⎹⇠⅓⇢⎸ Top Left=Meta+Num+7,none,Quick Tile Wide: ⎹⇠⅓⇢⎸ Top Left
+Quick Tile Wide: ⎹⇠⅓⇢⎸ Top Middle=Meta+Num+8,none,Quick Tile Wide: ⎹⇠⅓⇢⎸ Top Middle
+Quick Tile Wide: ⎹⇠⅓⇢⎸ Top Right=Meta+Num+9,none,Quick Tile Wide: ⎹⇠⅓⇢⎸ Top Right
+Quick Tile Wide: ⎹⇠⅔⇢⎸ Bottom Left=Meta+Ctrl+Num+1,none,Quick Tile Wide: ⎹⇠⅔⇢⎸ Bottom Left
+Quick Tile Wide: ⎹⇠⅔⇢⎸ Bottom Right=Meta+Ctrl+Num+3,none,Quick Tile Wide: ⎹⇠⅔⇢⎸ Bottom Right
+Quick Tile Wide: ⎹⇠⅔⇢⎸ Left=Meta+Ctrl+Num+4,none,Quick Tile Wide: ⎹⇠⅔⇢⎸ Left
+Quick Tile Wide: ⎹⇠⅔⇢⎸ Right=Meta+Ctrl+Num+6,none,Quick Tile Wide: ⎹⇠⅔⇢⎸ Right
+Quick Tile Wide: ⎹⇠⅔⇢⎸ Top Left=Meta+Ctrl+Num+7,none,Quick Tile Wide: ⎹⇠⅔⇢⎸ Top Left
+Quick Tile Wide: ⎹⇠⅔⇢⎸ Top Right=Meta+Ctrl+Num+9,none,Quick Tile Wide: ⎹⇠⅔⇢⎸ Top Right
 Setup Window Shortcut=none,,Setup Window Shortcut
 Show Desktop=Meta+D,Meta+D,Peek at Desktop
 ShowDesktopGrid=Meta+F8,Meta+F8,Show Desktop Grid
@@ -142,7 +176,9 @@ Switch to Screen to the Right=none,,Switch to Screen to the Right
 SwitchToEmptyDesktop=none,none,Switch to Empty Desktop
 Toggle Night Color=none,none,Toggle Night Light
 Toggle Window Raise/Lower=none,,Toggle Window Raise/Lower
+ToggleCurrentThumbnail=Meta+Ctrl+T,Meta+Ctrl+T,Toggle Thumbnail for Current Window
 ToggleKittyWindow=F12,none,ToggleKittyWindow
+TrackMouse=none,none,Track mouse
 Walk Through Windows=Alt+Tab,Alt+Tab,Walk Through Windows
 Walk Through Windows (Reverse)=Alt+Shift+Backtab,Alt+Shift+Tab,Walk Through Windows (Reverse)
 Walk Through Windows Alternative=none,,Walk Through Windows Alternative
@@ -363,8 +399,10 @@ activate widget 245=none,none,Activate Application Menu Widget
 activate widget 249=none,none,Activate Application Launcher Widget
 activate widget 305=none,none,Activate Individual Core Usage Widget
 activate widget 314=none,none,Activate Application Launcher Widget
+activate widget 336=none,none,Activate Arch Update Counter Widget
 activate widget 339=none,none,Activate Icons-only Task Manager Widget
 activate widget 344=none,none,Activate Icons-only Task Manager Widget
+activate widget 358=none,none,Activate Comic Strip Widget
 activate widget 4=Alt+F1,none,Activate Application Launcher Widget
 activate widget 48=none,none,Activate Application Launcher Widget
 activate widget 70=none,none,Activate Panel Widget
@@ -390,8 +428,16 @@ toggle do not disturb=none,,Toggle do not disturb
 [services][firefox.desktop]
 new-window=Meta+F
 
+[services][kitty.desktop]
+_launch=Meta+R
+
 [services][org.kde.krunner.desktop]
 _launch=Alt+Space
 
-[services][org.wezfurlong.wezterm.desktop]
-_launch=Meta+R
+[services][org.kde.plasma.emojier.desktop]
+_launch=none
+
+[services][org.kde.spectacle.desktop]
+RecordRegion=Meta+Shift+R
+RecordWindow=none
+_launch=Print

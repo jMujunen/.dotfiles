@@ -1,9 +1,8 @@
 [AC][Display]
 DimDisplayWhenIdle=false
-DisplayBrightness=62
+DisplayBrightness=100
 TurnOffDisplayWhenIdle=false
 
 [AC][SuspendAndShutdown]
 AutoSuspendIdleTimeoutSec=7200
 PowerButtonAction=8
-SleepMode=3

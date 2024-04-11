@@ -122,7 +122,10 @@ Word Completion=true
 Word Completion Minimal Word Length=3
 Word Completion Remove Tail=true
 
+[KTextEditor::Search]
+Search History=--text-faint,quote
+
 [MainWindow]
-2 screens: Height=510
-2 screens: Width=958
+2 screens: Height=780
+2 screens: Width=1241
 2 screens: Window-Maximized=true

@@ -3,6 +3,7 @@
 2 screens: Width=980
 
 [KFileDialog Settings]
-Recent Files[$e]=Clip.mp4,file:$HOME/Downloads/Clip (trimmed).mp4,file:$HOME/Downloads/Clip.mp4
-Recent URLs[$e]=file:$HOME/Downloads/,file:$HOME/
+Recent Files[$e]=file:$HOME/dotfiles/assets/cfg.png
+Recent URLs[$e]=file:$HOME/Downloads/,file:$HOME/,file:$HOME/dotfiles/,file:$HOME/dotfiles/assets/
 detailViewIconSize=16
+iconViewIconSize=64

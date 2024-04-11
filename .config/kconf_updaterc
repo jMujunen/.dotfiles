@@ -170,6 +170,11 @@ ctime=1711847879
 done=plasmashell-6.0-keep-custom-position-of-panels,plasmashell-6.0-keep-default-floating-setting-for-plasma-5-panels
 mtime=1711623209
 
+[spectacle.upd]
+ctime=1712149647
+done=24.02.0-video_format,24.02.0-keep_old_save_location,24.02.0-rename_settings,24.02.0-keep_old_filename_templates,24.02.0-change_placeholder_format
+mtime=1710878470
+
 [style_widgetstyle_default_breeze.upd]
 ctime=1708166135
 done=StyleWidgetStyleDefaultBreeze

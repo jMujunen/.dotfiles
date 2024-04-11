@@ -2,6 +2,7 @@
 update_info=kwin.upd:replace-scalein-with-scale,kwin.upd:port-minimizeanimation-effect-to-js,kwin.upd:port-scale-effect-to-js,kwin.upd:port-dimscreen-effect-to-js,kwin.upd:auto-bordersize,kwin.upd:animation-speed,kwin.upd:desktop-grid-click-behavior,kwin.upd:no-swap-encourage,kwin.upd:make-translucency-effect-disabled-by-default,kwin.upd:remove-flip-switch-effect,kwin.upd:remove-cover-switch-effect,kwin.upd:remove-cubeslide-effect,kwin.upd:remove-xrender-backend,kwin.upd:enable-scale-effect-by-default,kwin.upd:overview-group-plugin-id,kwin.upd:animation-speed-cleanup,kwin.upd:replace-cascaded-zerocornered
 
 [Compositing]
+AllowTearing=false
 HiddenPreviews=4
 
 [Desktops]
@@ -13,7 +14,13 @@ Number=2
 Rows=1
 
 [Effect-blur]
-NoiseStrength=10
+BlurStrength=1
+NoiseStrength=0
+
+[Effect-kwin4_effect_pixelate]
+Duration=750
+Noise=99
+PixelSize=5
 
 [Effect-windowview]
 BorderActivateAll=9
@@ -42,22 +49,28 @@ applicationswitcherEnabled=false
 autotileEnabled=false
 blurEnabled=true
 desktopchangeosdEnabled=true
+dimscreenEnabled=true
 exquisiteEnabled=false
 karouselEnabled=false
 kwin-go-to-empty-desktopEnabled=false
 kwin4_effect_fadedesktopEnabled=true
 kwin4_effect_pixel_wipeEnabled=true
+kwin4_effect_pixelateEnabled=true
 kwin4_effect_scaleEnabled=false
+kzonesEnabled=true
 minimizeallEnabled=false
 missionManagerEnabled=false
+quicktilewideEnabled=true
+scaleEnabled=false
 slideEnabled=false
 steadyScreenEnabled=true
 stepresizeEnabled=false
 synchronizeskipswitcherEnabled=false
 tilegapsEnabled=true
 toggler.kitty.h3r3t1c.cuEnabled=true
+trackmouseEnabled=true
 transparenttilesEnabled=false
-truely-maximizedEnabled=false
+truely-maximizedEnabled=true
 videowallEnabled=false
 
 [Script-autotile]
@@ -72,6 +85,9 @@ floatingKeepAbove=true
 reMaximize=true
 resizeNeighborColumn=true
 tiledKeepBelow=false
+
+[Script-kzones]
+layoutsJson=[\n    {\n        "name": "Thirds",\n        "padding": 0,\n        "zones": [\n            {\n                "name": "1",\n                "x": 0,\n                "y": 0,\n                "height": 100,\n                "width": 25\n            },\n            {\n                "name": "2",\n                "x": 25,\n                "y": 0,\n                "height": 100,\n                "width": 50\n            },\n            {\n                "name": "3",\n                "x": 75,\n                "y": 0,\n                "height": 100,\n                "width": 25\n            }\n        ]\n    },\n    {\n        "name": "Quarters",\n        "padding": 5,\n        "zones": [\n            {\n                "name": "1",\n                "x": 0,\n                "y": 0,\n                "height": 50,\n                "width": 50\n            },\n            {\n                "name": "2",\n                "x": 50,\n                "y": 0,\n                "height": 50,\n                "width": 50\n            },\n            {\n                "name": "3",\n                "x": 0,\n                "y": 50,\n                "height": 50,\n                "width": 50\n            },\n            {\n                "name": "4",\n                "x": 50,\n                "y": 50,\n                "height": 50,\n                "width": 50\n            }\n        ]\n    },\n    {\n        "name": "4 Small corners, 1 Big",\n        "padding": 5,\n        "zones": [\n            {\n                "name": "1",\n                "x": 0,\n                "y": 0,\n                "height": 50,\n                "width": 25\n            },\n            {\n                "name": "2",\n                "x": 0,\n                "y": 50,\n                "height": 50,\n                "width": 25\n            },\n            {\n                "name": "3",\n                "x": 25,\n                "y": 0,\n                "height": 100,\n                "width": 50\n            },\n            {\n                "name": "4",\n                "x": 75,\n                "y": 0,\n                "height": 50,\n                "width": 25\n            },\n            {\n                "name": "5",\n                "x": 75,\n                "y": 50,\n                "height": 50,\n                "width": 25\n            }\n        ]\n    },\n    {\n        "name": "IDK",\n        "padding": 5,\n        "zones": [\n            {\n                "name": "1",\n                "x": 0,\n                "y": 0,\n                "height": 100,\n                "width": 50\n            },\n            {\n                "name": "2",\n                "x": 50,\n                "y": 0,\n                "height": 100,\n                "width": 50\n            }\n        ]\n    }\n]
 
 [Script-tilegaps]
 applications=konsole
@@ -95,7 +111,7 @@ count=0
 LayoutName=thumbnail_grid
 
 [Tiling]
-padding=4
+padding=10
 
 [Tiling][0435e02e-70e3-5346-a625-32ef1773769c]
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
@@ -104,10 +120,10 @@ tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"wi
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Tiling][270e4863-6f94-5b3b-9d1d-77297468d629]
-tiles={"layoutDirection":"horizontal","tiles":[{"layoutDirection":"vertical","tiles":[{"height":0.5},{"height":0.5}],"width":0.3963541666666667},{"width":0.603645833333331}]}
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.4557291666666667},{"width":0.5442708333333333}]}
 
 [Tiling][7657eca2-b60f-553a-ba52-bc2dfe6616b2]
-tiles={"layoutDirection":"horizontal","tiles":[{"layoutDirection":"vertical","tiles":[{"height":0.5,"layoutDirection":"horizontal","tiles":[{"width":0.4192708333333337},{"width":0.27656249999999916}]},{"height":0.5,"layoutDirection":"horizontal","tiles":[{"width":0.41822916666666715},{"width":0.2776041666666657}]}],"width":0.6958333333333329},{"layoutDirection":"vertical","tiles":[{"height":0.5},{"height":0.5}],"width":0.30416666666666714}]}
+tiles={"layoutDirection":"horizontal","tiles":[{"layoutDirection":"vertical","tiles":[{"height":0.5},{"height":0.5}],"width":0.45885416666666695},{"width":0.5411458333333206}]}
 
 [Tiling][92e842d7-5928-5c43-884a-4912e7cc82ed]
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
@@ -128,7 +144,6 @@ tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"wi
 BorderSnapZone=25
 CenterSnapZone=10
 ElectricBorderCornerRatio=0.4
-ElectricBorders=1
 SeparateScreenFocus=true
 WindowSnapZone=25
 

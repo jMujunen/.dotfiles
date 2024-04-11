@@ -148,6 +148,13 @@ types=32
 wmclass=org.wezfurlong.wezterm
 wmclassmatch=1
 
+[fbbb039b-015c-435d-8bb7-1e226aa9b98a]
+Description=Application settings for GParted
+clientmachine=localhost
+wmclass=gpartedbin GParted
+wmclasscomplete=true
+wmclassmatch=1
+
 [fea1f26a-984b-4119-9ea6-be0f80fd12eb]
 Description=Application settings for konsole
 clientmachine=localhost

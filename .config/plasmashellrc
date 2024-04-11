@@ -1,9 +1,9 @@
 [ActionsWidget]
-ColumnState=AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAk8AAAACAQAAAQAAAAAAAAAAAAAAAGT/////AAAAgQAAAAAAAAACAAAA+gAAAAEAAAAAAAABVQAAAAEAAAAAAAAD6AAAAABkAAAAAA==
+ColumnState=AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlsAAAACAQAAAQAAAAAAAAAAAAAAAGT/////AAAAgQAAAAAAAAACAAAA+gAAAAEAAAAAAAABYQAAAAEAAAAAAAAD6AAAAABkAAAAAA==
 
 [ConfigDialog]
 2 screens: Height=550
-2 screens: Width=784
+2 screens: Width=1143
 
 [FileDialogSize]
 2 screens: Height=600
@@ -14,8 +14,8 @@ ColumnState=AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAk8AAAACAQAAAQAA
 Number of Actions=0
 
 [KFileDialog Settings]
-Recent Files[$e]=file:$HOME/Pictures/Wallpapers/wallpapers/0302.jpg,file:///usr/share/icons/self/arch-svg-3-3873715684.png,file:///usr/share/icons/self/446-4466496_arch-linux-icon-png-transparent-png-2988486770.png,file:///usr/share/icons/self/arch2.ico,file:$HOME/Pictures/Wallpapers/span/super-autumn-landscape-3840x2160_665569-mm-90.jpg,file:$HOME/Pictures/Wallpapers/span/natural-view-over-the-lake-and-mountains-3840x2160_894798-mm-90.jpg,file:$HOME/Pictures/Wallpapers/span/wp4469551-3840x2160-wallpapers.jpg,file:$HOME/Pictures/Wallpapers/span/wp4469566-3840x2160-wallpapers.jpg,file:$HOME/Pictures/Wallpapers/span/wp2003012-firewatch-wallpapers(1).jpg
-Recent URLs[$e]=file:$HOME/,file:$HOME/Pictures/Wallpapers/span/,file:///usr/share/icons/self/,file:$HOME/Downloads/,file:///usr/share/icons/,file:$HOME/.var/app/com.jagex.Launcher/,file:$HOME/Docs/Notes/Obsidian/All Notes/Done/,file:$HOME/Docs/,file:$HOME/Pictures/,file:$HOME/Pictures/Wallpapers/plasma/summer_1am/contents/images/,file:$HOME/Pictures/Wallpapers/wallpapers/
+Recent Files[$e]=file:$HOME/Pictures/Wallpapers/Rainmeter/ukXt6o.png,file:///usr/share/icons/self/arch-svg-3-3873715684.png,file:///usr/share/icons/self/446-4466496_arch-linux-icon-png-transparent-png-2988486770.png,file:///usr/share/icons/self/arch2.ico,file:$HOME/Pictures/Wallpapers/span/super-autumn-landscape-3840x2160_665569-mm-90.jpg,file:$HOME/Pictures/Wallpapers/span/natural-view-over-the-lake-and-mountains-3840x2160_894798-mm-90.jpg,file:$HOME/Pictures/Wallpapers/span/wp4469551-3840x2160-wallpapers.jpg,file:$HOME/Pictures/Wallpapers/span/wp4469566-3840x2160-wallpapers.jpg,file:$HOME/Pictures/Wallpapers/span/wp2003012-firewatch-wallpapers(1).jpg
+Recent URLs[$e]=file:$HOME/Pictures/Wallpapers/span/,file:///usr/share/icons/self/,file:$HOME/Downloads/,file:///usr/share/icons/,file:$HOME/.var/app/com.jagex.Launcher/,file:$HOME/Docs/Notes/Obsidian/All Notes/Done/,file:$HOME/Docs/,file:$HOME/Pictures/,file:$HOME/Pictures/Wallpapers/plasma/summer_1am/contents/images/,file:$HOME/Pictures/Wallpapers/wallpapers/,file:$HOME/Pictures/Wallpapers/Rainmeter/
 detailViewIconSize=16
 iconViewIconSize=256
 listViewIconSize=64
@@ -100,11 +100,11 @@ minLength=102
 alignment=132
 floating=1
 panelLengthMode=1
-panelOpacity=0
+panelOpacity=2
 panelVisibility=2
 
 [PlasmaViews][Panel 246][Defaults]
-thickness=32
+thickness=30
 
 [PlasmaViews][Panel 248]
 floating=0
@@ -159,6 +159,7 @@ thickness=36
 [PlasmaViews][Panel 313]
 floating=1
 panelLengthMode=1
+panelOpacity=2
 panelVisibility=2
 
 [PlasmaViews][Panel 313][Defaults]
@@ -203,6 +204,9 @@ panelVisibility=0
 
 [PlasmaViews][Panel 91][Defaults]
 thickness=32
+
+[Shortcuts]
+configure=Meta+Alt+S
 
 [Updates]
 performed=/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/maintain_existing_desktop_icon_sizes.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/digitalclock_migrate_font_settings.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/unlock_widgets.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/systemloadviewer_systemmonitor.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/klipper_clear_config.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/containmentactions_middlebutton.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/keyboardlayout_migrateiconsetting.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/digitalclock_rename_timezonedisplay_key.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/no_middle_click_paste_on_panels.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/mediaframe_migrate_useBackground_setting.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/folderview_fix_recursive_screenmapping.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/keyboardlayout_remove_shortcut.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/move_desktop_layout_config.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/digitalclock_migrate_showseconds_setting.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/migrate_font_weights.js

@@ -82,8 +82,11 @@ DialogWidth=720
 ToolBoxButtonState=topcenter
 ToolBoxButtonX=384
 iconSize=0
-positions={"1920x1080":["1"\\,"20"\\,"desktop:/alch_blokcers.txt"\\,"0"\\,"2"\\,"desktop:/osrs.sh"\\,"0"\\,"5"\\,"desktop:/cpuz..txt"\\,"0"\\,"3"\\,"desktop:/imbed maps html"\\,"0"\\,"4"\\,"desktop:/Code"\\,"0"\\,"0"\\,"desktop:/lib"\\,"0"\\,"1"]\\,"0x0":[]\\,"1024x768":["1"\\,"10"\\,"desktop:/cpuz..txt"\\,"0"\\,"1"\\,"desktop:/lib"\\,"0"\\,"0"\\,"desktop:/Code"\\,"0"\\,"3"\\,"desktop:/osrs.sh"\\,"0"\\,"4"\\,"desktop:/alch_blokcers.txt"\\,"0"\\,"5"\\,"desktop:/imbed maps html"\\,"0"\\,"2"]}
+positions={"1920x1080":["1"\\,"20"\\,"desktop:/configureation.yaml"\\,"0"\\,"7"\\,"desktop:/lib"\\,"0"\\,"1"\\,"desktop:/Text File.txt"\\,"0"\\,"6"\\,"desktop:/alch_blokcers.txt"\\,"0"\\,"2"\\,"desktop:/Code"\\,"0"\\,"0"\\,"desktop:/imbed maps html"\\,"0"\\,"4"\\,"desktop:/osrs.sh"\\,"0"\\,"5"\\,"desktop:/cpuz..txt"\\,"0"\\,"3"]\\,"0x0":[]\\,"1024x768":["1"\\,"10"\\,"desktop:/osrs.sh"\\,"0"\\,"4"\\,"desktop:/cpuz..txt"\\,"0"\\,"1"\\,"desktop:/alch_blokcers.txt"\\,"0"\\,"5"\\,"desktop:/Code"\\,"0"\\,"3"\\,"desktop:/imbed maps html"\\,"0"\\,"2"\\,"desktop:/lib"\\,"0"\\,"0"]}
 sortMode=-1
+
+[Containments][158][Wallpaper][de.unkn0wn.htmlwallpaper][General]
+DisplayPage=moz-extension://2c8c0e7f-ea75-45c7-817e-4bf4fe7df7d5/index.html/
 
 [Containments][158][Wallpaper][net.sub-pop.kdewallhavenwallpaper][General]
 FillMode=2
@@ -104,14 +107,18 @@ selectedShaderContent=// From https://www.shadertoy.com/view/3dsGzs\n// By fish\
 shaderSpeed=0.02999999999999936
 
 [Containments][158][Wallpaper][org.kde.image][General]
-Image=/home/joona/Pictures/Wallpapers/span/ajamesmccarthy-3440x1440.jpg
-PreviewImage=/home/joona/Pictures/Wallpapers/span/ajamesmccarthy-3440x1440.jpg
+Image=/home/joona/Pictures/Wallpapers/Rainmeter/ukXt6o.png
+PreviewImage=/home/joona/Pictures/Wallpapers/Rainmeter/ukXt6o.png
 SlidePaths=/home/joona/.local/share/wallpapers/,/usr/share/wallpapers/
 
+[Containments][158][Wallpaper][org.kde.potd][General]
+FillMode=2
+Provider=wcpotd
+
 [Containments][159]
-ItemGeometries-0x0=Applet-299:1696,144,64,64,0;Applet-341:2986.9,1089,54,54,0;
-ItemGeometries-1920x1080=Applet-299:16,144,64,64,0;Applet-341:2986.9,1041,54,54,0;
-ItemGeometriesHorizontal=Applet-299:16,144,64,64,0;Applet-341:2986.9,1041,54,54,0;
+ItemGeometries-0x0=Applet-354:16,16,64,64,0;Applet-299:1696,144,64,64,0;Applet-341:2986.9,1089,54,54,0;
+ItemGeometries-1920x1080=Applet-354:16,16,64,64,0;Applet-299:16,144,64,64,0;Applet-341:2986.9,1041,54,54,0;
+ItemGeometriesHorizontal=Applet-354:16,16,64,64,0;Applet-299:16,144,64,64,0;Applet-341:2986.9,1041,54,54,0;
 activityId=cc8c482b-b846-4ec9-b458-b0f349cd6b1a
 formfactor=0
 immutability=1
@@ -128,6 +135,9 @@ plugin=com.himdek.kde.plasma.runcommand
 DialogHeight=540
 DialogWidth=720
 
+[Containments][159][Applets][299][Configuration][General]
+command=kitty ''
+
 [Containments][159][Applets][341]
 immutability=1
 plugin=com.github.zren.commandoutput
@@ -138,6 +148,15 @@ DialogWidth=720
 
 [Containments][159][Applets][341][Configuration][General]
 command=bash ~/scripts/logging/ping_localhost.sh
+
+[Containments][159][Applets][354]
+immutability=1
+plugin=org.kde.plasma.bluetooth
+
+[Containments][159][Applets][354][Configuration]
+PreloadWeight=60
+popupHeight=432
+popupWidth=432
 
 [Containments][159][ConfigDialog]
 DialogHeight=540
@@ -150,8 +169,8 @@ positions={"1920x1080":[]\\,"0x0":[]}
 sortMode=-1
 
 [Containments][159][Wallpaper][org.kde.image][General]
-Image=/home/joona/Pictures/Wallpapers/span/ajamesmccarthy-3440x1440.jpg
-PreviewImage=/home/joona/Pictures/Wallpapers/span/ajamesmccarthy-3440x1440.jpg
+Image=/home/joona/Pictures/Wallpapers/Rainmeter/ukXt6o.png
+PreviewImage=/home/joona/Pictures/Wallpapers/Rainmeter/ukXt6o.png
 SlidePaths=/home/joona/.local/share/wallpapers/,/usr/share/wallpapers/
 
 [Containments][189]
@@ -293,7 +312,7 @@ immutability=1
 plugin=org.kde.plasma.colorpicker
 
 [Containments][246][Applets][274][Configuration]
-PreloadWeight=85
+PreloadWeight=100
 popupHeight=324
 popupWidth=324
 
@@ -302,7 +321,7 @@ DialogHeight=540
 DialogWidth=720
 
 [Containments][246][Applets][274][Configuration][General]
-history=#67868c,#21819e,#1b8b84
+history=#1d1e21,#2e3436,#1f2023,#05989a,#2e3436,#b7bab4,#2e3436,#ff00ff,#1d1f25
 
 [Containments][246][Applets][275]
 immutability=1
@@ -314,7 +333,7 @@ DialogWidth=720
 
 [Containments][246][Applets][275][Configuration][General]
 clickCommand=python3 /home/joona/python/weather_widget.py
-command=python3 /home/joona/python/weather_widget.py
+command=python3 /home/joona/python/scripts/weather_widget.py
 fontFamily=Source Code Pro
 fontSize=10
 interval=120000
@@ -362,33 +381,16 @@ memory/physical/used=0,160,215
 immutability=1
 plugin=org.kde.latte.separator
 
-[Containments][246][Applets][298]
-immutability=1
-plugin=org.kde.plasma.notes
-
-[Containments][246][Applets][298][Configuration]
-PreloadWeight=100
-popupHeight=36
-popupWidth=36
-
-[Containments][246][Applets][298][Configuration][ConfigDialog]
-DialogHeight=540
-DialogWidth=720
-
-[Containments][246][Applets][298][Configuration][General]
-color=translucent-light
-cursorPosition=135
-fontSize=10
-noteId=511a6995-2548-4ba6-9829-e052309163
-scrollX=51
-scrollY=576
+[Containments][246][Applets][295][Configuration][ConfigDialog]
+DialogHeight=1052
+DialogWidth=1920
 
 [Containments][246][Applets][300]
 immutability=1
 plugin=org.kde.kscreen
 
 [Containments][246][Applets][300][Configuration]
-PreloadWeight=65
+PreloadWeight=75
 popupHeight=158
 popupWidth=270
 
@@ -505,32 +507,6 @@ rangeTo=5500
 showGridLines=false
 showLegend=false
 
-[Containments][246][Applets][312]
-immutability=1
-plugin=a2n.archupdate.plasmoid
-
-[Containments][246][Applets][312][Configuration]
-PreloadWeight=100
-popupHeight=400
-popupWidth=392
-
-[Containments][246][Applets][312][Configuration][ConfigDialog]
-DialogHeight=540
-DialogWidth=720
-
-[Containments][246][Applets][312][Configuration][commandConfigPage]
-checkupdateIsValid=true
-konsoleIsValid=true
-updateInterval=1440
-
-[Containments][246][Applets][312][Configuration][popupConfigPage]
-fvColor=#ffffff
-nameColor=#ffffff
-separatorColor=#ffffff
-separatorText=->
-sourceColor=#ffffff
-tvColor=#ffffff
-
 [Containments][246][Applets][344]
 immutability=1
 plugin=org.kde.plasma.icontasks
@@ -563,7 +539,6 @@ command=bash ~/scripts/logging/ping_localhost.sh
 fixedWidth=2000
 fontFamily=Source Code Pro
 fontSize=10
-interval=5000
 replaceAllNewlines=true
 
 [Containments][246][Applets][350]
@@ -623,8 +598,23 @@ command=echo "|"
 interval=1410065407
 textColor=#4aaebe
 
+[Containments][246][Applets][356]
+immutability=1
+plugin=org.kde.plasma.notes
+
+[Containments][246][Applets][356][Configuration]
+PreloadWeight=100
+popupHeight=450
+popupWidth=430
+
+[Containments][246][Applets][356][Configuration][General]
+cursorPosition=153
+fontSize=10
+noteId=3b7342c6-1ac8-4980-8868-0e6e764fd9
+scrollY=126
+
 [Containments][246][General]
-AppletOrder=344;312;275;295;277;305;351;304;350;276;352;345;353;300;274;298
+AppletOrder=344;275;295;277;305;351;304;350;276;352;345;353;300;274;356
 
 [Containments][254]
 activityId=
@@ -765,8 +755,8 @@ plugin=org.kde.plasma.kickoff
 
 [Containments][313][Applets][314][Configuration]
 PreloadWeight=100
-popupHeight=506
-popupWidth=687
+popupHeight=517
+popupWidth=695
 
 [Containments][313][Applets][314][Configuration][ConfigDialog]
 DialogHeight=540
@@ -796,9 +786,9 @@ immutability=1
 plugin=org.kde.plasma.digitalclock
 
 [Containments][313][Applets][330][Configuration]
-PreloadWeight=55
-popupHeight=450
-popupWidth=560
+PreloadWeight=70
+popupHeight=457
+popupWidth=568
 
 [Containments][313][Applets][330][Configuration][Appearance]
 autoFontAndSize=false
@@ -826,7 +816,7 @@ fill=false
 groupedTaskVisualization=2
 iconSpacing=0
 indicateAudioStreams=false
-launchers=applications:systemsettings.desktop,preferred://browser
+launchers=applications:systemsettings.desktop,file:///home/joona/.local/share/applications/com.jagex.Launcher.desktop
 showOnlyCurrentActivity=false
 showOnlyCurrentScreen=true
 wheelSkipMinimized=false
@@ -876,8 +866,8 @@ immutability=1
 lastScreen=0
 location=4
 plugin=org.kde.plasma.private.systemtray
-popupHeight=432
-popupWidth=432
+popupHeight=439
+popupWidth=440
 wallpaperplugin=org.kde.image
 
 [Containments][319][Applets][320]
@@ -885,7 +875,7 @@ immutability=1
 plugin=org.kde.plasma.notifications
 
 [Containments][319][Applets][320][Configuration]
-PreloadWeight=90
+PreloadWeight=95
 
 [Containments][319][Applets][321][Configuration]
 PreloadWeight=42
@@ -893,6 +883,9 @@ PreloadWeight=42
 [Containments][319][Applets][322]
 immutability=1
 plugin=org.kde.plasma.volume
+
+[Containments][319][Applets][322][Configuration]
+PreloadWeight=80
 
 [Containments][319][Applets][322][Configuration][General]
 migrated=true
@@ -902,7 +895,7 @@ immutability=1
 plugin=org.kde.kscreen
 
 [Containments][319][Applets][323][Configuration]
-PreloadWeight=85
+PreloadWeight=90
 
 [Containments][319][Applets][324][Configuration]
 PreloadWeight=42
@@ -912,7 +905,7 @@ immutability=1
 plugin=org.kde.plasma.clipboard
 
 [Containments][319][Applets][325][Configuration]
-PreloadWeight=70
+PreloadWeight=75
 
 [Containments][319][Applets][326][Configuration]
 PreloadWeight=42
@@ -923,6 +916,9 @@ PreloadWeight=42
 [Containments][319][Applets][328]
 immutability=1
 plugin=org.kde.kdeconnect
+
+[Containments][319][Applets][328][Configuration]
+PreloadWeight=65
 
 [Containments][319][Applets][329]
 immutability=1
@@ -940,7 +936,7 @@ immutability=1
 plugin=org.kde.plasma.networkmanagement
 
 [Containments][319][Applets][333][Configuration]
-PreloadWeight=80
+PreloadWeight=95
 
 [Containments][319][Applets][334]
 immutability=1
@@ -951,13 +947,6 @@ PreloadWeight=0
 
 [Containments][319][Applets][335][Configuration]
 PreloadWeight=42
-
-[Containments][319][Applets][336]
-immutability=1
-plugin=a2n.archupdate.plasmoid
-
-[Containments][319][Applets][336][Configuration]
-PreloadWeight=65
 
 [Containments][319][Applets][340]
 immutability=1
@@ -971,7 +960,7 @@ DialogHeight=540
 DialogWidth=720
 
 [Containments][319][General]
-extraItems=org.kde.plasma.networkmanagement,org.kde.plasma.notifications,org.kde.plasma.volume,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.brightness,org.kde.plasma.mediacontroller,org.kde.kdeconnect,org.kde.plasma.cameraindicator,org.kde.kscreen,a2n.archupdate.plasmoid
+extraItems=org.kde.plasma.networkmanagement,org.kde.plasma.notifications,org.kde.plasma.volume,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.brightness,org.kde.plasma.mediacontroller,org.kde.kdeconnect,org.kde.plasma.cameraindicator,org.kde.kscreen
 hiddenItems=org.kde.plasma.volume,org.kde.plasma.bluetooth,org.kde.plasma.brightness,org.kde.plasma.cameraindicator,org.kde.kscreen,org.kde.kdeconnect,org.kde.plasma.networkmanagement,a2n.archupdate.plasmoid,org.kde.plasma.mediacontroller,org.kde.plasma.notifications
 iconSpacing=1
 knownItems=org.kde.plasma.networkmanagement,org.kde.plasma.battery,org.kde.plasma.notifications,org.kde.plasma.devicenotifier,org.kde.plasma.volume,org.kde.plasma.bluetooth,org.kde.kscreen,org.kde.plasma.keyboardindicator,org.kde.plasma.clipboard,org.kde.plasma.keyboardlayout,org.kde.plasma.brightness,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.kdeconnect,org.kde.plasma.cameraindicator
@@ -1353,6 +1342,9 @@ icon=/usr/share/pixmaps/archlinux-logo.png
 [Containments246Appletsts][120][Configuration][Appearance]
 chartFace=org.kde.ksysguard.barchart
 
+[Containments246Appletsts][356][Configuration][General]
+cursorPosition=1894
+
 [Containments70Appletsts][163][Configuration][General]
 command=/bin/bash /home/joona/scripts/logging/system_temp_color.sh
 fontFamily=FreeSans
@@ -1363,4 +1355,4 @@ vertAlign=64
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/cpuz..txt,0,8fab4b45-8c3d-4755-82c1-9a563626c4e3,desktop:/imbed maps,1,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/lib,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/osrs.sh,0,8fab4b45-8c3d-4755-82c1-9a563626c4e3,desktop:/alch_blokcers.txt,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/imbed maps html,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/Code,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/imbed maps html,0,8fab4b45-8c3d-4755-82c1-9a563626c4e3,desktop:/Text File.txt,1,8fab4b45-8c3d-4755-82c1-9a563626c4e3,desktop:/cpuz..txt,0,2c765c72-78ac-4fc4-859c-539652ee4f7b,desktop:/cpuz..txt,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/osrs.sh,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/osrs.sh,0,2c765c72-78ac-4fc4-859c-539652ee4f7b
+screenMapping=desktop:/imbed maps html,0,8fab4b45-8c3d-4755-82c1-9a563626c4e3,desktop:/Text File.txt,1,8fab4b45-8c3d-4755-82c1-9a563626c4e3,desktop:/configureation.yaml,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/osrs.sh,0,8fab4b45-8c3d-4755-82c1-9a563626c4e3,desktop:/imbed maps html,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/Text File.txt,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/cpuz..txt,0,8fab4b45-8c3d-4755-82c1-9a563626c4e3,desktop:/cpuz..txt,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/cpuz..txt,0,2c765c72-78ac-4fc4-859c-539652ee4f7b,desktop:/osrs.sh,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/osrs.sh,0,2c765c72-78ac-4fc4-859c-539652ee4f7b,desktop:/lib,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/imbed maps,1,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/alch_blokcers.txt,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/Code,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a
