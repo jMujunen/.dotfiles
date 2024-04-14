@@ -231,3 +231,7 @@ function scp() {
 
 #  'myscp /path/to/local/file myremotefile'
 }
+function disk_usage() {
+  df -Ph | awk '{printf "%-16s %-8s %-10s\n", $1, $5, $6}'
+}
+

@@ -116,9 +116,9 @@ done=ksmserver_update_loginMode_value_default_enum
 mtime=1701816132
 
 [kwin.upd]
-ctime=1711913024
+ctime=1712871987
 done=replace-scalein-with-scale,port-minimizeanimation-effect-to-js,port-scale-effect-to-js,port-dimscreen-effect-to-js,auto-bordersize,animation-speed,desktop-grid-click-behavior,no-swap-encourage,make-translucency-effect-disabled-by-default,remove-flip-switch-effect,remove-cover-switch-effect,remove-cubeslide-effect,remove-xrender-backend,enable-scale-effect-by-default,overview-group-plugin-id,animation-speed-cleanup,replace-cascaded-zerocornered,kwin-6.0-reset-active-mouse-screen,kwin-6.0-delete-desktop-switching-shortcuts,kwin-6.0-remove-breeze-tabbox-default
-mtime=1711795001
+mtime=1712067161
 
 [kwinrules.upd]
 ctime=1708166135
@@ -171,9 +171,9 @@ done=plasmashell-6.0-keep-custom-position-of-panels,plasmashell-6.0-keep-default
 mtime=1711623209
 
 [spectacle.upd]
-ctime=1712149647
+ctime=1712871987
 done=24.02.0-video_format,24.02.0-keep_old_save_location,24.02.0-rename_settings,24.02.0-keep_old_filename_templates,24.02.0-change_placeholder_format
-mtime=1710878470
+mtime=1712685304
 
 [style_widgetstyle_default_breeze.upd]
 ctime=1708166135

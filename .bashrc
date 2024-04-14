@@ -139,10 +139,10 @@ neofetch
 source ~/.bash_aliases
 # Env Vars
 export PATH=$PATH:~/.spicetify
-export PATH=~/python/scripts:$PATH
+export PATH=~/python/scripts/:$PATH
 export PATH=~/scripts:$PATH
-export PYTHONPATH=~/python:$PYTHONPATH
-export PYTHONPATH=~/python/modules:$PYTHONPATH
+export PYTHONPATH=~/python/scripts/:$PYTHONPATH
+export PYTHONPATH=~/python/modules/:$PYTHONPATH
 # export QT_PLUGIN_PATH=/usr/lib/qt/plugins
 export TESSDATA_PREFIX=/usr/share/tessdata
 export GBM_BACKEND=nvidia-drm

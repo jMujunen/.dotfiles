@@ -96,3 +96,5 @@ alias myremotefile='user@remote_server:/path/to/destination/'
 alias mycomplexscp='myscp /path/to/local/file myremotefile'
 
 alias sctldr='systemctl daemon-reload'
+alias du=". ~/.bash_functions && disk_usage"
+alias disk_info=". ~/.bash_functions && disk_info"
