@@ -2,6 +2,7 @@
 # Joona's Bash Shell Functions #
 ################################
 
+
 error() {
   echo -e "\033[1;31mError: $*\033[0m" >&2
 }
@@ -27,6 +28,8 @@ function up() {
   done
 }
 function send-sms() {
+  # TODO:
+  # ! Remove hardcoded phone numbers 
   if [ "$#" -lt 2 ]; then
     echo "Usage: send-sms <message> <destination>"
     exit 1
