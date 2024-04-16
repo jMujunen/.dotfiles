@@ -224,22 +224,27 @@ function disk_usage() {
   df -Ph | awk '{printf "%-16s %-8s %-10s\n", $1, $5, $6}'
 }
 
-function custom-yay() {
-  if [ "$#" -eq 0 ]; then
-    echo "Running yay"
-    yay --color=always
-  fi
-  echo "Running yay $@"
-  if [ "$#" -gt 1 ]; then
-    if [ "$1" == "-y" ]; then
-      additional_paramters="--noconfirm"
-      shift  
-      echo "$@"
+function code() {
+  for arg in "$@"; do
+    if [ "$arg" == "--keep" ]; then
+      keep='true'
+      vscodium $enable_wayland &
+    else
+      keep='false'
+      string="$string $arg"
     fi
-    yay "$additional_paramters" --color=always "$@"
+  done
+  if [ "$keep" != 'true' ]; then
+    vscodium $enable_wayland && exit
   else
-    yay "$1"
+    vscodium $enable_wayland &
   fi
-    
 }
 
+# # Commit msg
+# 
+# * Removed: custom_yay function because it was useless
+# * Removed: scp function since it didnt solve any problems
+# * Modified: vscodium alias is now a function to support custom `keep` flag
+# * Modified: .gitignore to allow `git add .` while ignoring irelevant files
+#
