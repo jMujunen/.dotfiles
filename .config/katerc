@@ -134,6 +134,7 @@ Word Completion Remove Tail=true
 [MainWindow]
 2 screens: Height=654
 2 screens: Width=998
+2 screens: Window-Maximized=true
 
 [PluginTextFilter]
 Completion list=sed -n -E '/[a-zA-Z]+[[:alpha:]]/p'

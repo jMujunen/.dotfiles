@@ -38,7 +38,7 @@ alias get_weather="python3 /home/joona/python/weather_widget.py"
 alias ipy="python3 -m IPython"
 alias ipython="python3 -m IPython"
 alias kitty="kitty --detach -T"
-alias kwin.showDebugConsole='qdbus6 org.kde.KWin /KWin org.kde.KWin.showDebugConsole'
+alias kwinDebugConsole='qdbus6 org.kde.KWin /KWin org.kde.KWin.showDebugConsole'
 alias la="ls -lpha --group-directories-first"
 #alias lc="ls -lFgo"
 alias lg="ls -ph --group-directories-first"
@@ -76,25 +76,21 @@ alias sunset="openrgb -p sunset &"
 alias tnew="tmux new -s"
 alias up=". ~/.bash_functions && up"
 #alias vdir="vdir --color=auto"
-alias workspace_bash="vscodium $enable_wayland ~/Code/Workspace/bashscripts.code-workspace &"
-alias workspace_cfg="vscodium $enable_wayland ~/Code/Workspace/cfg.code-workspace &"
-alias workspace_html="vscodium $enable_wayland ~/Code/Workspace/html.code-workspace &"
-alias workspace_hwinfo="vscodium $enable_wayland ~/Code/Workspace/py_hwinfo.code-workspace &"
-alias workspace_python="vscodium $enable_wayland ~/Code/Workspace/Python.code-workspace &"
-alias workspace_pyside6="vscodium $enable_wayland ~/Code/Workspace/pyside6.code-workspace &"
-alias workspace_psg="vscodium $enable_wayland ~/Code/Workspace/PySimpleGUI.code-workspace &"
-alias workspace_pi="vscodium $enable_wayland ~/Code/Workspace/RPi.code-workspace &"
-alias workspace_ella="vscodium $enable_wayland ~/Code/Workspace/data_entry.code-workspace &"
+alias workspace_bash="vscodium $enable_wayland ~/Code/Workspace/bashscripts.code-workspace && exit"
+alias workspace_cfg="vscodium $enable_wayland ~/Code/Workspace/cfg.code-workspace && exit"
+alias workspace_html="vscodium $enable_wayland ~/Code/Workspace/html.code-workspace && exit"
+alias workspace_hwinfo="vscodium $enable_wayland ~/Code/Workspace/py_hwinfo.code-workspace && exit"
+alias workspace_python="vscodium $enable_wayland ~/Code/Workspace/Python.code-workspace && exit"
+alias workspace_pyside6="vscodium $enable_wayland ~/Code/Workspace/pyside6.code-workspace && exit"
+alias workspace_psg="vscodium $enable_wayland ~/Code/Workspace/PySimpleGUI.code-workspace && exit"
+alias workspace_pi="vscodium $enable_wayland ~/Code/Workspace/RPi.code-workspace && exit"
+alias workspace_ella="vscodium $enable_wayland ~/Code/Workspace/data_entry.code-workspace && exit"
 alias workspace="cd ~/Code/Workspace/ && ls -ltuph --group-directories-first"
-alias w="wezterm start --always-new-process"
+alias wez="wezterm start --always-new-process"
 alias xclip="xclip -selection clipboard"
 alias x="exit"
-alias yay="yay --color=always --removemake"
-
-alias myscp='scp -i ~/.ssh/$1'
-alias myremotefile='user@remote_server:/path/to/destination/'
-alias mycomplexscp='myscp /path/to/local/file myremotefile'
-
+alias yay="yay --color=always"
+alias img='kitten icat "$1"'
 alias sctldr='systemctl daemon-reload'
 alias du=". ~/.bash_functions && disk_usage"
-alias disk_info=". ~/.bash_functions && disk_info"
+alias test="echo 'y'"

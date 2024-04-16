@@ -1,5 +1,5 @@
 [FlatpakSources]
-Sources=flathub,JagexLauncher,flathub
+Sources=JagexLauncher,flathub,flathub
 
 [Window]
 geometry=1920,0,958,510

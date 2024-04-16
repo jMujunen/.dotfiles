@@ -5,26 +5,6 @@
 error() {
   echo -e "\033[1;31mError: $*\033[0m" >&2
 }
-# Usage example
-#error "Error Goes here"
-
-
-# Move 'up' in the directory tree $1 amount of times and print pwd each interation
-# function up() {
-#   if [[ "$#" -eq 0 ]]; then
-#     levels=1
-#   else
-#   	levels=$1
-#   fi
-#   while [ "$levels" -gt "0" ]; do
-#     cd ..
-#     levels=$(($levels - 1))
-#     cwd=$(pwd)
-#     echo -e "\033[1;33m$cwd\033[0m"
-#   ls -ltuph --group-directories-first
-#   done
-# }
-# Commented out, replacing with improved version:
 
 # Move 'up' in the directory tree $1 amount of times and print pwd each interation
 function up() {
@@ -204,9 +184,18 @@ function osrs_hydra() {
 }
 function ffs() {
   for arg in "$@"; do
-    string="$string $arg"
+    if [ "$arg" == "--keep"]; then
+      keep='true'
+      firefox --search "$string" &
+    else
+      keep='false'
+      string="$string $arg"
+    fi
   done
-  echo $string
+
+  if [ "$keep" != 'true' ]; then
+    firefox --search "$string" && exit
+  fi
   firefox --search "$string" &
 }
 function scp() {
@@ -233,5 +222,24 @@ function scp() {
 }
 function disk_usage() {
   df -Ph | awk '{printf "%-16s %-8s %-10s\n", $1, $5, $6}'
+}
+
+function custom-yay() {
+  if [ "$#" -eq 0 ]; then
+    echo "Running yay"
+    yay --color=always
+  fi
+  echo "Running yay $@"
+  if [ "$#" -gt 1 ]; then
+    if [ "$1" == "-y" ]; then
+      additional_paramters="--noconfirm"
+      shift  
+      echo "$@"
+    fi
+    yay "$additional_paramters" --color=always "$@"
+  else
+    yay "$1"
+  fi
+    
 }
 

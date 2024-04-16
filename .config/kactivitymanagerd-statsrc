@@ -46,6 +46,12 @@ ordering=preferred://browser,applications:systemsettings.desktop,applications:or
 [Favorites-org.kde.plasma.kickoff.favorites.instance-156-global]
 ordering=preferred://browser,applications:systemsettings.desktop,applications:org.kde.dolphin.desktop,applications:org.kde.discover.desktop,applications:com.jagex.Launcher.desktop
 
+[Favorites-org.kde.plasma.kickoff.favorites.instance-314-cc8c482b-b846-4ec9-b458-b0f349cd6b1a]
+ordering=applications:systemsettings.desktop,preferred://browser,applications:vscodium-wayland.desktop,applications:com.jagex.Launcher.desktop,applications:org.kde.discover.desktop,applications:spotify.desktop
+
+[Favorites-org.kde.plasma.kickoff.favorites.instance-314-global]
+ordering=applications:systemsettings.desktop,preferred://browser,applications:vscodium-wayland.desktop,applications:com.jagex.Launcher.desktop,applications:org.kde.discover.desktop,applications:spotify.desktop
+
 [Favorites-org.kde.plasma.kickoff.favorites.instance-4-8fab4b45-8c3d-4755-82c1-9a563626c4e3]
 ordering=preferred://browser,applications:systemsettings.desktop,applications:org.kde.dolphin.desktop,applications:org.kde.discover.desktop
 

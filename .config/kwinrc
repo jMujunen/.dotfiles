@@ -19,8 +19,6 @@ NoiseStrength=0
 
 [Effect-kwin4_effect_pixelate]
 Duration=750
-Noise=99
-PixelSize=5
 
 [Effect-windowview]
 BorderActivateAll=9
@@ -55,12 +53,11 @@ karouselEnabled=false
 kwin-go-to-empty-desktopEnabled=false
 kwin4_effect_fadedesktopEnabled=true
 kwin4_effect_pixel_wipeEnabled=true
-kwin4_effect_pixelateEnabled=true
 kwin4_effect_scaleEnabled=false
 kzonesEnabled=true
 minimizeallEnabled=false
 missionManagerEnabled=false
-quicktilewideEnabled=true
+quicktilewideEnabled=false
 scaleEnabled=false
 slideEnabled=false
 steadyScreenEnabled=true
@@ -155,5 +152,5 @@ BorderSize=None
 BorderSizeAuto=false
 ButtonsOnLeft=NBFS
 ButtonsOnRight=HLIAX
-library=org.kde.breeze
-theme=Breeze
+library=org.kde.kwin.aurorae
+theme=__aurorae__svg__Utterly-Round-Dark-Solid

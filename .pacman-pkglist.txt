@@ -11,6 +11,7 @@ banner
 base
 base-devel
 bashtop
+bat
 bc
 beep
 bitwarden
@@ -21,6 +22,7 @@ bottom
 breeze-gtk
 breeze-plymouth
 calc
+calf
 cmake
 conky
 corectrl
@@ -33,6 +35,7 @@ dkms
 dolphin
 dosfstools
 dunst
+easyeffects
 efibootmgr
 emacs
 expac
@@ -53,7 +56,6 @@ gpick
 gping
 grub
 gst-plugin-pipewire
-hawck-git
 htop
 hwinfo
 icoutils
@@ -87,13 +89,17 @@ libreoffice-fresh
 linux
 linux-firmware
 linux-headers
+lirc
 lolcat
+lsp-plugins
 man-db
 mate-utils
+maven
 meson
 micro
 nano
 neofetch
+netstat-nat
 network-manager-applet
 networkmanager
 nmon
@@ -105,6 +111,7 @@ obs-studio
 obsidian
 okular
 openrgb
+packagekit
 pacman-contrib
 pacutils
 pandoc-cli
@@ -122,6 +129,7 @@ plasma-pa
 plasma-welcome
 plasma-workspace-wallpapers
 plymouth-kcm
+powertop
 progress
 pv
 pyinstaller
@@ -153,6 +161,7 @@ python-pyqtgraph
 python-pysimplegui
 python-pysimpleguiqt
 python-pytesseract
+python-todoist-python
 qt6-charts
 qt6-connectivity
 qt6-graphs
@@ -169,12 +178,14 @@ signal-desktop
 slock
 smartmontools
 sof-firmware
+source-highlight
 spectacle
 speedtest-cli
 spotify
 ssh-tools
 sshfs
 steam
+strace
 sway
 systemd-ukify
 terminus-font
@@ -184,6 +195,7 @@ timeshift
 tldr
 tmux
 toastify
+todoist
 traceroute
 tree
 ttf-liberation
@@ -214,6 +226,7 @@ xdotool
 xorg-server
 xorg-xev
 xorg-xinit
+xorg-xinput
 xorg-xrandr
 xorg-xwininfo
 xsel
