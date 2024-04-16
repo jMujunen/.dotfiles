@@ -198,28 +198,7 @@ function ffs() {
   fi
   firefox --search "$string" &
 }
-function scp() {
-  remote_name="$1"  # osmc, pihole
-  remote_destination=$1
-  shift
-  local_path="$@"
-  for arg in "$@"; do
-    shift
-  done
-  remote_path="$@"
 
-  echo "$remote_name"
-  echo "$remote_destination"
-  echo "$local_path"
-  echo "$remote_path"
-
-
-#  scp -i ~/.ssh/"$1" "$1"
-
-#  'user@remote_server:/path/to/destination/'
-
-#  'myscp /path/to/local/file myremotefile'
-}
 function disk_usage() {
   df -Ph | awk '{printf "%-16s %-8s %-10s\n", $1, $5, $6}'
 }
@@ -228,23 +207,17 @@ function code() {
   for arg in "$@"; do
     if [ "$arg" == "--keep" ]; then
       keep='true'
-      vscodium $enable_wayland &
     else
       keep='false'
       string="$string $arg"
     fi
   done
   if [ "$keep" != 'true' ]; then
-    vscodium $enable_wayland && exit
+    vscodium $enable_wayland $string && exit
   else
-    vscodium $enable_wayland &
+    vscodium $enable_wayland $string &
   fi
 }
 
-# # Commit msg
-# 
-# * Removed: custom_yay function because it was useless
-# * Removed: scp function since it didnt solve any problems
-# * Modified: vscodium alias is now a function to support custom `keep` flag
-# * Modified: .gitignore to allow `git add .` while ignoring irelevant files
-#
+
+
