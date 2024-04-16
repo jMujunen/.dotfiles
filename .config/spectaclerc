@@ -1,0 +1,22 @@
+[Annotations]
+annotationToolType=8
+
+[General]
+autoSaveImage=true
+clipboardGroup=PostScreenshotCopyImage
+launchAction=UseLastUsedCapturemode
+rememberSelectionRect=Never
+showCaptureInstructions=false
+useReleaseToCapture=true
+
+[GuiConfig]
+captureDelay=1
+captureMode=0
+
+[ImageSave]
+imageFilenameTemplate=<title>_<MMM><dd>-<yyyy>_<##>
+lastImageSaveLocation=file:///home/joona/Pictures/Screenshots/sudo screenshot_hotkeys.py_Apr11-2024_01.png
+translatedScreenshotsFolder=Screenshots
+
+[VideoSave]
+translatedScreencastsFolder=Screencasts

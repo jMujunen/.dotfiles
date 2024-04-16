@@ -82,7 +82,7 @@ DialogWidth=720
 ToolBoxButtonState=topcenter
 ToolBoxButtonX=384
 iconSize=0
-positions={"1920x1080":["1"\\,"20"\\,"desktop:/lib"\\,"0"\\,"1"\\,"desktop:/osrs.sh"\\,"0"\\,"5"\\,"desktop:/imbed maps html"\\,"0"\\,"4"\\,"desktop:/Code"\\,"0"\\,"0"\\,"desktop:/configureation.yaml"\\,"0"\\,"7"\\,"desktop:/cpuz..txt"\\,"0"\\,"3"\\,"desktop:/alch_blokcers.txt"\\,"0"\\,"2"\\,"desktop:/Text File.txt"\\,"0"\\,"6"]\\,"0x0":[]\\,"1024x768":["1"\\,"10"\\,"desktop:/osrs.sh"\\,"0"\\,"4"\\,"desktop:/cpuz..txt"\\,"0"\\,"1"\\,"desktop:/alch_blokcers.txt"\\,"0"\\,"5"\\,"desktop:/Code"\\,"0"\\,"3"\\,"desktop:/imbed maps html"\\,"0"\\,"2"\\,"desktop:/lib"\\,"0"\\,"0"]}
+positions={"1920x1080":["1"\\,"20"\\,"desktop:/Text File.txt"\\,"0"\\,"6"\\,"desktop:/cpuz..txt"\\,"0"\\,"3"\\,"desktop:/lib"\\,"0"\\,"1"\\,"desktop:/osrs.sh"\\,"0"\\,"5"\\,"desktop:/alch_blokcers.txt"\\,"0"\\,"2"\\,"desktop:/configureation.yaml"\\,"0"\\,"7"\\,"desktop:/imbed maps html"\\,"0"\\,"4"\\,"desktop:/Code"\\,"0"\\,"0"]\\,"0x0":[]\\,"1024x768":["1"\\,"10"\\,"desktop:/osrs.sh"\\,"0"\\,"4"\\,"desktop:/cpuz..txt"\\,"0"\\,"1"\\,"desktop:/alch_blokcers.txt"\\,"0"\\,"5"\\,"desktop:/Code"\\,"0"\\,"3"\\,"desktop:/imbed maps html"\\,"0"\\,"2"\\,"desktop:/lib"\\,"0"\\,"0"]}
 sortMode=-1
 
 [Containments][158][Wallpaper][de.unkn0wn.htmlwallpaper][General]
@@ -929,7 +929,7 @@ immutability=1
 plugin=org.kde.plasma.bluetooth
 
 [Containments][319][Applets][332][Configuration]
-PreloadWeight=0
+PreloadWeight=5
 
 [Containments][319][Applets][333]
 immutability=1
@@ -1355,4 +1355,4 @@ vertAlign=64
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/lib,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/imbed maps html,0,8fab4b45-8c3d-4755-82c1-9a563626c4e3,desktop:/Text File.txt,1,8fab4b45-8c3d-4755-82c1-9a563626c4e3,desktop:/cpuz..txt,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/cpuz..txt,0,2c765c72-78ac-4fc4-859c-539652ee4f7b,desktop:/osrs.sh,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/osrs.sh,0,2c765c72-78ac-4fc4-859c-539652ee4f7b,desktop:/osrs.sh,0,8fab4b45-8c3d-4755-82c1-9a563626c4e3,desktop:/cpuz..txt,0,8fab4b45-8c3d-4755-82c1-9a563626c4e3,desktop:/Code,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/imbed maps,1,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/alch_blokcers.txt,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/configureation.yaml,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/imbed maps html,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/Text File.txt,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a
+screenMapping=desktop:/cpuz..txt,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/cpuz..txt,0,2c765c72-78ac-4fc4-859c-539652ee4f7b,desktop:/lib,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/Code,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/imbed maps html,0,8fab4b45-8c3d-4755-82c1-9a563626c4e3,desktop:/Text File.txt,1,8fab4b45-8c3d-4755-82c1-9a563626c4e3,desktop:/imbed maps,1,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/imbed maps html,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/Text File.txt,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/alch_blokcers.txt,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/osrs.sh,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/osrs.sh,0,2c765c72-78ac-4fc4-859c-539652ee4f7b,desktop:/osrs.sh,0,8fab4b45-8c3d-4755-82c1-9a563626c4e3,desktop:/cpuz..txt,0,8fab4b45-8c3d-4755-82c1-9a563626c4e3,desktop:/configureation.yaml,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a
