@@ -9,20 +9,21 @@ if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
   enable_wayland="--enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland"
 fi
 
-alias back="cd $OLDPWD"
+alias back='cd "$OLDPWD"'
 alias bte=". ~/.bash_functions && bte"
 alias cdcode="cd ~/Code"
 alias cdl=". ~/.bash_functions && cd_ls"
 #alias cd="{cd};ls -ltupho --group-directories-first"
-alias cdpy=". ~/.bash_functions && cdpy"
+alias cdpy=". ~/.bash_functions && cd_py"
 alias copy="wl-copy"
 alias paste="wl-paste"
 alias cls="clear"
 alias code=". ~/.bash_functions && code"
 alias cp="cp -iv"
 #alias dir="dir --color=auto"
-alias dl=". ~/.bash_functions && dl"
-alias docs=". ~/.bash_functions && docs"
+alias dl=". ~/.bash_functions && cd_dl"
+alias docs=". ~/.bash_functions && cd_docs"
+alias pics='. ~/.bash_functions && cds_pics'
 alias dus="du -ach | sort -h"
 #alias egrep="egrep --color=auto"
 # Aliases
@@ -37,14 +38,14 @@ alias get_weather="python3 /home/joona/python/weather_widget.py"
 #alias grep="grep --color=auto"
 alias ipy="python3 -m IPython"
 alias ipython="python3 -m IPython"
-alias kitty="kitty --detach -T"
+#alias kitty="kitty --detach -T '$@'"
 alias kwinDebugConsole='qdbus6 org.kde.KWin /KWin org.kde.KWin.showDebugConsole'
 alias la="ls -lpha --group-directories-first"
 #alias lc="ls -lFgo"
 alias lg="ls -ph --group-directories-first"
 alias ll="ls -lph --group-directories-first"
 #alias lls="ls -lshg"
-alias logs=". ~/.bash_functions && logs"
+alias logs=". ~/.bash_functions && cd_logs"
 alias lscripts=". ~/.bash_functions && list_scripts"
 alias lsd="ls -d */"
 #alias ls="ls --color=auto"
@@ -93,3 +94,7 @@ alias yay="yay --color=always"
 alias img='kitten icat'
 alias sctldr='systemctl daemon-reload'
 alias du=". ~/.bash_functions && disk_usage"
+alias bathelp='bat --plain --language=help'
+help() {
+    "$@" --help 2>&1 | bathelp
+}

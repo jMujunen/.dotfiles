@@ -122,7 +122,7 @@ tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"wi
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.4557291666666667},{"width":0.5442708333333333}]}
 
 [Tiling][7657eca2-b60f-553a-ba52-bc2dfe6616b2]
-tiles={"layoutDirection":"floating","tiles":[]}
+tiles={"layoutDirection":"floating","tiles":[{"height":0.9851851851851793,"width":0.9911458333333306,"x":0.0020833333333333433,"y":0.009259259259259222}]}
 
 [Tiling][92e842d7-5928-5c43-884a-4912e7cc82ed]
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
@@ -155,5 +155,5 @@ BorderSize=None
 BorderSizeAuto=false
 ButtonsOnLeft=NBFS
 ButtonsOnRight=HLIAX
-library=org.kde.breeze
-theme=Breeze
+library=org.kde.kwin.aurorae
+theme=__aurorae__svg__Utterly-Round-Dark-Solid

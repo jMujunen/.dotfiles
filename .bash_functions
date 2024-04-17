@@ -28,9 +28,14 @@ function up() {
   done
 }
 function send-sms() {
-  # TODO:
-  # ! Remove hardcoded phone numbers
-  notify-send "TEST" "TEST" 
+  # Load hard coded contacts
+  if [ -e ~/.bash_aliases_ ]; then
+    . ~/.bash_aliases_
+  else
+    error "~/.bash_aliases_ not found"
+    return 1
+  fi
+
   if [ "$#" -lt 2 ]; then
     echo "Usage: send-sms <message> <destination>"
     return 1
@@ -39,10 +44,10 @@ function send-sms() {
   local dest
   case "$2" in
     "muru")
-      dest="6048359467"
+      dest="$muru"
       ;;
     "me")
-      dest="6042265455"
+      dest="$me"
       ;;
     *)
       dest="$2"
@@ -82,7 +87,7 @@ function cd_ls () {
 	ls -ltupho --group-directories-first
 }
 # cd ~/Code/Python then ls
-function cdpy () {
+function cd_py () {
 	cd /home/joona/Code/Python/
 	ls -ltupho --group-directories-first
 }
@@ -105,22 +110,25 @@ function color_cpu_temp() {
 
 # cd to commonly used directories 
 function notes() {
-  cd ~/Docs/Notes/Obsidian/.backup/ExportedNotes/PDF/
+  cd ~/Docs/Notes/HTML/Atom/
   ls -ltuph --group-directories-first
 }
-function logs() {
+function cd_logs() {
   cd ~/Logs/
   ls -ltuph --group-directories-first
 }
-function docs() {
+function cd_docs() {
   cd ~/Docs/
   ls -ltuph --group-directories-first
 }
-function dl() {
+function cd_dl() {
   cd ~/Downloads/
   ls -ltuph --group-directories-first
 }
-
+function cd_pics() {
+	cd ~/Pictures/
+	ls -ltuph --group-directories-first
+}
 function pacman-remove() {
   # Handle arguments
   if [ -z "$1" ]; then

@@ -126,6 +126,5 @@ Word Completion Remove Tail=true
 Search History=--text-faint,quote
 
 [MainWindow]
-2 screens: Height=780
-2 screens: Width=1241
-2 screens: Window-Maximized=true
+2 screens: Height=505
+2 screens: Width=953
