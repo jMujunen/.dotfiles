@@ -90,7 +90,6 @@ alias wez="wezterm start --always-new-process"
 alias xclip="xclip -selection clipboard"
 alias x="exit"
 alias yay="yay --color=always"
-alias img='kitten icat "$1"'
+alias img='kitten icat'
 alias sctldr='systemctl daemon-reload'
 alias du=". ~/.bash_functions && disk_usage"
-alias test="echo 'y'"

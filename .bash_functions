@@ -29,10 +29,11 @@ function up() {
 }
 function send-sms() {
   # TODO:
-  # ! Remove hardcoded phone numbers 
+  # ! Remove hardcoded phone numbers
+  notify-send "TEST" "TEST" 
   if [ "$#" -lt 2 ]; then
     echo "Usage: send-sms <message> <destination>"
-    exit 1
+    return 1
   fi
 
   local dest
@@ -53,13 +54,11 @@ function send-sms() {
 
   if [ "$?" -ne 0 ]; then
     echo -e "\033[1;31m Error: Could not find device with ID \033[0m"
-    exit 1
   fi
   kdeconnect-cli --send-sms "$msg" --destination "$dest" -d "$dev_id"
 
   if [ "$?" -ne 0 ]; then
     echo -e "\033[1;31m Error: Could not send SMS \033[0m"
-    exit 1
   else
     echo -e "\033[1;32m Success: SMS sent \033[0m"
   fi
@@ -188,10 +187,10 @@ function osrs_hydra() {
 function ffs() {
   for arg in "$@"; do
     if [ "$arg" == "--keep"]; then
-      keep='true'
+      local keep='true'
       firefox --search "$string" &
     else
-      keep='false'
+      local keep='false'
       string="$string $arg"
     fi
   done
@@ -209,9 +208,9 @@ function disk_usage() {
 function code() {
   for arg in "$@"; do
     if [ "$arg" == "--keep" ]; then
-      keep='true'
+      local keep='true'
     else
-      keep='false'
+      local keep='false'
       string="$string $arg"
     fi
   done
