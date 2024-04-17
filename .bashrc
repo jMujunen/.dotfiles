@@ -14,7 +14,7 @@ shopt -s histappend
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=2000
 HISTFILESIZE=20000
-
+HISTTIMEFORMAT="%h/%d/%Y %H:%M.%S %T "
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -141,8 +141,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Aliases
-neofetch
 source ~/.bash_aliases
 # Env Vars
 export PATH=$PATH:~/.spicetify
@@ -171,3 +169,12 @@ export ANDROID_HOME='/opt/android-sdk'
 export ANDROID_SDK_ROOT='/opt/android-sdk'
 export PATH="${PATH}:${ANDROID_HOME}/cmdline-tools/latest/bin"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+neofetch
+if [ -e ~/.bash_functions ]; then
+  . ~/.bash_functions
+else
+  error `echo ~/.bash_functions` doesnt exsist
+fi
+echo -e "\033[1;32mROOTFS - \033[0m \033[1;33m$(df | grep /dev/nvme0n1p3 | awk '{print $5}')\033[0m"
+echo -e "\033[1;32mMEMORY - \033[0m \033[1;33m$(memory_used)\033[0m"

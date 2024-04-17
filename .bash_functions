@@ -229,5 +229,9 @@ function code() {
   fi
 }
 
-
-
+function memory_used() {
+	mem_total=$(free | grep Mem | awk '{print $2}')
+	mem_used=$(free | grep Mem | awk '{print $3}')
+	mem_percent=$(printf "%.0f" $(calc $mem_used/$mem_total*100 | grep -P -o "\d+.*"))
+	echo "$mem_percent%"
+}
