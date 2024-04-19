@@ -13,6 +13,8 @@ alias back='cd "$OLDPWD"'
 alias bte=". ~/.bash_functions && bte"
 alias cdcode="cd ~/Code"
 alias cdl=". ~/.bash_functions && cd_ls"
+alias cat='bat'
+alias cat1='cat'
 #alias cd="{cd};ls -ltupho --group-directories-first"
 alias cdpy=". ~/.bash_functions && cd_py"
 alias copy="wl-copy"
@@ -94,6 +96,7 @@ alias yay="yay --color=always"
 alias img='kitten icat'
 alias sctldr='systemctl daemon-reload'
 alias du=". ~/.bash_functions && disk_usage"
+alias projects='cd ~/python/Projects/ && ls -alph --group-directories-first'
 alias bathelp='bat --plain --language=help'
 help() {
     "$@" --help 2>&1 | bathelp

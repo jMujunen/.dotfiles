@@ -12,7 +12,7 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=2000
+HISTSIZE=3000
 HISTFILESIZE=20000
 HISTTIMEFORMAT="%h/%d/%Y %H:%M.%S %T "
 
