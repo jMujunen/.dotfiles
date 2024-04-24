@@ -106,8 +106,6 @@ count=0
 
 [TabBox]
 LayoutName=thumbnail_grid
-OrderMinimizedMode=1
-SwitchingMode=1
 
 [Tiling]
 padding=5
@@ -119,10 +117,10 @@ tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"wi
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Tiling][270e4863-6f94-5b3b-9d1d-77297468d629]
-tiles={"layoutDirection":"horizontal","tiles":[{"width":0.4557291666666667},{"width":0.5442708333333333}]}
+tiles={"layoutDirection":"horizontal","tiles":[{"layoutDirection":"vertical","tiles":[{"height":0.5},{"height":0.5}],"width":0.6182291666666667},{"width":0.3817708333333333}]}
 
 [Tiling][7657eca2-b60f-553a-ba52-bc2dfe6616b2]
-tiles={"layoutDirection":"floating","tiles":[{"height":0.9851851851851793,"width":0.9911458333333306,"x":0.0020833333333333433,"y":0.009259259259259222}]}
+tiles={"layoutDirection":"horizontal","tiles":[{"layoutDirection":"vertical","tiles":[{"height":0.5},{"height":0.5}],"width":0.2989583333333333},{"width":0.7010416666666603}]}
 
 [Tiling][92e842d7-5928-5c43-884a-4912e7cc82ed]
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}

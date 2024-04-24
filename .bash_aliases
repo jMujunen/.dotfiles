@@ -1,4 +1,3 @@
-#
 # ~/.bash_aliases - Joonas Bash Aliases
 #
 
@@ -25,10 +24,11 @@ alias cp="cp -iv"
 #alias dir="dir --color=auto"
 alias dl=". ~/.bash_functions && cd_dl"
 alias docs=". ~/.bash_functions && cd_docs"
-alias pics='. ~/.bash_functions && cds_pics'
+alias pics='. ~/.bash_functions && cd_pics'
 alias dus="du -ach | sort -h"
 #alias egrep="egrep --color=auto"
 # Aliases
+alias feh="feh -g 1920x1080 -d -S filename --fullscreen --scale-down --output-dir /home/joona/Picture/feh"
 alias ff="firefox &"
 alias ffp="firefox --private-window &"
 alias ffpm="firefox --ProfileManager &"
@@ -36,10 +36,10 @@ alias ffsafe="firefox --safe-mode &"
 alias ffs=". ~/.bash_functions && ffs"
 alias ffu="firefox --url"
 #alias fgrep="fgrep --color=auto"
-alias get_weather="python3 /home/joona/python/weather_widget.py"
+alias get_weather="python3 /home/joona/python/command_output/weather_widget.py"
 #alias grep="grep --color=auto"
-alias ipy="python3 -m IPython"
-alias ipython="python3 -m IPython"
+alias ipy="python3 -m IPython --profile=main"
+alias ipython="python3 -m IPython --profile=main"
 #alias kitty="kitty --detach -T '$@'"
 alias kwinDebugConsole='qdbus6 org.kde.KWin /KWin org.kde.KWin.showDebugConsole'
 alias la="ls -lpha --group-directories-first"
@@ -95,9 +95,13 @@ alias x="exit"
 alias yay="yay --color=always"
 alias img='kitten icat'
 alias sctldr='systemctl daemon-reload'
-alias du=". ~/.bash_functions && disk_usage"
+alias diskuse=". ~/.bash_functions && disk_usage"
 alias projects='cd ~/python/Projects/ && ls -alph --group-directories-first'
 alias bathelp='bat --plain --language=help'
 help() {
     "$@" --help 2>&1 | bathelp
 }
+
+# ^ COMMIT NOTES
+# * Added --profile=main to ipython and to the repository
+# * Modified ipython alias to use --profile=main

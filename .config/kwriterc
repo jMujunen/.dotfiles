@@ -128,3 +128,4 @@ Search History=--text-faint,quote
 [MainWindow]
 2 screens: Height=505
 2 screens: Width=953
+2 screens: Window-Maximized=true

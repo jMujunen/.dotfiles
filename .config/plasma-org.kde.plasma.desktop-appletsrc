@@ -82,7 +82,7 @@ DialogWidth=720
 ToolBoxButtonState=topcenter
 ToolBoxButtonX=384
 iconSize=0
-positions={"1920x1080":["1"\\,"20"\\,"desktop:/Text File.txt"\\,"0"\\,"6"\\,"desktop:/Code"\\,"0"\\,"0"\\,"desktop:/cpuz..txt"\\,"0"\\,"3"\\,"desktop:/osrs.sh"\\,"0"\\,"5"\\,"desktop:/alch_blokcers.txt"\\,"0"\\,"2"\\,"desktop:/imbed maps html"\\,"0"\\,"4"\\,"desktop:/configureation.yaml"\\,"0"\\,"7"\\,"desktop:/lib"\\,"0"\\,"1"]\\,"0x0":[]\\,"1024x768":["1"\\,"10"\\,"desktop:/osrs.sh"\\,"0"\\,"4"\\,"desktop:/cpuz..txt"\\,"0"\\,"1"\\,"desktop:/alch_blokcers.txt"\\,"0"\\,"5"\\,"desktop:/Code"\\,"0"\\,"3"\\,"desktop:/imbed maps html"\\,"0"\\,"2"\\,"desktop:/lib"\\,"0"\\,"0"]}
+positions={"1920x1080":["1"\\,"20"\\,"desktop:/Text File.txt"\\,"0"\\,"6"\\,"desktop:/Code"\\,"0"\\,"0"\\,"desktop:/cpuz..txt"\\,"0"\\,"3"\\,"desktop:/osrs.sh"\\,"0"\\,"5"\\,"desktop:/alch_blokcers.txt"\\,"0"\\,"2"\\,"desktop:/imbed maps html"\\,"0"\\,"4"\\,"desktop:/configureation.yaml"\\,"0"\\,"7"\\,"desktop:/lib"\\,"0"\\,"1"]\\,"0x0":["1"\\,"20"\\,"desktop:/Code"\\,"0"\\,"0"]\\,"1024x768":["1"\\,"10"\\,"desktop:/osrs.sh"\\,"0"\\,"4"\\,"desktop:/cpuz..txt"\\,"0"\\,"1"\\,"desktop:/alch_blokcers.txt"\\,"0"\\,"5"\\,"desktop:/Code"\\,"0"\\,"3"\\,"desktop:/imbed maps html"\\,"0"\\,"2"\\,"desktop:/lib"\\,"0"\\,"0"]}
 sortMode=-1
 
 [Containments][158][Wallpaper][de.unkn0wn.htmlwallpaper][General]
@@ -117,7 +117,7 @@ Provider=wcpotd
 [Containments][159]
 ItemGeometries-0x0=Applet-354:16,16,64,64,0;Applet-299:1696,144,64,64,0;Applet-341:2986.9,1089,54,54,0;
 ItemGeometries-1920x1080=Applet-354:16,16,64,64,0;Applet-299:16,144,64,64,0;Applet-341:2986.9,1041,54,54,0;
-ItemGeometriesHorizontal=Applet-354:16,16,64,64,0;Applet-299:1696,144,64,64,0;Applet-341:2986.9,1089,54,54,0;
+ItemGeometriesHorizontal=Applet-354:16,16,64,64,0;Applet-299:16,144,64,64,0;Applet-341:2986.9,1041,54,54,0;
 activityId=cc8c482b-b846-4ec9-b458-b0f349cd6b1a
 formfactor=0
 immutability=1
@@ -164,7 +164,7 @@ DialogWidth=720
 [Containments][159][General]
 ToolBoxButtonState=topcenter
 ToolBoxButtonX=384
-positions={"1920x1080":["1"\\,"17"\\,"desktop:/Code"\\,"0"\\,"5"]\\,"0x0":["1"\\,"17"\\,"desktop:/imbed maps html"\\,"0"\\,"5"\\,"desktop:/lib"\\,"0"\\,"1"\\,"desktop:/alch_blokcers.txt"\\,"0"\\,"2"\\,"desktop:/osrs.sh"\\,"0"\\,"6"\\,"desktop:/configureation.yaml"\\,"0"\\,"3"\\,"desktop:/Text File.txt"\\,"0"\\,"7"\\,"desktop:/Code"\\,"0"\\,"0"\\,"desktop:/cpuz..txt"\\,"0"\\,"4"]}
+positions={"1920x1080":[]\\,"0x0":["1"\\,"17"\\,"desktop:/Code"\\,"0"\\,"0"]}
 sortMode=-1
 
 [Containments][159][Wallpaper][org.kde.image][General]
@@ -319,7 +319,7 @@ DialogHeight=540
 DialogWidth=720
 
 [Containments][246][Applets][274][Configuration][General]
-history=#1d1e21,#2e3436,#1f2023,#05989a,#2e3436,#b7bab4,#2e3436,#ff00ff,#1d1f25
+history=#8700ff,#1d1e21,#2e3436,#1f2023,#05989a,#2e3436,#b7bab4,#2e3436,#ff00ff
 
 [Containments][246][Applets][275]
 immutability=1
@@ -606,10 +606,11 @@ popupHeight=435
 popupWidth=415
 
 [Containments][246][Applets][356][Configuration][General]
-cursorPosition=153
+cursorPosition=409
 fontSize=10
 noteId=3b7342c6-1ac8-4980-8868-0e6e764fd9
-scrollY=126
+scrollX=97
+scrollY=324
 
 [Containments][246][General]
 AppletOrder=344;275;295;277;305;351;304;350;276;352;345;353;300;274;356
@@ -784,7 +785,7 @@ immutability=1
 plugin=org.kde.plasma.digitalclock
 
 [Containments][313][Applets][330][Configuration]
-PreloadWeight=80
+PreloadWeight=100
 popupHeight=457
 popupWidth=568
 
@@ -903,7 +904,7 @@ immutability=1
 plugin=org.kde.plasma.clipboard
 
 [Containments][319][Applets][325][Configuration]
-PreloadWeight=80
+PreloadWeight=100
 
 [Containments][319][Applets][326][Configuration]
 PreloadWeight=42
@@ -984,7 +985,7 @@ DialogWidth=720
 ToolBoxButtonState=topcenter
 ToolBoxButtonX=384
 iconSize=0
-positions={"1920x1080":["2"\\,"20"\\,"desktop:/osrs.sh"\\,"1"\\,"18"\\,"desktop:/alch_blokcers.txt"\\,"0"\\,"1"\\,"desktop:/cpuz..txt"\\,"0"\\,"18"\\,"desktop:/configureation.yaml"\\,"0"\\,"2"\\,"desktop:/Code"\\,"0"\\,"3"\\,"desktop:/imbed maps html"\\,"1"\\,"0"\\,"desktop:/Text File.txt"\\,"0"\\,"0"\\,"desktop:/lib"\\,"0"\\,"4"]\\,"0x0":["1"\\,"20"\\,"desktop:/Code"\\,"0"\\,"3"]\\,"1024x768":["1"\\,"10"\\,"desktop:/cpuz..txt"\\,"0"\\,"0"\\,"desktop:/osrs.sh"\\,"0"\\,"2"\\,"desktop:/imbed maps html"\\,"0"\\,"1"]}
+positions={"1920x1080":["1"\\,"20"\\,"desktop:/Code"\\,"0"\\,"3"\\,"desktop:/wayland.reg"\\,"0"\\,"0"]\\,"0x0":["1"\\,"20"\\,"desktop:/Code"\\,"0"\\,"3"]\\,"1024x768":["1"\\,"10"\\,"desktop:/cpuz..txt"\\,"0"\\,"0"\\,"desktop:/osrs.sh"\\,"0"\\,"2"\\,"desktop:/imbed maps html"\\,"0"\\,"1"]}
 previews=false
 sortMode=-1
 
@@ -1081,7 +1082,7 @@ plugin=org.kde.plasma.bluetooth
 PreloadWeight=0
 
 [Containments][76][Applets][140][Shortcuts]
-global=Meta+B
+global=
 
 [Containments][76][Applets][231]
 immutability=1
@@ -1355,4 +1356,4 @@ vertAlign=64
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/osrs.sh,0,2c765c72-78ac-4fc4-859c-539652ee4f7b,desktop:/Code,0,8fab4b45-8c3d-4755-82c1-9a563626c4e3,desktop:/cpuz..txt,0,2c765c72-78ac-4fc4-859c-539652ee4f7b,desktop:/Code,1,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/imbed maps,1,cc8c482b-b846-4ec9-b458-b0f349cd6b1a
+screenMapping=desktop:/Code,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/imbed maps,1,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/cpuz..txt,0,2c765c72-78ac-4fc4-859c-539652ee4f7b,desktop:/osrs.sh,0,2c765c72-78ac-4fc4-859c-539652ee4f7b,desktop:/wayland.reg,0,8fab4b45-8c3d-4755-82c1-9a563626c4e3,desktop:/Code,0,8fab4b45-8c3d-4755-82c1-9a563626c4e3

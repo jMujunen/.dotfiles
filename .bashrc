@@ -57,25 +57,16 @@ fi
 #======================#
 
 if [ "$color_prompt" = yes ]; then
-
-    # Customizing prompt
-#    t1_bg="\[$(tput setab 31)\]"
-#    t1_fg="\[$(tput setaf 31)\]"
-#    t2_bg="\[$(tput setab 166)\]"
-#    t2_fg="\[$(tput setaf 166)\]"
-#    RESET="\[$(tput sgr0)\]"
-
-    t1_bg="\[$(tput setab 37)\]"
-    t1_fg="\[$(tput setaf 37)\]"
-    t2_bg="\[$(tput setab 93)\]"
-    t2_fg="\[$(tput setaf 93)\]"
+    t1_bg="\[$(tput setab 31)\]"
+    t1_fg="\[$(tput setaf 31)\]"
+    t2_bg="\[$(tput setab 91)\]"
+    t2_fg="\[$(tput setaf 91)\]"
     RESET="\[$(tput sgr0)\]"
     
     triangle_1=$(echo -e "${t1_fg}${t2_bg}\uE0B0${RESET}")
     triangle_2=$(echo -e "${t2_fg}\uE0B0")
-
+	
     PS1="${t1_bg}\A \h${RESET}${triangle_1}${t2_bg} \w ${RESET}${triangle_2}${RESET} "
-
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;36m\][\T]\h:\[\033[01;35m\]\w\[\033[00m\]\$ '
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;33m\]\u@\h\[\033[00m\]:\[\033[01;35m\]\w\[\033[00m\]\$ '
 else
@@ -169,7 +160,7 @@ export ANDROID_HOME='/opt/android-sdk'
 export ANDROID_SDK_ROOT='/opt/android-sdk'
 export PATH="${PATH}:${ANDROID_HOME}/cmdline-tools/latest/bin"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-
+export QSG_RENDERER_LOOP=basic
 neofetch
 if [ -e ~/.bash_functions ]; then
   . ~/.bash_functions

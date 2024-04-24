@@ -61,9 +61,9 @@ done=Plasma_Fonts_Kate
 mtime=1701812982
 
 [gtkconfig.upd]
-ctime=1711847878
+ctime=1713480646
 done=gtk_theme,dont_use_gtk_css_for_window_decorations,remove_deprecated_gtk4_option
-mtime=1711626327
+mtime=1713344090
 
 [icons_remove_effects.upd]
 ctime=1708166135
@@ -116,9 +116,9 @@ done=ksmserver_update_loginMode_value_default_enum
 mtime=1701816132
 
 [kwin.upd]
-ctime=1713307877
+ctime=1713999448
 done=replace-scalein-with-scale,port-minimizeanimation-effect-to-js,port-scale-effect-to-js,port-dimscreen-effect-to-js,auto-bordersize,animation-speed,desktop-grid-click-behavior,no-swap-encourage,make-translucency-effect-disabled-by-default,remove-flip-switch-effect,remove-cover-switch-effect,remove-cubeslide-effect,remove-xrender-backend,enable-scale-effect-by-default,overview-group-plugin-id,animation-speed-cleanup,replace-cascaded-zerocornered,kwin-6.0-reset-active-mouse-screen,kwin-6.0-delete-desktop-switching-shortcuts,kwin-6.0-remove-breeze-tabbox-default
-mtime=1712067161
+mtime=1713786347
 
 [kwinrules.upd]
 ctime=1708166135
@@ -136,9 +136,9 @@ done=split-variants
 mtime=1701816132
 
 [migrate-calendar-to-plugin-id.upd]
-ctime=1711847879
+ctime=1713480646
 done=kwin-6.0-remove-breeze-tabbox-default,migrate-calendar-plugins
-mtime=1711623209
+mtime=1713342537
 
 [okular.upd]
 ctime=1710274759
@@ -146,14 +146,14 @@ done=annotation-toolbar,builtin-annotations
 mtime=1709756030
 
 [plasma6.0-remove-dpi-settings.upd]
-ctime=1711847879
+ctime=1713480646
 done=migrate-calendar-plugins,plasma6.0-remove-dpi-settings
-mtime=1711623209
+mtime=1713342537
 
 [plasma6.0-remove-old-shortcuts.upd]
-ctime=1711847879
+ctime=1713480646
 done=plasma6.0-remove-dpi-settings,plasma6.0-remove-old-shortcuts
-mtime=1711623209
+mtime=1713342537
 
 [plasmashell-5.27-use-panel-thickness-in-default-group.upd]
 ctime=1708166135
@@ -161,14 +161,14 @@ done=plasmashell-5.27-use-panel-thickness-in-default-group
 mtime=1702320594
 
 [plasmashell-6.0-keep-custom-position-of-panels.upd]
-ctime=1711847879
+ctime=1713480646
 done=plasma6.0-remove-old-shortcuts,plasmashell-6.0-keep-custom-position-of-panels
-mtime=1711623209
+mtime=1713342537
 
 [plasmashell-6.0-keep-default-floating-setting-for-plasma-5-panels.upd]
-ctime=1711847879
+ctime=1713480646
 done=plasmashell-6.0-keep-custom-position-of-panels,plasmashell-6.0-keep-default-floating-setting-for-plasma-5-panels
-mtime=1711623209
+mtime=1713342537
 
 [spectacle.upd]
 ctime=1712871987

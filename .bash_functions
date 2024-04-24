@@ -152,7 +152,6 @@ function pacman-remove() {
 # Auto Bluetooth Connections
 function bte() {
   SonyXM4="F8:4E:17:B5:0E:8D"
-
   # Check for null pointer references and handle exceptions
   if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
     echo "Usage: bte [connect|disconnect]"
@@ -235,3 +234,14 @@ function memory_used() {
 	mem_percent=$(printf "%.0f" $(calc $mem_used/$mem_total*100 | grep -P -o "\d+.*"))
 	echo "$mem_percent%"
 }
+
+# ! NOT FULLY IMPLEMENTED
+# Function to update the time in the prompt
+function update_prompt_time() {
+    local cols=$(tput cols)
+    local time=$(date "+%H:%M")
+    tput cup $((0)) $((cols-5))
+    echo -n $time
+}
+
+

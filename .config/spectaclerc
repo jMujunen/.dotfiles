@@ -15,7 +15,8 @@ captureMode=0
 
 [ImageSave]
 imageFilenameTemplate=<title>_<MMM><dd>-<yyyy>_<##>
-lastImageSaveLocation=file:///home/joona/Pictures/Screenshots/sudo screenshot_hotkeys.py_Apr11-2024_01.png
+lastImageSaveAsLocation=file:///home/joona/Pictures/work_timelapse_pic.png
+lastImageSaveLocation=file:///home/joona/Pictures/Screenshots/MMM%3E24-2024_03.png
 translatedScreenshotsFolder=Screenshots
 
 [VideoSave]

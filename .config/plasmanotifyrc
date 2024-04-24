@@ -13,5 +13,6 @@ Seen=true
 Seen=true
 
 [Notifications]
+LowPriorityPopups=false
 PopupPosition=BottomLeft
 PopupTimeout=3000
