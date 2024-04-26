@@ -2,5 +2,5 @@
 Sources=JagexLauncher,flathub,flathub
 
 [Window]
-geometry=1920,0,1920,1056
-visibility=4
+geometry=0,0,936,684
+visibility=2

@@ -97,11 +97,11 @@ alias img='kitten icat'
 alias sctldr='systemctl daemon-reload'
 alias diskuse=". ~/.bash_functions && disk_usage"
 alias projects='cd ~/python/Projects/ && ls -alph --group-directories-first'
+alias getweather='curl wttr.in'
 alias bathelp='bat --plain --language=help'
+alias dadjoke='curl https://icanhazdadjoke.com && printf "\n"'
 help() {
     "$@" --help 2>&1 | bathelp
 }
 
-# ^ COMMIT NOTES
-# * Added --profile=main to ipython and to the repository
-# * Modified ipython alias to use --profile=main
+

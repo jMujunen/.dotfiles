@@ -1,6 +1,3 @@
-[$Version]
-update_info=filepicker.upd:filepicker-remove-old-previews-entry,fonts_global.upd:Fonts_Global,fonts_global_toolbar.upd:Fonts_Global_Toolbar,icons_remove_effects.upd:IconsRemoveEffects,kwin.upd:animation-speed,style_widgetstyle_default_breeze.upd:StyleWidgetStyleDefaultBreeze
-
 [ColorEffects:Disabled]
 ChangeSelectionColor=
 Color=56,56,56
@@ -135,33 +132,18 @@ ForegroundNormal=252,252,252
 ForegroundPositive=39,174,96
 ForegroundVisited=155,89,182
 
-[DirSelect Dialog]
-DirSelectDialog Size=855,591
-History Items[$e]=file:$HOME/Videos/OBS,file:$HOME/Code/C/qt/qtpy,file:$HOME/Code/C/qt/qtpy,file:$HOME/Code/C/qt,file:$HOME/Docs/Notes/PDF,file:$HOME/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps,file:$HOME,file:$HOME,file:///mnt/hdd/From Windows/Pictures/Photography/Processed,file:///mnt/hdd/From Windows/Pictures/Slideshow,file:///mnt/hdd/From Windows/Pictures/jpg_png_mov_mp4,file:///run/media/joona/4TB HD/From Windows/Pictures/Slideshow
-
 [General]
-BrowserApplication=firefox.desktop
 ColorScheme=BreezeDark_MODDED
 ColorSchemeHash=e4b3f0968b5ca564c2c381e59e84d45706bcaa08
-LastUsedCustomAccentColor=104,107,111
-TerminalApplication=kitty
-TerminalService=kitty.desktop
-UseSystemBell=true
-
-[Icons]
-Theme=breeze-dark
 
 [KDE]
-AnimationDurationFactor=0.25
+AnimationDurationFactor=0.35355339059327373
 LookAndFeelPackage=org.kde.breezedark.desktop
-ShowDeleteCommand=false
-SingleClick=false
-widgetStyle=Breeze
 
 [KFileDialog Settings]
 Allow Expansion=false
 Automatically select filename extension=true
-Breadcrumb Navigation=false
+Breadcrumb Navigation=true
 Decoration position=2
 LocationCombo Completionmode=5
 PathCombo Completionmode=5
@@ -171,16 +153,12 @@ Show Inline Previews=true
 Show Preview=false
 Show Speedbar=true
 Show hidden files=false
-Sort by=Date
+Sort by=Name
 Sort directories first=true
 Sort hidden files last=false
-Sort reversed=true
-Speedbar Width=138
+Sort reversed=false
+Speedbar Width=140
 View Style=Simple
-
-[PreviewSettings]
-MaximumRemoteSize=0
-MaximumSize=78643200
 
 [WM]
 activeBackground=49,54,59

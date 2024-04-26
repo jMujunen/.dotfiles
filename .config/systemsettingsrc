@@ -1,21 +1,3 @@
-[FileDialogSize]
-2 screens: Window-Maximized=true
-
-[KFileDialog Settings]
-detailViewIconSize=16
-iconViewIconSize=128
-
 [MainWindow]
-1920x1080 screen: Height=700
-1920x1080 screen: Width=1748
-1920x1080 screen: XPosition=0
-1920x1080 screen: YPosition=28
-2 screens: Height=941
-2 screens: Width=1350
-2 screens: XPosition=364
-2 screens: YPosition=28
-DP-2 HDMI-0=HDMI-0
-HDMI-0=HDMI-0
 MenuBar=Disabled
-State=AAAA/wAAAAD9AAAAAAAABUYAAAOtAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
 ToolBarsMovable=Disabled

@@ -19,10 +19,6 @@ Enable Touchpad=Touchpad On,Touchpad On,Enable Touchpad
 Toggle Touchpad=Touchpad Toggle,Touchpad Toggle\tMeta+Ctrl+Zenkaku Hankaku,Toggle Touchpad
 _k_friendly_name=Touchpad
 
-[kded5]
-Show System Activity=Ctrl+Esc,Ctrl+Esc,Show System Activity
-_k_friendly_name=KDE Daemon
-
 [khotkeys]
 _k_friendly_name=Custom Shortcuts Service
 {6f653583-334d-4d80-8af4-21e4ffd3248e}=Ctrl+Alt+W,none,Perform D-Bus call 'qdbus org.kde.krunner /App display'
@@ -414,7 +410,7 @@ cycleNextAction=none,,Next History Item
 cyclePrevAction=none,,Previous History Item
 edit_clipboard=none,none,Edit Contents…
 manage activities=Meta+Q,Meta+Q,Show Activity Switcher
-next activity=Meta+Tab,none,Walk through activities
+next activity=none,none,Walk through activities
 previous activity=none,none,Walk through activities (Reverse)
 repeat_action=Meta+Ctrl+R,Meta+Ctrl+R,Manually Invoke Action on Current Clipboard
 show dashboard=Ctrl+F12,Ctrl+F12,Show Desktop
@@ -441,3 +437,14 @@ _launch=none
 RecordRegion=Meta+Shift+R
 RecordWindow=none
 _launch=Print
+
+[wacomtablet]
+Map to fullscreen=Meta+Ctrl+F,Meta+Ctrl+F,Map to fullscreen
+Map to screen 1=Meta+Ctrl+1,Meta+Ctrl+1,Map to screen 1
+Map to screen 2=Meta+Ctrl+2,Meta+Ctrl+2,Map to screen 2
+Next Profile=Meta+Ctrl+N,Meta+Ctrl+N,Next profile
+Previous Profile=Meta+Ctrl+P,Meta+Ctrl+P,Previous Profile
+Toggle screen map selection=Meta+Ctrl+M,Meta+Ctrl+M,Toggle between all screens
+Toggle stylus mode=Meta+Ctrl+S,Meta+Ctrl+S,Toggle the Stylus Tool Relative/Absolute
+Toggle touch tool=none,Meta+Ctrl+T,Enable/Disable the Touch Tool
+_k_friendly_name=Wacom Tablet

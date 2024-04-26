@@ -1,16 +1,2 @@
 [Common]
 OutlineCloseButton=true
-OutlineIntensity=OutlineLow
-ShadowSize=ShadowSmall
-
-[Style]
-DockWidgetDrawFrame=true
-MenuItemDrawStrongFocus=false
-
-[Windeco Exception 0]
-BorderSize=2
-Enabled=false
-ExceptionPattern=.*
-ExceptionType=0
-HideTitleBar=true
-Mask=16
