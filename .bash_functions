@@ -6,6 +6,18 @@
 error() {
   echo -e "\033[1;31mError: $*\033[0m" >&2
 }
+help() {
+    "$@" --help 2>&1 | bathelp
+}
+
+execpython() {
+	if [ "$@" -eq 0 ]; then
+		python3
+	else
+		# TODO
+		python3 "$@"
+	fi
+}
 
 # Move 'up' in the directory tree $1 amount of times and print pwd each interation
 function up() {
@@ -244,4 +256,15 @@ function update_prompt_time() {
     echo -n $time
 }
 
-
+function trig() {
+	
+	rad=$(echo "$deg * (4 * a(1) / 180)" | bc -l)  # Convert to radians
+	
+	sin=$(echo "s($rad)" | bc -l)
+	cos=$(echo "c($rad)" | bc -l) 
+	tan=$(echo "s($rad) / c($rad)" | bc -l)
+	
+	echo "Sin($deg): $sin"
+	echo "Cos($deg): $cos"
+	echo "Tan($deg): $tan"
+}

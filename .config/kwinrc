@@ -10,14 +10,18 @@ CommandAll2=Resize
 padding=6
 
 [Tiling][270e4863-6f94-5b3b-9d1d-77297468d629]
-tiles={"layoutDirection":"horizontal","tiles":[{"width":0.5},{"width":0.5}]}
+tiles={"layoutDirection":"horizontal","tiles":[{"layoutDirection":"vertical","tiles":[{"height":0.5},{"height":0.5}],"width":0.4},{"layoutDirection":"vertical","tiles":[{"height":0.5},{"height":0.5}],"width":0.6}]}
 
 [Tiling][7657eca2-b60f-553a-ba52-bc2dfe6616b2]
-tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+tiles={"layoutDirection":"horizontal","tiles":[{"layoutDirection":"vertical","tiles":[{"height":0.5},{"height":0.5}],"width":0.4},{"width":0.6}]}
 
 [Xwayland]
 Scale=1
 
 [org.kde.kdecoration2]
+BorderSize=None
+BorderSizeAuto=false
+ButtonsOnLeft=NBFS
+ButtonsOnRight=HIX
 library=org.kde.kwin.aurorae
 theme=__aurorae__svg__Utterly-Round-Dark-Solid

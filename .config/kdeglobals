@@ -1,12 +1,12 @@
 [ColorEffects:Disabled]
 ChangeSelectionColor=
 Color=56,56,56
-ColorAmount=0
+ColorAmount=0.05
 ColorEffect=0
 ContrastAmount=0.65
 ContrastEffect=1
 Enable=
-IntensityAmount=0.1
+IntensityAmount=0.45
 IntensityEffect=2
 
 [ColorEffects:Inactive]
@@ -25,8 +25,8 @@ BackgroundAlternate=30,87,116
 BackgroundNormal=49,54,59
 DecorationFocus=59,108,90
 DecorationHover=59,108,90
-ForegroundActive=61,174,233
-ForegroundInactive=161,169,177
+ForegroundActive=255,255,255
+ForegroundInactive=41,43,45
 ForegroundLink=29,153,243
 ForegroundNegative=218,68,83
 ForegroundNeutral=246,116,0
@@ -63,25 +63,25 @@ ForegroundPositive=39,174,96
 ForegroundVisited=155,89,182
 
 [Colors:Header][Inactive]
-BackgroundAlternate=50,54,58
-BackgroundNormal=43,46,49
-DecorationFocus=85,173,223
-DecorationHover=85,173,223
-ForegroundActive=85,173,223
-ForegroundInactive=162,169,176
-ForegroundLink=62,153,229
-ForegroundNegative=207,82,91
-ForegroundNeutral=234,125,55
+BackgroundAlternate=49,54,59
+BackgroundNormal=42,46,50
+DecorationFocus=61,174,233
+DecorationHover=61,174,233
+ForegroundActive=61,174,233
+ForegroundInactive=161,169,177
+ForegroundLink=29,153,243
+ForegroundNegative=218,68,83
+ForegroundNeutral=246,116,0
 ForegroundNormal=252,252,252
-ForegroundPositive=69,170,105
-ForegroundVisited=150,95,173
+ForegroundPositive=39,174,96
+ForegroundVisited=155,89,182
 
 [Colors:Selection]
 BackgroundAlternate=30,87,116
 BackgroundNormal=59,108,90
 DecorationFocus=59,108,90
 DecorationHover=59,108,90
-ForegroundActive=252,252,252
+ForegroundActive=255,255,255
 ForegroundInactive=161,169,177
 ForegroundLink=253,188,75
 ForegroundNegative=176,55,69
@@ -95,8 +95,8 @@ BackgroundAlternate=42,46,50
 BackgroundNormal=49,54,59
 DecorationFocus=59,108,90
 DecorationHover=59,108,90
-ForegroundActive=61,174,233
-ForegroundInactive=161,169,177
+ForegroundActive=255,255,255
+ForegroundInactive=41,43,45
 ForegroundLink=29,153,243
 ForegroundNegative=218,68,83
 ForegroundNeutral=246,116,0
@@ -109,8 +109,8 @@ BackgroundAlternate=35,38,41
 BackgroundNormal=27,30,32
 DecorationFocus=59,108,90
 DecorationHover=59,108,90
-ForegroundActive=61,174,233
-ForegroundInactive=161,169,177
+ForegroundActive=255,255,255
+ForegroundInactive=41,43,45
 ForegroundLink=29,153,243
 ForegroundNegative=218,68,83
 ForegroundNeutral=246,116,0
@@ -123,8 +123,8 @@ BackgroundAlternate=49,54,59
 BackgroundNormal=42,46,50
 DecorationFocus=59,108,90
 DecorationHover=59,108,90
-ForegroundActive=61,174,233
-ForegroundInactive=161,169,177
+ForegroundActive=255,255,255
+ForegroundInactive=41,43,45
 ForegroundLink=29,153,243
 ForegroundNegative=218,68,83
 ForegroundNeutral=246,116,0
@@ -132,13 +132,19 @@ ForegroundNormal=252,252,252
 ForegroundPositive=39,174,96
 ForegroundVisited=155,89,182
 
+[DirSelect Dialog]
+DirSelectDialog Size=820,584
+History Items[$e]=file:///mnt/hdd/IMPORTANT_MEDIA,file:$HOME/Docs/Notes/PDF,file:$HOME/Docs/Notes/HTML/Atom
+
 [General]
-ColorScheme=BreezeDark_MODDED
-ColorSchemeHash=e4b3f0968b5ca564c2c381e59e84d45706bcaa08
+ColorScheme=BreezeDark_MODDED2
+ColorSchemeHash=c225dd6b1a76553e5320d766ed987446d27dc4e0
+LastUsedCustomAccentColor=184,117,220
 
 [KDE]
 AnimationDurationFactor=0.35355339059327373
 LookAndFeelPackage=org.kde.breezedark.desktop
+widgetStyle=Breeze
 
 [KFileDialog Settings]
 Allow Expansion=false
@@ -162,7 +168,7 @@ View Style=Simple
 
 [WM]
 activeBackground=49,54,59
-activeBlend=252,252,252
+activeBlend=162,162,162
 activeForeground=252,252,252
 inactiveBackground=42,46,50
 inactiveBlend=117,214,179

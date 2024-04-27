@@ -1,2 +1,5 @@
 [Common]
 OutlineCloseButton=true
+
+[Style]
+MenuOpacity=96

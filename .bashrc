@@ -133,41 +133,43 @@ if ! shopt -oq posix; then
 fi
 
 source ~/.bash_aliases
+neofetch
+
 # Env Vars
+export ANDROID_HOME='/opt/android-sdk'
+export ANDROID_SDK_ROOT='/opt/android-sdk'
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
+export GBM_BACKEND=nvidia-drm
+export GDK_BACKEND=wayland
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MOZ_ENABLE_WAYLAND=1
+export PATH="${PATH}:${ANDROID_HOME}/cmdline-tools/latest/bin"
 export PATH=$PATH:~/.spicetify
+export PATH=~/python/modules/:$PATH
 export PATH=~/python/scripts/:$PATH
 export PATH=~/python/scripts/bashhelpers/:$PATH
 export PATH=~/scripts:$PATH
-export PATH=~/python/modules/:$PATH
-export PYTHONPATH=~/python/scripts/:$PYTHONPATH
+export PYTHONPATH=~/Apps/git/matplotlib-backend-kitty/:$PYTHONPATH
 export PYTHONPATH=~/python/modules/:$PYTHONPATH
+export PYTHONPATH=~/python/scripts/:$PYTHONPATH
 export PYTHONPATH=~/python/scripts/bashhelpers:$PYTHONPATH
-# export QT_PLUGIN_PATH=/usr/lib/qt/plugins
-export TESSDATA_PREFIX=/usr/share/tessdata
-export GBM_BACKEND=nvidia-drm
-export __GLX_VENDOR_LIBRARY_NAME=nvidia
-export GDK_BACKEND=wayland
-export MOZ_ENABLE_WAYLAND=1
+export QSG_RENDERER_LOOP=basic
 export QT_ENABLE_HIGHDPI_SCALING=1
+# export QT_PLUGIN_PATH=/usr/lib/qt/plugins
 export QT_QPA_PLATFORM=wayland
-export ELECTRON_OZONE_PLATFORM_HINT=wayland
-# For tty consoles
-setfont ter-114n 2>/dev/null
+export TESSDATA_PREFIX=/usr/share/tessdata
+
+echo -e "\033[1;32mROOTFS - \033[0m \033[1;33m$(df | grep /dev/nvme0n1p3 | awk '{print $5}')\033[0m"
+echo -e "\033[1;32mMEMORY - \033[0m \033[1;33m$(memory_used)\033[0m"
 
 # Hidden
 if [ -f ~/.bash_aliases_ ]; then
     . ~/.bash_aliases_
 fi
-export ANDROID_HOME='/opt/android-sdk'
-export ANDROID_SDK_ROOT='/opt/android-sdk'
-export PATH="${PATH}:${ANDROID_HOME}/cmdline-tools/latest/bin"
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export QSG_RENDERER_LOOP=basic
-neofetch
+
 if [ -e ~/.bash_functions ]; then
   . ~/.bash_functions
 else
   error `echo ~/.bash_functions` doesnt exsist
 fi
-echo -e "\033[1;32mROOTFS - \033[0m \033[1;33m$(df | grep /dev/nvme0n1p3 | awk '{print $5}')\033[0m"
-echo -e "\033[1;32mMEMORY - \033[0m \033[1;33m$(memory_used)\033[0m"
