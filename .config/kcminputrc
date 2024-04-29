@@ -13,3 +13,6 @@ PointerAccelerationProfile=1
 [Libinput][4152][6220][SteelSeries SteelSeries Rival 3]
 PointerAcceleration=0.000
 PointerAccelerationProfile=1
+
+[Mouse]
+X11LibInputXAccelProfileFlat=true

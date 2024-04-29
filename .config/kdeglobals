@@ -137,8 +137,7 @@ DirSelectDialog Size=820,584
 History Items[$e]=file:///mnt/hdd/IMPORTANT_MEDIA,file:$HOME/Docs/Notes/PDF,file:$HOME/Docs/Notes/HTML/Atom
 
 [General]
-ColorScheme=BreezeDark_MODDED2
-ColorSchemeHash=c225dd6b1a76553e5320d766ed987446d27dc4e0
+ColorSchemeHash=06265a29217da25f218e12d969022e6e21d4eeca
 LastUsedCustomAccentColor=184,117,220
 
 [KDE]

@@ -62,23 +62,24 @@ alias lsd="ls -d */"
 alias lss="ls -Alshr --group-directories-first"
 alias lt="ls -Altr --time=mtime --group-directories-first"
 alias m="micro"
+alias mail="cat $MAIL/services.log"
 # alias mv="mv -i"
 alias mv="mv -iv"
 alias nano="micro"
 alias notes="notes"
 alias nset="nvidia-settings &"
-alias obsidian="obsidian $enable_wayland 2>/dev/null &"
+alias obsidian="nohup obsidian $enable_wayland >/dev/null 2>&1 &"
 alias open="xdg-open"
 alias osrshydra="osrs_hydra"
-alias osrs="osrs"
+alias osrs="flatpak run com.jagexlauncher.JagexLauncher 2>/dev/null & disown"
 alias osrsping="gping -c cyan oldschool78.runescape.com"
 alias pacrm="pacman-remove"
 alias paste="wl-paste"
 alias pics='cd_pics'
-alias projects='cd ~/python/Projects/ && ls -alph --group-directories-first'
+alias pyp='cd ~/python/Projects/ && ls -alph --group-directories-first'
 alias psg="ps aux | grep -E"
 alias ps="ps aux"                                                    
-alias py='execpython'
+# TODO: alias py='execpython'
 alias rm="rm -I"
 alias sctldr='systemctl daemon-reload'
 alias search="apropos"
@@ -109,4 +110,7 @@ alias yay="yay --color=always"
 
 
 # ^ Git commit notes
-# ? removed unnecessary `. ~/.bash_functions` calls
+# * removed unnecessary `. ~/.bash_functions` calls
+# * added alias for easy cd to firefox profile
+# * Refactored osrs alias. Being one of the oldest aliases, it was time to clean it up.
+# * Changed name of projects alias. It shorted=better in this case

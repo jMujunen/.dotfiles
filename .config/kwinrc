@@ -7,13 +7,22 @@ Rows=1
 CommandAll2=Resize
 
 [Tiling]
-padding=6
+padding=4
 
 [Tiling][270e4863-6f94-5b3b-9d1d-77297468d629]
-tiles={"layoutDirection":"horizontal","tiles":[{"layoutDirection":"vertical","tiles":[{"height":0.5},{"height":0.5}],"width":0.4},{"layoutDirection":"vertical","tiles":[{"height":0.5},{"height":0.5}],"width":0.6}]}
+tiles={"layoutDirection":"horizontal","tiles":[{"layoutDirection":"vertical","tiles":[{"height":0.5},{"height":0.5}],"width":0.7625000000000001},{"layoutDirection":"vertical","tiles":[{"height":0.5},{"height":0.5}],"width":0.2374999999999997}]}
 
 [Tiling][7657eca2-b60f-553a-ba52-bc2dfe6616b2]
 tiles={"layoutDirection":"horizontal","tiles":[{"layoutDirection":"vertical","tiles":[{"height":0.5},{"height":0.5}],"width":0.4},{"width":0.6}]}
+
+[Tiling][ab4ff969-3101-5457-a1ed-97a5bcc7f1c3]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][d02c035d-eef0-5c68-aa2f-2e83d0ba08b1]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][f267a931-122e-5bdc-ba57-1711b882f960]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Xwayland]
 Scale=1

@@ -80,11 +80,6 @@ function send-sms() {
     echo -e "\033[1;32m Success: SMS sent \033[0m"
   fi
 }
-# Run JamfleX Launcher
-function osrs() {
-  cd ~/Desktop
-  ./osrs.sh
-}
 
 # List files in '~/scripts'
 function list_scripts() {
