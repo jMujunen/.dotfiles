@@ -72,7 +72,7 @@ ExposeClassCurrentDesktop=none,none,Toggle Present Windows (Window class on curr
 Exquisite=Ctrl+Alt+D,none,Exquisite
 Grid View=Meta+G,Meta+G,Toggle Grid View
 Increase Opacity=none,,Increase Opacity of Active Window by 5%
-KZones: Cycle layouts=Meta+Ctrl+Alt+`,none,KZones: Cycle layouts
+KZones: Cycle layouts=Meta+Ctrl+Alt+Q,none,KZones: Cycle layouts
 KZones: Move active window to next zone=Ctrl+Alt+Right,none,KZones: Move active window to next zone
 KZones: Move active window to previous zone=Ctrl+Alt+Left,none,KZones: Move active window to previous zone
 KZones: Move active window to zone 1=Ctrl+Alt+Num+1,none,KZones: Move active window to zone 1
@@ -439,6 +439,9 @@ _launch=none
 RecordRegion=Meta+Shift+R
 RecordWindow=none
 _launch=Print
+
+[services][refresh_desktop.sh.desktop]
+_launch=F9
 
 [wacomtablet]
 Map to fullscreen=Meta+Ctrl+F,Meta+Ctrl+F,Map to fullscreen

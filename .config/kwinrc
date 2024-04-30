@@ -3,14 +3,32 @@ Id_1=6f9beb78-43bc-4c15-a37c-7f241aba9bc3
 Number=1
 Rows=1
 
+[Effect-kwin4_effect_pixelate]
+Duration=300
+
+[Effect-translucency]
+DropdownMenus=11
+PopupMenus=11
+TornOffMenus=10
+
 [MouseBindings]
 CommandAll2=Resize
+
+[Plugins]
+kwin4_effect_pixelateEnabled=true
+kzonesEnabled=true
+scaleEnabled=false
+translucencyEnabled=true
+
+[Script-kzones]
+layoutsJson=[\n    {\n        "name": "Priority Grid",\n        "padding": 5,\n        "zones": [\n            {\n                "x": 0,\n                "y": 0,\n                "height": 100,\n                "width": 25\n            },\n            {\n                "x": 25,\n                "y": 0,\n                "height": 100,\n                "width": 50\n            },\n            {\n                "x": 75,\n                "y": 0,\n                "height": 100,\n                "width": 25\n            }\n        ]\n    },\n{\n    "name": "Split Layout",\n    "padding": 5,\n    "zones": [\n        {\n            "x": 0,\n            "y": 0,\n            "height": 100,\n            "width": 30\n        },\n        {\n            "x": 30,\n            "y": 0,\n            "height": 100,\n            "width": 40\n        },\n        {\n            "x": 70,\n            "y": 0,\n            "height": 100,\n            "width": 30\n        }\n    ]\n},\n\n    {\n        "name": "Half n' Half",\n        "padding": 5,\n        "zones": [\n            {\n                "x": 0,\n                "y": 0,\n                "height": 100,\n                "width": 50\n            },\n            {\n                "x": 50,\n                "y": 0,\n                "height": 100,\n                "width": 50\n            }\n        ]\n    },\n    {\n        "name": "Quadrant Grid",\n        "padding": 5,\n        "zones": [\n            {\n                "x": 0,\n                "y": 0,\n                "height": 50,\n                "width": 50\n            },\n            {\n                "x": 0,\n                "y": 50,\n                "height": 50,\n                "width": 50\n            },\n            {\n                "x": 50,\n                "y": 50,\n                "height": 50,\n                "width": 50\n            },\n            {\n                "x": 50,\n                "y": 0,\n                "height": 50,\n                "width": 50\n            }\n        ]\n    },\n        {\n        "name": "Triple",\n        "padding": 5,\n        "zones": [\n            {\n                "x": 0,\n                "y": 0,\n                "height": 100,\n                "width": 65\n            },\n            {\n                "x": 65,\n                "y": 0,\n                "height": 50,\n                "width": 35\n            },\n            {\n                "x": 65,\n                "y": 50,\n                "height": 50,\n                "width": 35\n            }\n        ]\n    }\n]
+zoneSelectorTriggerDistance=0
 
 [Tiling]
 padding=4
 
 [Tiling][270e4863-6f94-5b3b-9d1d-77297468d629]
-tiles={"layoutDirection":"horizontal","tiles":[{"layoutDirection":"vertical","tiles":[{"height":0.5},{"height":0.5}],"width":0.7625000000000001},{"layoutDirection":"vertical","tiles":[{"height":0.5},{"height":0.5}],"width":0.2374999999999997}]}
+tiles={"layoutDirection":"horizontal","tiles":[{"layoutDirection":"vertical","tiles":[{"height":0.5},{"height":0.5}],"width":0.8494791666666667},{"layoutDirection":"vertical","tiles":[{"height":0.5},{"height":0.5}],"width":0.15052083333333333}]}
 
 [Tiling][7657eca2-b60f-553a-ba52-bc2dfe6616b2]
 tiles={"layoutDirection":"horizontal","tiles":[{"layoutDirection":"vertical","tiles":[{"height":0.5},{"height":0.5}],"width":0.4},{"width":0.6}]}

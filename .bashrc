@@ -104,7 +104,7 @@ alias less='less --use-color'
 alias pacman='pacman --color=auto'
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
+export LS_COLORS=$LS_COLORS":ow=33;7"
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -144,16 +144,11 @@ export GDK_BACKEND=wayland
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MOZ_ENABLE_WAYLAND=1
+
+export PYTHONPATH=~/Apps/git/matplotlib-backend-kitty/:~/python/modules/:~/python/scripts/:~/python/scripts/bashhelpers/
 export PATH="${PATH}:${ANDROID_HOME}/cmdline-tools/latest/bin"
-export PATH=$PATH:~/.spicetify
-export PATH=~/python/modules/:$PATH
-export PATH=~/python/scripts/:$PATH
-export PATH=~/python/scripts/bashhelpers/:$PATH
-export PATH=~/scripts:$PATH
-export PYTHONPATH=~/Apps/git/matplotlib-backend-kitty/:$PYTHONPATH
-export PYTHONPATH=~/python/modules/:$PYTHONPATH
-export PYTHONPATH=~/python/scripts/:$PYTHONPATH
-export PYTHONPATH=~/python/scripts/bashhelpers:$PYTHONPATH
+export PATH=~/scripts/:~/scripts/graphing/:~/scripts/git_scripts/:$PATH:$PYTHONPATH
+
 export QSG_RENDERER_LOOP=basic
 export QT_ENABLE_HIGHDPI_SCALING=1
 # export QT_PLUGIN_PATH=/usr/lib/qt/plugins
@@ -173,3 +168,6 @@ if [ -e ~/.bash_functions ]; then
 else
   error `echo ~/.bash_functions` doesnt exsist
 fi
+
+# ^ Git commit notes
+# Cleaned up PATH and PYTHONPATH exports

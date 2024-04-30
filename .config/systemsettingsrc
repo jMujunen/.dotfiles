@@ -1,3 +1,7 @@
+[FileDialogSize]
+2 screens: Height=512
+2 screens: Width=960
+
 [MainWindow]
 MenuBar=Disabled
 ToolBarsMovable=Disabled

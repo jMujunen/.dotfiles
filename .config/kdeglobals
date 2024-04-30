@@ -26,7 +26,7 @@ BackgroundNormal=49,54,59
 DecorationFocus=59,108,90
 DecorationHover=59,108,90
 ForegroundActive=255,255,255
-ForegroundInactive=41,43,45
+ForegroundInactive=99,104,109
 ForegroundLink=29,153,243
 ForegroundNegative=218,68,83
 ForegroundNeutral=246,116,0
@@ -96,7 +96,7 @@ BackgroundNormal=49,54,59
 DecorationFocus=59,108,90
 DecorationHover=59,108,90
 ForegroundActive=255,255,255
-ForegroundInactive=41,43,45
+ForegroundInactive=99,104,109
 ForegroundLink=29,153,243
 ForegroundNegative=218,68,83
 ForegroundNeutral=246,116,0
@@ -110,7 +110,7 @@ BackgroundNormal=27,30,32
 DecorationFocus=59,108,90
 DecorationHover=59,108,90
 ForegroundActive=255,255,255
-ForegroundInactive=41,43,45
+ForegroundInactive=99,104,109
 ForegroundLink=29,153,243
 ForegroundNegative=218,68,83
 ForegroundNeutral=246,116,0
@@ -124,7 +124,7 @@ BackgroundNormal=42,46,50
 DecorationFocus=59,108,90
 DecorationHover=59,108,90
 ForegroundActive=255,255,255
-ForegroundInactive=41,43,45
+ForegroundInactive=99,104,109
 ForegroundLink=29,153,243
 ForegroundNegative=218,68,83
 ForegroundNeutral=246,116,0
@@ -137,8 +137,11 @@ DirSelectDialog Size=820,584
 History Items[$e]=file:///mnt/hdd/IMPORTANT_MEDIA,file:$HOME/Docs/Notes/PDF,file:$HOME/Docs/Notes/HTML/Atom
 
 [General]
-ColorSchemeHash=06265a29217da25f218e12d969022e6e21d4eeca
+ColorScheme=BreezeDark_MODDED2
+ColorSchemeHash=0e4e48118b691959f33a654866f23165bcb54a48
 LastUsedCustomAccentColor=184,117,220
+TerminalApplication=kitty
+TerminalService=kitty.desktop
 
 [KDE]
 AnimationDurationFactor=0.35355339059327373
@@ -163,7 +166,13 @@ Sort directories first=true
 Sort hidden files last=false
 Sort reversed=false
 Speedbar Width=140
-View Style=Simple
+View Style=Detail
+
+[KScreen]
+ScreenScaleFactors=HDMI-A-1=1;DP-2=1;
+
+[PreviewSettings]
+MaximumRemoteSize=0
 
 [WM]
 activeBackground=49,54,59

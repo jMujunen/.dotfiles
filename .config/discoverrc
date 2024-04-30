@@ -1,6 +1,6 @@
 [FlatpakSources]
-Sources=JagexLauncher,flathub,flathub
+Sources=flathub,JLauncher,JagexLauncher,flathub
 
 [Window]
-geometry=0,0,936,684
+geometry=1920,0,936,684
 visibility=2

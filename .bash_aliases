@@ -15,8 +15,13 @@ if [ "$TERM" == "xterm-kitty" ]; then
 	alias diff='kitty kitten diff'
 fi
 
+alias aliases='alias | bat -l sh -p'
 alias back='cd "$OLDPWD"'
 alias bathelp='bat --plain --language=help'
+alias brightness_max='qdbus6 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl \
+org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness 100'
+alias brightness_low='qdbus6 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl \
+org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness 50'
 alias bte="bte"
 alias cat='bat --style=full'
 #alias cd="{cd};ls -ltupho --group-directories-first"
@@ -58,6 +63,7 @@ alias ll="ls -lph --group-directories-first"
 alias logs="cd_logs"
 alias lscripts="list_scripts"
 alias lsd="ls -d */"
+alias lsblk="lsblk -af"
 #alias ls="ls --color=auto"
 alias lss="ls -Alshr --group-directories-first"
 alias lt="ls -Altr --time=mtime --group-directories-first"
@@ -79,7 +85,7 @@ alias pics='cd_pics'
 alias pyp='cd ~/python/Projects/ && ls -alph --group-directories-first'
 alias psg="ps aux | grep -E"
 alias ps="ps aux"                                                    
-# TODO: alias py='execpython'
+alias py='python3'
 alias rm="rm -I"
 alias sctldr='systemctl daemon-reload'
 alias search="apropos"
