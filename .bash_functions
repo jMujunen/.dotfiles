@@ -6,6 +6,7 @@
 error() {
   echo -e "\033[1;31mError: $*\033[0m" >&2
 }
+
 help() {
     "$@" --help 2>&1 | bathelp
 }
@@ -17,6 +18,23 @@ execpython() {
 		# TODO
 		python3 "$@"
 	fi
+}
+function man() {
+  if [ "$#" -eq 0 ]; then
+    /usr/bin/man --help
+    return 0
+  fi
+  if [ "$#" -eq 1 ]; then
+    if [ "$1" == "-k" ]; then
+      /usr/bin/man -k "$@" | bat -l man -p
+      return 0    
+    fi
+  fi
+  if [ "$#" -gt 1 ]; then
+    /usr/bin/man "$@"
+    return 0
+  fi
+ /usr/bin/man "$@" | bat -l man -p
 }
 
 # Move 'up' in the directory tree $1 amount of times and print pwd each interation
@@ -39,43 +57,30 @@ function up() {
     fi
   done
 }
-function send-sms() {
-  # Load hard coded contacts
-  if [ -e ~/.bash_aliases_ ]; then
-    . ~/.bash_aliases_
-  else
-    error "~/.bash_aliases_ not found"
+function send_sms() {
+  if [ ! -e ~/.bash_aliases_ ]; then
+    echo "~/.bash_aliases_ not found"
     return 1
   fi
+  source ~/.bash_aliases_
 
   if [ "$#" -lt 2 ]; then
-    echo "Usage: send-sms <message> <destination>"
+    echo "Usage: send_sms <message> <contact>"
     return 1
   fi
 
-  local dest
-  case "$2" in
-    "muru")
-      dest="$muru"
-      ;;
-    "me")
-      dest="$me"
-      ;;
-    *)
-      dest="$2"
-      ;;
-  esac
-
-  local msg="$1"
-  local dev_id=$(kdeconnect-cli -l --id-only)
-
-  if [ "$?" -ne 0 ]; then
-    echo -e "\033[1;31m Error: Could not find device with ID \033[0m"
+  local message="$1"
+  local destination="$2"
+  local recipient="${contacts[$destination]}"
+  if [ -z "$recipient" ]; then
+    recipient="$destination"
   fi
-  kdeconnect-cli --send-sms "$msg" --destination "$dest" -d "$dev_id"
+
+  local device_id=$(kdeconnect-cli -l --id-only)
+  kdeconnect-cli --send-sms "$message" --destination "$recipient" -d "$device_id"
 
   if [ "$?" -ne 0 ]; then
-    echo -e "\033[1;31m Error: Could not send SMS \033[0m"
+    echo error "Failed to send SMS"
   else
     echo -e "\033[1;32m Success: SMS sent \033[0m"
   fi
@@ -209,7 +214,7 @@ function ffs() {
     fi
   done
 
-  if [ "$keep" != 'true' ]; then
+  if [[ "$keep" != 'true' ]]; then
     firefox --search "$string" && exit
   fi
   firefox --search "$string" &

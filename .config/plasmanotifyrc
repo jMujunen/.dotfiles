@@ -1,3 +1,6 @@
+[Applications][firefox]
+Seen=true
+
 [Notifications]
 PopupPosition=BottomLeft
 PopupTimeout=3000

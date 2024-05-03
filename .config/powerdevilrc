@@ -4,6 +4,6 @@ DisplayBrightness=100
 TurnOffDisplayWhenIdle=false
 
 [AC][SuspendAndShutdown]
-AutoSuspendIdleTimeoutSec=1800
+AutoSuspendIdleTimeoutSec=7200
 PowerButtonAction=8
 SleepMode=3

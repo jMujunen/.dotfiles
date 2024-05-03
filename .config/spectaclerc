@@ -4,7 +4,7 @@ annotationToolType=8
 [General]
 autoSaveImage=true
 clipboardGroup=PostScreenshotCopyImage
-launchAction=UseLastUsedCapturemode
+launchAction=UseLastUsedCaptureMode
 rememberSelectionRect=Never
 showCaptureInstructions=false
 useReleaseToCapture=true
@@ -12,11 +12,12 @@ useReleaseToCapture=true
 [GuiConfig]
 captureDelay=1
 captureMode=0
+quitAfterSaveCopyExport=true
 
 [ImageSave]
 imageFilenameTemplate=<title>_<MMM><dd>-<yyyy>_<##>
 lastImageSaveAsLocation=file:///home/joona/Pictures/work_timelapse_pic.png
-lastImageSaveLocation=file:///home/joona/Pictures/Screenshots/MMM%3E24-2024_03.png
+lastImageSaveLocation=file:///home/joona/Pictures/Screenshots/MMM%3E30-2024_03-2.png
 translatedScreenshotsFolder=Screenshots
 
 [VideoSave]

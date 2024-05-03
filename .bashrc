@@ -86,6 +86,11 @@ xterm*|rxvt*)
     ;;
 esac
 
+# More colors
+# colored GCC warnings and errors
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export LS_COLORS=$LS_COLORS":ow=33;7"
+
 # Enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -97,14 +102,8 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# More colors
-alias diff='diff --color=auto'
-alias ip='ip -c'
-alias less='less --use-color'
-alias pacman='pacman --color=auto'
-# colored GCC warnings and errors
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-export LS_COLORS=$LS_COLORS":ow=33;7"
+
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -133,7 +132,7 @@ if ! shopt -oq posix; then
 fi
 
 source ~/.bash_aliases
-neofetch
+fastfetch
 
 # Env Vars
 export ANDROID_HOME='/opt/android-sdk'
@@ -142,21 +141,18 @@ export ELECTRON_OZONE_PLATFORM_HINT=wayland
 export GBM_BACKEND=nvidia-drm
 export GDK_BACKEND=wayland
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+#export MANPAGER="sh -c 'col -x | bat -l man -p'"
 export MOZ_ENABLE_WAYLAND=1
 
 export PYTHONPATH=~/Apps/git/matplotlib-backend-kitty/:~/python/modules/:~/python/scripts/:~/python/scripts/bashhelpers/
 export PATH="${PATH}:${ANDROID_HOME}/cmdline-tools/latest/bin"
-export PATH=~/scripts/:~/scripts/graphing/:~/scripts/git_scripts/:$PATH:$PYTHONPATH
+export PATH=~/scripts/:~/scripts/graphing/:~/scripts/git_scripts/:~/.local/bin:$PATH:$PYTHONPATH
 
 export QSG_RENDERER_LOOP=basic
 export QT_ENABLE_HIGHDPI_SCALING=1
 # export QT_PLUGIN_PATH=/usr/lib/qt/plugins
 export QT_QPA_PLATFORM=wayland
 export TESSDATA_PREFIX=/usr/share/tessdata
-
-echo -e "\033[1;32mROOTFS - \033[0m \033[1;33m$(df | grep /dev/nvme0n1p3 | awk '{print $5}')\033[0m"
-echo -e "\033[1;32mMEMORY - \033[0m \033[1;33m$(memory_used)\033[0m"
 
 # Hidden
 if [ -f ~/.bash_aliases_ ]; then
@@ -166,8 +162,11 @@ fi
 if [ -e ~/.bash_functions ]; then
   . ~/.bash_functions
 else
-  error `echo ~/.bash_functions` doesnt exsist
+  error "'echo ~/.bash_functions' doesnt exsist"
 fi
 
 # ^ Git commit notes
 # Cleaned up PATH and PYTHONPATH exports
+
+# Created by `pipx` on 2024-05-01 03:07:36
+export PATH="$PATH"

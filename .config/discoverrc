@@ -1,6 +1,9 @@
+[DiscoverUI]
+installedPageSorting=273
+
 [FlatpakSources]
-Sources=flathub,JLauncher,JagexLauncher,flathub
+Sources=JagexLauncher,flathub,flathub
 
 [Window]
-geometry=1920,0,936,684
-visibility=2
+geometry=1920,0,1920,1056
+visibility=4

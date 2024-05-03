@@ -1,7 +1,12 @@
 # ~/.bash_aliases - Joonas Bash Aliases
 #
 
-# Modular Variables
+# Colors
+alias diff='diff --color=auto'
+alias ip='ip -c'
+#alias less='less --use-color'
+alias pacman='pacman --color=always'
+
 
 # Enable Wayland if not X11
 if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
@@ -15,16 +20,20 @@ if [ "$TERM" == "xterm-kitty" ]; then
 	alias diff='kitty kitten diff'
 fi
 
+alias bathelp='bat --plain --language=help'
+alias batfollow='tail -f "$@" | bat --paging=never'
+alias batless='bat --style=full --paging=always -l less'
+alias pat='bat --style="plain"'
+alias lat='bat --style="auto"'
+alias fat='bat --style="full"'
+
 alias aliases='alias | bat -l sh -p'
 alias back='cd "$OLDPWD"'
-alias bathelp='bat --plain --language=help'
 alias brightness_max='qdbus6 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl \
 org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness 100'
 alias brightness_low='qdbus6 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl \
 org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness 50'
 alias bte="bte"
-alias cat='bat --style=full'
-#alias cd="{cd};ls -ltupho --group-directories-first"
 alias cdl="cd_ls"
 alias cdpy="cd_py"
 alias cls="clear"
@@ -32,13 +41,10 @@ alias code="code"
 alias copy="wl-copy"
 alias cp="cp -iv"
 alias dadjoke='curl https://icanhazdadjoke.com && printf "\n"'
-#alias dir="dir --color=auto"
 alias diskuse="disk_usage"
 alias dl="cd_dl"
 alias docs="cd_docs"
 alias dus="du -ch | sort -h"
-#alias egrep="egrep --color=auto"
-# Aliases
 alias feh="feh -g 1920x1080 -d -S filename --fullscreen --scale-down --output-dir /home/joona/Picture/feh"
 alias ff="firefox &"
 alias ffp="firefox --private-window &"
@@ -46,14 +52,13 @@ alias ffpm="firefox --ProfileManager &"
 alias ffsafe="firefox --safe-mode &"
 alias ffs="ffs"
 alias ffu="firefox --url"
-#alias fgrep="fgrep --color=auto"
 alias getweather='curl wttr.in'
 alias get_weather="python3 /home/joona/python/command_output/weather_widget.py"
-#alias grep="grep --color=auto"
 alias img='kitten icat'
 alias ipy="python3 -m IPython --profile=main"
 alias ipython="python3 -m IPython --profile=main"
-#alias kitty="kitty --detach -T '$@'"
+alias kitty="kitty --detach -T '$@'"
+alias killwine='kill 997 1021 2>/dev/null 1>2;wineserver -k 15;echo done'
 alias kwinDebugConsole='qdbus6 org.kde.KWin /KWin org.kde.KWin.showDebugConsole'
 alias la="ls -lpha --group-directories-first"
 #alias lc="ls -lFgo"
@@ -69,11 +74,10 @@ alias lss="ls -Alshr --group-directories-first"
 alias lt="ls -Altr --time=mtime --group-directories-first"
 alias m="micro"
 alias mail="cat $MAIL/services.log"
-# alias mv="mv -i"
 alias mv="mv -iv"
 alias nano="micro"
 alias notes="notes"
-alias nset="nvidia-settings &"
+alias nset="nvidia-settings >/dev/null 2>&1 &"
 alias obsidian="nohup obsidian $enable_wayland >/dev/null 2>&1 &"
 alias open="xdg-open"
 alias osrshydra="osrs_hydra"
@@ -114,6 +118,8 @@ alias x="exit"
 alias yay="yay --color=always"
 
 
+
+#alias sudo="sudo_function"
 
 # ^ Git commit notes
 # * removed unnecessary `. ~/.bash_functions` calls
