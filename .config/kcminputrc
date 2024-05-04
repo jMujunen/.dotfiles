@@ -9,6 +9,7 @@ RepeatRate=40
 [Libinput][4152][5658][SteelSeries SteelSeries Apex 3 Mouse]
 PointerAcceleration=-0.400
 PointerAccelerationProfile=1
+ScrollFactor=5
 
 [Libinput][4152][6220][SteelSeries SteelSeries Rival 3]
 PointerAcceleration=0.000

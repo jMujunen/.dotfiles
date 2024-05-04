@@ -1,16 +1,12 @@
 # ~/.bash_aliases - Joonas Bash Aliases
 #
 
-# Colors
-alias diff='diff --color=auto'
-alias ip='ip -c'
-#alias less='less --use-color'
-alias pacman='pacman --color=always'
-
+# Variables
+ffid='h76d4ruz.default-release'
 
 # Enable Wayland if not X11
 if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
-  enable_wayland="--enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland"
+	enable_wayland="--enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland"
 fi
 
 if [ -s ~/.bash_functions ]; then
@@ -20,13 +16,19 @@ if [ "$TERM" == "xterm-kitty" ]; then
 	alias diff='kitty kitten diff'
 fi
 
+# -- Colors -- #
+alias diff='diff --color=auto'
+alias ip='ip -c'
+# alias less='less --use-color'
+alias pacman='pacman --color=always'
+
 alias bathelp='bat --plain --language=help'
-alias batfollow='tail -f "$@" | bat --paging=never'
+alias batfollow='tail -f "$@" | bat --pager=always'
 alias batless='bat --style=full --paging=always -l less'
 alias pat='bat --style="plain"'
-alias lat='bat --style="auto"'
+alias lat='bat --style="auto" --pager=none'
 alias fat='bat --style="full"'
-
+alias ini='ini_io_function'
 alias aliases='alias | bat -l sh -p'
 alias back='cd "$OLDPWD"'
 alias brightness_max='qdbus6 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl \
@@ -46,7 +48,7 @@ alias dl="cd_dl"
 alias docs="cd_docs"
 alias dus="du -ch | sort -h"
 alias feh="feh -g 1920x1080 -d -S filename --fullscreen --scale-down --output-dir /home/joona/Picture/feh"
-alias ff="firefox &"
+alias ff="cd ~/.mozilla/firefox/$ffid"
 alias ffp="firefox --private-window &"
 alias ffpm="firefox --ProfileManager &"
 alias ffsafe="firefox --safe-mode &"
@@ -73,7 +75,7 @@ alias lsblk="lsblk -af"
 alias lss="ls -Alshr --group-directories-first"
 alias lt="ls -Altr --time=mtime --group-directories-first"
 alias m="micro"
-alias mail="cat $MAIL/services.log"
+alias mail="failed_services_function"
 alias mv="mv -iv"
 alias nano="micro"
 alias notes="notes"
@@ -88,7 +90,7 @@ alias paste="wl-paste"
 alias pics='cd_pics'
 alias pyp='cd ~/python/Projects/ && ls -alph --group-directories-first'
 alias psg="ps aux | grep -E"
-alias ps="ps aux"                                                    
+alias ps="ps aux"
 alias py='python3'
 alias rm="rm -I"
 alias sctldr='systemctl daemon-reload'
@@ -117,12 +119,9 @@ alias xclip="xclip -selection clipboard"
 alias x="exit"
 alias yay="yay --color=always"
 
-
-
-#alias sudo="sudo_function"
-
 # ^ Git commit notes
-# * removed unnecessary `. ~/.bash_functions` calls
-# * added alias for easy cd to firefox profile
-# * Refactored osrs alias. Being one of the oldest aliases, it was time to clean it up.
-# * Changed name of projects alias. It shorted=better in this case
+# \-------------------/
+
+# TODO:
+# * git aliases
+# * ffs bug fix

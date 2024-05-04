@@ -7,3 +7,7 @@ TurnOffDisplayWhenIdle=false
 AutoSuspendIdleTimeoutSec=7200
 PowerButtonAction=8
 SleepMode=3
+
+[Activities][a4415a8b-943d-426f-a0c5-dfb1ef482737]
+InhibitScreenManagement=false
+InhibitSuspend=false

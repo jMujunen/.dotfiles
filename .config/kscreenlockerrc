@@ -1,3 +1,7 @@
 [Daemon]
 Autolock=false
 LockOnResume=false
+
+[Greeter][Wallpaper][org.kde.image][General]
+Image=/usr/share/wallpapers/Volna/
+PreviewImage=/usr/share/wallpapers/Volna/

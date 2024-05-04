@@ -2,8 +2,8 @@
 installedPageSorting=273
 
 [FlatpakSources]
-Sources=JagexLauncher,flathub,flathub
+Sources=flathub,JagexLauncher,flathub
 
 [Window]
-geometry=1920,0,1920,1056
-visibility=4
+geometry=1920,0,960,1052
+visibility=2

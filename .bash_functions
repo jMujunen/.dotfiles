@@ -2,22 +2,90 @@
 # Joona's Bash Shell Functions #
 ################################
 
-
 error() {
   echo -e "\033[1;31mError: $*\033[0m" >&2
 }
+function failed_services_function() {
+  sudo journalctl -u $MAIL/services.log
+
+}
+# Function for executing 'bat' or 'micro' on a given file based on the option provided.
+# Usage: ini [ -r | -w ] <file>
+# Options:
+#   -r: execute 'bat' on the file
+#   -w: execute 'micro' on the file
+#     - if no option is given, 'bat' is executed on the file
+function ini_io_function() {
+
+  # Print help for usage
+  print_help() {
+    echo "Usage: ini [ -r | -w ] <file>"
+    echo "Options:"
+    echo "  -r: execute 'bat' on the file"
+    echo "  -w: execute 'micro' on the file"
+    echo "    - if no option is given, 'bat' is executed on the file"
+  }
+
+  # Check if the number of arguments is valid
+  if [ "$#" -eq 0 ]; then
+    print_help
+    return 1
+  elif [ "$#" -eq 1 ]; then
+    if [ "$1" == "-r" ] || [ "$1" == "-w" ]; then
+      error "Invalid number of arguments"
+      print_help
+      return 1
+    else
+      if [ -f "$1" ]; then
+        bat -l ini --style=full "$1"
+        return 0
+      else
+        error "File '$1' does not exist"
+        print_help
+        return 1
+      fi
+    fi
+  fi
+  flag="$1"
+  file="$2"
+  shift
+  shift
+  # The following code executes when the number of arguments is over 1
+  if [ $flag == "-r" ]; then
+    if [ ! -f "$file" ]; then
+      error "File '$file' does not exist"
+      return 1
+    fi
+    bat -l ini --style=full "$file"
+    return 0
+
+  elif [ $flag == "-w" ]; then
+    micro -filetype ini "$file"
+    return 0
+
+  else
+    error "Invalid option"
+    print_help
+    return 1
+  fi
+}
 
 help() {
-    "$@" --help 2>&1 | bathelp
+  if [[ "$@" =~ "-f" ]]; then
+    "$@" --help 2>&1 | bathelp -f
+    return 0
+  fi
+  "$@" --help 2>&1 | bathelp
+  return 0
 }
 
 execpython() {
-	if [ "$@" -eq 0 ]; then
-		python3
-	else
-		# TODO
-		python3 "$@"
-	fi
+  if [ "$@" -eq 0 ]; then
+    python3
+  else
+    # TODO
+    python3 "$@"
+  fi
 }
 function man() {
   if [ "$#" -eq 0 ]; then
@@ -27,20 +95,20 @@ function man() {
   if [ "$#" -eq 1 ]; then
     if [ "$1" == "-k" ]; then
       /usr/bin/man -k "$@" | bat -l man -p
-      return 0    
+      return 0
     fi
   fi
   if [ "$#" -gt 1 ]; then
     /usr/bin/man "$@"
     return 0
   fi
- /usr/bin/man "$@" | bat -l man -p
+  /usr/bin/man "$@" | bat -l man -p
 }
 
 # Move 'up' in the directory tree $1 amount of times and print pwd each interation
 function up() {
-  local levels="${1:-1}"  # default to 1 if no argument is provided
-  
+  local levels="${1:-1}" # default to 1 if no argument is provided
+
   while [[ "$levels" -gt 0 ]]; do
     cd .. || {
       error "Failed to go up '$levels' directories"
@@ -88,20 +156,20 @@ function send_sms() {
 
 # List files in '~/scripts'
 function list_scripts() {
-	ll ~/scripts
+  ll ~/scripts
 }
 
 # Change dir, then list dir contents
-function cd_ls () {
-	cd "$@"
-    # Check the number of items in the current directory
-    item_count=$(ls -1 | wc -l)
-	ls -ltupho --group-directories-first
+function cd_ls() {
+  cd "$@"
+  # Check the number of items in the current directory
+  item_count=$(ls -1 | wc -l)
+  ls -ltupho --group-directories-first
 }
 # cd ~/Code/Python then ls
-function cd_py () {
-	cd /home/joona/Code/Python/
-	ls -ltupho --group-directories-first
+function cd_py() {
+  cd /home/joona/Code/Python/
+  ls -ltupho --group-directories-first
 }
 
 function sizeof() {
@@ -120,7 +188,7 @@ function color_cpu_temp() {
   fi
 }
 
-# cd to commonly used directories 
+# cd to commonly used directories
 function notes() {
   cd ~/Docs/Notes/HTML/Atom/
   ls -ltuph --group-directories-first
@@ -138,8 +206,8 @@ function cd_dl() {
   ls -ltuph --group-directories-first
 }
 function cd_pics() {
-	cd ~/Pictures/
-	ls -ltuph --group-directories-first
+  cd ~/Pictures/
+  ls -ltuph --group-directories-first
 }
 function pacman-remove() {
   # Handle arguments
@@ -197,7 +265,7 @@ function bte() {
 }
 function fdisk_less_verbose() {
   fdisk -l --output Device,Size,Type
-  
+
 }
 function osrs_hydra() {
   cd /home/joona/python/macros/
@@ -241,30 +309,30 @@ function code() {
 }
 
 function memory_used() {
-	mem_total=$(free | grep Mem | awk '{print $2}')
-	mem_used=$(free | grep Mem | awk '{print $3}')
-	mem_percent=$(printf "%.0f" $(calc $mem_used/$mem_total*100 | grep -P -o "\d+.*"))
-	echo "$mem_percent%"
+  mem_total=$(free | grep Mem | awk '{print $2}')
+  mem_used=$(free | grep Mem | awk '{print $3}')
+  mem_percent=$(printf "%.0f" $(calc $mem_used/$mem_total*100 | grep -P -o "\d+.*"))
+  echo "$mem_percent%"
 }
 
 # ! NOT FULLY IMPLEMENTED
 # Function to update the time in the prompt
 function update_prompt_time() {
-    local cols=$(tput cols)
-    local time=$(date "+%H:%M")
-    tput cup $((0)) $((cols-5))
-    echo -n $time
+  local cols=$(tput cols)
+  local time=$(date "+%H:%M")
+  tput cup $((0)) $((cols - 5))
+  echo -n $time
 }
 
 function trig() {
-	
-	rad=$(echo "$deg * (4 * a(1) / 180)" | bc -l)  # Convert to radians
-	
-	sin=$(echo "s($rad)" | bc -l)
-	cos=$(echo "c($rad)" | bc -l) 
-	tan=$(echo "s($rad) / c($rad)" | bc -l)
-	
-	echo "Sin($deg): $sin"
-	echo "Cos($deg): $cos"
-	echo "Tan($deg): $tan"
+
+  rad=$(echo "$deg * (4 * a(1) / 180)" | bc -l) # Convert to radians
+
+  sin=$(echo "s($rad)" | bc -l)
+  cos=$(echo "c($rad)" | bc -l)
+  tan=$(echo "s($rad) / c($rad)" | bc -l)
+
+  echo "Sin($deg): $sin"
+  echo "Cos($deg): $cos"
+  echo "Tan($deg): $tan"
 }

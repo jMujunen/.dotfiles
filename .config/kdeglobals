@@ -133,8 +133,8 @@ ForegroundPositive=39,174,96
 ForegroundVisited=155,89,182
 
 [DirSelect Dialog]
-DirSelectDialog Size=820,584
-History Items[$e]=file:$HOME/Pictures,file:///mnt/hdd/IMPORTANT_MEDIA,file:$HOME/Docs/Notes/PDF,file:$HOME/Docs/Notes/HTML/Atom
+DirSelectDialog Size=960,1052
+History Items[$e]=file:///mnt/hdd/IMPORTANT_MEDIA/from_windows/Pictures/Slideshow,file:$HOME/Pictures,file:///mnt/hdd/IMPORTANT_MEDIA,file:$HOME/Docs/Notes/PDF,file:$HOME/Docs/Notes/HTML/Atom
 
 [General]
 ColorScheme=BreezeDark_MODDED2
@@ -142,6 +142,9 @@ ColorSchemeHash=0e4e48118b691959f33a654866f23165bcb54a48
 LastUsedCustomAccentColor=184,117,220
 TerminalApplication=kitty
 TerminalService=kitty.desktop
+XftAntialias=true
+XftHintStyle=hintslight
+XftSubPixel=rgb
 
 [KDE]
 AnimationDurationFactor=0.35355339059327373

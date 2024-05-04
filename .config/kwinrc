@@ -7,19 +7,31 @@ Rows=1
 [Effect-kwin4_effect_pixelate]
 Duration=300
 
+[Effect-overview]
+LayoutMode=0
+OrganizedGrid=false
+
 [Effect-translucency]
 DropdownMenus=11
 PopupMenus=11
 TornOffMenus=10
 
 [MouseBindings]
-CommandAll2=Resize
+CommandAll2=Move
+CommandAllWheel=Previous/Next Desktop
+CommandTitlebarWheel=Above/Below
 
 [Plugins]
+cubeEnabled=true
+desktopchangeosdEnabled=true
+dimscreenEnabled=true
+krohnkiteEnabled=true
 kwin4_effect_pixelateEnabled=true
 kzonesEnabled=true
-quicktilewideEnabled=true
+missionManagerEnabled=true
+quicktilewideEnabled=false
 scaleEnabled=false
+sheetEnabled=true
 translucencyEnabled=true
 truely-maximizedEnabled=true
 
@@ -44,6 +56,9 @@ tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"wi
 
 [Tiling][f267a931-122e-5bdc-ba57-1711b882f960]
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Windows]
+RollOverDesktops=true
 
 [Xwayland]
 Scale=1
