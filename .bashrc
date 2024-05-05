@@ -128,8 +128,6 @@ if ! shopt -oq posix; then
     fi
 fi
 
-fastfetch
-
 # Env Vars
 export ANDROID_HOME='/opt/android-sdk'
 export ANDROID_SDK_ROOT='/opt/android-sdk'
@@ -159,11 +157,12 @@ source ~/.bash_aliases
 if [ -e ~/.bash_functions ]; then
     . ~/.bash_functions
 else
-    error "'echo ~/.bash_functions' doesnt exsist"
+    echo -e "\033[31m'~/.bash_functions' doesnt exist\033[0m"
 fi
-
-# ^ Git commit notes
-# Cleaned up PATH and PYTHONPATH exports
 
 # Created by `pipx` on 2024-05-01 03:07:36
 export PATH="$PATH"
+
+fastfetch -c ~/.config/fastfetch/others/compact.jsonc
+curl https://icanhazdadjoke.com
+printf "\n"

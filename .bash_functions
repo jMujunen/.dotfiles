@@ -5,103 +5,64 @@
 error() {
   echo -e "\033[1;31mError: $*\033[0m" >&2
 }
+
+# Function for viewing and clearing the failed services log.
 function failed_services_function() {
-  sudo journalctl -u $MAIL/services.log
-
-}
-# Function for executing 'bat' or 'micro' on a given file based on the option provided.
-# Usage: ini [ -r | -w ] <file>
-# Options:
-#   -r: execute 'bat' on the file
-#   -w: execute 'micro' on the file
-#     - if no option is given, 'bat' is executed on the file
-function ini_io_function() {
-
-  # Print help for usage
-  print_help() {
-    echo "Usage: ini [ -r | -w ] <file>"
-    echo "Options:"
-    echo "  -r: execute 'bat' on the file"
-    echo "  -w: execute 'micro' on the file"
-    echo "    - if no option is given, 'bat' is executed on the file"
-  }
-
-  # Check if the number of arguments is valid
-  if [ "$#" -eq 0 ]; then
-    print_help
-    return 1
-  elif [ "$#" -eq 1 ]; then
-    if [ "$1" == "-r" ] || [ "$1" == "-w" ]; then
-      error "Invalid number of arguments"
-      print_help
-      return 1
-    else
-      if [ -f "$1" ]; then
-        bat -l ini --style=full "$1"
-        return 0
-      else
-        error "File '$1' does not exist"
-        print_help
-        return 1
-      fi
+  # Check if the services log file exists.
+  if [ -f $MAIL/services.log ]; then
+    # Display the contents of the file using 'bat'.
+    bat --style=auto --paging=always $MAIL/services.log
+    # Prompt the user to clear the log.
+    read -p "Clear the log?: [Y/n]: " -n 1 -sr reply
+    # If the user confirms or provides no input, clear the log file.
+    if [[ $reply =~ ^[Yy]?$|^$ ]]; then
+      echo "" >$MAIL/services.log
+      echo "Log cleared"
     fi
-  fi
-  flag="$1"
-  file="$2"
-  shift
-  shift
-  # The following code executes when the number of arguments is over 1
-  if [ $flag == "-r" ]; then
-    if [ ! -f "$file" ]; then
-      error "File '$file' does not exist"
-      return 1
-    fi
-    bat -l ini --style=full "$file"
-    return 0
-
-  elif [ $flag == "-w" ]; then
-    micro -filetype ini "$file"
-    return 0
-
-  else
-    error "Invalid option"
-    print_help
-    return 1
   fi
 }
 
 help() {
   if [[ "$@" =~ "-f" ]]; then
+    # Redirect stderr to stdout and pipe the output to
+    # 'bathelp -f' to display the help message in formatted mode.
     "$@" --help 2>&1 | bathelp -f
-    return 0
+  else
+    "$@" --help 2>&1 | bathelp
   fi
-  "$@" --help 2>&1 | bathelp
   return 0
 }
 
-execpython() {
-  if [ "$@" -eq 0 ]; then
-    python3
-  else
-    # TODO
-    python3 "$@"
-  fi
-}
+# TODO
+#execpython() {
+#  if [ "$@" -eq 0 ]; then
+#    python3
+#  else
+#    python3 "$@"
+#  fi
+#}
+
+# Formatting man pages with bat
 function man() {
+  # Argument validation
   if [ "$#" -eq 0 ]; then
     /usr/bin/man --help
     return 0
   fi
+
+  # Preserve `-k` option for searching man pages
   if [ "$#" -eq 1 ]; then
     if [ "$1" == "-k" ]; then
       /usr/bin/man -k "$@" | bat -l man -p
       return 0
     fi
   fi
+
   if [ "$#" -gt 1 ]; then
     /usr/bin/man "$@"
     return 0
   fi
+
   /usr/bin/man "$@" | bat -l man -p
 }
 
@@ -172,11 +133,12 @@ function cd_py() {
   ls -ltupho --group-directories-first
 }
 
-function sizeof() {
-  output=$(du $1 | tail -1 | sed -n -E 's/^([0-9]{3,10}).*$/\1/p' | awk '{print $1 /  1000000} ')
-  rounded_output=$(printf "%.3f" $output)
-  printf "$rounded_output GB\n"
-}
+# ^ Depreciated
+#function sizeof() {
+#  output=$(du $1 | tail -1 | sed -n -E 's/^([0-9]{3,10}).*$/\1/p' | awk '{print $1 /  1000000} ')
+#  rounded_output=$(printf "%.3f" $output)
+#  printf "$rounded_output GB\n"
+#}
 
 function color_cpu_temp() {
   output=$(sensors | grep 'Package id 0:' | sed -E 's/.*([0-9]{2}\.[0-9].C[^,\)]).*/\1/')
@@ -264,7 +226,9 @@ function bte() {
   fi
 }
 function fdisk_less_verbose() {
-  fdisk -l --output Device,Size,Type
+  sudo fdisk -l --output Device,Size,Type
+  # TODO
+  # * Colorize output
 
 }
 function osrs_hydra() {
@@ -273,7 +237,7 @@ function osrs_hydra() {
 }
 function ffs() {
   for arg in "$@"; do
-    if [ "$arg" == "--keep"]; then
+    if [[ "$arg" == "--keep" ]]; then
       local keep='true'
       firefox --search "$string" &
     else
@@ -286,6 +250,7 @@ function ffs() {
     firefox --search "$string" && exit
   fi
   firefox --search "$string" &
+  return 0
 }
 
 function disk_usage() {

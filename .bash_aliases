@@ -28,7 +28,6 @@ alias batless='bat --style=full --paging=always -l less'
 alias pat='bat --style="plain"'
 alias lat='bat --style="auto" --pager=none'
 alias fat='bat --style="full"'
-alias ini='ini_io_function'
 alias aliases='alias | bat -l sh -p'
 alias back='cd "$OLDPWD"'
 alias brightness_max='qdbus6 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl \
@@ -43,7 +42,7 @@ alias code="code"
 alias copy="wl-copy"
 alias cp="cp -iv"
 alias dadjoke='curl https://icanhazdadjoke.com && printf "\n"'
-alias diskuse="disk_usage"
+alias duse="disk_usage"
 alias dl="cd_dl"
 alias docs="cd_docs"
 alias dus="du -ch | sort -h"
@@ -88,6 +87,7 @@ alias osrsping="gping -c cyan oldschool78.runescape.com"
 alias pacrm="pacman-remove"
 alias paste="wl-paste"
 alias pics='cd_pics'
+#alias printenv='/bin/sh ~/scripts/printenv_color.sh | sort'
 alias pyp='cd ~/python/Projects/ && ls -alph --group-directories-first'
 alias psg="ps aux | grep -E"
 alias ps="ps aux"
@@ -118,10 +118,3 @@ alias workspace_python="vscodium $enable_wayland ~/Code/Workspace/Python.code-wo
 alias xclip="xclip -selection clipboard"
 alias x="exit"
 alias yay="yay --color=always"
-
-# ^ Git commit notes
-# \-------------------/
-
-# TODO:
-# * git aliases
-# * ffs bug fix

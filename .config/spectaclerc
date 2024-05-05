@@ -17,7 +17,7 @@ quitAfterSaveCopyExport=true
 [ImageSave]
 imageFilenameTemplate=<title>_<MMM><dd>-<yyyy>_<##>
 lastImageSaveAsLocation=file:///home/joona/Pictures/work_timelapse_pic.png
-lastImageSaveLocation=file:///home/joona/Pictures/Screenshots/MMM%3E30-2024_03-2.png
+lastImageSaveLocation=file:///home/joona/Pictures/Screenshots/MMM%3E04-2024_01.png
 translatedScreenshotsFolder=Screenshots
 
 [VideoSave]

@@ -44,7 +44,7 @@ Log Out Without Confirmation=none,none,Log Out Without Confirmation
 Reboot=none,none,Reboot
 Reboot Without Confirmation=Meta+Ctrl+Shift+R,none,Reboot Without Confirmation
 Shut Down=none,none,Shut Down
-_k_friendly_name=Session Management
+_k_friendly_name=KWin
 
 [kwin]
 Activate Window Demanding Attention=Meta+Ctrl+A,Meta+Ctrl+A,Activate Window Demanding Attention
