@@ -6,8 +6,8 @@ error() {
   echo -e "\033[1;31mError: $*\033[0m" >&2
 }
 
-# Function for viewing and clearing the failed services log.
-function failed_services_function() {
+# for viewing and clearing the failed services log.
+failed_services_function() {
   # Check if the services log file exists.
   if [ -f $MAIL/services.log ]; then
     # Display the contents of the file using 'bat'.
@@ -43,7 +43,7 @@ help() {
 #}
 
 # Formatting man pages with bat
-function man() {
+man() {
   # Argument validation
   if [ "$#" -eq 0 ]; then
     /usr/bin/man --help
@@ -67,7 +67,7 @@ function man() {
 }
 
 # Move 'up' in the directory tree $1 amount of times and print pwd each interation
-function up() {
+up() {
   local levels="${1:-1}" # default to 1 if no argument is provided
 
   while [[ "$levels" -gt 0 ]]; do
@@ -86,7 +86,7 @@ function up() {
     fi
   done
 }
-function send_sms() {
+send_sms() {
   if [ ! -e ~/.bash_aliases_ ]; then
     echo "~/.bash_aliases_ not found"
     return 1
@@ -116,31 +116,31 @@ function send_sms() {
 }
 
 # List files in '~/scripts'
-function list_scripts() {
+list_scripts() {
   ll ~/scripts
 }
 
 # Change dir, then list dir contents
-function cd_ls() {
+cd_ls() {
   cd "$@"
   # Check the number of items in the current directory
   item_count=$(ls -1 | wc -l)
   ls -ltupho --group-directories-first
 }
 # cd ~/Code/Python then ls
-function cd_py() {
+cd_py() {
   cd /home/joona/Code/Python/
   ls -ltupho --group-directories-first
 }
 
 # ^ Depreciated
-#function sizeof() {
+#sizeof() {
 #  output=$(du $1 | tail -1 | sed -n -E 's/^([0-9]{3,10}).*$/\1/p' | awk '{print $1 /  1000000} ')
 #  rounded_output=$(printf "%.3f" $output)
 #  printf "$rounded_output GB\n"
 #}
 
-function color_cpu_temp() {
+color_cpu_temp() {
   output=$(sensors | grep 'Package id 0:' | sed -E 's/.*([0-9]{2}\.[0-9].C[^,\)]).*/\1/')
   rounded_output=$(printf "%.f" $output)
   if [ "$output" -gt "80" ]; then
@@ -151,27 +151,27 @@ function color_cpu_temp() {
 }
 
 # cd to commonly used directories
-function notes() {
+notes() {
   cd ~/Docs/Notes/HTML/Atom/
   ls -ltuph --group-directories-first
 }
-function cd_logs() {
+cd_logs() {
   cd ~/Logs/
   ls -ltuph --group-directories-first
 }
-function cd_docs() {
+cd_docs() {
   cd ~/Docs/
   ls -ltuph --group-directories-first
 }
-function cd_dl() {
+cd_dl() {
   cd ~/Downloads/
   ls -ltuph --group-directories-first
 }
-function cd_pics() {
+cd_pics() {
   cd ~/Pictures/
   ls -ltuph --group-directories-first
 }
-function pacman-remove() {
+pacman-remove() {
   # Handle arguments
   if [ -z "$1" ]; then
     echo "Usage: pacman-remove <package>"
@@ -192,7 +192,7 @@ function pacman-remove() {
 }
 
 # Auto Bluetooth Connections
-function bte() {
+bte() {
   SonyXM4="F8:4E:17:B5:0E:8D"
   # Check for null pointer references and handle exceptions
   if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
@@ -225,39 +225,36 @@ function bte() {
     echo -e "\033[38;2;33;129;158mDisconnected Successfully\033[0m"
   fi
 }
-function fdisk_less_verbose() {
+fdisk_less_verbose() {
   sudo fdisk -l --output Device,Size,Type
   # TODO
   # * Colorize output
 
 }
-function osrs_hydra() {
+osrs_hydra() {
   cd /home/joona/python/macros/
   sudo python3 count_hydra_attacks.py
 }
-function ffs() {
+ffs() {
+  string=""
   for arg in "$@"; do
     if [[ "$arg" == "--keep" ]]; then
-      local keep='true'
-      firefox --search "$string" &
+      firefox --search "$string" >/dev/null 2>&1 &
+      return 0
     else
-      local keep='false'
-      string="$string $arg"
+      string=$string $arg
     fi
   done
 
-  if [[ "$keep" != 'true' ]]; then
-    firefox --search "$string" && exit
-  fi
-  firefox --search "$string" &
+  firefox --search "$string" >/dev/null 2>&1 && exit
   return 0
 }
 
-function disk_usage() {
+disk_usage() {
   df -Ph | awk '{printf "%-16s %-8s %-10s\n", $1, $5, $6}'
 }
 
-function code() {
+code() {
   for arg in "$@"; do
     if [ "$arg" == "--keep" ]; then
       local keep='true'
@@ -273,7 +270,7 @@ function code() {
   fi
 }
 
-function memory_used() {
+memory_used() {
   mem_total=$(free | grep Mem | awk '{print $2}')
   mem_used=$(free | grep Mem | awk '{print $3}')
   mem_percent=$(printf "%.0f" $(calc $mem_used/$mem_total*100 | grep -P -o "\d+.*"))
@@ -281,23 +278,10 @@ function memory_used() {
 }
 
 # ! NOT FULLY IMPLEMENTED
-# Function to update the time in the prompt
-function update_prompt_time() {
+# to update the time in the prompt
+update_prompt_time() {
   local cols=$(tput cols)
   local time=$(date "+%H:%M")
   tput cup $((0)) $((cols - 5))
   echo -n $time
-}
-
-function trig() {
-
-  rad=$(echo "$deg * (4 * a(1) / 180)" | bc -l) # Convert to radians
-
-  sin=$(echo "s($rad)" | bc -l)
-  cos=$(echo "c($rad)" | bc -l)
-  tan=$(echo "s($rad) / c($rad)" | bc -l)
-
-  echo "Sin($deg): $sin"
-  echo "Cos($deg): $cos"
-  echo "Tan($deg): $tan"
 }
