@@ -9,6 +9,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME=random # set by `omz`
+#ZSH_THEME=agnoster # set by `omz`
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -70,7 +71,7 @@ HIST_STAMPS="yyyy/mm/dd"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git colored-man-pages colorize)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -97,42 +98,8 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 
-# <-- CUSTOM --> #
-# Env Vars
-export ANDROID_HOME='/opt/android-sdk'
-export ANDROID_SDK_ROOT='/opt/android-sdk'
-export ELECTRON_OZONE_PLATFORM_HINT=wayland
-export GBM_BACKEND=nvidia-drm
-export GDK_BACKEND=wayland
-export __GLX_VENDOR_LIBRARY_NAME=nvidia
-#export MANPAGER="sh -c 'col -x | bat -l man -p'"
-export MOZ_ENABLE_WAYLAND=1
-
-export PYTHONPATH=~/Apps/git/matplotlib-backend-kitty/:~/python/modules/:~/python/scripts/:~/python/scripts/bashhelpers/
-export PATH="${PATH}:${ANDROID_HOME}/cmdline-tools/latest/bin"
-export PATH=~/scripts/:~/scripts/graphing/:~/scripts/git_scripts/:~/.local/bin:$PATH:$PYTHONPATH
-
-export QSG_RENDERER_LOOP=basic
-export QT_ENABLE_HIGHDPI_SCALING=1
-# export QT_PLUGIN_PATH=/usr/lib/qt/plugins
-export QT_QPA_PLATFORM=wayland
-export TESSDATA_PREFIX=/usr/share/tessdata
-
-# Hidden
-if [ -f ~/.bash_aliases_ ]; then
-    . ~/.bash_aliases_
+# Use this file for configurations shared between zsh and bash
+if [ -f ../.shellrc ]; then
+    source ../.shellrc
+    echo "Loaded ../.shellrc"
 fi
-source ~/.bash_aliases
-
-if [ -e ~/.bash_functions ]; then
-    . ~/.bash_functions
-else
-    echo -e "\033[31m'~/.bash_functions' doesnt exist\033[0m"
-fi
-
-# Created by `pipx` on 2024-05-01 03:07:36
-export PATH="$PATH"
-
-fastfetch -c ~/.config/fastfetch/others/compact.jsonc
-curl https://icanhazdadjoke.com
-printf "\n"
