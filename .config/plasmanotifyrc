@@ -1,9 +1,0 @@
-[Applications][firefox]
-Seen=true
-
-[Notifications]
-PopupPosition=BottomLeft
-PopupTimeout=3000
-
-[Services][plasma_workspace]
-ShowPopups=false
