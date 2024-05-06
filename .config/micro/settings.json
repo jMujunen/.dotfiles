@@ -1,3 +1,6 @@
 {
-    "colorscheme": "one-dark"
+    "autosu": true,
+    "colorscheme": "gruvbox",
+    "hlsearch": true,
+    "matchbracestyle": "highlight"
 }

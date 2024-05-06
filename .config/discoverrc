@@ -2,7 +2,7 @@
 installedPageSorting=273
 
 [FlatpakSources]
-Sources=flathub,JagexLauncher,flathub
+Sources=flathub,JLauncher,JagexLauncher,flathub
 
 [Window]
 geometry=1920,0,960,1052
