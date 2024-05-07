@@ -1,0 +1,57 @@
+# Env Vars
+export ANDROID_HOME='/opt/android-sdk'
+export ANDROID_SDK_ROOT='/opt/android-sdk'
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
+export GBM_BACKEND=nvidia-drm
+export GDK_BACKEND=wayland
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+#export MANPAGER="sh -c 'col -x | bat -l man -p'"
+export MOZ_ENABLE_WAYLAND=1
+
+export PYTHONPATH=~/Apps/git/matplotlib-backend-kitty/:~/python/modules/:~/python/scripts/:~/python/scripts/bashhelpers/
+export PATH="${PATH}:${ANDROID_HOME}/cmdline-tools/latest/bin"
+export PATH=~/.dotfiles/:~/scripts/:~/scripts/graphing/:~/scripts/git_scripts/:~/.local/bin:$PATH:$PYTHONPATH
+
+export QSG_RENDERER_LOOP=basic
+export QT_ENABLE_HIGHDPI_SCALING=1
+# export QT_PLUGIN_PATH=/usr/lib/qt/plugins
+export QT_QPA_PLATFORM=wayland
+export TESSDATA_PREFIX=/usr/share/tessdata
+
+# Created by `pipx` on 2024-05-01 03:07:36
+export PATH="$PATH"
+
+# =================================================================#
+
+if [ -f ~/.bash_aliases_ ]; then
+    . ~/.bash_aliases_
+elif [ -f ~/.dotfiles/.bash_aliases_ ]; then
+    . ~/.dotfiles/.bash_aliases_
+else
+    echo -e "\033[31m'.bash_aliases_' doesnt exist in ~/\033[0m"
+fi
+
+# =================================================================#
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+elif [ -f ~/.dotfiles/.bash_aliases ]; then
+    . ~/.dotfiles/.bash_aliases
+else
+    echo -e "\033[31m'.bash_aliases' doesnt exist in ~/\033[0m"
+fi
+# =================================================================#
+
+if [ -f ~/.bash_functions ]; then
+    . ~/.bash_functions
+elif [ -f ~/.dotfiles/.bash_functions ]; then
+    . ~/.dotfiles/.bash_functions
+else
+    echo -e "\033[31m'.bash_functions' doesnt exist in ~/\033[0m"
+fi
+
+# =================================================================#
+
+fastfetch --color 32 -c ~/.config/fastfetch/others/compact-mod.jsonc
+curl https://icanhazdadjoke.com
+echo ""
