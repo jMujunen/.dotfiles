@@ -97,7 +97,7 @@ alias py='python3'
 alias rm="rm -I"
 alias sctldr='systemctl daemon-reload'
 alias search="apropos"
-alias send-sms="send-sms"
+alias send-sms="sendsms"
 alias sizeof="python3 ~/python/scripts/bashhelpers/sizeof.py"
 # alias sp="spotify --show-console --log-file=Logs/spotify.log &"
 alias sudonset="sudo nvidia-settings &"

@@ -93,12 +93,10 @@ cd_up() {
     fi
   done
 }
-send_sms() {
-  if [ ! -e ~/.bash_aliases_ ]; then
-    echo "~/.bash_aliases_ not found"
-    return 1
-  fi
-  source ~/.bash_aliases_
+sendsms() {
+  source ~/.bash_aliases_ 2>/dev/null || source ~/.dotfiles/.bash_aliases_ || {
+    error "Failed to source ~/.bash_aliases_ or ~/.dotfiles/.bash_aliases_" && return 1
+  }
 
   if [ "$#" -lt 2 ]; then
     echo "Usage: send_sms <message> <contact>"
@@ -115,7 +113,7 @@ send_sms() {
   local device_id=$(kdeconnect-cli -l --id-only)
   kdeconnect-cli --send-sms "$message" --destination "$recipient" -d "$device_id"
 
-  if [ "$?" -ne 0 ]; then
+  if [[ "$?" -ne 0 ]]; then
     echo error "Failed to send SMS"
   else
     echo -e "\033[1;32m Success: SMS sent \033[0m"

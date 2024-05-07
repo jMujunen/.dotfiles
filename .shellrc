@@ -8,7 +8,7 @@ export __GLX_VENDOR_LIBRARY_NAME=nvidia
 #export MANPAGER="sh -c 'col -x | bat -l man -p'"
 export MOZ_ENABLE_WAYLAND=1
 
-export PYTHONPATH=~/Apps/git/matplotlib-backend-kitty/:~/python/modules/:~/python/scripts/:~/python/scripts/bashhelpers/
+export PYTHONPATH=~/Apps/git/matplotlib-backend-kitty/:~/python/modules/:~/python/scripts/:~/python/scripts/bashhelpers/:~/python/scripts/bashhelpers/ColorizeOutput/
 export PATH="${PATH}:${ANDROID_HOME}/cmdline-tools/latest/bin"
 export PATH=~/.dotfiles/:~/scripts/:~/scripts/graphing/:~/scripts/git_scripts/:~/.local/bin:$PATH:$PYTHONPATH
 
