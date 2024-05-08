@@ -9,7 +9,7 @@ error() {
 # for viewing and clearing the failed services log.
 failed_services_function() {
   # Check if the services log file exists.
-  if [ -f $MAIL/services.log ]; then
+  if [[ -f $MAIL/services.log ]]; then
     # Display the contents of the file using 'bat'.
     bat --style=auto --paging=always $MAIL/services.log
     # Prompt the user to clear the log.
@@ -42,7 +42,7 @@ help() {
 
 # TODO
 #execpython() {
-#  if [ "$@" -eq 0 ]; then
+#  if [[ "$@" -eq 0 ]]; then
 #    python3
 #  else
 #    python3 "$@"
@@ -52,20 +52,20 @@ help() {
 # Formatting man pages with bat
 man_color() {
   # Argument validation
-  if [ "$#" -eq 0 ]; then
+  if [[ "$#" -eq 0 ]]; then
     /usr/bin/man --help
     return 0
   fi
 
   # Preserve `-k` option for searching man pages
-  if [ "$#" -eq 1 ]; then
-    if [ "$1" == "-k" ]; then
+  if [[ "$#" -eq 1 ]]; then
+    if [[ "$1" == "-k" ]]; then
       /usr/bin/man -k "$@" | bat -l man -p
       return 0
     fi
   fi
 
-  if [ "$#" -gt 1 ]; then
+  if [[ "$#" -gt 1 ]]; then
     /usr/bin/man "$@"
     return 0
   fi
@@ -98,22 +98,36 @@ sendsms() {
     error "Failed to source ~/.bash_aliases_ or ~/.dotfiles/.bash_aliases_" && return 1
   }
 
-  if [ "$#" -lt 2 ]; then
+  if [[ "$#" -lt 2 ]]; then
     echo "Usage: send_sms <message> <contact>"
     return 1
   fi
 
-  local message="$1"
-  local destination="$2"
-  local recipient="${contacts[$destination]}"
-  if [ -z "$recipient" ]; then
-    recipient="$destination"
+  local dest
+  case "$2" in
+  "muru")
+    dest="$muru"
+    ;;
+  "me")
+    dest="$me"
+    ;;
+  *)
+    dest="$2"
+    ;;
+  esac
+
+  local msg="$1"
+  local recipient="${contacts[$dest]}"
+  if [[ -z "$recipient" ]]; then
+    recipient="$dest"
   fi
 
   local device_id=$(kdeconnect-cli -l --id-only)
-  kdeconnect-cli --send-sms "$message" --destination "$recipient" -d "$device_id"
+  echo -e "\033[1;33m Sending SMS to: \033[0m \033[1;32m$recipient\033[0m on device: \033[1;35m $device_id \033[0m"
+  echo -e "\033[1;33m Message: $message \033[0m"
+  kdeconnect-cli --send-sms "$msg" --destination "$recipient" -d "$device_id"
 
-  if [[ "$?" -ne 0 ]]; then
+  if [ "$?" -ne 0 ]; then
     echo error "Failed to send SMS"
   else
     echo -e "\033[1;32m Success: SMS sent \033[0m"
@@ -148,7 +162,7 @@ cd_py() {
 color_cpu_temp() {
   output=$(sensors | grep 'Package id 0:' | sed -E 's/.*([0-9]{2}\.[0-9].C[^,\)]).*/\1/')
   rounded_output=$(printf "%.f" $output)
-  if [ "$output" -gt "80" ]; then
+  if [[ "$output" -gt "80" ]]; then
     echo -e "\033[1;31m$rounded_output\033[0m"
   else
     echo -e "\033[1;32m$rounded_output\033[0m"
@@ -178,14 +192,14 @@ cd_pics() {
 }
 pacman-remove() {
   # Handle arguments
-  if [ -z "$1" ]; then
+  if [[ -z "$1" ]]; then
     echo "Usage: pacman-remove <package>"
     return 1
   fi
 
   read -p "Do you want keep configs for $1? [y/N] " answer
 
-  if [ -z "$answer" ]; then
+  if [[ -z "$answer" ]]; then
     sudo pacman -Rsnuv --color=always "$1"
   else
     sudo pacman -Rsuv --color=always "$1"
@@ -200,20 +214,20 @@ pacman-remove() {
 bte_function() {
   SonyXM4="F8:4E:17:B5:0E:8D"
   # Check for null pointer references and handle exceptions
-  if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
+  if [[ "$1" == "--help" ]] || [[ "$1" == "-h" ]]; then
     echo "Usage: bte [connect|disconnect]"
     return 1
   fi
-  if [ -z "$1" ]; then
+  if [[ -z "$1" ]]; then
     bluetoothctl
   fi
 
-  if [ "$1" != "connect" ] && [ "$1" != "disconnect" ]; then
+  if [[ "$1" != "connect" ]] && [[ "$1" != "disconnect" ]]; then
     echo "Usage: bte [connect|disconnect]"
     return 1
   fi
 
-  if [ "$1" == "connect" ]; then
+  if [[ "$1" == "connect" ]]; then
     echo -e "\033[38;2;33;129;158mConnecting to $SonyXM4...\033[0m"
     if ! bluetoothctl connect "$SonyXM4"; then
       error "Failed to connect to $SonyXM4"
@@ -221,7 +235,7 @@ bte_function() {
     fi
     echo -e "\033[38;2;33;129;158mConnected Successfully\033[0m"
 
-  elif [ "$1" == "disconnect" ]; then
+  elif [[ "$1" == "disconnect" ]]; then
     echo -e "\033[38;2;33;129;158mDisconnecting from $SonyXM4...\033[0m"
     if ! bluetoothctl disconnect "$SonyXM4"; then
       error "Failed to disconnect from $SonyXM4"
@@ -240,20 +254,22 @@ osrs_hydra() {
   cd /home/joona/python/macros/
   sudo python3 count_hydra_attacks.py
 }
-firefox_search() {
-  string=""
-  for arg in "$@"; do
-    if [[ "$arg" == "--keep" ]]; then
-      firefox --search "$string" >/dev/null 2>&1 &
-      return 0
-    else
-      string=$string $arg
-    fi
-  done
+# firefox_search() {
+#   string=""
+#   for arg in $@; do
+#     if [[ "$arg" == "--keep" ]]; then
+#       firefox --search "$string" >/dev/null 2>&1 &
+#       return 0
+#     else
+#       string=$string $arg
+#       echo $string
+#       read
+#     fi
+#   done
 
-  firefox --search "$string" >/dev/null 2>&1 && exit
-  return 0
-}
+#   firefox --search "$string" >/dev/null 2>&1 && exit
+#   return 0
+# }
 
 disk_usage() {
   df -Ph | awk '{printf "%-16s %-8s %-10s\n", $1, $5, $6}'
@@ -261,14 +277,14 @@ disk_usage() {
 
 vscode() {
   for arg in "$@"; do
-    if [ "$arg" == "--keep" ]; then
+    if [[ "$arg" == "--keep" ]]; then
       local keep='true'
     else
       local keep='false'
       string="$string $arg"
     fi
   done
-  if [ "$keep" != 'true' ]; then
+  if [[ "$keep" != 'true' ]]; then
     vscodium $enable_wayland $string && exit
   else
     vscodium $enable_wayland $string &
@@ -282,11 +298,15 @@ memory_used() {
   echo "$mem_percent%"
 }
 
-# ! NOT FULLY IMPLEMENTED
-# to update the time in the prompt
-update_prompt_time() {
-  local cols=$(tput cols)
-  local time=$(date "+%H:%M")
-  tput cup $((0)) $((cols - 5))
-  echo -n $time
+s_functions() {
+
 }
+
+# # ! NOT FULLY IMPLEMENTED
+# # to update the time in the prompt
+# update_prompt_time() {
+#   local cols=$(tput cols)
+#   local time=$(date "+%H:%M")
+#   tput cup $((0)) $((cols - 5))
+#   echo -n $time
+# }

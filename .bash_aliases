@@ -44,7 +44,7 @@ alias code="vscodium $enable_wayland $string"
 alias copy="wl-copy"
 alias cp="cp -iv"
 alias dadjoke='curl https://icanhazdadjoke.com && printf "\n"'
-alias duse="disk_usage"
+alias du="disk_usage"
 alias dl="cd_dl"
 alias docs="cd_docs"
 alias dus="du -ch | sort -h"
@@ -53,7 +53,7 @@ alias ff="cd ~/.mozilla/firefox/$ffid"
 alias ffp="firefox --private-window &"
 alias ffpm="firefox --ProfileManager &"
 alias ffsafe="firefox --safe-mode &"
-alias ffs="firefox_search"
+alias ffs="s --provider duckduckgo"
 alias ffu="firefox --url"
 alias getweather='curl wttr.in'
 alias get_weather="python3 /home/joona/python/command_output/weather_widget.py"
@@ -71,7 +71,7 @@ alias ll="ls -lph --group-directories-first"
 alias logs="cd_logs"
 alias lscripts="list_scripts"
 alias lsd="ls -d */"
-alias lsblk="lsblk -af"
+alias lsblkc='python3 ~/python/scripts/bashhelpers/ColorizeOutput/lsblk.py'
 #alias ls="ls --color=auto"
 alias lss="ls -Alshr --group-directories-first"
 alias lt="ls -Altr --time=mtime --group-directories-first"
@@ -86,23 +86,17 @@ alias open="xdg-open"
 alias osrshydra="osrs_hydra"
 alias osrs="flatpak run com.jagexlauncher.JagexLauncher 2>/dev/null & disown"
 alias osrsping="gping -c cyan oldschool78.runescape.com"
-alias pacrm="pacman-remove"
 alias paste="wl-paste"
 alias pics='cd_pics'
-#alias printenv='/bin/sh ~/scripts/printenv_color.sh | sort'
+alias printenv='/bin/sh ~/scripts/printenv_color.sh | sort'
 alias pyp='cd ~/python/Projects/ && ls -alph --group-directories-first'
 alias psg="ps aux | grep -E"
 alias ps="ps aux"
 alias py='python3'
 alias rm="rm -I"
-alias sctldr='systemctl daemon-reload'
-alias search="apropos"
-alias send-sms="sendsms"
+alias sms="sendsms"
 alias sizeof="python3 ~/python/scripts/bashhelpers/sizeof.py"
-# alias sp="spotify --show-console --log-file=Logs/spotify.log &"
-alias sudonset="sudo nvidia-settings &"
 alias sunset="openrgb -p sunset &"
-alias tnew="tmux new -s"
 alias up="cd_up"
 #alias vdir="vdir --color=auto"
 alias venv='source venv/bin/activate'
@@ -114,9 +108,11 @@ alias workspace_ella="vscodium $enable_wayland ~/Code/Workspace/data_entry.code-
 alias workspace_html="vscodium $enable_wayland ~/Code/Workspace/html.code-workspace && exit"
 alias workspace_hwinfo="vscodium $enable_wayland ~/Code/Workspace/py_hwinfo.code-workspace && exit"
 alias workspace_pi="vscodium $enable_wayland ~/Code/Workspace/RPi.code-workspace && exit"
-alias workspace_psg="vscodium $enable_wayland ~/Code/Workspace/PySimpleGUI.code-workspace && exit"
-alias workspace_pyside6="vscodium $enable_wayland ~/Code/Workspace/pyside6.code-workspace && exit"
 alias workspace_python="vscodium $enable_wayland ~/Code/Workspace/Python.code-workspace && exit"
 alias xclip="xclip -selection clipboard"
 alias x="exit"
 alias yay="yay --color=always"
+alias s='s_wrapper'
+alias root='sudo --preserve-env -s'
+
+# Arch Linux Specific
