@@ -112,7 +112,7 @@ alias workspace_python="vscodium $enable_wayland ~/Code/Workspace/Python.code-wo
 alias xclip="xclip -selection clipboard"
 alias x="exit"
 alias yay="yay --color=always"
-alias s='s_wrapper'
+alias s='s --provider duckduckgo'
 alias root='sudo --preserve-env -s'
 
 # Arch Linux Specific

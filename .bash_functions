@@ -121,11 +121,14 @@ sendsms() {
   if [[ -z "$recipient" ]]; then
     recipient="$dest"
   fi
-
+  if [[ "$mesg" == "joke" ]]; then
+    dadjoke="$(curl -s https://icanhazdadjoke.com/)"
+    msg="$dadjoke"
+  fi
   local device_id=$(kdeconnect-cli -l --id-only)
-  echo -e "\033[1;33m Sending SMS to: \033[0m \033[1;32m$recipient\033[0m on device: \033[1;35m $device_id \033[0m"
-  echo -e "\033[1;33m Message: $message \033[0m"
-  kdeconnect-cli --send-sms "$msg" --destination "$recipient" -d "$device_id"
+  echo -e "Sending SMS to: \033[1;32m "$recipient" \033[0m on device: \033[1;35m $device_id \033[0m"
+  echo -e "\033[1;33m Message:\033[0m "$msg""
+  kdeconnect-cli --send-sms "$dadjoke" --destination "$recipient" -d "$device_id"
 
   if [ "$?" -ne 0 ]; then
     echo error "Failed to send SMS"
@@ -298,8 +301,9 @@ memory_used() {
   echo "$mem_percent%"
 }
 
-s_functions() {
-
+s_wrapper() {
+  s --provider duckduckgo "$@"
+  return 0
 }
 
 # # ! NOT FULLY IMPLEMENTED
