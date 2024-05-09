@@ -16,13 +16,14 @@ elif [[ -s ~/.dotfiles/.bash_functions ]]; then
 fi
 if [[ "$TERM" == "xterm-kitty" ]]; then
 	alias diff='kitty kitten diff'
+else
+	alias diff='diff --color=auto'
 fi
 
 # -- Colors -- #
-alias diff='diff --color=auto'
 alias ip='ip -c'
 # alias less='less --use-color'
-alias pacman='pacman --color=always'
+alias pacman='sudo pacman --color=always'
 
 alias bathelp='bat --plain --language=help'
 alias batfollow='tail -f "$@" | bat --pager=always'
@@ -44,7 +45,7 @@ alias code="vscodium $enable_wayland $string"
 alias copy="wl-copy"
 alias cp="cp -iv"
 alias dadjoke='curl https://icanhazdadjoke.com && printf "\n"'
-alias du="disk_usage"
+#alias du="disk_usage"
 alias dl="cd_dl"
 alias docs="cd_docs"
 alias dus="du -ch | sort -h"
@@ -58,8 +59,9 @@ alias ffu="firefox --url"
 alias getweather='curl wttr.in'
 alias get_weather="python3 /home/joona/python/command_output/weather_widget.py"
 alias img='kitten icat'
-alias ipy="python3 -m IPython --profile=main"
-alias ipython="python3 -m IPython --profile=main"
+alias ipy="python3 -m IPython --pprint --nosep --no-confirm-exit --profile=main"
+alias ipy="python3 -m IPython --pprint --nosep --no-confirm-exit --profile=main"
+alias ipython="python3 -m IPython --profile=main --"
 alias kitty="kitty --detach -T '$@'"
 alias killwine='kill 997 1021 2>/dev/null 1>2;wineserver -k 15;echo done'
 alias kwinDebugConsole='qdbus6 org.kde.KWin /KWin org.kde.KWin.showDebugConsole'
@@ -116,3 +118,5 @@ alias s='s --provider duckduckgo'
 alias root='sudo --preserve-env -s'
 
 # Arch Linux Specific
+plist='pacman pacman -Qqe > pkglist.txt'
+pcheck='sudo paccheck --sha256sum --quiet'

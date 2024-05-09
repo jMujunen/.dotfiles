@@ -10,7 +10,7 @@ export __GLX_VENDOR_LIBRARY_NAME=nvidia
 #export MANPAGER="sh -c 'col -x | bat -l man -p'"
 export MOZ_ENABLE_WAYLAND=1
 
-export PYTHONPATH=~/Apps/git/matplotlib-backend-kitty/:~/python/modules/:~/python/scripts/:~/python/scripts/bashhelpers/:~/python/scripts/bashhelpers/ColorizeOutput/
+export PYTHONPATH=~/.ipython/profile_main/:~/Apps/git/matplotlib-backend-kitty/:~/python/modules/:~/python/scripts/:~/python/scripts/bashhelpers/:~/python/scripts/bashhelpers/ColorizeOutput/
 export PATH="${PATH}:${ANDROID_HOME}/cmdline-tools/latest/bin"
 export PATH=~/.dotfiles/:~/scripts/:~/scripts/graphing/:~/scripts/git_scripts/:~/.local/bin:$PATH:$PYTHONPATH
 
@@ -23,6 +23,7 @@ export TESSDATA_PREFIX=/usr/share/tessdata
 # Created by `pipx` on 2024-05-01 03:07:36
 export PATH="$PATH"
 
+export PYTHONSTARTUP="/home/joona/.ipython/profile_main/custom_init.py"
 # =================================================================#
 
 if [ -f ~/.bash_aliases_ ]; then

@@ -119,3 +119,10 @@ if [ -f ~/.shellrc ]; then
 elif [ -f ~/.dotfiles/.shellrc ]; then
     source ~/.dotfiles/.shellrc
 fi
+
+# Pipx completions
+autoload -U compinit && compinit
+eval "$(register-python-argcomplete pipx)"
+autoload -U bashcompinit
+bashcompinit
+

@@ -13,29 +13,33 @@ failed_services_function() {
     # Display the contents of the file using 'bat'.
     bat --style=auto --paging=always $MAIL/services.log
     # Prompt the user to clear the log.
-    read -p "Clear the log?: [Y/n]: " -n 1 -sr reply
+    echo -n "Clear the log?: [Y/n]: "
+    read $reply
+    echo $reply
     # If the user confirms or provides no input, clear the log file.
 
     # ZSH compatibility
-    if [[ '$reply' =~ '^[Yy]?$|^$' ]]; then
+    if [[ $reply =~ '^[Yy]?$|^$' ]]; then
       echo "" >$MAIL/services.log
       echo "Log cleared"
+    else
+      echo "Log not cleared"
     fi
     # BASH compatibility
-    #if [[ $reply =~ ^[Yy]?$|^$ ]]; then
+    # if [[ $reply =~ ^[Yy]?$|^$ ]]; then
     #  echo "" >$MAIL/services.log
     #  echo "Log cleared"
-    #fi
+    # fi
   fi
 }
 
 help() {
   if [[ "$@" =~ "-f" ]]; then
     # Redirect stderr to stdout and pipe the output to
-    # 'bathelp -f' to display the help message in formatted mode.
-    "$@" --help 2>&1 | bathelp -f
+    # 'bathelp -f' to force color
+    "$@" --help 2>&1 | bathelp --theme=Coldark-Dark -f
   else
-    "$@" --help 2>&1 | bathelp
+    "$@" --help 2>&1 | bathelp --theme=Coldark-Dark
   fi
   return 0
 }
@@ -95,45 +99,75 @@ cd_up() {
 }
 sendsms() {
   source ~/.bash_aliases_ 2>/dev/null || source ~/.dotfiles/.bash_aliases_ || {
-    error "Failed to source ~/.bash_aliases_ or ~/.dotfiles/.bash_aliases_" && return 1
+    error "Failed to source ~/.bash_aliases_ or ~/.dotfiles/.bash_aliases_"
+    return 1
   }
 
+  # Argument validation
   if [[ "$#" -lt 2 ]]; then
     echo "Usage: send_sms <message> <contact>"
     return 1
   fi
 
-  local dest
-  case "$2" in
+  local msg="$1"
+  local dest="$2"
+  local contacts=($muru $me)
+  local recipient=""
+
+  # Check for null pointer references
+  if [[ "${contacts[$muru]}" == "" ]]; then
+    error "muru is not defined in ~/.bash_aliases_"
+    return 1
+  fi
+
+  if [[ "${contacts[$me]}" == "" ]]; then
+    error "me is not defined in ~/.bash_aliases_"
+    return 1
+  fi
+
+  case "$dest" in
   "muru")
-    dest="$muru"
+    recipient="${contacts[$muru]}"
     ;;
   "me")
-    dest="$me"
+    recipient="${contacts[$me]}"
     ;;
   *)
-    dest="$2"
+    recipient="$2"
     ;;
   esac
 
-  local msg="$1"
-  local recipient="${contacts[$dest]}"
   if [[ -z "$recipient" ]]; then
-    recipient="$dest"
+    error "Recipient is not defined"
+    return 1
   fi
-  if [[ "$mesg" == "joke" ]]; then
-    dadjoke="$(curl -s https://icanhazdadjoke.com/)"
-    msg="$dadjoke"
-  fi
-  local device_id=$(kdeconnect-cli -l --id-only)
-  echo -e "Sending SMS to: \033[1;32m "$recipient" \033[0m on device: \033[1;35m $device_id \033[0m"
-  echo -e "\033[1;33m Message:\033[0m "$msg""
-  kdeconnect-cli --send-sms "$dadjoke" --destination "$recipient" -d "$device_id"
 
-  if [ "$?" -ne 0 ]; then
-    echo error "Failed to send SMS"
+  # Check for unhandled exceptions
+  if ! cd; then
+    error "Failed to change directory"
+    return 1
+  fi
+
+  local device_id=$(kdeconnect-cli -l --id-only) || {
+    error "Failed to get device ID"
+    return 1
+  }
+
+  # Check for null pointer references
+  if [[ -z "$device_id" ]]; then
+    error "Device ID is not defined"
+    return 1
+  fi
+
+  if ! kdeconnect-cli --send-sms "$msg" --destination "$recipient" -d "$device_id"; then
+    error "Failed to send SMS"
+    return 1
   else
-    echo -e "\033[1;32m Success: SMS sent \033[0m"
+    echo -e "\033[1;32mSuccess: SMS sent\033[0m"
+    echo -e "\033[1;32mMessage: $msg\033[0m"
+    echo -e "\033[1;32mRecipient: $recipient\033[0m"
+    echo -e "\033[1;32mContact: $dest\033[0m"
+    echo -e "\033[1;32mDevice ID: $device_id\033[0m"
   fi
 }
 
@@ -299,11 +333,6 @@ memory_used() {
   mem_used=$(free | grep Mem | awk '{print $3}')
   mem_percent=$(printf "%.0f" $(calc $mem_used/$mem_total*100 | grep -P -o "\d+.*"))
   echo "$mem_percent%"
-}
-
-s_wrapper() {
-  s --provider duckduckgo "$@"
-  return 0
 }
 
 # # ! NOT FULLY IMPLEMENTED
