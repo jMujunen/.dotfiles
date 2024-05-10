@@ -31,6 +31,7 @@ alias batless='bat --style=full --paging=always -l less'
 alias pat='bat --style="plain"'
 alias lat='bat --style="auto" --pager=none'
 alias fat='bat --style="full"'
+alias bat='bat --style="full"'
 alias aliases='alias | bat -l sh -p'
 alias back='cd "$OLDPWD"'
 alias brightness_max='qdbus6 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl \
