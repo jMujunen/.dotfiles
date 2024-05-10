@@ -44,14 +44,6 @@ help() {
   return 0
 }
 
-# TODO
-#execpython() {
-#  if [[ "$@" -eq 0 ]]; then
-#    python3
-#  else
-#    python3 "$@"
-#  fi
-#}
 
 # Formatting man pages with bat
 man_color() {
@@ -97,84 +89,6 @@ cd_up() {
     fi
   done
 }
-sendsms() {
-  source ~/.bash_aliases_ 2>/dev/null || source ~/.dotfiles/.bash_aliases_ || {
-    error "Failed to source ~/.bash_aliases_ or ~/.dotfiles/.bash_aliases_"
-    return 1
-  }
-
-  # Argument validation
-  if [[ "$#" -lt 2 ]]; then
-    echo "Usage: send_sms <message> <contact>"
-    return 1
-  fi
-
-  local msg="$1"
-  local dest="$2"
-  local contacts=($muru $me)
-  local recipient=""
-
-  # Check for null pointer references
-  if [[ "${contacts[$muru]}" == "" ]]; then
-    error "muru is not defined in ~/.bash_aliases_"
-    return 1
-  fi
-
-  if [[ "${contacts[$me]}" == "" ]]; then
-    error "me is not defined in ~/.bash_aliases_"
-    return 1
-  fi
-
-  case "$dest" in
-  "muru")
-    recipient="${contacts[$muru]}"
-    ;;
-  "me")
-    recipient="${contacts[$me]}"
-    ;;
-  *)
-    recipient="$2"
-    ;;
-  esac
-
-  if [[ -z "$recipient" ]]; then
-    error "Recipient is not defined"
-    return 1
-  fi
-
-  # Check for unhandled exceptions
-  if ! cd; then
-    error "Failed to change directory"
-    return 1
-  fi
-
-  local device_id=$(kdeconnect-cli -l --id-only) || {
-    error "Failed to get device ID"
-    return 1
-  }
-
-  # Check for null pointer references
-  if [[ -z "$device_id" ]]; then
-    error "Device ID is not defined"
-    return 1
-  fi
-
-  if ! kdeconnect-cli --send-sms "$msg" --destination "$recipient" -d "$device_id"; then
-    error "Failed to send SMS"
-    return 1
-  else
-    echo -e "\033[1;32mSuccess: SMS sent\033[0m"
-    echo -e "\033[1;32mMessage: $msg\033[0m"
-    echo -e "\033[1;32mRecipient: $recipient\033[0m"
-    echo -e "\033[1;32mContact: $dest\033[0m"
-    echo -e "\033[1;32mDevice ID: $device_id\033[0m"
-  fi
-}
-
-# List files in '~/scripts'
-list_scripts() {
-  ll ~/scripts
-}
 
 # Change dir, then list dir contents
 cd_ls() {
@@ -182,28 +96,6 @@ cd_ls() {
   # Check the number of items in the current directory
   item_count=$(ls -1 | wc -l)
   ls -ltupho --group-directories-first
-}
-# cd ~/Code/Python then ls
-cd_py() {
-  cd /home/joona/Code/Python/
-  ls -ltupho --group-directories-first
-}
-
-# ^ Depreciated
-#sizeof() {
-#  output=$(du $1 | tail -1 | sed -n -E 's/^([0-9]{3,10}).*$/\1/p' | awk '{print $1 /  1000000} ')
-#  rounded_output=$(printf "%.3f" $output)
-#  printf "$rounded_output GB\n"
-#}
-
-color_cpu_temp() {
-  output=$(sensors | grep 'Package id 0:' | sed -E 's/.*([0-9]{2}\.[0-9].C[^,\)]).*/\1/')
-  rounded_output=$(printf "%.f" $output)
-  if [[ "$output" -gt "80" ]]; then
-    echo -e "\033[1;31m$rounded_output\033[0m"
-  else
-    echo -e "\033[1;32m$rounded_output\033[0m"
-  fi
 }
 
 # cd to commonly used directories
@@ -226,25 +118,6 @@ cd_dl() {
 cd_pics() {
   cd ~/Pictures/
   ls -ltuph --group-directories-first
-}
-pacman-remove() {
-  # Handle arguments
-  if [[ -z "$1" ]]; then
-    echo "Usage: pacman-remove <package>"
-    return 1
-  fi
-
-  read -p "Do you want keep configs for $1? [y/N] " answer
-
-  if [[ -z "$answer" ]]; then
-    sudo pacman -Rsnuv --color=always "$1"
-  else
-    sudo pacman -Rsuv --color=always "$1"
-  fi
-  # Remove orphans
-  #sudo pacman -Rns $(pacman -Qqo $(pacman -Qtdq))
-  ########################################
-  # sudo pacman -Rsnv $(pacman -Qdtq)
 }
 
 # Auto Bluetooth Connections
@@ -291,22 +164,6 @@ osrs_hydra() {
   cd /home/joona/python/macros/
   sudo python3 count_hydra_attacks.py
 }
-# firefox_search() {
-#   string=""
-#   for arg in $@; do
-#     if [[ "$arg" == "--keep" ]]; then
-#       firefox --search "$string" >/dev/null 2>&1 &
-#       return 0
-#     else
-#       string=$string $arg
-#       echo $string
-#       read
-#     fi
-#   done
-
-#   firefox --search "$string" >/dev/null 2>&1 && exit
-#   return 0
-# }
 
 disk_usage() {
   df -Ph | awk '{printf "%-16s %-8s %-10s\n", $1, $5, $6}'
