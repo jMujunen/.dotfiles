@@ -115,9 +115,15 @@ alias workspace_python="vscodium $enable_wayland ~/Code/Workspace/Python.code-wo
 alias xclip="xclip -selection clipboard"
 alias x="exit"
 alias yay="yay --color=always"
+
 alias s='s --provider duckduckgo'
 alias root='sudo --preserve-env -s'
+alias llama='ollama serve >/dev/null 2>&1 &'
 
 # Arch Linux Specific
 plist='pacman pacman -Qqe > pkglist.txt'
 pcheck='sudo paccheck --sha256sum --quiet'
+
+# Git
+alias gp='git push -u origin master'
+alias gca='git commit -am'

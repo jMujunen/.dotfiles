@@ -106,8 +106,8 @@ source $ZSH/oh-my-zsh.sh
 #
 
 
-alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
-alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+alias -g -- -h='-h 2>&1 | bat --language=help --style=plain --theme=Coldark-Dark'
+alias -g -- --help='--help 2>&1 | bat --language=help --style=plain --theme=Coldark-Dark'
 
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/.p10k.zsh.
 [[ ! -f ~/.dotfiles/.p10k.zsh ]] || source ~/.dotfiles/.p10k.zsh
@@ -120,6 +120,7 @@ elif [ -f ~/.dotfiles/.shellrc ]; then
     source ~/.dotfiles/.shellrc
 fi
 
+# ^ Custom completions
 # Pipx completions
 autoload -U compinit && compinit
 eval "$(register-python-argcomplete pipx)"

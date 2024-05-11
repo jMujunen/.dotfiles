@@ -19,7 +19,8 @@ export QT_ENABLE_HIGHDPI_SCALING=1
 # export QT_PLUGIN_PATH=/usr/lib/qt/plugins
 export QT_QPA_PLATFORM=wayland
 export TESSDATA_PREFIX=/usr/share/tessdata
-
+export EDITOR=micro
+export MAKEFLAGS="-j$(nproc)"
 # Created by `pipx` on 2024-05-01 03:07:36
 export PATH="$PATH"
 
@@ -56,6 +57,7 @@ fi
 # =================================================================#
 
 clear
-fastfetch --color 32 -c ~/.config/fastfetch/others/compact-mod.jsonc
+#fastfetch --color 32 -c ~/.config/fastfetch/others/compact-mod.jsonc
+neofetch
 curl https://icanhazdadjoke.com
 echo ""
