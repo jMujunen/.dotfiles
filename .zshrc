@@ -78,7 +78,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages colorize emotty emoji)
+plugins=(git colorize emotty emoji)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -126,4 +126,3 @@ autoload -U compinit && compinit
 eval "$(register-python-argcomplete pipx)"
 autoload -U bashcompinit
 bashcompinit
-

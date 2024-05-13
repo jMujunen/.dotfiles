@@ -1,5 +1,5 @@
 # Env Vars
-
+export OLLAMA_MODELS=$HOME/.ollama/models/
 export HISTFILE=$ZDOTDIR/.zsh_history
 export ANDROID_HOME='/opt/android-sdk'
 export ANDROID_SDK_ROOT='/opt/android-sdk'
@@ -59,5 +59,3 @@ fi
 clear
 #fastfetch --color 32 -c ~/.config/fastfetch/others/compact-mod.jsonc
 neofetch
-curl https://icanhazdadjoke.com
-echo ""

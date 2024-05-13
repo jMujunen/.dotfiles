@@ -14,17 +14,18 @@ failed_services_function() {
     bat --style=auto --paging=always $MAIL/services.log
     # Prompt the user to clear the log.
     echo -n "Clear the log?: [Y/n]: "
-    read $reply
-    echo $reply
+    read reply
+    
     # If the user confirms or provides no input, clear the log file.
-
+	
     # ZSH compatibility
-    if [[ $reply =~ '^[Yy]?$|^$' ]]; then
+    if [[ $reply =~ '[yY]|^$' ]]; then
       echo "" >$MAIL/services.log
       echo "Log cleared"
     else
       echo "Log not cleared"
     fi
+    
     # BASH compatibility
     # if [[ $reply =~ ^[Yy]?$|^$ ]]; then
     #  echo "" >$MAIL/services.log
@@ -37,9 +38,9 @@ help() {
   if [[ "$@" =~ "-f" ]]; then
     # Redirect stderr to stdout and pipe the output to
     # 'bathelp -f' to force color
-    "$@" --help 2>&1 | bathelp --theme=Coldark-Dark -f
+    "$@" --help 2>&1 | bathelp --theme="Everforest Dark" -f
   else
-    "$@" --help 2>&1 | bathelp --theme=Coldark-Dark
+    "$@" --help 2>&1 | bathelp --theme="Everforest Dark"
   fi
   return 0
 }
