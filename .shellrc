@@ -21,6 +21,7 @@ export QT_QPA_PLATFORM=wayland
 export TESSDATA_PREFIX=/usr/share/tessdata
 export EDITOR=micro
 export MAKEFLAGS="-j$(nproc)"
+
 # Created by `pipx` on 2024-05-01 03:07:36
 export PATH="$PATH"
 

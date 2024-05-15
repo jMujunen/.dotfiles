@@ -15,7 +15,7 @@ elif [[ -s ~/.dotfiles/.bash_functions ]]; then
 	. ~/.dotfiles/.bash_functions
 fi
 if [[ "$TERM" == "xterm-kitty" ]]; then
-	alias diff='kitty kitten diff'
+	alias diff_='kitty kitten diff'
 else
 	alias diff='diff --color=auto'
 fi
@@ -26,7 +26,7 @@ alias ip='ip -c'
 alias pacman='sudo pacman --color=always'
 
 alias bathelp='bat --plain --language=help'
-alias batfollow='tail -f "$@" | bat --pager=always'
+alias follow='batfollow'
 alias batless='bat --style=full --paging=always -l less'
 alias pat='bat --style="plain"'
 alias lat='bat --style="auto" --pager=none'
@@ -80,6 +80,7 @@ alias lss="ls -Alshr --group-directories-first"
 alias lt="ls -Altr --time=mtime --group-directories-first"
 alias m="micro"
 alias mail="failed_services_function"
+alias man="man_color"
 alias mv="mv -iv"
 alias nano="micro"
 alias notes="cd_notes"
@@ -97,7 +98,7 @@ alias psg="ps aux | grep -E"
 alias ps="ps aux"
 alias py='python3'
 alias rm="rm -I"
-alias sms="python3 ~/python/scripts/bashhelpers/kde_sms.py"
+alias sms="python3 ~/python/scripts/sms.py"
 alias sizeof="python3 ~/python/scripts/bashhelpers/sizeof.py"
 alias sunset="openrgb -p sunset &"
 alias up="cd_up"

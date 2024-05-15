@@ -133,4 +133,5 @@ if [ -f ~/.shellrc ]; then
     source ~/.shellrc
 elif [ -f ~/.dotfiles/.shellrc ]; then
     source ~/.dotfiles/.shellrc
+    echo "Sourced .shellrc"
 fi

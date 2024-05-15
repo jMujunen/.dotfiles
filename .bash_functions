@@ -15,9 +15,9 @@ failed_services_function() {
     # Prompt the user to clear the log.
     echo -n "Clear the log?: [Y/n]: "
     read reply
-    
+
     # If the user confirms or provides no input, clear the log file.
-	
+
     # ZSH compatibility
     if [[ $reply =~ '[yY]|^$' ]]; then
       echo "" >$MAIL/services.log
@@ -25,7 +25,7 @@ failed_services_function() {
     else
       echo "Log not cleared"
     fi
-    
+
     # BASH compatibility
     # if [[ $reply =~ ^[Yy]?$|^$ ]]; then
     #  echo "" >$MAIL/services.log
@@ -44,7 +44,6 @@ help() {
   fi
   return 0
 }
-
 
 # Formatting man pages with bat
 man_color() {
@@ -89,6 +88,10 @@ cd_up() {
       return 1
     fi
   done
+}
+
+batfollow() {
+  tail -f "$@" | bat -ppl csv
 }
 
 # Change dir, then list dir contents
