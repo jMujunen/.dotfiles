@@ -60,9 +60,8 @@ alias ffu="firefox --url"
 alias getweather='curl wttr.in'
 alias get_weather="python3 /home/joona/python/command_output/weather_widget.py"
 alias img='kitten icat'
-alias ipy="python3 -m IPython --pprint --nosep --no-confirm-exit --profile=main"
-alias ipy="python3 -m IPython --pprint --nosep --no-confirm-exit --profile=main"
-alias ipython="python3 -m IPython --profile=main --"
+alias ipy="python3 -m IPython --pprint --nosep --no-confirm-exit --profile=main --colors=Linux"
+alias ipython="python3 -m IPython --profile=main --colors=Linux"
 alias kitty="kitty --detach -T '$@'"
 alias killwine='kill 997 1021 2>/dev/null 1>2;wineserver -k 15;echo done'
 alias kwinDebugConsole='qdbus6 org.kde.KWin /KWin org.kde.KWin.showDebugConsole'
@@ -77,7 +76,7 @@ alias lsd="ls -d */"
 alias lsblkc='python3 ~/python/scripts/bashhelpers/ColorizeOutput/lsblk.py'
 #alias ls="ls --color=auto"
 alias lss="ls -Alshr --group-directories-first"
-alias lt="ls -Altr --time=mtime --group-directories-first"
+alias lt="ls -Altrh --time=mtime --group-directories-first"
 alias m="micro"
 alias mail="failed_services_function"
 alias man="man_color"
@@ -127,4 +126,9 @@ pcheck='sudo paccheck --sha256sum --quiet'
 
 # Git
 alias gp='git push -u origin master'
-alias gca='git commit -am'
+alias gca='git commit -a'
+alias gi='git init && echo -e "**__pycache__/\n**venv/\n**.git*\n**.pytest_cache/\n.[a-zA-Z0-9]/*" >> .gitignore && touch README.md && echo -e "# basename $PWD"'
+alias gs='git status'
+alias gss='git show --summary'
+alias gd='git diff'
+alias gds='git diff --staged'
