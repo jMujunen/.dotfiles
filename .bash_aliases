@@ -97,7 +97,7 @@ alias psg="ps aux | grep -E"
 alias ps="ps aux"
 alias py='python3'
 alias rm="rm -I"
-alias sms="python3 ~/python/scripts/sms.py"
+alias sms="python3 ~/python/modules/kdeConnect.py"
 alias sizeof="python3 ~/python/scripts/bashhelpers/sizeof.py"
 alias sunset="openrgb -p sunset &"
 alias up="cd_up"
@@ -119,15 +119,19 @@ alias yay="yay --color=always"
 alias s='s --provider duckduckgo'
 alias root='sudo --preserve-env -s'
 alias llama='ollama serve >/dev/null 2>&1 &'
-
+alias l3='python3 ~/python/Projects/ollama/main.py'
+alias clc='python3 ~/python/Projects/ollama/main.py codellama:custom'
+alias cl='python3 ~/python/Projects/ollama/main.py codellama:13b'
+alias gitmsg='python3 ~/python/Projects/ollama/main.py custom:gitmsg'
 # Arch Linux Specific
-plist='pacman pacman -Qqe > pkglist.txt'
+plist='pacman -Qqe > pkglist.txt'
 pcheck='sudo paccheck --sha256sum --quiet'
 
 # Git
 alias gp='git push -u origin master'
 alias gca='git commit -a'
 alias gi='git init && echo -e "**__pycache__/\n**venv/\n**.git*\n**.pytest_cache/\n.[a-zA-Z0-9]/*" >> .gitignore && touch README.md && echo -e "# basename $PWD"'
+
 alias gs='git status'
 alias gss='git show --summary'
 alias gd='git diff'

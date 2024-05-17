@@ -122,8 +122,13 @@ fi
 
 [[ -f ~/.dotfiles/.rootrc ]] && source ~/.dotfiles/.rootrc
 # ^ Custom completions
+[[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] \
+    && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Pipx completions
 autoload -U compinit && compinit
 eval "$(register-python-argcomplete pipx)"
 autoload -U bashcompinit
 bashcompinit
+
+
+export LS_COLORS=$LS_COLORS":ow=1;32;7:su=1;31;7:sg=1;30;43"
