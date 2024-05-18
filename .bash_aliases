@@ -24,7 +24,7 @@ fi
 alias ip='ip -c'
 # alias less='less --use-color'
 alias pacman='sudo pacman --color=always'
-
+alias ac='/usr/bin/python3 ~/python/Projects/ollama/auto_commit.py'
 alias bathelp='bat --plain --language=help'
 alias follow='batfollow'
 alias batless='bat --style=full --paging=always -l less'
@@ -122,7 +122,7 @@ alias llama='ollama serve >/dev/null 2>&1 &'
 alias l3='python3 ~/python/Projects/ollama/main.py'
 alias clc='python3 ~/python/Projects/ollama/main.py codellama:custom'
 alias cl='python3 ~/python/Projects/ollama/main.py codellama:13b'
-alias gitmsg='python3 ~/python/Projects/ollama/main.py custom:gitmsg'
+alias gitmsg='auto_git_msg'
 # Arch Linux Specific
 plist='pacman -Qqe > pkglist.txt'
 pcheck='sudo paccheck --sha256sum --quiet'

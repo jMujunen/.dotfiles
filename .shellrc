@@ -26,6 +26,9 @@ export MAKEFLAGS="-j$(nproc)"
 export PATH="$PATH"
 
 export PYTHONSTARTUP="/home/joona/.ipython/profile_main/custom_init.py"
+
+GIT_COMMITTER_NAME="J Mujunen"
+GIT_COMMITTER_EMAIL="jMujunen@github.com"
 # =================================================================#
 
 if [ -f ~/.bash_aliases_ ]; then

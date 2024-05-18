@@ -6,6 +6,18 @@ error() {
   echo -e "\033[1;31mError: $*\033[0m" >&2
 }
 
+# auto_git_msg() {
+#   if [[ "$#" -eq 0 ]]; then
+#     commit_msg=$(git diff | python3 ~/python/Projects/ollama/main.py custom:gitmsg)
+#     echo $commit_msg
+#     echo -n "[E]dit, [C]ommit, [P]ush, or [Q]uit: "
+#     read reply
+
+#     if [[ $reply =~ '[eE]' ]]; then
+#       git
+
+#   elif [[ "$1" == "--staged" ]]; then
+
 # for viewing and clearing the failed services log.
 failed_services_function() {
   # Check if the services log file exists.
@@ -62,7 +74,7 @@ man_color() {
   fi
 
   if [[ "$#" -gt 1 ]]; then
-    /usr/bin/man "$@"
+    /usr/bin/man "$@" | bat -l man -p
     return 0
   fi
 
@@ -192,7 +204,7 @@ vscode() {
 memory_used() {
   mem_total=$(free | grep Mem | awk '{print $2}')
   mem_used=$(free | grep Mem | awk '{print $3}')
-  mem_percent=$(printf "%.0f" $(calc $mem_used/$mem_total*100 | grep -P -o "\d+.*"))
+  mem_percent=$(printf "%.0f" $(calc "$mem_used/$mem_total*100" | grep -P -o "\d+.*"))
   echo "$mem_percent%"
 }
 
