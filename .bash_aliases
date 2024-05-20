@@ -16,6 +16,7 @@ elif [[ -s ~/.dotfiles/.bash_functions ]]; then
 fi
 if [[ "$TERM" == "xterm-kitty" ]]; then
 	alias diff_='kitty kitten diff'
+	alias img='kitten icat'
 else
 	alias diff='diff --color=auto'
 fi
@@ -59,11 +60,10 @@ alias ffs="s --provider duckduckgo"
 alias ffu="firefox --url"
 alias getweather='curl wttr.in'
 alias get_weather="python3 /home/joona/python/command_output/weather_widget.py"
-alias img='kitten icat'
 alias ipy="python3 -m IPython --pprint --nosep --no-confirm-exit --profile=main --colors=Linux"
 alias ipython="python3 -m IPython --profile=main --colors=Linux"
-alias kitty="kitty --detach -T '$@'"
-alias killwine='kill 997 1021 2>/dev/null 1>2;wineserver -k 15;echo done'
+alias kitty="kitty --detach -T"
+alias killwine='kill 997 1021 >/dev/null 2>&1;wineserver -k 15;echo done'
 alias kwinDebugConsole='qdbus6 org.kde.KWin /KWin org.kde.KWin.showDebugConsole'
 alias la="ls -lpha --group-directories-first"
 #alias lc="ls -lFgo"
@@ -87,7 +87,7 @@ alias nset="nvidia-settings >/dev/null 2>&1 &"
 alias obsidian="nohup obsidian $enable_wayland >/dev/null 2>&1 &"
 alias open="xdg-open"
 alias osrshydra="osrs_hydra"
-alias osrs="flatpak run com.jagexlauncher.JagexLauncher 2>/dev/null & disown"
+alias osrs="flatpak run com.jagexlauncher.JagexLauncher > /dev/null 2>&1 & disown"
 alias osrsping="gping -c cyan oldschool78.runescape.com"
 alias paste="wl-paste"
 alias pics='cd_pics'
@@ -126,6 +126,7 @@ alias gitmsg='auto_git_msg'
 # Arch Linux Specific
 plist='pacman -Qqe > pkglist.txt'
 pcheck='sudo paccheck --sha256sum --quiet'
+pdeps='sudo pacman -Qtdq'
 
 # Git
 alias gp='git push -u origin master'
@@ -136,3 +137,7 @@ alias gs='git status'
 alias gss='git show --summary'
 alias gd='git diff'
 alias gds='git diff --staged'
+
+# Touch aliases
+alias tp='touch_python'
+alias ts='touch_shell'
