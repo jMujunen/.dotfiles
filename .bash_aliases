@@ -51,6 +51,7 @@ alias dadjoke='curl https://icanhazdadjoke.com && printf "\n"'
 alias dl="cd_dl"
 alias docs="cd_docs"
 alias dus="du -ch | sort -h"
+alias find_='find . \( ! -path "*/__pycache__/*" \) \( ! -path "*/venv/*" \) \( ! -path "*/*yarn*/*" \) \( ! -path "*/.cargo/*" \) \( ! -path "*/yay/*" \) '
 alias feh="feh -g 1920x1080 -d -S filename --fullscreen --scale-down --output-dir /home/joona/Picture/feh"
 alias ff="cd ~/.mozilla/firefox/$ffid"
 alias ffp="firefox --private-window &"
