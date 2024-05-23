@@ -202,26 +202,15 @@ vscode() {
   fi
 }
 
-function iplot() {
-  # Display gnuplots usuing the kitty graphics protocal
-  # Example:
-  # 	iplot 'sin(x*3)*exp(x*.2)'
-  cat <<EOF | gnuplot
-    set terminal pngcairo enhanced font 'Fira Sans,10'
-    set autoscale
-    set samples 1000
-    set output '|kitten icat --stdin yes'
-    set object 1 rectangle from screen 0,0 to screen 1,1 fillcolor rgb"#fdf6e3" behind
-    plot $@
-    set output '/dev/null'
-EOF
-}
-
 memory_used() {
   mem_total=$(free | grep Mem | awk '{print $2}')
   mem_used=$(free | grep Mem | awk '{print $3}')
   mem_percent=$(printf "%.0f" $(calc "$mem_used/$mem_total*100" | grep -P -o "\d+.*"))
   echo "$mem_percent%"
+}
+
+get_uptime() {
+
 }
 
 # Functions for default touch behaviour for certain filetypes
