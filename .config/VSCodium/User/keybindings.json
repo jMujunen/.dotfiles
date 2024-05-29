@@ -1,0 +1,80 @@
+// Place your key bindings in this file to override the defaults
+[
+  {
+    "key": "ctrl+k e",
+    "command": "-workbench.files.action.focusOpenEditorsView",
+    "when": "workbench.explorer.openEditorsView.active"
+  },
+  {
+    "key": "ctrl+e",
+    "command": "-workbench.action.quickOpen"
+  },
+
+  {
+    "key": "meta+i",
+    "command": "-codeium.openCodeiumCommand",
+    "when": "codeium.commandEnabled && editorTextFocus && !inlineSuggestionsVisible"
+  },
+  {
+    "key": "ctrl+numpad_multiply",
+    "command": "codeium.openChatView",
+    "when": "false"
+  },
+  {
+    "key": "ctrl+shift+a",
+    "command": "-codeium.openChatView",
+    "when": "false"
+  },
+  {
+    "key": "ctrl+numpad_multiply",
+    "command": "codeium.openChatView",
+    "when": "true"
+  },
+  {
+    "key": "ctrl+alt+a",
+    "command": "-codeium.openChatView",
+    "when": "true"
+  },
+  {
+    "key": "ctrl+e",
+    "command": "workbench.view.explorer",
+    "when": "viewContainer.workbench.view.explorer.enabled"
+  },
+  {
+    "key": "ctrl+shift+e",
+    "command": "-workbench.view.explorer",
+    "when": "viewContainer.workbench.view.explorer.enabled"
+  },
+  {
+    "key": "ctrl+shift+numpad_multiply",
+    "command": "workbench.action.openGlobalKeybindings"
+  },
+  {
+    "key": "ctrl+k ctrl+s",
+    "command": "-workbench.action.openGlobalKeybindings"
+  },
+  {
+    "key": "ctrl+alt+numpad_multiply",
+    "command": "tabnine.chat.focus"
+  },
+  {
+    "key": "meta+numpad_multiply",
+    "command": "codeium.refactorCodeBlock"
+  },
+  {
+    "key": "ctrl+alt+meta+c",
+    "command": "continue.writeCommentsForCode"
+  },
+  {
+    "key": "ctrl+alt+meta+g",
+    "command": "continue.fixGrammar"
+  },
+  {
+    "key": "ctrl+alt+meta+f",
+    "command": "continue.fixCode"
+  },
+  {
+    "key": "ctrl+alt+meta+d",
+    "command": "continue.writeDocstringForCode"
+  }
+]
