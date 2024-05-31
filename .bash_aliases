@@ -119,6 +119,8 @@ alias xclip="xclip -selection clipboard"
 alias x="exit"
 alias yay="yay --color=always"
 
+alias fmtdate='open /home/joona/Docs/Notes/HTML/Code/strftime.html'
+alias rl='cd /home/joona/.var/app/com.jagexlauncher.JagexLauncher/data/user_home/.runelite'
 alias s='s --provider duckduckgo'
 alias root='sudo --preserve-env -s'
 alias llama='ollama serve >/dev/null 2>&1 &'
@@ -126,6 +128,7 @@ alias l3='python3 ~/python/Projects/ollama/main.py'
 alias clc='python3 ~/python/Projects/ollama/main.py codellama:custom'
 alias cl='python3 ~/python/Projects/ollama/main.py codellama:13b'
 alias gitmsg='auto_git_msg'
+
 # Arch Linux Specific
 plist='pacman -Qqe > pkglist.txt'
 pcheck='sudo paccheck --sha256sum --quiet'
