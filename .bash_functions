@@ -1,6 +1,9 @@
+#!/bin/bash
 ################################
 # Joona's Bash Shell Functions #
 ################################
+
+enable_wayland="--enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland"
 
 error() {
   echo -e "\033[1;31mError: $*\033[0m" >&2
@@ -20,6 +23,7 @@ error() {
 
 # for viewing and clearing the failed services log.
 failed_services_function() {
+
   # Check if the services log file exists.
   if [[ -f $MAIL/services.log ]]; then
     # Display the contents of the file using 'bat'.
@@ -27,7 +31,6 @@ failed_services_function() {
     # Prompt the user to clear the log.
     echo -n "Clear the log?: [Y/n]: "
     read reply
-
     # If the user confirms or provides no input, clear the log file.
 
     # ZSH compatibility
@@ -202,19 +205,7 @@ vscode() {
   fi
 }
 
-memory_used() {
-  mem_total=$(free | grep Mem | awk '{print $2}')
-  mem_used=$(free | grep Mem | awk '{print $3}')
-  mem_percent=$(printf "%.0f" $(calc "$mem_used/$mem_total*100" | grep -P -o "\d+.*"))
-  echo "$mem_percent%"
-}
-
-get_uptime() {
-
-}
-
-# Functions for default touch behaviour for certain filetypes
-
+# TODO: Functions for default touch behaviour for certain filetypes
 touch_python() {
   # Print help
   print_help() {
@@ -226,8 +217,8 @@ touch_python() {
   # Argument validation
 }
 
-# # ! NOT FULLY IMPLEMENTED
-# # to update the time in the prompt
+# TODO IMPLEMENT
+# ? Update the time in shell prompt
 # update_prompt_time() {
 #   local cols=$(tput cols)
 #   local time=$(date "+%H:%M")

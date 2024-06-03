@@ -149,3 +149,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+# bun completions
+[ -s "/home/joona/.bun/_bun" ] && source "/home/joona/.bun/_bun"

@@ -3,23 +3,21 @@
 
 # Variables
 ffid='h76d4ruz.default-release'
+shell=$(echo $SHELL | awk -F/ '{print $4}')
 
 # Enable Wayland if not X11
-if [[ "$XDG_SESSION_TYPE" = "wayland" ]]; then
-	enable_wayland="--enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland"
-fi
+[[ "$XDG_SESSION_TYPE" = "wayland" ]] && enable_wayland="--enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland"
 
-if [[ -s ~/.bash_functions ]]; then
-	. ~/.bash_functions
-elif [[ -s ~/.dotfiles/.bash_functions ]]; then
-	. ~/.dotfiles/.bash_functions
-fi
-if [[ "$TERM" == "xterm-kitty" ]]; then
-	alias diff_='kitty kitten diff'
+# .bash_functions
+[[ -f ~/.bash_functions ]] && . ~/.bash_functions && alias rf='source ~/."$shell"rc'
+[[ -f ~/.dotfiles/.bash_functions ]] && . ~/.dotfiles/.bash_functions && alias rf='source ~/.dotfiles/."$shell"rc'
+
+kitten_aliases() {
+	alias diff_='kitten diff'
 	alias img='kitten icat'
-else
-	alias diff='diff --color=auto'
-fi
+}
+
+[[ "$TERM" == "xterm-kitty" ]] && kitten_aliases || alias diff='diff --color=auto'
 
 # -- Colors -- #
 alias ip='ip -c'
@@ -35,10 +33,10 @@ alias fat='bat --style="full"'
 alias bat='bat --style="full"'
 alias aliases='alias | bat -l sh -p'
 alias back='cd "$OLDPWD"'
-alias brightness_max='qdbus6 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl \
-org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness 100'
-alias brightness_low='qdbus6 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl \
-org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness 50'
+# alias brightness_max='qdbus6 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl \
+# org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness 100'
+# alias brightness_low='qdbus6 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl \
+# org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness 50'
 alias bte="bte_function"
 alias cdl="cd_ls"
 alias cdpy="cd_py"
@@ -87,7 +85,7 @@ alias mv="mv -iv"
 alias nano="micro"
 alias notes="cd_notes"
 alias nset="nvidia-settings >/dev/null 2>&1 &"
-alias obsidian="nohup obsidian $enable_wayland >/dev/null 2>&1 &"
+alias md="nohup obsidian $enable_wayland > /dev/null 2>&1 & disown"
 alias open="xdg-open"
 alias osrshydra="osrs_hydra"
 alias osrs="flatpak run com.jagexlauncher.JagexLauncher > /dev/null 2>&1 & disown"
@@ -99,6 +97,9 @@ alias pyp='cd ~/python/Projects/ && ls -alph --group-directories-first'
 alias psg="ps aux | grep -E"
 alias ps="ps aux"
 alias py='python3'
+alias rgs='rg --no-ignore --hidden'
+alias rl="source ~/.bashrc"
+alias rmr='rm -rf'
 alias rm="rm -I"
 alias sms="python3 ~/python/modules/kdeConnect.py"
 alias sizeof="python3 ~/python/scripts/bashhelpers/sizeof.py"

@@ -44,7 +44,12 @@ truely-maximizedEnabled=false
 
 [Script-krohnkite]
 enableQuarterLayout=true
+enableSpiralLayout=false
 enableStairLayout=false
+floatingTitle=VSCode
+ignoreTitle=Rune,Jagex
+limitTileWidth=true
+maximizeSoleTile=true
 monocleMaximize=false
 noTileBorder=true
 screenGapBottom=5
@@ -55,6 +60,8 @@ tileLayoutGap=5
 
 [Script-kzones]
 layoutsJson=[\n  {\n    "name": "Priority Grid",\n    "padding": 5,\n    "zones": [\n      {\n        "x": 0,\n        "y": 0,\n        "height": 100,\n        "width": 25\n      },\n      {\n        "x": 25,\n        "y": 0,\n        "height": 100,\n        "width": 50\n      },\n      {\n        "x": 75,\n        "y": 0,\n        "height": 100,\n        "width": 25\n      }\n    ]\n  },\n  {\n    "name": "Split Layout",\n    "padding": 5,\n    "zones": [\n      {\n        "x": 0,\n        "y": 0,\n        "height": 100,\n        "width": 30\n      },\n      {\n        "x": 30,\n        "y": 0,\n        "height": 100,\n        "width": 40\n      },\n      {\n        "x": 70,\n        "y": 0,\n        "height": 100,\n        "width": 30\n      }\n    ]\n  },\n  {\n    "name": "Single",\n    "padding": 5,\n    "zones": [\n      {\n        "x": 0,\n        "y": 0,\n        "height": 100,\n        "width": 100\n      }\n    ]\n  },\n  {\n    "name": "Half n' Half",\n    "padding": 5,\n    "zones": [\n      {\n        "x": 0,\n        "y": 0,\n        "height": 100,\n        "width": 50\n      },\n      {\n        "x": 50,\n        "y": 0,\n        "height": 100,\n        "width": 50\n      }\n    ]\n  },\n  {\n    "name": "Quadrant Grid",\n    "padding": 5,\n    "zones": [\n      {\n        "x": 0,\n        "y": 0,\n        "height": 50,\n        "width": 50\n      },\n      {\n        "x": 0,\n        "y": 50,\n        "height": 50,\n        "width": 50\n      },\n      {\n        "x": 50,\n        "y": 50,\n        "height": 50,\n        "width": 50\n      },\n      {\n        "x": 50,\n        "y": 0,\n        "height": 50,\n        "width": 50\n      }\n    ]\n  },\n  {\n    "name": "Triple",\n    "padding": 5,\n    "zones": [\n      {\n        "x": 0,\n        "y": 0,\n        "height": 100,\n        "width": 65\n      },\n      {\n        "x": 65,\n        "y": 0,\n        "height": 50,\n        "width": 35\n      },\n      {\n        "x": 65,\n        "y": 50,\n        "height": 50,\n        "width": 35\n      }\n    ]\n  }\n]\n
+zoneOverlayHighlightTarget=1
+zoneSelectorTriggerDistance=2
 
 [SubSession: a4415a8b-943d-426f-a0c5-dfb1ef482737]
 active=-1
@@ -65,13 +72,13 @@ LayoutName=coverswitch
 ShowDesktopMode=1
 
 [Tiling]
-padding=6
+padding=15
 
 [Tiling][270e4863-6f94-5b3b-9d1d-77297468d629]
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.6489583333333354},{"layoutDirection":"vertical","tiles":[{"height":0.5},{"height":0.5}],"width":0.3510416666666646}]}
 
 [Tiling][7657eca2-b60f-553a-ba52-bc2dfe6616b2]
-tiles={"layoutDirection":"horizontal","tiles":[{"width":0.7989583333333333},{"width":0.2010416666666649}]}
+tiles={"layoutDirection":"vertical","tiles":[{"height":0.5009259259259203},{"height":0.49907407407407967}]}
 
 [Tiling][ab4ff969-3101-5457-a1ed-97a5bcc7f1c3]
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
@@ -95,4 +102,4 @@ BorderSizeAuto=false
 ButtonsOnLeft=NBFS
 ButtonsOnRight=HIX
 library=org.kde.kwin.aurorae
-theme=__aurorae__svg__Utterly-Round-Dark-Solid
+theme=__aurorae__svg__Utterly-Round-Dark

@@ -1,65 +1,90 @@
 # Env Vars
-export OLLAMA_MODELS=$HOME/.ollama/models/
-export HISTFILE=$ZDOTDIR/.zsh_history
-export ANDROID_HOME='/opt/android-sdk'
-export ANDROID_SDK_ROOT='/opt/android-sdk'
-export ELECTRON_OZONE_PLATFORM_HINT=wayland
-export GBM_BACKEND=nvidia-drm
-export GDK_BACKEND=wayland
-export __GLX_VENDOR_LIBRARY_NAME=nvidia
-#export MANPAGER="sh -c 'col -x | bat -l man -p'"
-export MOZ_ENABLE_WAYLAND=1
-
+export EDITOR=micro
 export PYTHONPATH=~/.ipython/profile_main/:~/Apps/git/matplotlib-backend-kitty/:~/python/modules/:~/python/scripts/:~/python/scripts/bashhelpers/:~/python/scripts/bashhelpers/ColorizeOutput/
 export PATH="${PATH}:${ANDROID_HOME}/cmdline-tools/latest/bin"
 export PATH=~/.dotfiles/:~/scripts/:~/scripts/graphing/:~/scripts/git_scripts/:~/.local/bin:$PATH:$PYTHONPATH
 
-export QSG_RENDERER_LOOP=basic
-export QT_ENABLE_HIGHDPI_SCALING=1
-# export QT_PLUGIN_PATH=/usr/lib/qt/plugins
-export QT_QPA_PLATFORM=wayland
-export TESSDATA_PREFIX=/usr/share/tessdata
-export EDITOR=micro
-export MAKEFLAGS="-j$(nproc)"
-
-# Created by `pipx` on 2024-05-01 03:07:36
-export PATH="$PATH"
-
-export PYTHONSTARTUP="/home/joona/.ipython/profile_main/custom_init.py"
-
+# Git
 GIT_COMMITTER_NAME="J Mujunen"
 GIT_COMMITTER_EMAIL="jMujunen@github.com"
-# =================================================================#
 
-if [ -f ~/.bash_aliases_ ]; then
-    . ~/.bash_aliases_
-elif [ -f ~/.dotfiles/.bash_aliases_ ]; then
-    . ~/.dotfiles/.bash_aliases_
-else
-    echo -e "\033[31m'.bash_aliases_' doesnt exist in ~/\033[0m"
-fi
+# Shell
+export HISTFILE=$ZDOTDIR/.zsh_history
 
-# =================================================================#
+# Wayland/Nvidia specific
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
+export GBM_BACKEND=nvidia-drm
+export GDK_BACKEND=wayland
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export MOZ_ENABLE_WAYLAND=1
+export QSG_RENDERER_LOOP=basic
+export QT_ENABLE_HIGHDPI_SCALING=1
+export QT_QPA_PLATFORM=wayland
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-elif [ -f ~/.dotfiles/.bash_aliases ]; then
-    . ~/.dotfiles/.bash_aliases
-else
-    echo -e "\033[31m'.bash_aliases' doesnt exist in ~/\033[0m"
-fi
-# =================================================================#
+# Build/make
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export MAKEFLAGS="-j$(nproc)"
 
-if [ -f ~/.bash_functions ]; then
-    . ~/.bash_functions
-elif [ -f ~/.dotfiles/.bash_functions ]; then
-    . ~/.dotfiles/.bash_functions
-else
-    echo -e "\033[31m'.bash_functions' doesnt exist in ~/\033[0m"
-fi
+# Random
+export OLLAMA_MODELS=$HOME/.ollama/models/
+export TESSDATA_PREFIX=/usr/share/tessdata
+export ANDROID_HOME='/opt/android-sdk'
+export ANDROID_SDK_ROOT='/opt/android-sdk'
 
-# =================================================================#
+# --------------------------------------------------------------- #
 
+# Source .bash_aliases_ (seperate from .bash_aliases for privacy)
+[[ -f ~/.bash_aliases_ ]] && . ~/.bash_aliases_
+[[ -f ~/.dotfiles/.bash_aliases_ ]] && ~/.dotfiles/.bash_aliases_
+
+# .bash_aliases
+[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
+[[ -f ~/.dotfiles/.bash_aliases ]] && . ~/.dotfiles/.bash_aliases
+
+# .bash_functions
+[[ -f ~/.bash_functions ]] && . ~/.bash_functions
+[[ -f ~/.dotfiles/.bash_functions ]] && . ~/.dotfiles/.bash_functions
+
+# Sys stats
 clear
+if [ "$(whoami)" != "root" ]; then
+	neofetch
+fi
+
+# --------------------------------------------------------------- #
+
 #fastfetch --color 32 -c ~/.config/fastfetch/others/compact-mod.jsonc
-neofetch
+#printf "\033[97m%-*s\033[0m\033[31m FAILED\033[0m \033[33m@ %*s\033[0m\033[15;35m %-*s\033[0m\n" 10 ".shellrc" 2 "line 61:" 10 "xbindkeys" >> /var/spool/mail/joona/scripts.log
+
+# if [ ~/.bash_aliases_ ]; then
+#     . ~/.bash_aliases_
+# elif [ ~/.dotfiles/.bash_aliases_ ]; then
+#     . ~/.dotfiles/.bash_aliases_
+# else
+#     echo -e "\033[31m'.bash_aliases_' doesnt exist in ~/\033[0m"
+# fi
+
+# if [ -f ~/.bash_aliases ]; then
+#     . ~/.bash_aliases
+# elif [ -f ~/.dotfiles/.bash_aliases ]; then
+#     . ~/.dotfiles/.bash_aliases
+# else
+#     echo -e "\033[31m'.bash_aliases' doesnt exist in ~/\033[0m"
+# fi
+
+# Depreciated
+#
+# if [ -f ~/.bash_functions ]; then
+#     . ~/.bash_functions
+# elif [ -f ~/.dotfiles/.bash_functions ]; then
+#     . ~/.dotfiles/.bash_functions
+# else
+#     echo -e "\033[31m'.bash_functions' doesnt exist in ~/\033[0m"
+# fi
+
+# ------------------------------------------------------------------ #
+
+#export PYTHONSTARTUP="/home/joona/.ipython/profile_main/custom_init.py"
+#export QT_PLUGIN_PATH=/usr/lib/qt/plugins
+#export MANPAGER="sh -c 'col -x | bat -l man -p'"
