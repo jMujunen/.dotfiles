@@ -78,7 +78,7 @@ plugin=org.kde.plasma.kicker
 [Containments][29][Applets][35][Configuration]
 PreloadWeight=100
 popupHeight=497
-popupWidth=299
+popupWidth=638
 
 [Containments][29][Applets][35][Configuration][ConfigDialog]
 DialogHeight=540
@@ -382,6 +382,7 @@ showOnlyCurrentScreen=true
 [Containments][54][Applets][85]
 immutability=1
 plugin=org.kde.plasma.windowlist
+transient=true
 
 [Containments][54][Applets][86]
 immutability=1
@@ -402,8 +403,12 @@ highPrioritySensorIds=["cpu/all/usage"]
 lowPrioritySensorIds=["cpu/all/cpuCount","cpu/all/coreCount"]
 totalSensors=["cpu/all/usage"]
 
+[Containments][54][Applets][87]
+immutability=1
+plugin=d4rkwzd.colorpicker-tray
+
 [Containments][54][General]
-AppletOrder=61;69;85;84;59;73;86;56;70;57;71;58;72;60;77;67;76;74;75
+AppletOrder=61;69;84;59;73;86;56;70;57;71;58;72;60;77;67;76;74;75;87
 
 [Containments][81]
 activityId=cc8c482b-b846-4ec9-b458-b0f349cd6b1a
