@@ -21,17 +21,20 @@ export QSG_RENDERER_LOOP=basic
 export QT_ENABLE_HIGHDPI_SCALING=1
 export QT_QPA_PLATFORM=wayland
 
-# Build/make
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
 export MAKEFLAGS="-j$(nproc)"
 
 # Random
-export OLLAMA_MODELS=$HOME/.ollama/models/
 export TESSDATA_PREFIX=/usr/share/tessdata
 export ANDROID_HOME='/opt/android-sdk'
 export ANDROID_SDK_ROOT='/opt/android-sdk'
 
+# Ollama
+export OLLAMA_KEEP_ALIVE=60
+export OLLAMA_MODELS=$HOME/.ollama/models/
+
+# CONDA
+#export CONDA_DEFAULT_ENV=/home/joona/python/.anaconda/
+#export CONDA_PYTHON_EXE=/
 # --------------------------------------------------------------- #
 
 # Source .bash_aliases_ (seperate from .bash_aliases for privacy)

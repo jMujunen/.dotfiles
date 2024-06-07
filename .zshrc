@@ -112,7 +112,6 @@ alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/.p10k.zsh.
 [[ ! -f ~/.dotfiles/.p10k.zsh ]] || source ~/.dotfiles/.p10k.zsh
 
-
 # Use this file for configurations shared between zsh and bash
 if [ -f ~/.shellrc ]; then
     source ~/.shellrc
@@ -121,7 +120,7 @@ elif [ -f ~/.dotfiles/.shellrc ]; then
 fi
 
 [[ -f ~/.dotfiles/.rootrc ]] && source ~/.dotfiles/.rootrc
-# ^ Custom completions
+#  Custom completions
 [[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] \
     && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Pipx completions
@@ -130,12 +129,10 @@ eval "$(register-python-argcomplete pipx)"
 autoload -U bashcompinit
 bashcompinit
 
-
 export LS_COLORS=$LS_COLORS":ow=1;32;7:su=1;31;7:sg=1;30;43"
 
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
+# # >>> conda initialize >>>
+# # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/joona/python/.anaconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
@@ -147,8 +144,4 @@ else
     fi
 fi
 unset __conda_setup
-# <<< conda initialize <<<
-
-
-# bun completions
-[ -s "/home/joona/.bun/_bun" ] && source "/home/joona/.bun/_bun"
+# # <<< conda initialize <<<

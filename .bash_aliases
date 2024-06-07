@@ -1,5 +1,5 @@
-# ~/.bash_aliases - Joonas Bash Aliases
-#
+# -----------------------#
+[[ -f ~/.dotfiles/.vars ]] && . ~/.dotfiles/.vars
 
 # Variables
 ffid='h76d4ruz.default-release'
@@ -17,9 +17,10 @@ kitten_aliases() {
 	alias img='kitten icat'
 }
 
-[[ "$TERM" == "xterm-kitty" ]] && kitten_aliases || alias diff='diff --color=auto'
+[[ "$TERM" == "xterm-kitty" ]] && kitten_aliases
 
 # -- Colors -- #
+alias diff='diff --color=auto'
 alias ip='ip -c'
 # alias less='less --use-color'
 alias pacman='sudo pacman --color=always'
@@ -38,6 +39,7 @@ alias back='cd "$OLDPWD"'
 # alias brightness_low='qdbus6 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl \
 # org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness 50'
 alias bte="bte_function"
+alias cleansyslogs='sudo journalctl --vacuum-time=2d'
 alias cdl="cd_ls"
 alias cdpy="cd_py"
 alias cls="clear"
@@ -51,7 +53,8 @@ alias dl="cd_dl"
 alias docs="cd_docs"
 alias dus="du -ch | sort -h"
 alias free='python3 ~/python/scripts/bashhelpers/ColorizeOutput/free.py'
-alias find_='find . \( ! -path "*/__pycache__/*" \) \( ! -path "*/venv/*" \) \( ! -path "*/*yarn*/*" \) \( ! -path "*/.cargo/*" \) \( ! -path "*/yay/*" \) '
+alias find_='find . \( ! -path "*/__pycache__/*" \) \( ! -path "*/venv/*" \) \( ! -path "*/*yarn*/*" \) \
+\( ! -path "*/.cargo/*" \) \( ! -path "*/yay/*" \) \( ! -path "*/.anaconda/*" \) \( ! -path "*/.venv/*" \) '
 alias feh="feh -g 1920x1080 -d -S filename --fullscreen --scale-down --output-dir /home/joona/Picture/feh"
 alias ff="cd ~/.mozilla/firefox/$ffid"
 alias ffp="firefox --private-window &"
@@ -107,9 +110,9 @@ alias sunset="openrgb -p sunset &"
 alias up="cd_up"
 #alias vdir="vdir --color=auto"
 alias venv='source venv/bin/activate'
-alias wez="wezterm start --always-new-process"
+alias workspace_notes='nohup vscodium $enable_wayland ~/Code/Workspace/Notes.code-workspace > /dev/null 2>&1 && exit'
 alias workspace_bash="vscodium $enable_wayland ~/Code/Workspace/bashscripts.code-workspace && exit"
-alias workspace="cd ~/Code/Workspace/ && ls -ltuph --group-directories-first"
+alias workspace_="cd ~/Code/Workspace/ && ls -ltuph --group-directories-first"
 alias workspace_cfg="vscodium $enable_wayland ~/Code/Workspace/cfg.code-workspace && exit"
 alias workspace_ella="vscodium $enable_wayland ~/Code/Workspace/data_entry.code-workspace && exit"
 alias workspace_html="vscodium $enable_wayland ~/Code/Workspace/html.code-workspace && exit"
@@ -131,9 +134,9 @@ alias cl='python3 ~/python/Projects/ollama/main.py codellama:13b'
 alias gitmsg='auto_git_msg'
 
 # Arch Linux Specific
-plist='pacman -Qqe > pkglist.txt'
-pcheck='sudo paccheck --sha256sum --quiet'
-pdeps='sudo pacman -Qtdq'
+alias plist='pacman -Qqe > pkglist.txt'
+alias pcheck='sudo paccheck --sha256sum --quiet'
+alias pdeps='sudo pacman -Qtdq'
 
 # Git
 alias gp='git push -u origin master'
