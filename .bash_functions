@@ -60,30 +60,6 @@ help() {
   return 0
 }
 
-# Formatting man pages with bat
-man_color() {
-  # Argument validation
-  if [[ "$#" -eq 0 ]]; then
-    /usr/bin/man --help
-    return 0
-  fi
-
-  # Preserve `-k` option for searching man pages
-  if [[ "$#" -eq 1 ]]; then
-    if [[ "$1" == "-k" ]]; then
-      /usr/bin/man -k "$@" | bat -l man -p
-      return 0
-    fi
-  fi
-
-  if [[ "$#" -gt 1 ]]; then
-    /usr/bin/man "$@" | bat -l man -p
-    return 0
-  fi
-
-  /usr/bin/man "$@" | bat -l man -p
-}
-
 # Move 'up' in the directory tree $1 amount of times and print pwd each interation
 cd_up() {
   local levels="${1:-1}" # default to 1 if no argument is provided
@@ -141,6 +117,7 @@ cd_pics() {
 
 # Auto Bluetooth Connections
 bte_function() {
+  # TODO: check for rfkill
   SonyXM4="F8:4E:17:B5:0E:8D"
   # Check for null pointer references and handle exceptions
   if [[ "$1" == "--help" ]] || [[ "$1" == "-h" ]]; then

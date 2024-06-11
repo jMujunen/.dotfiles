@@ -78,7 +78,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colorize emotty emoji archlinux aliases web-search)
+plugins=(git archlinux aliases)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -113,16 +113,13 @@ alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 [[ ! -f ~/.dotfiles/.p10k.zsh ]] || source ~/.dotfiles/.p10k.zsh
 
 # Use this file for configurations shared between zsh and bash
-if [ -f ~/.shellrc ]; then
-    source ~/.shellrc
-elif [ -f ~/.dotfiles/.shellrc ]; then
-    source ~/.dotfiles/.shellrc
-fi
+[[ -f ~/.shellrc ]] && source ~/.shellrc || source ~/.dotfiles/.shellrc || /usr/bin/custom/script_error.sh .zshrc 116 "Failed to source .shellrc from $HOME/ and $HOME/.dotfiles/"
 
 [[ -f ~/.dotfiles/.rootrc ]] && source ~/.dotfiles/.rootrc
 #  Custom completions
 [[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] \
     && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # Pipx completions
 autoload -U compinit && compinit
 eval "$(register-python-argcomplete pipx)"
@@ -130,18 +127,3 @@ autoload -U bashcompinit
 bashcompinit
 
 export LS_COLORS=$LS_COLORS":ow=1;32;7:su=1;31;7:sg=1;30;43"
-
-# # >>> conda initialize >>>
-# # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/joona/python/.anaconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/joona/python/.anaconda/etc/profile.d/conda.sh" ]; then
-        . "/home/joona/python/.anaconda/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/joona/python/.anaconda/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# # <<< conda initialize <<<

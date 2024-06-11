@@ -1,9 +1,9 @@
 [ColorEffects:Disabled]
 ChangeSelectionColor=
-Color=47,56,62
-ColorAmount=0.65
-ColorEffect=3
-ContrastAmount=0.7000000000000001
+Color=42, 51, 57
+ColorAmount=0.65130,191,146
+ColorEffect=2
+ContrastAmount=0.7
 ContrastEffect=0
 Enable=
 IntensityAmount=0.2
@@ -12,20 +12,20 @@ IntensityEffect=0
 [ColorEffects:Inactive]
 ChangeSelectionColor=true
 Color=47,56,62
-ColorAmount=0.47500000000000003
+ColorAmount=0
 ColorEffect=2
-ContrastAmount=0.1
+ContrastAmount=0
 ContrastEffect=0
 Enable=true
-IntensityAmount=0.1
+IntensityAmount=0.75
 IntensityEffect=0
 
 [Colors:Button]
 BackgroundAlternate=64,69,82
 BackgroundNormal=55,66,71
-DecorationFocus=167,192,128
-DecorationHover=167,192,128
-ForegroundActive=167,192,128
+DecorationFocus=130,191,146
+DecorationHover=118, 191, 146
+ForegroundActive=118, 191, 146
 ForegroundInactive=122,132,120
 ForegroundLink=127,187,179
 ForegroundNegative=230,126,128
@@ -38,11 +38,11 @@ ForegroundVisited=214,153,182
 BackgroundNormal=42,46,50
 
 [Colors:Selection]
-BackgroundAlternate=147,178,89
-BackgroundNormal=167,192,128
-DecorationFocus=167,192,128
-DecorationHover=167,192,128
-ForegroundActive=47,56,62
+BackgroundAlternate=118,191,146
+BackgroundNormal=118, 191, 146
+DecorationFocus=118, 191, 146
+DecorationHover=118, 191, 146
+ForegroundActive=42, 51, 57
 ForegroundInactive=122,132,120
 ForegroundLink=127,187,179
 ForegroundNegative=230,126,128
@@ -54,9 +54,9 @@ ForegroundVisited=214,153,182
 [Colors:Tooltip]
 BackgroundAlternate=47,52,63
 BackgroundNormal=55,66,71
-DecorationFocus=167,192,128
-DecorationHover=167,192,128
-ForegroundActive=167,192,128
+DecorationFocus=118, 191, 146
+DecorationHover=118, 191, 146
+ForegroundActive=118, 191, 146
 ForegroundInactive=122,132,120
 ForegroundLink=127,187,179
 ForegroundNegative=230,126,128
@@ -68,9 +68,9 @@ ForegroundVisited=214,153,182
 [Colors:View]
 BackgroundAlternate=55,66,71
 BackgroundNormal=43,51,57
-DecorationFocus=167,192,128
-DecorationHover=167,192,128
-ForegroundActive=167,192,128
+DecorationFocus=118, 191, 146
+DecorationHover=118, 191, 146
+ForegroundActive=118, 191, 146
 ForegroundInactive=122,132,120
 ForegroundLink=127,187,179
 ForegroundNegative=230,126,128
@@ -81,10 +81,10 @@ ForegroundVisited=214,153,182
 
 [Colors:Window]
 BackgroundAlternate=55,66,71
-BackgroundNormal=47,56,62
-DecorationFocus=167,192,128
-DecorationHover=167,192,128
-ForegroundActive=167,192,128
+BackgroundNormal=42, 51, 57
+DecorationFocus=118, 191, 146
+DecorationHover=118, 191, 146
+ForegroundActive=118, 191, 146
 ForegroundInactive=122,132,120
 ForegroundLink=127,187,179
 ForegroundNegative=230,126,128
@@ -94,21 +94,20 @@ ForegroundPositive=141,161,1
 ForegroundVisited=214,153,182
 
 [DirSelect Dialog]
-DirSelectDialog Size=1031,1052
-History Items[$e]=file:$HOME/Docs/Notes/PDF,file:$HOME/Docs/Notes/HTML,file:$HOME/Docs/Notes/HTML,file:$HOME/Pictures/Wallpapers/everforest-walls,file:$HOME/Pictures/Wallpapers/everforest-walls,file:///run/user/1000,file:///tmp,file:///mnt/tmpfs,file:///mnt/hdd/IMPORTANT_MEDIA/from_windows/Pictures/Slideshow,file:$HOME/Pictures,file:///mnt/hdd/IMPORTANT_MEDIA,file:$HOME/Docs/Notes/PDF,file:$HOME/Docs/Notes/HTML/Atom
+DirSelectDialog Size=980,600
+History Items[$e]=file:$HOME/Notes,file:///mnt/ssd/Photos/Gallery,file:///mnt/ssd/Photos/Latest,file:$HOME/Docs/Notes/PDF,file:$HOME/Docs/Notes/HTML,file:$HOME/Docs/Notes/HTML,file:$HOME/Pictures/Wallpapers/everforest-walls,file:$HOME/Pictures/Wallpapers/everforest-walls,file:///run/user/1000,file:///tmp,file:///mnt/tmpfs,file:///mnt/hdd/IMPORTANT_MEDIA/from_windows/Pictures/Slideshow,file:$HOME/Pictures,file:///mnt/hdd/IMPORTANT_MEDIA,file:$HOME/Docs/Notes/PDF,file:$HOME/Docs/Notes/HTML/Atom
 
 [General]
-ColorSchemeHash=3f815ed73bde45af453b6c5722dc1d9ea658185e
-LastUsedCustomAccentColor=184,117,220
+ColorSchemeHash=269e4c2f260a4699fe007839e1720413897f8d7d
+LastUsedCustomAccentColor=61,174,233
 TerminalApplication=kitty
 TerminalService=kitty.desktop
 XftAntialias=true
 XftHintStyle=hintslight
 XftSubPixel=rgb
-fixed=Source Code Pro,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
 
 [KDE]
-AnimationDurationFactor=0.35355339059327373
+AnimationDurationFactor=0.4999999999999999
 LookAndFeelPackage=org.kde.breezedark.desktop
 
 [KFileDialog Settings]
@@ -118,7 +117,7 @@ Breadcrumb Navigation=true
 Decoration position=2
 LocationCombo Completionmode=5
 PathCombo Completionmode=5
-Preview Width=228
+Preview Width=491
 Show Bookmarks=false
 Show Full Path=false
 Show Inline Previews=false
@@ -141,10 +140,14 @@ Dialog Size=600,480
 [PreviewSettings]
 MaximumRemoteSize=0
 
+[Toolbar style]
+ToolButtonStyle=NoText
+ToolButtonStyleOtherToolbars=NoText
+
 [WM]
-activeBackground=47,56,62
-activeBlend=47,56,62
+activeBackground=42,51,57
+activeBlend=42,51,57
 activeForeground=211,198,170
-inactiveBackground=47,56,62
-inactiveBlend=47,56,62
+inactiveBackground=42,51,57
+inactiveBlend=42,51,57
 inactiveForeground=122,132,120

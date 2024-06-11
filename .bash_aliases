@@ -15,6 +15,7 @@ shell=$(echo $SHELL | awk -F/ '{print $4}')
 kitten_aliases() {
 	alias diff_='kitten diff'
 	alias img='kitten icat'
+	alias ssh='kitten ssh'
 }
 
 [[ "$TERM" == "xterm-kitty" ]] && kitten_aliases
@@ -24,7 +25,7 @@ alias diff='diff --color=auto'
 alias ip='ip -c'
 # alias less='less --use-color'
 alias pacman='sudo pacman --color=always'
-alias ac='/usr/bin/python3 ~/python/Projects/ollama/auto_commit.py'
+alias ac='/usr/bin/python3 ~/python/Projects/termllama/termllama/auto_commit.py'
 alias bathelp='bat --plain --language=help'
 alias follow='batfollow'
 alias batless='bat --style=full --paging=always -l less'
@@ -83,7 +84,7 @@ alias lss="ls -Alshr --group-directories-first"
 alias lt="ls -Altrh --time=mtime --group-directories-first"
 alias m="micro"
 alias mail="failed_services_function"
-alias man="man_color"
+#alias man="man_color"
 alias mv="mv -iv"
 alias nano="micro"
 alias notes="cd_notes"

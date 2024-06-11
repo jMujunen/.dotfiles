@@ -1,11 +1,39 @@
 [ActionPlugins][0]
-MiddleButton;NoModifier=org.kde.paste
+LeftButton;NoModifier=switchwindow
+MiddleButton;NoModifier=switchactivity
 RightButton;NoModifier=org.kde.contextmenu
+
+[ActionPlugins][0][LeftButton;NoModifier]
+mode=2
+
+[ActionPlugins][0][MiddleButton;NoModifier]
+mode=0
+
+[ActionPlugins][0][RightButton;NoModifier]
+_add panel=true
+_context=true
+_display_settings=true
+_lock_screen=false
+_logout=false
+_open_terminal=true
+_run_command=false
+_sep1=true
+_sep2=true
+_sep3=true
+_wallpaper=true
+add widgets=true
+configure=true
+configure shortcuts=false
+edit mode=true
+manage activities=true
+remove=true
 
 [ActionPlugins][1]
 RightButton;NoModifier=org.kde.contextmenu
 
 [Containments][1]
+ItemGeometries-0x0=Applet-98:16,16,112,112,0;Applet-90:384,192,592,112,0;Applet-99:704,496,208,240,0;
+ItemGeometries-1024x768=
 ItemGeometries-1920x1080=
 ItemGeometriesHorizontal=
 activityId=8fab4b45-8c3d-4755-82c1-9a563626c4e3
@@ -17,21 +45,40 @@ plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
 [Containments][1][ConfigDialog]
-DialogHeight=1052
-DialogWidth=1920
+DialogHeight=540
+DialogWidth=720
 
 [Containments][1][General]
 ToolBoxButtonState=topcenter
 ToolBoxButtonX=384
+positions={"1920x1080":[]}
+sortMode=-1
+
+[Containments][1][Wallpaper][a2n.blur][General]
+AnimationDuration=750
+BlurRadius=50
+Image=/home/joona/Pictures/Wallpapers/everforest-walls/other/car_rain.png
+IsSlideshow=true
+SlidePaths=/mnt/ssd/Photos/Gallery/
+UncheckedSlides=/mnt/ssd/Photos/Latest/CAM_0392.jpg,/mnt/ssd/Photos/Gallery/2018/m_1.jpg,/mnt/ssd/Photos/Gallery/2018/m_3.jpg,/mnt/ssd/Photos/Gallery/2018/m_2.jpg,/mnt/ssd/Photos/Gallery/2018/m_9.jpg,/mnt/ssd/Photos/Gallery/2020/2020-03-21_00:04:38.jpg,/mnt/ssd/Photos/Gallery/2018/m_4.jpg,/mnt/ssd/Photos/Gallery/2018/m_5.jpg,/mnt/ssd/Photos/Gallery/2018/m_6.jpg,/mnt/ssd/Photos/Gallery/2018/m_8.jpg,/mnt/ssd/Photos/Gallery/2018/m_14.jpg,/mnt/ssd/Photos/Gallery/2018/m_13.jpg,/mnt/ssd/Photos/Gallery/2018/m_11.jpg,/mnt/ssd/Photos/Gallery/2018/m_10.jpg
 
 [Containments][1][Wallpaper][org.kde.image][General]
-Image=/home/joona/Pictures/Wallpapers/plasma/ukXt6o.png
+Blur=true
+Image=/home/joona/Pictures/Wallpapers/span/ajamesmccarthy-3440x1440.jpg
 SlidePaths=/home/joona/.local/share/wallpapers/,/usr/share/wallpapers/
 
+[Containments][1][Wallpaper][org.kde.slideshow][General]
+Image=file:///mnt/ssd/Photos/Gallery/NoMetaData/java_2023_11_05_13_41_25_988.jpg
+SlidePaths=/mnt/ssd/Photos/Gallery/
+
 [Containments][2]
-ItemGeometries-0x0=Applet-65:0,0,176,160,0;
-ItemGeometries-1920x1080=Applet-65:0,0,176,160,0;
-ItemGeometriesHorizontal=Applet-65:0,0,176,160,0;
+ItemGeometries-0x0=Applet-65:0,0,432,432,0;
+ItemGeometries-1080x1920=Applet-65:0,0,176,160,0;
+ItemGeometries-1280x720=Applet-65:0,0,176,160,0;
+ItemGeometries-1920x1080=
+ItemGeometries-683x512=Applet-65:0,0,176,160,0;
+ItemGeometriesHorizontal=
+ItemGeometriesVertical=Applet-65:0,0,176,160,0;
 activityId=8fab4b45-8c3d-4755-82c1-9a563626c4e3
 formfactor=0
 immutability=1
@@ -40,27 +87,36 @@ location=0
 plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
-[Containments][2][Applets][65]
-immutability=1
-plugin=com.github.korapp.homeassistant
-
-[Containments][2][Applets][65][Configuration][ConfigDialog]
-DialogHeight=540
-DialogWidth=720
-
-[Containments][2][Applets][65][Configuration][General]
-url=http://10.0.0.240:8123
-
-[Containments][2][Applets][65][Configuration][Items]
-items=[{"entity_id":"sensor.pi_hole_ads_blocked_today"},{"default_action":{"domain":"switch","service":"toggle","target":{"entity_id":"switch.office_lamp"}},"entity_id":"switch.office_lamp"}]
+[Containments][2][ConfigDialog]
+DialogHeight=1052
+DialogWidth=1920
 
 [Containments][2][General]
 ToolBoxButtonState=topcenter
 ToolBoxButtonX=384
+iconSize=0
+labelWidth=0
+positions={"1920x1080":["1"\\,"29"\\,"desktop:/Screenshot_20211010-104144-701x1024.webp"\\,"0"\\,"2"\\,"desktop:/CR19-1024x648.webp"\\,"0"\\,"0"\\,"desktop:/a-cool-guide-for-building-a-corsi-rosenthal-box-aka-diy-air-v0-9fmi7kdpwyhc1.webp"\\,"0"\\,"1"]}
+sortMode=-1
+textLines=1
+toolTips=true
+
+[Containments][2][Wallpaper][a2n.blur][General]
+AnimationDuration=750
+BlurRadius=50
+Image=/home/joona/Pictures/Wallpapers/everforest-walls/other/car_rain.png
+IsSlideshow=true
+SlidePaths=/mnt/ssd/Photos/Gallery/
+UncheckedSlides=/mnt/ssd/Photos/Latest/CAM_0392.jpg,/mnt/ssd/Photos/Gallery/2018/m_1.jpg,/mnt/ssd/Photos/Gallery/2018/m_3.jpg,/mnt/ssd/Photos/Gallery/2018/m_2.jpg,/mnt/ssd/Photos/Gallery/2018/m_9.jpg,/mnt/ssd/Photos/Gallery/2020/2020-03-21_00:04:38.jpg,/mnt/ssd/Photos/Gallery/2018/m_4.jpg,/mnt/ssd/Photos/Gallery/2018/m_5.jpg,/mnt/ssd/Photos/Gallery/2018/m_6.jpg,/mnt/ssd/Photos/Gallery/2018/m_8.jpg,/mnt/ssd/Photos/Gallery/2018/m_14.jpg,/mnt/ssd/Photos/Gallery/2018/m_13.jpg,/mnt/ssd/Photos/Gallery/2018/m_11.jpg,/mnt/ssd/Photos/Gallery/2018/m_10.jpg
 
 [Containments][2][Wallpaper][org.kde.image][General]
-Image=/home/joona/Pictures/Wallpapers/plasma/ukXt6o.png
+Blur=true
+Image=/home/joona/Pictures/Wallpapers/span/ajamesmccarthy-3440x1440.jpg
 SlidePaths=/home/joona/.local/share/wallpapers/,/usr/share/wallpapers/
+
+[Containments][2][Wallpaper][org.kde.slideshow][General]
+Image=file:///mnt/ssd/Photos/Gallery/NoMetaData/DSC_0150_edited - Copy.png
+SlidePaths=/mnt/ssd/Photos/Gallery/
 
 [Containments][29]
 activityId=
@@ -78,7 +134,7 @@ plugin=org.kde.plasma.kicker
 [Containments][29][Applets][35][Configuration]
 PreloadWeight=100
 popupHeight=497
-popupWidth=638
+popupWidth=299
 
 [Containments][29][Applets][35][Configuration][ConfigDialog]
 DialogHeight=540
@@ -94,7 +150,7 @@ immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][29][Applets][36][Configuration]
-PreloadWeight=70
+PreloadWeight=100
 SystrayContainmentId=37
 
 [Containments][29][Applets][66]
@@ -106,6 +162,7 @@ DialogHeight=540
 DialogWidth=720
 
 [Containments][29][Applets][66][Configuration][General]
+iconSpacing=0
 launchers=applications:systemsettings.desktop,preferred://browser
 showOnlyCurrentScreen=true
 
@@ -114,7 +171,7 @@ immutability=1
 plugin=org.kde.plasma.digitalclock
 
 [Containments][29][Applets][79][Configuration]
-PreloadWeight=55
+PreloadWeight=60
 popupHeight=450
 popupWidth=560
 
@@ -140,7 +197,7 @@ immutability=1
 plugin=org.kde.plasma.notifications
 
 [Containments][37][Applets][39][Configuration]
-PreloadWeight=55
+PreloadWeight=65
 
 [Containments][37][Applets][40][Configuration]
 PreloadWeight=42
@@ -148,6 +205,9 @@ PreloadWeight=42
 [Containments][37][Applets][41]
 immutability=1
 plugin=org.kde.plasma.volume
+
+[Containments][37][Applets][41][Configuration]
+PreloadWeight=60
 
 [Containments][37][Applets][41][Configuration][General]
 migrated=true
@@ -167,6 +227,9 @@ PreloadWeight=42
 immutability=1
 plugin=org.kde.plasma.clipboard
 
+[Containments][37][Applets][45][Configuration]
+PreloadWeight=55
+
 [Containments][37][Applets][46][Configuration]
 PreloadWeight=42
 
@@ -184,21 +247,21 @@ immutability=1
 plugin=org.kde.plasma.battery
 
 [Containments][37][Applets][50][Configuration]
-PreloadWeight=2
+PreloadWeight=0
 
 [Containments][37][Applets][51]
 immutability=1
 plugin=org.kde.plasma.brightness
 
 [Containments][37][Applets][51][Configuration]
-PreloadWeight=2
+PreloadWeight=0
 
 [Containments][37][Applets][52]
 immutability=1
 plugin=org.kde.plasma.bluetooth
 
 [Containments][37][Applets][52][Configuration]
-PreloadWeight=34
+PreloadWeight=0
 
 [Containments][37][Applets][53]
 immutability=1
@@ -274,46 +337,25 @@ interval=2000
 replaceAllNewlines=true
 vertAlign=64
 
-[Containments][54][Applets][59]
-immutability=1
-plugin=com.github.zren.commandoutput
-
-[Containments][54][Applets][59][Configuration][ConfigDialog]
-DialogHeight=540
-DialogWidth=720
-
-[Containments][54][Applets][59][Configuration][General]
-clickCommand=/bin/bash /home/joona/scripts/command_output/system_temp_color.sh
-command=/bin/bash /home/joona/scripts/command_output/system_temp_color.sh
-fontFamily=JetBrains Mono
-fontSize=10
-interval=2000
-vertAlign=64
-
-[Containments][54][Applets][60]
-immutability=1
-plugin=com.himdek.kde.plasma.runcommand
-
-[Containments][54][Applets][60][Configuration][ConfigDialog]
-DialogHeight=540
-DialogWidth=720
-
-[Containments][54][Applets][60][Configuration][General]
-command=/bin/bash /home/joona/scripts/shutdown/force_kill.sh
-icon=process-stop
-
 [Containments][54][Applets][61]
 immutability=1
 plugin=org.kde.plasma.appmenu
+
+[Containments][54][Applets][61][Configuration][Appearance]
+compactView=true
+
+[Containments][54][Applets][61][Configuration][ConfigDialog]
+DialogHeight=540
+DialogWidth=720
 
 [Containments][54][Applets][67]
 immutability=1
 plugin=org.kde.plasma.notes
 
 [Containments][54][Applets][67][Configuration]
-PreloadWeight=55
-popupHeight=450
-popupWidth=450
+PreloadWeight=90
+popupHeight=485
+popupWidth=484
 
 [Containments][54][Applets][67][Configuration][General]
 cursorPosition=22
@@ -333,10 +375,6 @@ plugin=org.kde.latte.separator
 immutability=1
 plugin=org.kde.latte.separator
 
-[Containments][54][Applets][72]
-immutability=1
-plugin=org.kde.latte.separator
-
 [Containments][54][Applets][73]
 immutability=1
 plugin=org.kde.latte.separator
@@ -346,7 +384,7 @@ immutability=1
 plugin=org.kde.kdeconnect
 
 [Containments][54][Applets][74][Configuration]
-PreloadWeight=55
+PreloadWeight=60
 popupHeight=400
 popupWidth=560
 
@@ -371,7 +409,6 @@ DialogHeight=540
 DialogWidth=720
 
 [Containments][54][Applets][84][Configuration][General]
-fill=false
 forceStripes=true
 groupedTaskVisualization=2
 launchers=applications:systemsettings.desktop
@@ -379,38 +416,68 @@ maxStripes=2
 separateLaunchers=false
 showOnlyCurrentScreen=true
 
-[Containments][54][Applets][85]
-immutability=1
-plugin=org.kde.plasma.windowlist
-transient=true
-
-[Containments][54][Applets][86]
-immutability=1
-plugin=org.kde.plasma.systemmonitor.cpu
-
-[Containments][54][Applets][86][Configuration]
-CurrentPreset=org.kde.plasma.systemmonitor
-
-[Containments][54][Applets][86][Configuration][Appearance]
-chartFace=org.kde.ksysguard.piechart
-title=Total CPU Use
-
-[Containments][54][Applets][86][Configuration][SensorColors]
-cpu/all/usage=59,108,90
-
-[Containments][54][Applets][86][Configuration][Sensors]
-highPrioritySensorIds=["cpu/all/usage"]
-lowPrioritySensorIds=["cpu/all/cpuCount","cpu/all/coreCount"]
-totalSensors=["cpu/all/usage"]
-
 [Containments][54][Applets][87]
 immutability=1
 plugin=d4rkwzd.colorpicker-tray
 
+[Containments][54][Applets][87][Configuration]
+PreloadWeight=80
+popupHeight=324
+popupWidth=324
+
+[Containments][54][Applets][87][Configuration][ConfigDialog]
+DialogHeight=540
+DialogWidth=720
+
+[Containments][54][Applets][87][Configuration][General]
+compactPreviewCount=5
+pickOnActivate=false
+
+[Containments][54][Applets][87][Shortcuts]
+global=Ctrl+Shift+G
+
+[Containments][54][Applets][88]
+immutability=1
+plugin=com.github.zren.commandoutput
+
+[Containments][54][Applets][88][Configuration][ConfigDialog]
+DialogHeight=540
+DialogWidth=720
+
+[Containments][54][Applets][88][Configuration][General]
+command=/bin/bash /home/joona/scripts/command_output/system_temp_color.sh
+fontFamily=JetBrains Mono
+fontSize=10
+interval=2000
+
+[Containments][54][Applets][99]
+immutability=1
+plugin=org.kde.plasma.scpmk
+
+[Containments][54][Applets][99][Configuration]
+PreloadWeight=95
+popupHeight=431
+popupWidth=270
+
+[Containments][54][Applets][99][Configuration][Apps]
+appList=[["systemsettings.desktop",{"iconName":"systemsettings"}],["org.corectrl.CoreCtrl.desktop",{"iconName":"corectrl"}],["com.jagexlauncher.JagexLauncher.desktop",{"iconName":"com.jagexlauncher.JagexLauncher"}],["spotify.desktop",{"iconName":"spotify-client"}],["signal-desktop.desktop",{"iconName":"signal-desktop"}],["io.github.martinrotter.rssguard.desktop",{"iconName":"io.github.martinrotter.rssguard"}],["pix.desktop",{"iconName":"pix"}]]
+
+[Containments][54][Applets][99][Configuration][ConfigDialog]
+DialogHeight=540
+DialogWidth=720
+
+[Containments][54][Applets][99][Configuration][General]
+icon=go-up-skip-symbolic
+showCmd2=true
+showCmd3=true
+
 [Containments][54][General]
-AppletOrder=61;69;84;59;73;86;56;70;57;71;58;72;60;77;67;76;74;75;87
+AppletOrder=61;84;73;99;88;69;56;70;57;71;58;77;67;76;74;75;87
 
 [Containments][81]
+ItemGeometries-0x0=
+ItemGeometries-1920x1080=
+ItemGeometriesHorizontal=
 activityId=cc8c482b-b846-4ec9-b458-b0f349cd6b1a
 formfactor=0
 immutability=1
@@ -419,7 +486,19 @@ location=0
 plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
+[Containments][81][ConfigDialog]
+DialogHeight=540
+DialogWidth=720
+
+[Containments][81][Wallpaper][org.kde.image][General]
+Image=/home/joona/Pictures/Wallpapers/plasma/Evening (2).jpg
+PreviewImage=/home/joona/Pictures/Wallpapers/plasma/Evening (2).jpg
+SlidePaths=/home/joona/.local/share/wallpapers/,/usr/share/wallpapers/
+
 [Containments][82]
+ItemGeometries-0x0=Applet-100:1824,352,96,96,0;
+ItemGeometries-1920x1080=
+ItemGeometriesHorizontal=
 activityId=cc8c482b-b846-4ec9-b458-b0f349cd6b1a
 formfactor=0
 immutability=1
@@ -427,6 +506,24 @@ lastScreen=0
 location=0
 plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
+
+[Containments][82][ConfigDialog]
+DialogHeight=540
+DialogWidth=720
+
+[Containments][82][General]
+iconSize=0
+labelWidth=0
+textLines=1
+toolTips=true
+
+[Containments][82][Wallpaper][a2n.blur][General]
+Image=/home/joona/Pictures/Wallpapers/everforest-walls/other/car_rain.png
+SlidePaths=/home/joona/.local/share/wallpapers/,/usr/share/wallpapers/
+
+[Containments][82][Wallpaper][org.kde.image][General]
+Image=/home/joona/Pictures/Wallpapers/plasma/Evening (2).jpg
+SlidePaths=/home/joona/.local/share/wallpapers/,/usr/share/wallpapers/
 
 [Containments][9]
 activityId=
@@ -568,5 +665,14 @@ customButtonImage=/usr/share/icons/self/arch1200x1200.png
 favoritesPortedToKAstats=true
 useCustomButtonImage=true
 
+[Containments54Appletsts][99][Configuration][Apps]
+appList=[["org.corectrl.CoreCtrl.desktop",{"iconName":"corectrl"}],["com.jagexlauncher.JagexLauncher.desktop",{"iconName":"com.jagexlauncher.JagexLauncher"}],["spotify.desktop",{"iconName":"spotify-client"}],["signal-desktop.desktop",{"iconName":"signal-desktop"}],["io.github.martinrotter.rssguard.desktop",{"iconName":"io.github.martinrotter.rssguard"}],["pix.desktop",{"iconName":"pix"}]]
+
+[Containments54Appletsts][99][Configuration][General]
+icon=collapse
+showCmd2=true
+showCmd3=true
+
 [ScreenMapping]
-itemsOnDisabledScreens=
+itemsOnDisabledScreens=1,8fab4b45-8c3d-4755-82c1-9a563626c4e3,32,file:///home/joona/scripts/hydra.sh,file:///home/joona/scripts/tput_colors.sh,file:///home/joona/scripts/mount.sh,file:///home/joona/scripts/do_lib_deps_exsist.sh,file:///home/joona/scripts/graphing,file:///home/joona/scripts/logging,file:///home/joona/scripts/mkinitcpio.sh,file:///home/joona/scripts/comma_sep.sh,file:///home/joona/scripts/git_scripts,file:///home/joona/scripts/tputallcolors.sh,file:///home/joona/scripts/command_output,file:///home/joona/scripts/tclock.sh,file:///home/joona/scripts/termsize.sh,file:///home/joona/scripts/dos2unix.sh,file:///home/joona/scripts/force_kill.sh,file:///home/joona/scripts/recover.sh,file:///home/joona/scripts/find_files_in_dir_tree.sh,file:///home/joona/scripts/refresh_desktop.sh,file:///home/joona/scripts/cam.sh,file:///home/joona/scripts/echo_color.sh,file:///home/joona/scripts/nextboot.sh,file:///home/joona/scripts/notifications,file:///home/joona/scripts/screenshots,file:///home/joona/scripts/jp2gif.sh,file:///home/joona/scripts/shutdown,file:///home/joona/scripts/hardwareOC,file:///home/joona/scripts/space_macro.sh,file:///home/joona/scripts/tput_extened_colors.sh,file:///home/joona/scripts/printenv_color.sh,file:///home/joona/scripts/startup,file:///home/joona/scripts/examples,file:///home/joona/scripts/TODO.md
+screenMapping=desktop:/a-cool-guide-for-building-a-corsi-rosenthal-box-aka-diy-air-v0-9fmi7kdpwyhc1.webp,1,8fab4b45-8c3d-4755-82c1-9a563626c4e3,desktop:/Screenshot_20211010-104144-701x1024.webp,1,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/a-cool-guide-for-building-a-corsi-rosenthal-box-aka-diy-air-v0-9fmi7kdpwyhc1.webp,1,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/passwords.csv,0,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/Screenshot_20211010-104144-701x1024.webp,1,8fab4b45-8c3d-4755-82c1-9a563626c4e3,desktop:/CR19-1024x648.webp,1,cc8c482b-b846-4ec9-b458-b0f349cd6b1a,desktop:/CR19-1024x648.webp,1,8fab4b45-8c3d-4755-82c1-9a563626c4e3

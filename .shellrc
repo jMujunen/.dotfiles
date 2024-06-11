@@ -1,17 +1,21 @@
 # Env Vars
+# -------
 export EDITOR=micro
-export PYTHONPATH=~/.ipython/profile_main/:~/Apps/git/matplotlib-backend-kitty/:~/python/modules/:~/python/scripts/:~/python/scripts/bashhelpers/:~/python/scripts/bashhelpers/ColorizeOutput/
-export PATH="${PATH}:${ANDROID_HOME}/cmdline-tools/latest/bin"
+export PYTHONPATH=~/.ipython/profile_main/:~/python/modules/:~/python/scripts/:~/python/scripts/bashhelpers/:~/python/scripts/bashhelpers/ColorizeOutput/
+export PATH="${PATH}:/cmdline-tools/latest/bin"
 export PATH=~/.dotfiles/:~/scripts/:~/scripts/graphing/:~/scripts/git_scripts/:~/.local/bin:$PATH:$PYTHONPATH
 
 # Git
+# ---
 GIT_COMMITTER_NAME="J Mujunen"
 GIT_COMMITTER_EMAIL="jMujunen@github.com"
 
-# Shell
+# ZSH
+# ---
 export HISTFILE=$ZDOTDIR/.zsh_history
 
 # Wayland/Nvidia specific
+# ----------------------
 export ELECTRON_OZONE_PLATFORM_HINT=wayland
 export GBM_BACKEND=nvidia-drm
 export GDK_BACKEND=wayland
@@ -24,15 +28,20 @@ export QT_QPA_PLATFORM=wayland
 export MAKEFLAGS="-j$(nproc)"
 
 # Random
+# -----
 export TESSDATA_PREFIX=/usr/share/tessdata
-export ANDROID_HOME='/opt/android-sdk'
-export ANDROID_SDK_ROOT='/opt/android-sdk'
 
 # Ollama
+# ------
 export OLLAMA_KEEP_ALIVE=60
-export OLLAMA_MODELS=$HOME/.ollama/models/
+export OLLAMA_MODELS=/home/joona/.ollama/models/
+export OLLAMA_HOST=10.0.0.21:11434
 
+# Python
+# ------
+#export PYTHONSTARTUP="/home/joona/.ipython/profile_main/custom_init.py"
 # CONDA
+# -----
 #export CONDA_DEFAULT_ENV=/home/joona/python/.anaconda/
 #export CONDA_PYTHON_EXE=/
 # --------------------------------------------------------------- #
@@ -60,34 +69,4 @@ fi
 #fastfetch --color 32 -c ~/.config/fastfetch/others/compact-mod.jsonc
 #printf "\033[97m%-*s\033[0m\033[31m FAILED\033[0m \033[33m@ %*s\033[0m\033[15;35m %-*s\033[0m\n" 10 ".shellrc" 2 "line 61:" 10 "xbindkeys" >> /var/spool/mail/joona/scripts.log
 
-# if [ ~/.bash_aliases_ ]; then
-#     . ~/.bash_aliases_
-# elif [ ~/.dotfiles/.bash_aliases_ ]; then
-#     . ~/.dotfiles/.bash_aliases_
-# else
-#     echo -e "\033[31m'.bash_aliases_' doesnt exist in ~/\033[0m"
-# fi
-
-# if [ -f ~/.bash_aliases ]; then
-#     . ~/.bash_aliases
-# elif [ -f ~/.dotfiles/.bash_aliases ]; then
-#     . ~/.dotfiles/.bash_aliases
-# else
-#     echo -e "\033[31m'.bash_aliases' doesnt exist in ~/\033[0m"
-# fi
-
-# Depreciated
-#
-# if [ -f ~/.bash_functions ]; then
-#     . ~/.bash_functions
-# elif [ -f ~/.dotfiles/.bash_functions ]; then
-#     . ~/.dotfiles/.bash_functions
-# else
-#     echo -e "\033[31m'.bash_functions' doesnt exist in ~/\033[0m"
-# fi
-
-# ------------------------------------------------------------------ #
-
-#export PYTHONSTARTUP="/home/joona/.ipython/profile_main/custom_init.py"
-#export QT_PLUGIN_PATH=/usr/lib/qt/plugins
-#export MANPAGER="sh -c 'col -x | bat -l man -p'"
+export QT_PLUGIN_PATH=/usr/lib/qt/plugins
