@@ -1,8 +1,8 @@
-# -----------------------#
-[[ -f ~/.dotfiles/.vars ]] && . ~/.dotfiles/.vars
+q# -----------------------#
+# Import vars, functions, vars
+[[ -f ~/.dotfiles/.consts ]] && . ~/.dotfiles/.consts
 
 # Variables
-ffid='h76d4ruz.default-release'
 shell=$(echo $SHELL | awk -F/ '{print $4}')
 
 # Enable Wayland if not X11
@@ -28,7 +28,7 @@ alias pacman='sudo pacman --color=always'
 alias ac='/usr/bin/python3 ~/python/Projects/termllama/termllama/auto_commit.py'
 alias bathelp='bat --plain --language=help'
 alias follow='batfollow'
-alias batless='bat --style=full --paging=always -l less'
+alias batless='bat --style=full --paging=always -pl less'
 alias pat='bat --style="plain"'
 alias lat='bat --style="auto" --pager=none'
 alias fat='bat --style="full"'
@@ -84,7 +84,7 @@ alias lss="ls -Alshr --group-directories-first"
 alias lt="ls -Altrh --time=mtime --group-directories-first"
 alias m="micro"
 alias mail="failed_services_function"
-#alias man="man_color"
+alias man="man_color"
 alias mv="mv -iv"
 alias nano="micro"
 alias notes="cd_notes"
@@ -102,7 +102,7 @@ alias psg="ps aux | grep -E"
 alias ps="ps aux"
 alias py='python3'
 alias rgs='rg --no-ignore --hidden'
-alias rl="source ~/.bashrc"
+#alias rl="source ~/.bashrc"
 alias rmr='rm -rf'
 alias rm="rm -I"
 alias sms="python3 ~/python/modules/kdeConnect.py"
@@ -111,7 +111,7 @@ alias sunset="openrgb -p sunset &"
 alias up="cd_up"
 #alias vdir="vdir --color=auto"
 alias venv='source venv/bin/activate'
-alias workspace_notes='nohup vscodium $enable_wayland ~/Code/Workspace/Notes.code-workspace > /dev/null 2>&1 && exit'
+alias workspace_notes='nohup vscodium "$enable_wayland" ~/Code/Workspace/Notes.code-workspace > /dev/null 2>&1 && exit'
 alias workspace_bash="vscodium $enable_wayland ~/Code/Workspace/bashscripts.code-workspace && exit"
 alias workspace_="cd ~/Code/Workspace/ && ls -ltuph --group-directories-first"
 alias workspace_cfg="vscodium $enable_wayland ~/Code/Workspace/cfg.code-workspace && exit"
@@ -129,9 +129,9 @@ alias rl='cd /home/joona/.var/app/com.jagexlauncher.JagexLauncher/data/user_home
 alias s='s --provider duckduckgo'
 alias root='sudo --preserve-env -s'
 alias llama='ollama serve >/dev/null 2>&1 &'
-alias l3='python3 ~/python/Projects/ollama/main.py'
-alias clc='python3 ~/python/Projects/ollama/main.py codellama:custom'
-alias cl='python3 ~/python/Projects/ollama/main.py codellama:13b'
+alias l3='python3 ~/python/Projects/termllama/termllama/main.py'
+alias clc='python3 ~/python/Projects/termllama/termllama/main.py codellama:custom'
+alias cl='python3 ~/python/Projects/termllama/termllama/main.py codellama:13b'
 alias gitmsg='auto_git_msg'
 
 # Arch Linux Specific

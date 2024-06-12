@@ -1,29 +1,12 @@
-#!/bin/bash
-################################
-# Joona's Bash Shell Functions #
-################################
-
+#-------------------#
 enable_wayland="--enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland"
 
 error() {
   echo -e "\033[1;31mError: $*\033[0m" >&2
 }
 
-# auto_git_msg() {
-#   if [[ "$#" -eq 0 ]]; then
-#     commit_msg=$(git diff | python3 ~/python/Projects/ollama/main.py custom:gitmsg)
-#     echo $commit_msg
-#     echo -n "[E]dit, [C]ommit, [P]ush, or [Q]uit: "
-#     read reply
-
-#     if [[ $reply =~ '[eE]' ]]; then
-#       git
-
-#   elif [[ "$1" == "--staged" ]]; then
-
 # for viewing and clearing the failed services log.
 failed_services_function() {
-
   # Check if the services log file exists.
   if [[ -f $MAIL/services.log ]]; then
     # Display the contents of the file using 'bat'.
@@ -137,6 +120,7 @@ bte_function() {
     echo -e "\033[38;2;33;129;158mConnecting to $SonyXM4...\033[0m"
     if ! bluetoothctl connect "$SonyXM4"; then
       error "Failed to connect to $SonyXM4"
+      echo -e "\033[3m$(rfkill)\033[0m"
       return 1
     fi
     echo -e "\033[38;2;33;129;158mConnected Successfully\033[0m"
@@ -166,21 +150,21 @@ disk_usage() {
   # df -Ph | awk '{printf "%-16s %-8s %-10s\n", $1, $5, $6}' - Depreciated
 }
 
-vscode() {
-  for arg in "$@"; do
-    if [[ "$arg" == "--keep" ]]; then
-      local keep='true'
-    else
-      local keep='false'
-      string="$string $arg"
-    fi
-  done
-  if [[ "$keep" != 'true' ]]; then
-    vscodium $enable_wayland $string && exit
-  else
-    vscodium $enable_wayland $string &
-  fi
-}
+# vscode() {
+#   for arg in "$@"; do
+#     if [[ "$arg" == "--keep" ]]; then
+#       local keep='true'
+#     else
+#       local keep='false'
+#       string="$string $arg"
+#     fi
+#   done
+#   if [[ "$keep" != 'true' ]]; then
+#     vscodium $enable_wayland $string && exit
+#   else
+#     vscodium $enable_wayland $string &
+#   fi
+# }
 
 # TODO: Functions for default touch behaviour for certain filetypes
 touch_python() {
@@ -193,7 +177,21 @@ touch_python() {
 
   # Argument validation
 }
+# Formatting man pages with bat
+man_color() {
+  # Argument validation
+  [[ "$#" -eq 0 ]] && /usr/bin/man --help && return 0
 
+  # Preserve `k` option for searching man pages
+  if [[ "$#" -eq 1 ]] && [[ "$1" == "-k" ]]; then
+  	 /usr/bin/man -k "$@" | bat -l man -p
+  fi
+
+  [[ "$#" -gt 1 ]] && /usr/bin/man "$@" | bat -l man -p && return 0
+
+  /usr/bin/man "$1" | bat -pl man && return 0
+  return 1
+}
 # TODO IMPLEMENT
 # ? Update the time in shell prompt
 # update_prompt_time() {

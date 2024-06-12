@@ -1,0 +1,38 @@
+/* remove maximum/minimum  width restriction of sidebar 
+#sidebar {
+  max-width: none !important;
+  min-width: 0px !important;
+}
+
+#PersonalToolbar {
+  visibility: collapse !important;
+}
+
+#navigator-toolbox:hover > #PersonalToolbar {
+  visibility: visible !important;
+}
+*/
+
+/*
+* Makes tabs only 22px high rather than the default 29px
+* Only works on compact mode, otherwise tab height will be normal
+*
+* Contributor(s): DrPugsley
+*/
+
+[uidensity="compact"]:root {
+  --tab-min-height: 22px !important;
+  --newtab-margin: -3px 0 -3px -3px !important;
+}
+
+:root[uidensity="compact"] #tabbrowser-tabs {
+  --tab-min-height: var(--tab-min-height) !important;
+}
+
+.tabbrowser-tab {
+  max-height: var(--tab-min-height) !important;
+}
+
+.tabs-newtab-button {
+  margin: var(--newtab-margin) !important;
+}
