@@ -5,6 +5,44 @@ error() {
   echo -e "\033[1;31mError: $*\033[0m" >&2
 }
 
+_dotfiles() {
+  # echo null
+  echo "hi"
+  case "$1" in
+  .[py]*)
+    echo "py"
+    echo "#\!/usr/bin/env python3" >"$2"
+    ;;
+  .[sh]*)
+    echo "#\!/bin/bash" >"$2"
+    ;;
+  esac
+  # #!/bin/sh
+  # 
+  # # Check if the file exists
+  # if [ -e "$1" ]; then
+  #     echo "Error: File $1 already exists."
+  #     exit 1
+  # fi
+  # 
+  # # Check if the extension is .py or .sh
+  # case "$1" in
+  #     *.py)
+  #         # Add Python hashbang and execute permissions
+  #         echo "#!/usr/bin/env python3" > "$1"
+  #         chmod +x "$1"
+  #         ;;
+  #     *.sh)
+  #         # Add Shell hashbang and execute permissions
+  #         echo "#!/bin/sh" > "$1"
+  #         chmod +x "$1"
+  #         ;;
+  #     *)
+  #         echo "Error: Unsupported file extension."
+  #         exit 1
+  # esac
+}
+
 # for viewing and clearing the failed services log.
 failed_services_function() {
   # Check if the services log file exists.
@@ -184,7 +222,7 @@ man_color() {
 
   # Preserve `k` option for searching man pages
   if [[ "$#" -eq 1 ]] && [[ "$1" == "-k" ]]; then
-  	 /usr/bin/man -k "$@" | bat -l man -p
+    /usr/bin/man -k "$@" | bat -l man -p
   fi
 
   [[ "$#" -gt 1 ]] && /usr/bin/man "$@" | bat -l man -p && return 0

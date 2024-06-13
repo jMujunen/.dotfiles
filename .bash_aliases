@@ -32,7 +32,6 @@ alias batless='bat --style=full --paging=always -pl less'
 alias pat='bat --style="plain"'
 alias lat='bat --style="auto" --pager=none'
 alias fat='bat --style="full"'
-alias bat='bat --style="full"'
 alias aliases='alias | bat -l sh -p'
 alias back='cd "$OLDPWD"'
 # alias brightness_max='qdbus6 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl \
@@ -152,3 +151,9 @@ alias gds='git diff --staged'
 # Touch aliases
 alias tp='touch_python'
 alias ts='touch_shell'
+
+alias hist='omz_history -i'
+
+# ssh
+alias server='ssh -i /home/joona/.ssh/server_id_rsa "$server"'
+alias cfg='_dotfiles'
