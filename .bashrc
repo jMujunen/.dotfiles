@@ -129,9 +129,4 @@ if ! shopt -oq posix; then
 fi
 
 # Use this file for configurations shared between zsh and bash
-if [ -f ~/.shellrc ]; then
-    source ~/.shellrc
-elif [ -f ~/.dotfiles/.shellrc ]; then
-    source ~/.dotfiles/.shellrc
-    echo "Sourced .shellrc"
-fi
+[[ -f ~/.shellrc ]] && source ~/.shellrc || source ~/.dotfiles/.shellrc || error "No shellrc found"

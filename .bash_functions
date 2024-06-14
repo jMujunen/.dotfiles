@@ -5,42 +5,46 @@ error() {
   echo -e "\033[1;31mError: $*\033[0m" >&2
 }
 
-_dotfiles() {
-  # echo null
-  echo "hi"
+# _dotfiles() {
+#   # echo null
+#   echo "hi"bb
+#   case "$1" in
+#   .[py]*)
+#     echo "py"
+#     echo "#\!/usr/bin/env python3" >"$2"
+#     ;;
+#   .[sh]*)
+#     echo "#\!/bin/bash" >"$2"
+#     ;;
+#   esac
+# }
+
+touch_helper() {
+  # Check if the file exists
+
+  if [ -e "$1" ]; then
+    echo "Error: File $1 already exists."
+    return 1
+  fi
+
+  # Check if the extension is .py or .sh
   case "$1" in
-  .[py]*)
-    echo "py"
-    echo "#\!/usr/bin/env python3" >"$2"
+  *.py)
+    # Add Python hashbang and execute permissions
+    echo "#!/usr/bin/env python3" >"$1"
+    chmod +x "$1"
     ;;
-  .[sh]*)
-    echo "#\!/bin/bash" >"$2"
+  *.sh)
+    # Add Shell hashbang and execute permissions
+    echo "#!/bin/bash" >"$1"
+    chmod +x "$1"
+    ;;
+  *)
+    touch "$1"
     ;;
   esac
-  # #!/bin/sh
-  # 
-  # # Check if the file exists
-  # if [ -e "$1" ]; then
-  #     echo "Error: File $1 already exists."
-  #     exit 1
-  # fi
-  # 
-  # # Check if the extension is .py or .sh
-  # case "$1" in
-  #     *.py)
-  #         # Add Python hashbang and execute permissions
-  #         echo "#!/usr/bin/env python3" > "$1"
-  #         chmod +x "$1"
-  #         ;;
-  #     *.sh)
-  #         # Add Shell hashbang and execute permissions
-  #         echo "#!/bin/sh" > "$1"
-  #         chmod +x "$1"
-  #         ;;
-  #     *)
-  #         echo "Error: Unsupported file extension."
-  #         exit 1
-  # esac
+  return 0
+
 }
 
 # for viewing and clearing the failed services log.
