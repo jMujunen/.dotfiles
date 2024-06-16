@@ -43,7 +43,6 @@ alias code="vscodium"
 alias copy="wl-copy"
 alias cp="cp -iv"
 alias dadjoke='curl https://icanhazdadjoke.com && printf "\n"'
-#alias du="disk_usage"
 alias df='python3 ~/python/scripts/bashhelpers/ColorizeOutput/df.py'
 alias dl="cd_dl"
 alias docs="cd_docs"
@@ -95,10 +94,9 @@ alias pics='cd_pics'
 alias printenv='/bin/sh ~/scripts/printenv_color.sh | sort'
 alias pyp='cd ~/python/Projects/ && ls -alph --group-directories-first'
 alias psg="ps aux | grep -E"
-alias ps="ps aux"
+alias psm='ps_sorted membuff'
 alias py='python3'
 alias rgs='rg --no-ignore --hidden'
-#alias rl="source ~/.bashrc"
 alias rmr='rm -rf'
 alias rm="rm -I"
 alias sms="python3 ~/python/modules/kdeConnect.py"
@@ -153,10 +151,7 @@ alias touch='touch_helper'
 
 alias hist='omz_history -i'
 
-# ssh
-alias server='ssh -i /home/joona/.ssh/server_id_rsa "$server"'
 alias cfg='_dotfiles'
-
 
 alias pdf='zathura'
 

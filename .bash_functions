@@ -32,12 +32,12 @@ touch_helper() {
   *.py)
     # Add Python hashbang and execute permissions
     echo "#!/usr/bin/env python3" >"$1"
-    chmod +x "$1"
+    chmod +x "$1" && $EDITOR "$1"
     ;;
   *.sh)
     # Add Shell hashbang and execute permissions
     echo "#!/bin/bash" >"$1"
-    chmod +x "$1"
+    chmod +x "$1" && $EDITOR "$1"
     ;;
   *)
     touch "$1"
@@ -46,7 +46,17 @@ touch_helper() {
   return 0
 
 }
+# Sort ps aux output in various preset formats
+ps_sorted() {
+  case "$1" in
+  membuff)
+    # Buffered cache
+    ps aux | awk '{print $6/1024 " MB\t\t" $11}' | sort -n
+    ;;
 
+  esac
+  return 0
+}
 # for viewing and clearing the failed services log.
 failed_services_function() {
   # Check if the services log file exists.
@@ -234,6 +244,7 @@ man_color() {
   /usr/bin/man "$1" | bat -pl man && return 0
   return 1
 }
+
 # TODO IMPLEMENT
 # ? Update the time in shell prompt
 # update_prompt_time() {
