@@ -1,23 +1,24 @@
 #-------------------#
-enable_wayland="--enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland"
+
+success(){
+  echo -e "\033[32mSuccess: $*\033[0m"
+}
 
 error() {
   echo -e "\033[1;31mError: $*\033[0m" >&2
 }
 
-# _dotfiles() {
-#   # echo null
-#   echo "hi"bb
-#   case "$1" in
-#   .[py]*)
-#     echo "py"
-#     echo "#\!/usr/bin/env python3" >"$2"
-#     ;;
-#   .[sh]*)
-#     echo "#\!/bin/bash" >"$2"
-#     ;;
-#   esac
-# }
+kitten_aliases() {
+	alias diff_='kitten diff'
+	alias img='kitten icat'
+	alias ssh='kitten ssh'
+}
+edit_dotfiles() {
+  # Make sure it exists.
+  if [ ! -d "$HOME/.dotfiles" ]; then
+    error "Error: Directory $HOME/.dotfiles does"
+  fi
+}
 
 touch_helper() {
   # Check if the file exists
@@ -40,7 +41,7 @@ touch_helper() {
     chmod +x "$1" && $EDITOR "$1"
     ;;
   *)
-    touch "$1"
+  	echo > "$1"
     ;;
   esac
   return 0
@@ -58,19 +59,19 @@ ps_sorted() {
   return 0
 }
 # for viewing and clearing the failed services log.
-failed_services_function() {
+check_mail() {
   # Check if the services log file exists.
   if [[ -f $MAIL/services.log ]]; then
     # Display the contents of the file using 'bat'.
-    bat --style=auto --paging=always $MAIL/services.log
+    bat --style=auto --paging=always "$MAIL"/services.log
     # Prompt the user to clear the log.
     echo -n "Clear the log?: [Y/n]: "
-    read reply
+    read -r reply
     # If the user confirms or provides no input, clear the log file.
 
     # ZSH compatibility
-    if [[ $reply =~ '[yY]|^$' ]]; then
-      echo "" >$MAIL/services.log
+    if [[ $reply =~ "[yY]|^$" ]]; then
+      echo "" > "$MAIL"/services.log
       echo "Log cleared"
     else
       echo "Log not cleared"
@@ -85,13 +86,15 @@ failed_services_function() {
 }
 
 help() {
-  if [[ "$@" =~ "-f" ]]; then
-    # Redirect stderr to stdout and pipe the output to
-    # 'bathelp -f' to force color
-    "$@" --help 2>&1 | bathelp --theme="Everforest Dark" -f
-  else
-    "$@" --help 2>&1 | bathelp --theme="Everforest Dark"
-  fi
+  for arg in $*; do
+    if [[ "$arg" =~ "-f" ]]; then
+      # Redirect stderr to stdout and pipe the output to
+      # 'bathelp -f' to force color
+      "$@" --help 2>&1 | bathelp --theme="Everforest Dark" -f
+    else
+      "$@" --help 2>&1 | bathelp --theme="Everforest Dark"
+    fi
+  done
   return 0
 }
 
@@ -202,21 +205,6 @@ disk_usage() {
   # df -Ph | awk '{printf "%-16s %-8s %-10s\n", $1, $5, $6}' - Depreciated
 }
 
-# vscode() {
-#   for arg in "$@"; do
-#     if [[ "$arg" == "--keep" ]]; then
-#       local keep='true'
-#     else
-#       local keep='false'
-#       string="$string $arg"
-#     fi
-#   done
-#   if [[ "$keep" != 'true' ]]; then
-#     vscodium $enable_wayland $string && exit
-#   else
-#     vscodium $enable_wayland $string &
-#   fi
-# }
 
 # TODO: Functions for default touch behaviour for certain filetypes
 touch_python() {

@@ -1,16 +1,17 @@
 # -----------------------#
-# Private
+# Helper for bash/zsh cross compatability
+shell=$(echo "$SHELL" | awk -F/ '{print $4}')
+ignore_lines=(\"\|\')
+
+# Imports
+# Private consts
 [[ -f ~/.dotfiles/.consts ]] && . ~/.dotfiles/.consts
-
-# This is a helper for bash/zsh cross compatability
-shell=$(echo $SHELL | awk -F/ '{print $4}')
-
-# Enable Wayland if not X11
-# [[ "$XDG_SESSION_TYPE" = "wayland" ]] && enable_wayland="--enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland"
-
-# Import
 [[ -f ~/.bash_functions ]] && . ~/.bash_functions && alias rf='source ~/."$shell"rc'
-[[ -f ~/.dotfiles/.bash_functions ]] && . ~/.dotfiles/.bash_functions && alias rf='source ~/.dotfiles/."$shell"rc'
+[[ -f ~/.dotfiles/.bash_functions ]] \
+			&& . ~/.dotfiles/.bash_functions \
+			&& alias rf='source ~/.dotfiles/."$shell"rc'
+
+[[ "$TERM" == "xterm-kitty" ]] && kitten_aliases
 
 kitten_aliases() {
 	alias diff_='kitten diff'
@@ -18,7 +19,6 @@ kitten_aliases() {
 	alias ssh='kitten ssh'
 }
 
-[[ "$TERM" == "xterm-kitty" ]] && kitten_aliases
 
 # -- Colors -- #
 alias diff='diff --color=auto'
@@ -62,7 +62,6 @@ alias getweather='curl wttr.in'
 alias get_weather="python3 /home/joona/python/command_output/weather_widget.py"
 alias ipy="python3 -m IPython --pprint --nosep --no-confirm-exit --profile=main --colors=Linux"
 alias ipython="python3 -m IPython --profile=main --colors=Linux"
-alias kitty="kitty --detach -T"
 alias killwine='kill 997 1021 >/dev/null 2>&1;wineserver -k 15;echo done'
 alias kwinDebugConsole='qdbus6 org.kde.KWin /KWin org.kde.KWin.showDebugConsole'
 alias la="ls -lpha --group-directories-first"
@@ -78,7 +77,7 @@ alias lsblkc='python3 ~/python/scripts/bashhelpers/ColorizeOutput/lsblk.py'
 alias lss="ls -Alshr --group-directories-first"
 alias lt="ls -Altrh --time=mtime --group-directories-first"
 alias m="micro"
-alias mail="failed_services_function"
+alias mail="check_mail"
 alias man="man_color"
 alias mv="mv -iv"
 alias nano="micro"
@@ -129,12 +128,18 @@ alias l3='python3 ~/python/Projects/termllama/termllama/main.py'
 alias clc='python3 ~/python/Projects/termllama/termllama/main.py codellama:custom'
 alias cl='python3 ~/python/Projects/termllama/termllama/main.py codellama:13b'
 alias gitmsg='auto_git_msg'
+alias llamalog='journalctl --user -e -u ollama'
+alias llamaupdate='curl -fsSL https://ollama.com/install.sh | \
+sh && sleep 2; sudo systemctl disable --now ollama && systemctl --user restart --now ollama'
 
 # Arch Linux Specific
-alias plist='[[ -f ~/.dotfiles/ ]] && pacman -Qqe > ~/.dotfiles/.pacman-pkglist.txt || \
-pacman -Qqe > ~/.pacman-pkglist.txt'
+alias plist='[[ -f ~/.dotfiles/ ]] && pacman -Qqe | tee ./.dotfiles/.pacman-pkglist.txt't
 alias pcheck='sudo paccheck --sha256sum --quiet'
 alias pdeps='sudo pacman -Qtdq'
+
+# Systemd
+alias sctl='systemctl'
+alias jctl='journalctl'
 
 # Git
 alias gp='git push -u origin master'
@@ -143,17 +148,22 @@ alias gi='git init && echo -e "**__pycache__/\n**venv/\n**.git*\n**.pytest_cache
 
 alias gs='git status'
 alias gss='git show --summary'
-alias gd='git diff'
-alias gds='git diff --staged'
 
-# Touch aliases
-alias touch='touch_helper'
+alias gd='git diff -pu --ignore-all-space --ignore-cr-at-eol --ignore-blank-lines --ignore-space-at-eol --ignore-matching-lines=$ignore_lines -pu --diff-filter=M'
+# shellcheck disable=SC2090
+alias gds='git diff -pu --ignore-all-space --ignore-cr-at-eol --ignore-blank-lines --ignore-space-at-eol --ignore-matching-lines=$ignore_lines --staged -pu --diff-filter=M'
+
+alias gdg='git difftool --ignore-all-space --ignore-cr-at-eol --ignore-blank-lines --ignore-space-at-eol'
+alias gdgs='git difftool --ignore-all-space --ignore-cr-at-eol --ignore-blank-lines --ignore-space-at-eol --staged'
+alias t='touch_helper'
 
 alias hist='omz_history -i'
 
 alias cfg='_dotfiles'
-
+alias mkalias='python3 makealias.py'
 alias pdf='zathura'
+
+alias byteconverter='python3 -m ByteConverter'
 
 #alias brightness_max='qdbus6 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl \
 #org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness 100'

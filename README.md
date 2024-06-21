@@ -9,3 +9,4 @@ It's also a convenient way of ensuring the aliases I use daily are kept updated 
 my several machines.
 
 You can tell a lot about someone by content of their dotfiles. Heres mine.
+

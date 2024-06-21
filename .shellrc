@@ -1,9 +1,16 @@
 # Env Vars
 # -------
 export EDITOR=micro
-export PYTHONPATH=~/.ipython/profile_main/:~/python/modules/:~/python/scripts/:~/python/scripts/bashhelpers/:~/python/scripts/bashhelpers/ColorizeOutput/
+export MICRO_TRUECOLOR=1
+
+
+export PYTHONPATH=~/.ipython/profile_main/:~/python/modules/:~/python/scripts/:\
+~/python/scripts/bashhelpers/:~/python/scripts/bashhelpers/ColorizeOutput/:\
+~/python/Projects/termllama/termllama/
+
 export PATH="${PATH}:/cmdline-tools/latest/bin"
-export PATH=~/.dotfiles/:~/scripts/:~/scripts/graphing/:~/scripts/git_scripts/:~/.local/bin:$PATH:$PYTHONPATH
+export PATH=~/.dotfiles/:~/scripts/:~/scripts/graphing/:~/scripts/git_scripts/:\
+~/.local/bin:$PATH:$PYTHONPATH
 
 # Git
 # ---
@@ -24,13 +31,21 @@ export MOZ_ENABLE_WAYLAND=1
 export QSG_RENDERER_LOOP=basic
 export QT_ENABLE_HIGHDPI_SCALING=1
 export QT_QPA_PLATFORM=wayland
+export GLFW_IM_MODULE=ibus
+
+# NVIDIA
+export LIBVA_DRIVER_NAME=nvidia
+export SDL_VIDEO_FULLSCREEN_HEAD=1
+export __GL_SYNC_TO_VBLANK=1
+export __GL_SYNC_DISPLAY_DEVICE=DP-2
+export VDPAU_NVIDIA_SYNC_DISPLAY_DEVICE=DP-2
 
 export MAKEFLAGS="-j$(nproc)"
 
 # Random
 # -----
 export TESSDATA_PREFIX=/usr/share/tessdata
-
+export DIFFPROG="kitty +kitten diff"
 # Ollama
 # ------
 export OLLAMA_KEEP_ALIVE=60
@@ -39,6 +54,7 @@ export OLLAMA_HOST=10.0.0.21:11434
 
 # Python
 # ------
+export USE_EMOJI=false # pipx
 #export PYTHONSTARTUP="/home/joona/.ipython/profile_main/custom_init.py"
 # CONDA
 # -----
@@ -46,20 +62,20 @@ export OLLAMA_HOST=10.0.0.21:11434
 #export CONDA_PYTHON_EXE=/
 # --------------------------------------------------------------- #
 
-# Source .bash_aliases_ (seperate from .bash_aliases for privacy)
-[[ -f ~/.bash_aliases_ ]] && . ~/.bash_aliases_
-[[ -f ~/.dotfiles/.bash_aliases_ ]] && ~/.dotfiles/.bash_aliases_
-
-# .bash_aliases
+# Source dedicated alias file
 [[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
 [[ -f ~/.dotfiles/.bash_aliases ]] && . ~/.dotfiles/.bash_aliases
+
+# Source .consts (seperated for privacy)
+[[ -f ~/.consts ]] && . ~/.consts
+[[ -f ~/.dotfiles/.consts ]] && . ~/.dotfiles/.consts
 
 # .bash_functions
 [[ -f ~/.bash_functions ]] && . ~/.bash_functions
 [[ -f ~/.dotfiles/.bash_functions ]] && . ~/.dotfiles/.bash_functions
 
 # Sys stats
-clear
+#clear
 if [ "$(whoami)" != "root" ]; then
 	neofetch
 fi
@@ -70,3 +86,5 @@ fi
 #printf "\033[97m%-*s\033[0m\033[31m FAILED\033[0m \033[33m@ %*s\033[0m\033[15;35m %-*s\033[0m\n" 10 ".shellrc" 2 "line 61:" 10 "xbindkeys" >> /var/spool/mail/joona/scripts.log
 
 export QT_PLUGIN_PATH=/usr/lib/qt/plugins
+
+
