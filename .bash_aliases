@@ -1,12 +1,26 @@
 # -----------------------#
 # Helper for bash/zsh cross compatability
 shell=$(echo "$SHELL" | awk -F/ '{print $4}')
-ignore_lines=(\"\|\')
+ignore_lines=(\"\|\'\|^\\s+\$)
+
+
+
+
+# TEMP
+#  Enable Wayland if not X11
+[[ "$XDG_SESSION_TYPE" = "wayland" ]] \
+		&& enable_wayland="--enable-features=UseOzonePlatform,WaylandWindowDecorations \
+--ozone-platform=wayland"
+
 
 # Imports
 # Private consts
 [[ -f ~/.dotfiles/.consts ]] && . ~/.dotfiles/.consts
-[[ -f ~/.bash_functions ]] && . ~/.bash_functions && alias rf='source ~/."$shell"rc'
+
+[[ -f ~/.bash_functions ]] \
+			&& . ~/.bash_functions \
+			&& alias rf='source ~/."$shell"rc'
+
 [[ -f ~/.dotfiles/.bash_functions ]] \
 			&& . ~/.dotfiles/.bash_functions \
 			&& alias rf='source ~/.dotfiles/."$shell"rc'
@@ -41,17 +55,19 @@ alias cdpy="cd_py"
 alias cls="clear"
 alias code="vscodium"
 alias copy="wl-copy"
-alias cp="cp -iv"
+alias cp="cp -Piv"
 alias dadjoke='curl https://icanhazdadjoke.com && printf "\n"'
 alias df='python3 ~/python/scripts/bashhelpers/ColorizeOutput/df.py'
 alias dl="cd_dl"
 alias docs="cd_docs"
 alias dus="du -ch | sort -h"
 alias free='python3 ~/python/scripts/bashhelpers/ColorizeOutput/free.py'
-alias find_='find . \( ! -path "*/__pycache__/*" \) \( ! -path "*/venv/*" \) \( ! -path "*/*yarn*/*" \) \
-\( ! -path "*/.cargo/*" \) \( ! -path "*/yay/*" \) \( ! -path "*/.anaconda/*" \) \( ! -path "*/.venv/*" \) \
-\( ! -path "*/*conda*/*" \) '
-alias feh="feh -g 1920x1080 -d -S filename --fullscreen --scale-down --output-dir /home/joona/Picture/feh"
+alias find_='find . \( ! -path "*/__pycache__/*" \) \( ! -path "*/venv/*" \) \
+\( ! -path "*/*yarn*/*" \) \( ! -path "*/.cargo/*" \) \( ! -path "*/yay/*" \) \
+\( ! -path "*/.anaconda/*" \) \( ! -path "*/.venv/*" \) \( ! -path "*/*conda*/*" \)'
+
+alias feh="feh -g 1920x1080 -d -S filename --fullscreen --scale-down
+								--output-dir /home/joona/Picture/feh"
 alias ff="cd ~/.mozilla/firefox/$ffid"
 alias ffp="firefox --private-window &"
 alias ffpm="firefox --ProfileManager &"
@@ -60,8 +76,7 @@ alias ffs="s --provider duckduckgo"
 alias ffu="firefox --url"
 alias getweather='curl wttr.in'
 alias get_weather="python3 /home/joona/python/command_output/weather_widget.py"
-alias ipy="python3 -m IPython --pprint --nosep --no-confirm-exit --profile=main --colors=Linux"
-alias ipython="python3 -m IPython --profile=main --colors=Linux"
+alias ipy="poetry run ipython --pprint --nosep --no-confirm-exit --profile=main --colors=Linux"
 alias killwine='kill 997 1021 >/dev/null 2>&1;wineserver -k 15;echo done'
 alias kwinDebugConsole='qdbus6 org.kde.KWin /KWin org.kde.KWin.showDebugConsole'
 alias la="ls -lpha --group-directories-first"
@@ -83,10 +98,11 @@ alias mv="mv -iv"
 alias nano="micro"
 alias notes="cd_notes"
 alias nset="nvidia-settings > /dev/null 2>&1 & disown && exit"
-alias md="nohup obsidian > /dev/null 2>&1 & disown && exit"
+alias md='nohup obsidian "$enable_wayland" > /dev/null 2>&1 & disown'
 alias open="xdg-open"
 alias osrshydra="osrs_hydra"
-alias osrs="nohup flatpak run com.jagexlauncher.JagexLauncher > /dev/null 2>&1 & disown && exit"
+alias osrs="nohup flatpak run com.jagexlauncher.JagexLauncher > /dev/null 2>&1 \
+								 & disown && exit"
 alias osrsping="gping -c cyan oldschool78.runescape.com"
 alias paste="wl-paste"
 alias pics='cd_pics'
@@ -104,68 +120,91 @@ alias sunset="openrgb -p sunset &"
 alias up="cd_up"
 #alias vdir="vdir --color=auto"
 alias venv='source venv/bin/activate'
-alias workspace_notes='vscodium ~/Code/Workspace/Notes.code-workspace'
-alias workspace_bash="vscodium ~/Code/Workspace/bashscripts.code-workspace && exit"
-alias workspace_="cd ~/Code/Workspace/ && ls -ltuph --group-directories-first"
-alias workspace_cfg="vscodium ~/Code/Workspace/cfg.code-workspace && exit"
-alias workspace_ella="vscodium ~/Code/Workspace/data_entry.code-workspace && exit"
-alias workspace_html="vscodium ~/Code/Workspace/html.code-workspace && exit"
-alias workspace_hwinfo="vscodium ~/Code/Workspace/py_hwinfo.code-workspace && exit"
-alias workspace_pi="vscodium ~/Code/Workspace/RPi.code-workspace && exit"
-alias workspace_python="vscodium ~/Code/Workspace/Python.code-workspace && exit"
-alias workspace_modules="vscodium ~/Code/Workspace/PythonModules.code-workspace && exit"
+alias ws-notes='vscodium ~/Code/Workspace/Notes.code-workspace'
+alias ws-bash="vscodium ~/Code/Workspace/bashscripts.code-workspace && exit"
+alias workspaces="cd ~/Code/Workspace/ && ls -ltuph --group-directories-first"
+alias ws-cfg="vscodium ~/Code/Workspace/cfg.code-workspace && exit"
+alias ws-ella="vscodium ~/Code/Workspace/data_entry.code-workspace && exit"
+alias ws-html="vscodium ~/Code/Workspace/html.code-workspace && exit"
+alias ws-hwinfo="vscodium ~/Code/Workspace/py_hwinfo.code-workspace && exit"
+alias ws-pi="vscodium ~/Code/Workspace/RPi.code-workspace && exit"
+alias ws-python="vscodium ~/Code/Workspace/Python.code-workspace && exit"
+alias ws-modules="vscodium ~/Code/Workspace/PythonModules.code-workspace && exit"
+alias ws-general="vscodium ~/Code/Workspace/general.code-workspace && exit"
 
-alias xclip="xclip -selection clipboard"
+
 alias x="exit"
 alias yay="yay --color=always"
 
 alias fmtdate='open /home/joona/Docs/Notes/HTML/Code/strftime.html'
+alias fmtprint='open /home/joona/Docs/Notes/HTML/Code/BASH'
 alias rl='cd /home/joona/.var/app/com.jagexlauncher.JagexLauncher/data/user_home/.runelite'
 alias s='s --provider duckduckgo'
 alias root='sudo --preserve-env -s'
-# alias llama='ollama serve >/dev/null 2>&1 &'
+
 alias l3='python3 ~/python/Projects/termllama/termllama/main.py'
-alias clc='python3 ~/python/Projects/termllama/termllama/main.py codellama:custom'
-alias cl='python3 ~/python/Projects/termllama/termllama/main.py codellama:13b'
 alias gitmsg='auto_git_msg'
 alias llamalog='journalctl --user -e -u ollama'
 alias llamaupdate='curl -fsSL https://ollama.com/install.sh | \
 sh && sleep 2; sudo systemctl disable --now ollama && systemctl --user restart --now ollama'
 
 # Arch Linux Specific
-alias plist='[[ -f ~/.dotfiles/ ]] && pacman -Qqe | tee ./.dotfiles/.pacman-pkglist.txt't
+alias plist='[[ -d ~/.dotfiles/ ]] && pacman -Qqe > ~/.dotfiles/.pacman-pkglist.txt \
+								|| ~/.pacman-pkglist.txt'
 alias pcheck='sudo paccheck --sha256sum --quiet'
 alias pdeps='sudo pacman -Qtdq'
 
 # Systemd
-alias sctl='systemctl'
-alias jctl='journalctl'
+alias j='journalctl'
+alias jp='journalctl -b --priority'
+alias ulog='journalctl --user -e -u'
 
 # Git
 alias gp='git push -u origin master'
 alias gca='git commit -a'
-alias gi='git init && echo -e "**__pycache__/\n**venv/\n**.git*\n**.pytest_cache/\n.[a-zA-Z0-9]/*" >> .gitignore && touch README.md && echo -e "# basename $PWD"'
+alias gi='git init && echo -e "**__pycache__/\n**venv/\n**.git*\n**.pytest_cache/\n.[a-zA-Z0-9]/*" \
+					>> .gitignore \
+					&& touch README.md \
+					&& echo -e "# basename $PWD"'
 
 alias gs='git status'
 alias gss='git show --summary'
 
-alias gd='git diff -pu --ignore-all-space --ignore-cr-at-eol --ignore-blank-lines --ignore-space-at-eol --ignore-matching-lines=$ignore_lines -pu --diff-filter=M'
-# shellcheck disable=SC2090
-alias gds='git diff -pu --ignore-all-space --ignore-cr-at-eol --ignore-blank-lines --ignore-space-at-eol --ignore-matching-lines=$ignore_lines --staged -pu --diff-filter=M'
+alias gd='git diff --patch-with-stat --ignore-all-space --ignore-cr-at-eol --ignore-blank-lines \
+						--ignore-space-at-eol --ignore-matching-lines=$ignore_lines \
+						--diff-filter=M'
 
-alias gdg='git difftool --ignore-all-space --ignore-cr-at-eol --ignore-blank-lines --ignore-space-at-eol'
-alias gdgs='git difftool --ignore-all-space --ignore-cr-at-eol --ignore-blank-lines --ignore-space-at-eol --staged'
+alias gds='git diff --patch-with-stat --ignore-all-space --ignore-cr-at-eol --ignore-blank-lines \
+						 --ignore-space-at-eol --ignore-matching-lines=$ignore_lines \
+						 --staged --diff-filter=M'
+
+alias gdg='git difftool --ignore-all-space --ignore-cr-at-eol \
+						--ignore-blank-lines --ignore-space-at-eol'
+alias gdgs='git difftool --ignore-all-space --ignore-cr-at-eol \
+						--ignore-blank-lines --ignore-space-at-eol --staged'
 alias t='touch_helper'
 
 alias hist='omz_history -i'
-
-alias cfg='_dotfiles'
 alias mkalias='python3 makealias.py'
+
 alias pdf='zathura'
 
-alias byteconverter='python3 -m ByteConverter'
+alias size='python3 -m size' # OVERWRITES BUILT-IN SHELL FUNCTION
+alias poet-require='xargs poetry add < requirements.txt'
+alias p='poetry'
+alias update='sudo pacman -Syyu && yay -Syyu --answerclean A'
+alias up-noconfirm='sudo pacman -Syyu && yay -Syyu --answerclean A --noconfirm'
+alias gg='gitg'
+alias wp='$(ls /home/joona/.config/kitty/assets/ | shuf -n 1)'
+alias search='apropos'
 
-#alias brightness_max='qdbus6 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl \
-#org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness 100'
-# alias brightness_low='qdbus6 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl
-# org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness 50'
+# alias llama='ollama serve >/dev/null 2>&1 &'
+
+
+alias brightness_max='qdbus6 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl \
+org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness 100'
+alias brightness_low='qdbus6 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl
+org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness 50'
+# alias xclip="xclip -selection clipboard"
+# TODO: See below
+# [ ] - mkalias -> python3 makealias.py

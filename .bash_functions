@@ -1,4 +1,6 @@
 #-------------------#
+ignore_lines=(\"\|\'\|^\\s+\$)
+
 
 success(){
   echo -e "\033[32mSuccess: $*\033[0m"
@@ -13,16 +15,89 @@ kitten_aliases() {
 	alias img='kitten icat'
 	alias ssh='kitten ssh'
 }
-edit_dotfiles() {
+cfg() {
   # Make sure it exists.
   if [ ! -d "$HOME/.dotfiles" ]; then
     error "Error: Directory $HOME/.dotfiles does"
+    return 1
+  fi
+  # Open specified file in  $EDITOR
+  case "$1" in
+  z*)
+     $EDITOR "$HOME/.dotfiles/.zshrc" && source ~/.dotfiles/.zshrc
+     return 0
+    ;;
+  b*)
+    $EDITOR "$HOME/.dotfiles/.bashrc" && source ~/.dotfiles/.bashrc
+    return 0
+    ;;
+  a*)
+    $EDITOR "$HOME/.dotfiles/.bash_aliases" && source ~/.dotfiles/.bash_aliases
+    return 0
+    ;;
+  f*)
+    $EDITOR "$HOME/.dotfiles/.bash_functions" && source ~/.dotfiles/.bash_functions
+    return 0
+    ;;
+  s*)
+    $EDITOR "$HOME/.dotfiles/.shellrc" && source ~/.dotfiles/.shellrc
+    return 0
+    ;;
+  cd)
+    cd "$HOME/.dotfiles/" && ls -Altr --time=mtime
+    return 0
+    ;;
+  *)
+    error "Argument must be one of [z* | b* | a* | f* | s* | cd]"
+    return 1
+  esac
+}
+render(){
+  kitten icat "$1"
+  printf "%*s\n" "50" "$1"
+}
+
+add(){
+  vscodium --add "$@"
+}
+
+# TODO
+# code(){
+#   # Loop thru arguments and open each file in editor.
+#   arguments=''
+#   if [[ "$1" == "--add" ]]; then
+#     arguments="--add"
+#   fi
+
+#   while [[ $# -gt 0 ]]; do
+#   # Check if the file exists
+#     if [ -e "$1" ]; then
+#       arguments="$arguments $1"
+#     else
+#       error "File $1 does not exist."
+#     fi
+#     shift
+#     done
+#   vscode "$arguments"
+# }
+
+get(){
+  # Check type of command. If type == function, show the code for it
+  if ! which "$1" > /dev/null; then
+    error "Error: Command $1 not found."
+    return 1
+  fi
+  if [[ $(type "$1") =~ "function" ]]; then
+    which "$1" | head -n 1
+    return 0
+  else
+    # Print normal output otherwise
+    printf  "%s\n" "$(type  "$1")"
   fi
 }
 
-touch_helper() {
+touch() {
   # Check if the file exists
-
   if [ -e "$1" ]; then
     echo "Error: File $1 already exists."
     return 1
@@ -86,7 +161,7 @@ check_mail() {
 }
 
 help() {
-  for arg in $*; do
+  for arg in "$@"; do
     if [[ "$arg" =~ "-f" ]]; then
       # Redirect stderr to stdout and pipe the output to
       # 'bathelp -f' to force color
@@ -125,31 +200,29 @@ batfollow() {
 
 # Change dir, then list dir contents
 cd_ls() {
-  cd "$@"
-  # Check the number of items in the current directory
-  item_count=$(ls -1 | wc -l)
+  cd "$@" || return 0
   ls -ltupho --group-directories-first
 }
 
 # cd to commonly used directories
 cd_notes() {
-  cd ~/Docs/Notes/Obsidian/All\ Notes/
+  cd ~/Docs/Notes/Obsidian/All\ Notes/ || return 1
   ls -ltuph --group-directories-first
 }
 cd_logs() {
-  cd ~/Logs/
+  cd ~/Logs/|| return 1
   ls -ltuph --group-directories-first
 }
 cd_docs() {
-  cd ~/Docs/
+  cd ~/Docs/ || return 1
   ls -ltuph --group-directories-first
 }
 cd_dl() {
-  cd ~/Downloads/
+  cd ~/Downloads/ || return 1
   ls -ltuph --group-directories-first
 }
 cd_pics() {
-  cd ~/Pictures/
+  cd ~/Pictures/ || return 1
   ls -ltuph --group-directories-first
 }
 
@@ -196,7 +269,7 @@ fdisk_less_verbose() {
 
 }
 osrs_hydra() {
-  cd /home/joona/python/macros/
+  cd /home/joona/python/macros/ || return 1
   sudo python3 count_hydra_attacks.py
 }
 
@@ -206,17 +279,6 @@ disk_usage() {
 }
 
 
-# TODO: Functions for default touch behaviour for certain filetypes
-touch_python() {
-  # Print help
-  print_help() {
-    echo "Usage: tp | touch_python <filepath>"
-    echo "Creates a file in the provided filepath with .py extension"
-    echo "and appends a shebang to it and turns on the exectuble bit."
-  }
-
-  # Argument validation
-}
 # Formatting man pages with bat
 man_color() {
   # Argument validation
@@ -232,6 +294,39 @@ man_color() {
   /usr/bin/man "$1" | bat -pl man && return 0
   return 1
 }
+
+git_diff(){
+  # NOTE - Work in progress
+  if [[ "$1" == "staged" ]]; then
+    name_status=$(git diff --staged --name-status --diff-filter=AMD)
+    diff=$(git diff --patch-with-stat --ignore-all-space --ignore-cr-at-eol --ignore-blank-lines \
+						 --ignore-space-at-eol --ignore-matching-lines=$ignore_lines \
+						 --staged --diff-filter=M)
+    return 0
+  fi
+  name_status=$(git diff --staged --name-status --diff-filter=AMD)
+  diff=$(git diff --patch-with-stat --ignore-all-space --ignore-cr-at-eol --ignore-blank-lines \
+          --ignore-space-at-eol --ignore-matching-lines=$ignore_lines \
+          --staged --diff-filter=M)
+
+  return 0
+  # git diff --diff-filter=AMD --name-status
+}
+
+update_python_path() {
+    path_prefix="$HOME/python"
+    path_parts=$(find "$path_prefix" \( ! -path "*/__pycache__/*" \) \( ! -path "*/venv/*" \) \
+       \( ! -path "*/*yarn*/*" \) \( ! -path "*/.cargo/*" \) \( ! -path "*/yay/*" \) \
+       \( ! -path "*/.anaconda/*" \) \( ! -path "*/.venv/*" \) \( ! -path "*/*conda*/*" \) \
+       \( ! -path "*/TODO/*" \) \( ! -path "*/__init__/*" \) \( ! -path "*/__main__/*" \) \
+       \( ! -path "*/.git*/*" \) \( ! -path "*/.graveyard/*" \) \( ! -path "*/.[a-zA-Z0-9]*/*" \) \
+       \( ! -path "*/*[tT]est*/*" \) \( ! -path "*/[fF]lask*/*" \)  -type f -name "*.py" -print0 \
+                  | xargs -0 -I _ echo ":_")
+    export PYTHONPATH="$PYTHONPATH$path_parts"
+    export PATH="$PATH:$PYTHONPATH"
+
+}
+
 
 # TODO IMPLEMENT
 # ? Update the time in shell prompt

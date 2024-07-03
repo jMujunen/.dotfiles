@@ -78,7 +78,15 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git archlinux aliases virtualenv adb)
+
+plugins=(git archlinux copybuffer virtualenv nmap)
+# <---- Notes ---->
+# copybuffer: ctrl + o
+#
+# Depreciated:
+#	aliases
+
+# source $ZSH/custom/plugins/zsh-autoswitch-virtualenv/autoswitch_virtualenv.plugin.zsh
 
 source $ZSH/oh-my-zsh.sh
 
@@ -128,3 +136,4 @@ bashcompinit
 
 export LS_COLORS=$LS_COLORS":ow=1;32;7:su=1;31;7:sg=1;30;43"
 source <(fzf --zsh)
+
