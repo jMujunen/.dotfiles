@@ -4,6 +4,11 @@ case $- in
 *) return ;;
 esac
 
+
+
+
+
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -53,8 +58,6 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-#======================#
-#======================#
 
 if [ "$color_prompt" = yes ]; then
     t1_bg="\[$(tput setab 31)\]"
@@ -74,8 +77,6 @@ else
 fi
 unset color_prompt force_color_prompt
 
-#======================#
-#======================#
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
