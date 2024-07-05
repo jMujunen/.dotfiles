@@ -6,7 +6,8 @@ export MICRO_TRUECOLOR=1
 
 export PYTHONPATH=~/.ipython/profile_main/:~/python/modules/:~/python/scripts/:\
 ~/python/scripts/bashhelpers/:~/python/scripts/bashhelpers/ColorizeOutput/:\
-~/python/Projects/termllama/termllama/
+~/python/Projects/termllama/termllama/:~/python/Projects/fsutils/:~/python/Projects/fsutils/fsutils/:\
+~/python/Projects/dir_organizer/:~/python/modules/hwdata
 
 export PATH="${PATH}:/cmdline-tools/latest/bin"
 export PATH=~/.dotfiles/:~/scripts/:~/scripts/graphing/:~/scripts/git_scripts/:\
@@ -48,7 +49,7 @@ export TESSDATA_PREFIX=/usr/share/tessdata
 export DIFFPROG="kitty +kitten diff"
 # Ollama
 # ------
-export OLLAMA_KEEP_ALIVE=60
+export OLLAMA_KEEP_ALIVE=30
 export OLLAMA_MODELS=/home/joona/.ollama/models/
 export OLLAMA_HOST=10.0.0.21:11434
 
@@ -88,3 +89,4 @@ fi
 export QT_PLUGIN_PATH=/usr/lib/qt/plugins
 
 
+test

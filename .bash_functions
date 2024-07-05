@@ -336,3 +336,4 @@ update_python_path() {
 #   tput cup $((0)) $((cols - 5))
 #   echo -n $time
 # }
+test
