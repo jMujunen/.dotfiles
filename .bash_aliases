@@ -208,4 +208,3 @@ org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness 50'
 # alias xclip="xclip -selection clipboard"
 # TODO: See below
 # [ ] - mkalias -> python3 makealias.py
-test

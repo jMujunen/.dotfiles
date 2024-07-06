@@ -1,6 +1,7 @@
 #-------------------#
 ignore_lines=(\"\|\'\|^\\s+\$)
 
+# ignore=(.\*\\\[+package.\*\?\\\]+\(\\s+\[\\w\\\{\\s=\"\.\*\\[,:\\}\>\<\@\]\))
 
 success(){
   echo -e "\033[32mSuccess: $*\033[0m"
@@ -88,7 +89,7 @@ get(){
     return 1
   fi
   if [[ $(type "$1") =~ "function" ]]; then
-    which "$1" | head -n 1
+    which "$1"
     return 0
   else
     # Print normal output otherwise
@@ -336,4 +337,3 @@ update_python_path() {
 #   tput cup $((0)) $((cols - 5))
 #   echo -n $time
 # }
-test

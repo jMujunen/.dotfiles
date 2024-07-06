@@ -70,7 +70,7 @@ dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 line-ending = "auto"
 line-length = 100
 # Like Black, use double quotes for strings.
-quote-style = "single"
+quote-style = "double"
 
 extend-fixable = ["B"]
 
@@ -107,7 +107,7 @@ max-line-length = 100 # E501 reports lines that exceed the length of 100.
 
 [format]
 # Like Black, use double quotes for strings.
-quote-style = "single"
+quote-style = "double"
 
 # Like Black, indent with spaces, rather than tabs.
 indent-style = "space"

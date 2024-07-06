@@ -121,7 +121,10 @@ alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 [[ ! -f ~/.dotfiles/.p10k.zsh ]] || source ~/.dotfiles/.p10k.zsh
 
 # Use this file for configurations shared between zsh and bash
-[[ -f ~/.shellrc ]] && source ~/.shellrc || source ~/.dotfiles/.shellrc || /usr/bin/custom/script_failure-notification.sh .zshrc 116 "Failed to source .shellrc from $HOME/ and $HOME/.dotfiles/"
+[[ -f ~/.shellrc ]] && source ~/.shellrc \
+              || source ~/.dotfiles/.shellrc \
+              || /usr/bin/custom/script_failure-notification.sh \
+              .zshrc 116 "Failed to source .shellrc from $HOME/ and $HOME/.dotfiles/"
 
 [[ -f ~/.dotfiles/.rootrc ]] && source ~/.dotfiles/.rootrc
 #  Custom completions

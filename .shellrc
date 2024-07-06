@@ -87,6 +87,3 @@ fi
 #printf "\033[97m%-*s\033[0m\033[31m FAILED\033[0m \033[33m@ %*s\033[0m\033[15;35m %-*s\033[0m\n" 10 ".shellrc" 2 "line 61:" 10 "xbindkeys" >> /var/spool/mail/joona/scripts.log
 
 export QT_PLUGIN_PATH=/usr/lib/qt/plugins
-
-
-test

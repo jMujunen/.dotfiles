@@ -44,6 +44,7 @@ flatpak
 flatpak-kcm
 fzf
 ghc
+giggle
 git
 github-cli
 glib
@@ -216,6 +217,7 @@ python-psutil
 python-pyheif
 python-pylint
 python-rich
+qownnotes
 qqc2-breeze-style
 qt6-connectivity
 rawtherapee
@@ -296,7 +298,9 @@ xorg-xwininfo
 xsel
 xterm
 yay
+yazi
 zathura
+znotes
 zram-generator
 zsh
 zsh-completions
