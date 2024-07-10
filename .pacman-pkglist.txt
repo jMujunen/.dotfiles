@@ -10,6 +10,7 @@ base
 base-devel
 bashtop
 bat
+bc
 bitwarden
 bluedevil
 bluez
@@ -20,6 +21,7 @@ breeze
 breeze-gtk
 breeze-plymouth
 calc
+ccache
 cmake
 corectrl
 cups
@@ -46,6 +48,7 @@ fzf
 ghc
 giggle
 git
+git-lfs
 github-cli
 glib
 glow
@@ -54,6 +57,7 @@ gnu-netcat
 gnuplot
 go
 gparted
+gperf
 gpick
 gping
 gsm
@@ -61,6 +65,7 @@ gst-plugin-pipewire
 hdparm
 htop
 ibus
+imagemagick
 inkscape
 intel-ucode
 iotop
@@ -109,9 +114,12 @@ lib32-libva
 lib32-libxcomposite
 lib32-libxinerama
 lib32-libxslt
+lib32-lz4
 lib32-mpg123
 lib32-ocl-icd
 lib32-openal
+lib32-readline
+lib32-sdl2
 lib32-v4l-utils
 libglibutil
 libjson
@@ -129,6 +137,7 @@ linux-headers
 lostfiles
 lshw
 lynx
+lzop
 man-db
 marknote
 md-tui
@@ -136,6 +145,7 @@ meson
 micro
 milou
 mkinitcpio-firmware
+motion
 nano
 ncurses5-compat-libs
 neofetch
@@ -190,6 +200,7 @@ plasma-wayland-protocols
 plasma-workspace
 plocate
 plymouth-kcm
+pngcrush
 polkit-kde-agent
 powerline-fonts
 print-manager
@@ -214,7 +225,6 @@ python-ping
 python-pipx
 python-plyer
 python-psutil
-python-pyheif
 python-pylint
 python-rich
 qownnotes
@@ -228,6 +238,7 @@ rssguard
 rsync
 s
 sbctl
+schedtool
 screen
 sddm-kcm
 shell-color-scripts
@@ -239,6 +250,7 @@ sof-firmware
 source-highlight
 spectacle
 spotify
+squashfs-tools
 ssh-tools
 sshfs
 steam
@@ -267,6 +279,7 @@ ttf-nerd-fonts-symbols-mono
 ttyplot
 upd72020x-fw
 vi
+vidcutter
 vim
 vim-runtime
 vlc
@@ -300,6 +313,7 @@ xterm
 yay
 yazi
 zathura
+zip
 znotes
 zram-generator
 zsh
