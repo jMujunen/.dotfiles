@@ -194,10 +194,10 @@ alias poet-require='xargs poetry add < requirements.txt'
 alias p='poetry'
 alias update='sudo pacman -Syyu && yay -Syyu --answerclean A'
 alias up-noconfirm='sudo pacman -Syyu && yay -Syyu --answerclean A --noconfirm'
-alias gg='gitg'
 alias wp='$(ls /home/joona/.config/kitty/assets/ | shuf -n 1)'
 alias search='apropos'
-
+alias kppower="nohup kitty +kitten panel --edge=background sh -c 'gpu_power.sh' >/dev/null 2>&1 &"
+alias kp="nohup kitty +kitten panel --edge=background sh -c"
 # alias llama='ollama serve >/dev/null 2>&1 &'
 
 

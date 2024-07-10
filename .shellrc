@@ -7,7 +7,7 @@ export MICRO_TRUECOLOR=1
 export PYTHONPATH=~/.ipython/profile_main/:~/python/modules/:~/python/scripts/:\
 ~/python/scripts/bashhelpers/:~/python/scripts/bashhelpers/ColorizeOutput/:\
 ~/python/Projects/termllama/termllama/:~/python/Projects/fsutils/:~/python/Projects/fsutils/fsutils/:\
-~/python/Projects/dir_organizer/:~/python/modules/hwdata
+~/python/Projects/dir_organizer/:~/python/libs/hwutils/hwutils/
 
 export PATH="${PATH}:/cmdline-tools/latest/bin"
 export PATH=~/.dotfiles/:~/scripts/:~/scripts/graphing/:~/scripts/git_scripts/:\
