@@ -103,8 +103,8 @@ fi
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f $HOME/.bash_aliases ]; then
+    . $HOME/.bash_aliases
 fi
 
 # shopt persisant vars
@@ -125,5 +125,5 @@ if ! shopt -oq posix; then
 fi
 
 # Use this file for configurations shared between zsh and bash
-[[ -f ~/.shellrc ]] && source ~/.shellrc || source ~/.dotfiles/.shellrc || error "No shellrc found"
+[[ -f $HOME/.shellrc ]] && source $HOME/.shellrc || source $HOME/.dotfiles/.shellrc || error "No shellrc found"
 

@@ -3,15 +3,16 @@
 export EDITOR=micro
 export MICRO_TRUECOLOR=1
 
-
-export PYTHONPATH=~/.ipython/profile_main/:~/python/modules/:~/python/scripts/:\
-~/python/scripts/bashhelpers/:~/python/scripts/bashhelpers/ColorizeOutput/:\
-~/python/Projects/termllama/termllama/:~/python/Projects/fsutils/:~/python/Projects/fsutils/fsutils/:\
-~/python/Projects/dir_organizer/:~/python/libs/hwutils/hwutils/
+export PYTHONPATH=$HOME/.ipython/profile_main/:$HOME/python/modules/:$HOME/python/scripts/:\
+$HOME/python/scripts/bashhelpers/:$HOME/python/scripts/bashhelpers/ColorizeOutput/:\
+$HOME/python/Projects/termllama/termllama/:$HOME/python/Projects/fsutils/:\
+$HOME/python/Projects/fsutils/fsutils:$HOME/python/libs/hwutils/hwutils/:\
+$HOME/python/Projects/hwutils:$HOME/python/Projects/hwutils/hwutils:\
+$HOME/python/scripts/hass:$HOME/python/scripts/bashhelpers/pacman
 
 export PATH="${PATH}:/cmdline-tools/latest/bin"
-export PATH=~/.dotfiles/:~/scripts/:~/scripts/graphing/:~/scripts/git_scripts/:\
-~/.local/bin:$PATH:$PYTHONPATH
+export PATH=$HOME/.dotfiles/:$HOME/scripts/:$HOME/scripts/graphing/:$HOME/scripts/git_scripts/:\
+$HOME/.local/bin:$PATH:$PYTHONPATH
 
 # Git
 # ---
@@ -28,7 +29,7 @@ export ELECTRON_OZONE_PLATFORM_HINT=wayland
 export GBM_BACKEND=nvidia-drm
 export GDK_BACKEND=wayland
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
-export MOZ_ENABLE_WAYLAND=1
+# export MOZ_ENABLE_WAYLAND=1
 export QSG_RENDERER_LOOP=basic
 export QT_ENABLE_HIGHDPI_SCALING=1
 export QT_QPA_PLATFORM=wayland
@@ -45,6 +46,7 @@ export MAKEFLAGS="-j$(nproc)"
 
 # Random
 # -----
+export QT_PLUGIN_PATH=/usr/lib/qt/plugins
 export TESSDATA_PREFIX=/usr/share/tessdata
 export DIFFPROG="kitty +kitten diff"
 # Ollama
@@ -56,34 +58,27 @@ export OLLAMA_HOST=10.0.0.21:11434
 # Python
 # ------
 export USE_EMOJI=false # pipx
-#export PYTHONSTARTUP="/home/joona/.ipython/profile_main/custom_init.py"
-# CONDA
-# -----
-#export CONDA_DEFAULT_ENV=/home/joona/python/.anaconda/
-#export CONDA_PYTHON_EXE=/
+
 # --------------------------------------------------------------- #
 
 # Source dedicated alias file
-[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
-[[ -f ~/.dotfiles/.bash_aliases ]] && . ~/.dotfiles/.bash_aliases
+[[ -f $HOME/.bash_aliases ]] && . $HOME/.bash_aliases
+[[ -f $HOME/.dotfiles/.bash_aliases ]] && . $HOME/.dotfiles/.bash_aliases
 
 # Source .consts (seperated for privacy)
-[[ -f ~/.consts ]] && . ~/.consts
-[[ -f ~/.dotfiles/.consts ]] && . ~/.dotfiles/.consts
+[[ -f $HOME/.consts ]] && . $HOME/.consts
+[[ -f $HOME/.dotfiles/.consts ]] && . $HOME/.dotfiles/.consts
 
 # .bash_functions
-[[ -f ~/.bash_functions ]] && . ~/.bash_functions
-[[ -f ~/.dotfiles/.bash_functions ]] && . ~/.dotfiles/.bash_functions
-
-# Sys stats
-#clear
-if [ "$(whoami)" != "root" ]; then
-	neofetch
-fi
+[[ -f $HOME/.bash_functions ]] && . $HOME/.bash_functions
+[[ -f $HOME/.dotfiles/.bash_functions ]] && . $HOME/.dotfiles/.bash_functions
 
 # --------------------------------------------------------------- #
 
-#fastfetch --color 32 -c ~/.config/fastfetch/others/compact-mod.jsonc
+#fastfetch --color 32 -c $HOME/.config/fastfetch/others/compact-mod.jsonc
 #printf "\033[97m%-*s\033[0m\033[31m FAILED\033[0m \033[33m@ %*s\033[0m\033[15;35m %-*s\033[0m\n" 10 ".shellrc" 2 "line 61:" 10 "xbindkeys" >> /var/spool/mail/joona/scripts.log
 
-export QT_PLUGIN_PATH=/usr/lib/qt/plugins
+# CONDA
+# -----
+#export CONDA_DEFAULT_ENV=
+#export CONDA_PYTHON_EXE=

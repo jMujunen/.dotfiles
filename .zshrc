@@ -60,7 +60,7 @@ zstyle ':omz:update' frequency 13
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-DISABLE_UNTRACKED_FILES_DIRTY="true"
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -79,7 +79,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git archlinux copybuffer virtualenv nmap)
+plugins=(git archlinux copybuffer poetry-env nmap per-directory-history dirhistory)
 # <---- Notes ---->
 # copybuffer: ctrl + o
 #

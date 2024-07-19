@@ -25,23 +25,23 @@ cfg() {
   # Open specified file in  $EDITOR
   case "$1" in
   z*)
-     $EDITOR "$HOME/.dotfiles/.zshrc" && source ~/.dotfiles/.zshrc
+     $EDITOR "$HOME/.dotfiles/.zshrc" && source $HOME/.dotfiles/.zshrc
      return 0
     ;;
   b*)
-    $EDITOR "$HOME/.dotfiles/.bashrc" && source ~/.dotfiles/.bashrc
+    $EDITOR "$HOME/.dotfiles/.bashrc" && source $HOME/.dotfiles/.bashrc
     return 0
     ;;
   a*)
-    $EDITOR "$HOME/.dotfiles/.bash_aliases" && source ~/.dotfiles/.bash_aliases
+    $EDITOR "$HOME/.dotfiles/.bash_aliases" && source $HOME/.dotfiles/.bash_aliases
     return 0
     ;;
   f*)
-    $EDITOR "$HOME/.dotfiles/.bash_functions" && source ~/.dotfiles/.bash_functions
+    $EDITOR "$HOME/.dotfiles/.bash_functions" && source $HOME/.dotfiles/.bash_functions
     return 0
     ;;
   s*)
-    $EDITOR "$HOME/.dotfiles/.shellrc" && source ~/.dotfiles/.shellrc
+    $EDITOR "$HOME/.dotfiles/.shellrc" && source $HOME/.dotfiles/.shellrc
     return 0
     ;;
   cd)
@@ -57,30 +57,9 @@ render(){
   kitten icat "$1"
   printf "%*s\n" "50" "$1"
 }
-
 add(){
   vscodium --add "$@"
 }
-
-# TODO
-# code(){
-#   # Loop thru arguments and open each file in editor.
-#   arguments=''
-#   if [[ "$1" == "--add" ]]; then
-#     arguments="--add"
-#   fi
-
-#   while [[ $# -gt 0 ]]; do
-#   # Check if the file exists
-#     if [ -e "$1" ]; then
-#       arguments="$arguments $1"
-#     else
-#       error "File $1 does not exist."
-#     fi
-#     shift
-#     done
-#   vscode "$arguments"
-# }
 
 get(){
   # Check type of command. If type == function, show the code for it
@@ -89,7 +68,7 @@ get(){
     return 1
   fi
   if [[ $(type "$1") =~ "function" ]]; then
-    which "$1"
+    which "$1" | pat -pl sh
     return 0
   else
     # Print normal output otherwise
@@ -207,23 +186,23 @@ cd_ls() {
 
 # cd to commonly used directories
 cd_notes() {
-  cd ~/Docs/Notes/Obsidian/All\ Notes/ || return 1
+  cd $HOME/Docs/Notes/Obsidian/All\ Notes/ || return 1
   ls -ltuph --group-directories-first
 }
 cd_logs() {
-  cd ~/Logs/|| return 1
+  cd $HOME/Logs/|| return 1
   ls -ltuph --group-directories-first
 }
 cd_docs() {
-  cd ~/Docs/ || return 1
+  cd $HOME/Docs/ || return 1
   ls -ltuph --group-directories-first
 }
 cd_dl() {
-  cd ~/Downloads/ || return 1
+  cd $HOME/Downloads/ || return 1
   ls -ltuph --group-directories-first
 }
 cd_pics() {
-  cd ~/Pictures/ || return 1
+  cd $HOME/Pictures/ || return 1
   ls -ltuph --group-directories-first
 }
 
@@ -275,7 +254,7 @@ osrs_hydra() {
 }
 
 disk_usage() {
-  /usr/bin/python3 ~/python/scripts/bashhelpers/ColorizeOutput/df.py
+  /usr/bin/python3 "$HOME/python/scripts/bashhelpers/ColorizeOutput/df.py"
   # df -Ph | awk '{printf "%-16s %-8s %-10s\n", $1, $5, $6}' - Depreciated
 }
 
