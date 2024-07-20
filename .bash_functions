@@ -3,7 +3,7 @@ ignore_lines=(\"\|\'\|^\\s+\$)
 
 # ignore=(.\*\\\[+package.\*\?\\\]+\(\\s+\[\\w\\\{\\s=\"\.\*\\[,:\\}\>\<\@\]\))
 
-success(){
+success() {
   echo -e "\033[32mSuccess: $*\033[0m"
 }
 
@@ -12,10 +12,33 @@ error() {
 }
 
 kitten_aliases() {
-	alias diff_='kitten diff'
-	alias img='kitten icat'
-	alias ssh='kitten ssh'
+  alias diff_='kitten diff'
+  alias img='kitten icat'
+  alias ssh='kitten ssh'
+  alias kp='kitty_panel'
 }
+
+kitty_panel() {
+  cmd="$@"
+  kitty +kitten panel --edge=background sh -c "${cmd}"
+}
+
+save_hist() {
+  # Create file with timestamp as name
+  timestamp=$(date +%F\ %H:%M)
+  # Create directory if not exists, nullify output incase it exists
+  mkdir -p "$HOME/Logs/kitty/" >/dev/null 2>&1
+  # Define output path
+  output_path="$HOME/Logs/kitty/$timestamp.log"
+  # Create file
+  touch "$output_path"
+
+  # Copy stdin to clipboard
+  kitten @ launch --type clipboard --stdin-source @screen_scrollback
+  # Save clipboard content to file
+  wl-paste >"${output_path}"
+}
+
 cfg() {
   # Make sure it exists.
   if [ ! -d "$HOME/.dotfiles" ]; then
@@ -25,8 +48,8 @@ cfg() {
   # Open specified file in  $EDITOR
   case "$1" in
   z*)
-     $EDITOR "$HOME/.dotfiles/.zshrc" && source $HOME/.dotfiles/.zshrc
-     return 0
+    $EDITOR "$HOME/.dotfiles/.zshrc" && source $HOME/.dotfiles/.zshrc
+    return 0
     ;;
   b*)
     $EDITOR "$HOME/.dotfiles/.bashrc" && source $HOME/.dotfiles/.bashrc
@@ -51,19 +74,20 @@ cfg() {
   *)
     error "Argument must be one of [z* | b* | a* | f* | s* | cd]"
     return 1
+    ;;
   esac
 }
-render(){
+render() {
   kitten icat "$1"
   printf "%*s\n" "50" "$1"
 }
-add(){
+add() {
   vscodium --add "$@"
 }
 
-get(){
+get() {
   # Check type of command. If type == function, show the code for it
-  if ! which "$1" > /dev/null; then
+  if ! which "$1" >/dev/null; then
     error "Error: Command $1 not found."
     return 1
   fi
@@ -72,7 +96,7 @@ get(){
     return 0
   else
     # Print normal output otherwise
-    printf  "%s\n" "$(type  "$1")"
+    printf "%s\n" "$(type "$1")"
   fi
 }
 
@@ -96,7 +120,7 @@ touch() {
     chmod +x "$1" && $EDITOR "$1"
     ;;
   *)
-  	echo > "$1"
+    echo >"$1"
     ;;
   esac
   return 0
@@ -115,10 +139,9 @@ ps_sorted() {
 }
 # for viewing and clearing the failed services log.
 check_mail() {
-  # Check if the services log file exists.
-  if [[ -f $MAIL/services.log ]]; then
+  process() {
     # Display the contents of the file using 'bat'.
-    bat --style=auto --paging=always "$MAIL"/services.log
+    bat --style=auto --paging=always "$1"
     # Prompt the user to clear the log.
     echo -n "Clear the log?: [Y/n]: "
     read -r reply
@@ -126,18 +149,22 @@ check_mail() {
 
     # ZSH compatibility
     if [[ $reply =~ "[yY]|^$" ]]; then
-      echo "" > "$MAIL"/services.log
-      echo "Log cleared"
-    else
-      echo "Log not cleared"
+      echo "" >"$1"
     fi
-
-    # BASH compatibility
-    # if [[ $reply =~ ^[Yy]?$|^$ ]]; then
-    #  echo "" >$MAIL/services.log
-    #  echo "Log cleared"
-    # fi
+  }
+  # Check if the services log file exists.
+  if [[ -f $MAIL/services.log ]]; then
+    process "$MAIL/services.log"
   fi
+  if [[ -f $MAIL/script_failure-notification.sh ]]; then
+    process "$MAIL/script_failure-notification.sh"
+  fi
+
+  # BASH compatibility
+  # if [[ $reply =~ ^[Yy]?$|^$ ]]; then
+  #  echo "" >$MAIL/services.log
+  #  echo "Log cleared"
+  # fi
 }
 
 help() {
@@ -190,7 +217,7 @@ cd_notes() {
   ls -ltuph --group-directories-first
 }
 cd_logs() {
-  cd $HOME/Logs/|| return 1
+  cd $HOME/Logs/ || return 1
   ls -ltuph --group-directories-first
 }
 cd_docs() {
@@ -258,7 +285,6 @@ disk_usage() {
   # df -Ph | awk '{printf "%-16s %-8s %-10s\n", $1, $5, $6}' - Depreciated
 }
 
-
 # Formatting man pages with bat
 man_color() {
   # Argument validation
@@ -275,38 +301,37 @@ man_color() {
   return 1
 }
 
-git_diff(){
+git_diff() {
   # NOTE - Work in progress
   if [[ "$1" == "staged" ]]; then
     name_status=$(git diff --staged --name-status --diff-filter=AMD)
     diff=$(git diff --patch-with-stat --ignore-all-space --ignore-cr-at-eol --ignore-blank-lines \
-						 --ignore-space-at-eol --ignore-matching-lines=$ignore_lines \
-						 --staged --diff-filter=M)
+      --ignore-space-at-eol --ignore-matching-lines=$ignore_lines \
+      --staged --diff-filter=M)
     return 0
   fi
   name_status=$(git diff --staged --name-status --diff-filter=AMD)
   diff=$(git diff --patch-with-stat --ignore-all-space --ignore-cr-at-eol --ignore-blank-lines \
-          --ignore-space-at-eol --ignore-matching-lines=$ignore_lines \
-          --staged --diff-filter=M)
+    --ignore-space-at-eol --ignore-matching-lines=$ignore_lines \
+    --staged --diff-filter=M)
 
   return 0
   # git diff --diff-filter=AMD --name-status
 }
 
 update_python_path() {
-    path_prefix="$HOME/python"
-    path_parts=$(find "$path_prefix" \( ! -path "*/__pycache__/*" \) \( ! -path "*/venv/*" \) \
-       \( ! -path "*/*yarn*/*" \) \( ! -path "*/.cargo/*" \) \( ! -path "*/yay/*" \) \
-       \( ! -path "*/.anaconda/*" \) \( ! -path "*/.venv/*" \) \( ! -path "*/*conda*/*" \) \
-       \( ! -path "*/TODO/*" \) \( ! -path "*/__init__/*" \) \( ! -path "*/__main__/*" \) \
-       \( ! -path "*/.git*/*" \) \( ! -path "*/.graveyard/*" \) \( ! -path "*/.[a-zA-Z0-9]*/*" \) \
-       \( ! -path "*/*[tT]est*/*" \) \( ! -path "*/[fF]lask*/*" \)  -type f -name "*.py" -print0 \
-                  | xargs -0 -I _ echo ":_")
-    export PYTHONPATH="$PYTHONPATH$path_parts"
-    export PATH="$PATH:$PYTHONPATH"
+  path_prefix="$HOME/python"
+  path_parts=$(find "$path_prefix" \( ! -path "*/__pycache__/*" \) \( ! -path "*/venv/*" \) \
+    \( ! -path "*/*yarn*/*" \) \( ! -path "*/.cargo/*" \) \( ! -path "*/yay/*" \) \
+    \( ! -path "*/.anaconda/*" \) \( ! -path "*/.venv/*" \) \( ! -path "*/*conda*/*" \) \
+    \( ! -path "*/TODO/*" \) \( ! -path "*/__init__/*" \) \( ! -path "*/__main__/*" \) \
+    \( ! -path "*/.git*/*" \) \( ! -path "*/.graveyard/*" \) \( ! -path "*/.[a-zA-Z0-9]*/*" \) \
+    \( ! -path "*/*[tT]est*/*" \) \( ! -path "*/[fF]lask*/*" \) -type f -name "*.py" -print0 |
+    xargs -0 -I _ echo ":_")
+  export PYTHONPATH="$PYTHONPATH$path_parts"
+  export PATH="$PATH:$PYTHONPATH"
 
 }
-
 
 # TODO IMPLEMENT
 # ? Update the time in shell prompt

@@ -1,10 +1,7 @@
 # -----------------------#
 # Helper for bash/zsh cross compatability
-shell=$(echo "$SHELL" | awk -F/ '{print $4}')
+shell_type=$(echo "$SHELL" | awk -F/ '{print $4}')
 ignore_lines=(\"\|\'\|^\\s+\$)
-
-
-
 
 # TEMP
 #  Enable Wayland if not X11
@@ -12,23 +9,21 @@ ignore_lines=(\"\|\'\|^\\s+\$)
 		&& enable_wayland="--enable-features=UseOzonePlatform,WaylandWindowDecorations \
 --ozone-platform=wayland"
 
-
-# Imports
 # Private consts
 [[ -f $HOME/.dotfiles/.consts ]] && . $HOME/.dotfiles/.consts
 
 [[ -f $HOME/.bash_functions ]] \
 			&& . $HOME/.bash_functions \
-			&& alias rf='source $HOME/."$shell"rc'
+			&& alias rf='source $HOME/."${shell_type}"rc'
 
 [[ -f $HOME/.dotfiles/.bash_functions ]] \
 			&& . $HOME/.dotfiles/.bash_functions \
-			&& alias rf='source $HOME/.dotfiles/."$shell"rc'
+			&& alias rf='source $HOME/.dotfiles/."${shell_type}"rc'
 
 [[ "$TERM" == "xterm-kitty" ]] && kitten_aliases
 
 kitten_aliases() {
-	alias diff_='kitten diff'
+	alias diff='kitten diff'
 	alias img='kitten icat'
 	alias ssh='kitten ssh'
 }
@@ -198,12 +193,13 @@ alias up-noconfirm='sudo pacman -Syyu && yay -Syyu --answerclean A --noconfirm'
 alias wp='$(ls /home/joona/.config/kitty/assets/ | shuf -n 1)'
 alias search='apropos'
 alias kppower="nohup kitty +kitten panel --edge=background sh -c 'gpu_power.sh' >/dev/null 2>&1 &"
-alias kp="nohup kitty +kitten panel --edge=background sh -c"
+alias kp="kitty +kitten panel --edge=background sh -c '$1'"
 alias c='paste | wc'
 alias restart='sudo systemctl start reboot.target'
 alias sctluser='systemctl --user'
 alias sctl='systemctl'
 alias report='systemctl status --all && systemctl --list-all-units'
+alias win_ssd='cd /mnt/win_ssd/Users/Joona/Videos/NVIDIA'
 alias brightness_max='qdbus6 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl \
 org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness 100'
 alias brightness_low='qdbus6 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl
