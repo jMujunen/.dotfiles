@@ -41,8 +41,8 @@ save_hist() {
 
 cfg() {
   # Make sure it exists.
-  if [ ! -d "$HOME/.dotfiles" ]; then
-    error "Error: Directory $HOME/.dotfiles does"
+  if [ ! -d "$HOME/.dotfiles/" ]; then
+    error "Error: Directory $HOME/.dotfiles/ doesnt exist"
     return 1
   fi
   # Open specified file in  $EDITOR
@@ -67,6 +67,11 @@ cfg() {
     $EDITOR "$HOME/.dotfiles/.shellrc" && source $HOME/.dotfiles/.shellrc
     return 0
     ;;
+  k*)
+   $EDITOR "$HOME/.config/kitty/kitty.conf" \
+   		&& kitten @ action load_config_file "/home/joona/.config/kitty/kitty.conf"
+	return 0
+	;;
   cd)
     cd "$HOME/.dotfiles/" && ls -Altr --time=mtime
     return 0
@@ -86,7 +91,7 @@ add() {
 }
 
 get() {
-  # Check type of command. If type == function, show the code for it
+  # Check type of command. If type == function, show the entire function
   if ! which "$1" >/dev/null; then
     error "Error: Command $1 not found."
     return 1

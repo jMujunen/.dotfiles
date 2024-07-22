@@ -77,8 +77,3 @@ export USE_EMOJI=false # pipx
 
 #fastfetch --color 32 -c $HOME/.config/fastfetch/others/compact-mod.jsonc
 #printf "\033[97m%-*s\033[0m\033[31m FAILED\033[0m \033[33m@ %*s\033[0m\033[15;35m %-*s\033[0m\n" 10 ".shellrc" 2 "line 61:" 10 "xbindkeys" >> /var/spool/mail/joona/scripts.log
-
-# CONDA
-# -----
-#export CONDA_DEFAULT_ENV=
-#export CONDA_PYTHON_EXE=

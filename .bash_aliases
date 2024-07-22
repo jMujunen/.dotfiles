@@ -131,7 +131,7 @@ alias ws-general="vscodium $HOME/Code/Workspace/general.code-workspace && exit"
 alias x="exit"
 alias yay="yay --color=always"
 
-alias fmtdate='open /home/joona/Docs/Notes/HTML/Code/strftime.html'
+alias fmtdate='cat /home/joona/Docs/Notes/Obsidian/All\ Notes/Code/strftime.md | glow'
 alias fmtprint='open /home/joona/Docs/Notes/HTML/Code/BASH'
 alias rl='cd /home/joona/.var/app/com.jagexlauncher.JagexLauncher/data/user_home/.runelite'
 alias s='s --provider duckduckgo'
@@ -200,6 +200,7 @@ alias sctluser='systemctl --user'
 alias sctl='systemctl'
 alias report='systemctl status --all && systemctl --list-all-units'
 alias win_ssd='cd /mnt/win_ssd/Users/Joona/Videos/NVIDIA'
+alias mpv='mpv --fs'
 alias brightness_max='qdbus6 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl \
 org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness 100'
 alias brightness_low='qdbus6 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl
@@ -208,3 +209,4 @@ org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness 50'
 # alias xclip="xclip -selection clipboard"
 # TODO: See below
 # [ ] - mkalias -> python3 makealias.py
+export tree='tree -a'
