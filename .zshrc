@@ -157,6 +157,6 @@ setopt histignorespace
 # in order to use #, ~ and ^ for filename generation grep word
 # *~(*.gz|*.bz|*.bz2|*.zip|*.Z) -> searches for word not in compressed files
 # don't forget to quote '^', '~' and '#'!
-setopt extended_glob
+# setopt extended_glob
 # display PID when suspending processes as well
 setopt longlistjobs

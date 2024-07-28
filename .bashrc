@@ -53,7 +53,6 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-
 if [ "$color_prompt" = yes ]; then
     t1_bg="\[$(tput setab 31)\]"
     t1_fg="\[$(tput setaf 31)\]"
@@ -71,7 +70,6 @@ else
     PS1='${debian_chroot:+($debian_chroot)}\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
-
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -126,5 +124,3 @@ fi
 
 # Use this file for configurations shared between zsh and bash
 [[ -f $HOME/.shellrc ]] && source $HOME/.shellrc || source $HOME/.dotfiles/.shellrc || error "No shellrc found"
-
-shopt -s dotglob

@@ -66,6 +66,7 @@ intel-ucode
 iotop
 iwd
 kactivitymanagerd
+kalarm
 kcolorpicker
 kde-cli-tools
 kde-gtk-config
@@ -83,6 +84,7 @@ kitty-shell-integration-shade-transparency-patch
 kitty-terminfo
 kmenuedit
 knotes
+korganizer
 kpipewire
 kscreen
 kscreenlocker
@@ -139,7 +141,9 @@ network-manager-applet
 networkmanager
 nfs-utils
 nmap
+notes-up
 notification-daemon
+npm
 ntfs-3g
 nvidia-cg-toolkit
 nvidia-dkms
@@ -270,6 +274,7 @@ wine-staging
 winetricks
 wireplumber
 wl-clipboard
+wlrctl
 xbindkeys
 xcolor
 xdg-desktop-portal-gtk
@@ -283,6 +288,7 @@ xorg-xinit
 xorg-xinput
 xorg-xrandr
 xorg-xwininfo
+xournalpp
 xterm
 yay
 yazi

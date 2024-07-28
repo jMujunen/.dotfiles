@@ -34,76 +34,11 @@ exclude = [
 # Same as Black.
 line-length = 100
 indent-width = 4
-tab-size = 4
 # Enumerate all fixed violations.
-fix-only = true
-show-fixes = true
-show-source = true
-# Assume Python 3.8
+# fix-only = true
+# show-fixes = true
+# show-source = true
 target-version = "py312"
-
-[lint]
-# Enable Pyflakes (`F`) and a subset of the pycodestyle (`E`)  codes by default.
-# Unlike Flake8, Ruff doesn't enable pycodestyle warnings (`W`) or
-# McCabe complexity (`C901`) by default.
-select = ["E", "F", "W391", "W605", "W291", "W292", "N", "UP001", "UP032", "UP034", "PLE", "PLR", "PLW"]
-#  Avoid enforcing line-length violations (`E501`), explicit encoding
-ignore = ["E501", "E701", "E702", "W1514"]
-
-# Allow fix for all enabled rules (when `--fix`) is provided.
-fixable = ["ALL"]
-unfixable = []
-
-# Like Black, indent with spaces, rather than tabs.
-indent-style = "space"
-
-# Like Black, respect magic trailing commas.
-skip-magic-trailing-comma = true
-# def test(
-#     a,
-#     b,
-# ): pass
-# Allow unused variables when underscore-prefixed.
-dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
-
-# Like Black, automatically detect the appropriate line ending.
-line-ending = "auto"
-line-length = 100
-# Like Black, use double quotes for strings.
-quote-style = "double"
-
-extend-fixable = ["B"]
-
-[lint.extend-per-file-ignores]
-# Also ignore `E402` in all `__init__.py` files.
-"__init__.py" = ["E402"]
-
-[lint.flake8-annotations]
-allow-star-arg-any = true
-
-[lint.flake8-comprehensions]
-allow-dict-calls-with-keyword-arguments = true
-
-[lint.flake8-import-conventions.aliases]
-# Declare the default aliases.
-altair = "alt"
-"matplotlib.pyplot" = "plt"
-numpy = "np"
-pandas = "pd"
-seaborn = "sns"
-scipy = "sp"
-
-[lint.flake8-quotes]
-docstring-quotes = "double"
-multiline-quotes = "double"
-
-[lint.isort]
-extra-standard-library = ["path", "pandas"]
-force-wrap-aliases = true
-combine-as-imports = true
-
-[pycodestyle]
-max-line-length = 100 # E501 reports lines that exceed the length of 100.
 
 [format]
 # Like Black, use double quotes for strings.
@@ -135,3 +70,53 @@ docstring-code-format = true
 # This only has an effect when the `docstring-code-format` setting is
 # enabled.
 docstring-code-line-length = "dynamic"
+
+
+
+[lint]
+# Enable Pyflakes (`F`) and a subset of the pycodestyle (`E`)  codes by default.
+# Unlike Flake8, Ruff doesn't enable pycodestyle warnings (`W`) or
+# McCabe complexity (`C901`) by default.
+select = ["E", "F", "W605", "W291", "W292", "N", "UP001", "UP032", "UP034", "PLE", "PLR", "PLW"]
+# "W391
+#  Avoid enforcing line-length violations (`E501`), explicit encoding
+ignore = ["E501", "E701", "E702", "N999"] #"D211", "D213"] #"W1514"]
+
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+# Like Black, use double quotes for strings.
+extend-fixable = ["B"]
+
+[lint.extend-per-file-ignores]
+# Also ignore `E402` in all `__init__.py` files.
+"__init__.py" = ["E402"]
+
+[lint.flake8-annotations]
+allow-star-arg-any = true
+
+[lint.flake8-comprehensions]
+allow-dict-calls-with-keyword-arguments = true
+
+[lint.flake8-import-conventions.aliases]
+# Declare the default aliases.
+altair = "alt"
+"matplotlib.pyplot" = "plt"
+numpy = "np"
+pandas = "pd"
+seaborn = "sns"
+scipy = "sp"
+
+[lint.flake8-quotes]
+docstring-quotes = "double"
+multiline-quotes = "double"
+
+[lint.isort]
+extra-standard-library = ["path", "pandas"]
+force-wrap-aliases = true
+combine-as-imports = true
+
+[lint.pycodestyle]
+max-line-length = 100 # E501 reports lines that exceed the length of 100.

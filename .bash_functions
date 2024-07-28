@@ -1,6 +1,4 @@
 #-------------------#
-ignore_lines=(\"\|\'\|^\\s+\$)
-
 # ignore=(.\*\\\[+package.\*\?\\\]+\(\\s+\[\\w\\\{\\s=\"\.\*\\[,:\\}\>\<\@\]\))
 
 success() {
@@ -157,12 +155,16 @@ check_mail() {
       echo "" >"$1"
     fi
   }
-  # Check if the services log file exists.
-  if [[ -f $MAIL/services.log ]]; then
+  # Check if the services log file exists and is not empty
+  if [[ -n "$(cat "$MAIL/services.log")" ]]; then
     process "$MAIL/services.log"
+  else
+    echo -e  "\033[32;2mThe services log is empty.\033[0m"
   fi
-  if [[ -f $MAIL/script_failure-notification.sh ]]; then
+  if [[ -n "$(cat "$MAIL/script_failure-notification.sh")" ]]; then
     process "$MAIL/script_failure-notification.sh"
+  else
+    echo -e "\033[32;2mThe script failure log is empty.\033[0m"
   fi
 
   # BASH compatibility
@@ -308,6 +310,7 @@ man_color() {
 
 git_diff() {
   # NOTE - Work in progress
+  local ignore_lines=(\"\|\'\|^\\s+\$)
   if [[ "$1" == "staged" ]]; then
     name_status=$(git diff --staged --name-status --diff-filter=AMD)
     diff=$(git diff --patch-with-stat --ignore-all-space --ignore-cr-at-eol --ignore-blank-lines \
@@ -326,16 +329,16 @@ git_diff() {
 
 update_python_path() {
   path_prefix="$HOME/python"
-  path_parts=$(find "$path_prefix" \( ! -path "*/__pycache__/*" \) \( ! -path "*/venv/*" \) \
-    \( ! -path "*/*yarn*/*" \) \( ! -path "*/.cargo/*" \) \( ! -path "*/yay/*" \) \
-    \( ! -path "*/.anaconda/*" \) \( ! -path "*/.venv/*" \) \( ! -path "*/*conda*/*" \) \
-    \( ! -path "*/TODO/*" \) \( ! -path "*/__init__/*" \) \( ! -path "*/__main__/*" \) \
-    \( ! -path "*/.git*/*" \) \( ! -path "*/.graveyard/*" \) \( ! -path "*/.[a-zA-Z0-9]*/*" \) \
-    \( ! -path "*/*[tT]est*/*" \) \( ! -path "*/[fF]lask*/*" \) -type f -name "*.py" -print0 |
+  path_parts=$(find "$path_prefix" \( ! -path "**/__pycache__/" \) \( ! -path "**/venv/" \) \
+    \( ! -path "**/*yarn*/" \) \( ! -path "**/.cargo/" \) \( ! -path "**/yay/" \) \
+    \( ! -path "**/.anaconda/" \) \( ! -path "**/.venv/" \) \( ! -path "**/*conda*/" \) \
+    \( ! -path "**/TODO/" \) \( ! -path "*/__init__/*" \) \( ! -path "**/__main__/" \) \
+    \( ! -path "**/.git*/" \) \( ! -path "**/.graveyard/" \) \( ! -path "**/.[a-zA-Z0-9]*/*" \) \
+    \( ! -path "**/*[tT]est*/" \) \( ! -path "**/[fF]lask*/" \) -type d -name -print0 |
     xargs -0 -I _ echo ":_")
-  export PYTHONPATH="$PYTHONPATH$path_parts"
-  export PATH="$PATH:$PYTHONPATH"
-
+  # export PYTHONPATH="$PYTHONPATH$path_parts"
+  # export PATH="$PATH:$PYTHONPATH"
+  echo "$path_parts"
 }
 
 # TODO IMPLEMENT

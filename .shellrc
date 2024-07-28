@@ -11,8 +11,8 @@ $HOME/python/Projects/hwutils:$HOME/python/Projects/hwutils/hwutils:\
 $HOME/python/scripts/hass:$HOME/python/scripts/bashhelpers/pacman
 
 export PATH="${PATH}:/cmdline-tools/latest/bin"
-export PATH=$HOME/.dotfiles/:$HOME/scripts/:$HOME/scripts/graphing/:$HOME/scripts/git_scripts/:\
-$HOME/.local/bin:$PATH:$PYTHONPATH
+export PATH=$HOME/.dotfiles/:$HOME/scripts/:$HOME/scripts/graphing/:\
+$HOME/scripts/git_scripts/:$HOME/.local/bin:$PATH:$PYTHONPATH
 
 # Git
 # ---
@@ -29,7 +29,7 @@ export ELECTRON_OZONE_PLATFORM_HINT=wayland
 export GBM_BACKEND=nvidia-drm
 export GDK_BACKEND=wayland
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
-export MOZ_ENABLE_WAYLAND=0
+export MOZ_ENABLE_WAYLAND=1
 export QSG_RENDERER_LOOP=basic
 export QT_ENABLE_HIGHDPI_SCALING=1
 export QT_QPA_PLATFORM=wayland
