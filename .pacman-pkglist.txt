@@ -1,6 +1,5 @@
 alsa-utils
 appmenu-gtk-module
-arduino
 arduino-builder
 arduino-cli
 arduino-ide
@@ -33,6 +32,7 @@ dos2unix
 dunst
 efibootmgr
 esbuild
+eww
 expac
 fastfetch
 feh
@@ -141,7 +141,6 @@ network-manager-applet
 networkmanager
 nfs-utils
 nmap
-notes-up
 notification-daemon
 npm
 ntfs-3g
@@ -190,13 +189,13 @@ pngcrush
 polkit-kde-agent
 powerline-fonts
 print-manager
+pyright
 python
 python-black
 python-clipboard
 python-flask
 python-imagehash
 python-keyboard
-python-lsp-ruff
 python-lsp-server
 python-matplotlib
 python-numpy
@@ -214,7 +213,6 @@ python-pytest-ruff
 python-rich
 qqc2-breeze-style
 rawtherapee
-rdfind
 ripgrep
 rpi-imager
 rssguard
@@ -292,6 +290,7 @@ xournalpp
 xterm
 yay
 yazi
+zed
 zip
 znotes
 zram-generator

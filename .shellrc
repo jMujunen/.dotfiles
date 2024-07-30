@@ -4,7 +4,7 @@ export EDITOR=micro
 export MICRO_TRUECOLOR=1
 
 export PYTHONPATH=$HOME/.ipython/profile_main/:$HOME/python/modules/:$HOME/python/scripts/:\
-$HOME/python/scripts/bashhelpers/:$HOME/python/scripts/bashhelpers/ColorizeOutput/:\
+$HOME/python/:$HOME/python/scripts/bashhelpers/:$HOME/python/scripts/bashhelpers/ColorizeOutput/:\
 $HOME/python/Projects/termllama/termllama/:$HOME/python/Projects/fsutils/:\
 $HOME/python/Projects/fsutils/fsutils:$HOME/python/libs/hwutils/hwutils/:\
 $HOME/python/Projects/hwutils:$HOME/python/Projects/hwutils/hwutils:\

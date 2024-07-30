@@ -191,6 +191,12 @@ alias win_ssd='cd /mnt/win_ssd/Users/Joona/Videos/NVIDIA'
 alias tree='tree -a'
 alias mpv='mpv --fs'
 
+# fzf
+alias pac-info="pacman -Qq | fzf --preview 'pacman -Qil {}';
+--layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
+alias pac-info-explicit="pacman -Qqe | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
+
+alias dir="fzf --preview 'fzf-preview.sh {}"
 
 alias brightness='qdbus6 org.kde.Solid.PowerManagement \
 /org/kde/Solid/PowerManagement/Actions/BrightnessControl setBrightness'

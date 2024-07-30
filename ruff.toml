@@ -30,7 +30,7 @@ exclude = [
     "__pycache__",
     "*conda*"
 ]
-
+cache-dir = "~/.cache/ruff"
 # Same as Black.
 line-length = 100
 indent-width = 4
@@ -48,60 +48,63 @@ quote-style = "double"
 indent-style = "space"
 
 # Like Black, respect magic trailing commas.
-skip-magic-trailing-comma = true
+skip-magic-trailing-comma = false
 # def test(
 #     a,
 #     b,
 # ): pass
 
-# Like Black, automatically detect the appropriate line ending.
+# # Like Black, automatically detect the appropriate line ending.
 line-ending = "auto"
 
-# Enable auto-formatting of code examples in docstrings. Markdown,
-# reStructuredText code/literal blocks and doctests are all supported.
-#
-# This is currently disabled by default, but it is planned for this
-# to be opt-out in the future.
+# # Enable auto-formatting of code examples in docstrings. Markdown,
+# # reStructuredText code/literal blocks and doctests are all supported.
+# #
+# # This is currently disabled by default, but it is planned for this
+# # to be opt-out in the future.
 docstring-code-format = true
 
-# Set the line length limit used when formatting code snippets in
-# docstrings.
-#
-# This only has an effect when the `docstring-code-format` setting is
-# enabled.
+# # Set the line length limit used when formatting code snippets in
+# # docstrings.
+# #
+# # This only has an effect when the `docstring-code-format` setting is
+# # enabled.
 docstring-code-line-length = "dynamic"
-
-
 
 [lint]
 # Enable Pyflakes (`F`) and a subset of the pycodestyle (`E`)  codes by default.
 # Unlike Flake8, Ruff doesn't enable pycodestyle warnings (`W`) or
 # McCabe complexity (`C901`) by default.
-select = ["E", "F", "W605", "W291", "W292", "N", "UP001", "UP032", "UP034", "PLE", "PLR", "PLW"]
+select = ["E", "F", "W605", "W291", "W292", "N", "UP001", "UP032", "UP034", "PLE", "PLW", 'W', "B"]
 # "W391
 #  Avoid enforcing line-length violations (`E501`), explicit encoding
-ignore = ["E501", "E701", "E702", "N999"] #"D211", "D213"] #"W1514"]
+ignore = ["E501", "E701", "E702", "N999", "N806"] #"D211", "D213"] #"W1514"]
 
 # Allow fix for all enabled rules (when `--fix`) is provided.
-fixable = ["ALL"]
-unfixable = []
+# fixable = ["ALL"]
+# unfixable = []
 
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 # Like Black, use double quotes for strings.
-extend-fixable = ["B"]
+# extend-fixable = ["B"]
+
+# Comments starting with these tags will be ignored by commented-out code detection
+task-tags = ["TODO", "FIXME", "XXX", "- [ ]", "[ ]", "- [x]", "[x]", "NOTE"]
+
+
 
 [lint.extend-per-file-ignores]
 # Also ignore `E402` in all `__init__.py` files.
 "__init__.py" = ["E402"]
 
 [lint.flake8-annotations]
-allow-star-arg-any = true
+allow-star-arg-any = false
 
 [lint.flake8-comprehensions]
 allow-dict-calls-with-keyword-arguments = true
 
 [lint.flake8-import-conventions.aliases]
-# Declare the default aliases.
+# # Declare the default aliases.
 altair = "alt"
 "matplotlib.pyplot" = "plt"
 numpy = "np"
