@@ -3,25 +3,28 @@
 export EDITOR=micro
 export MICRO_TRUECOLOR=1
 
-export PYTHONPATH=$HOME/.ipython/profile_main/:$HOME/python/modules/:$HOME/python/scripts/:\
-$HOME/python/:$HOME/python/scripts/bashhelpers/:$HOME/python/scripts/bashhelpers/ColorizeOutput/:\
-$HOME/python/Projects/termllama/termllama/:$HOME/python/Projects/fsutils/:\
-$HOME/python/Projects/fsutils/fsutils:$HOME/python/libs/hwutils/hwutils/:\
-$HOME/python/Projects/hwutils:$HOME/python/Projects/hwutils/hwutils:\
-$HOME/python/scripts/hass:$HOME/python/scripts/bashhelpers/pacman
+export PYTHONPYCACHEPREFIX=$HOME/.cache/__pycache__
+export PYTHONPATH=$HOME/.ipython/profile_main/:$HOME/python/modules/:\
+$HOME/python/scripts/:$HOME/python/:$HOME/python/scripts/bashhelpers/:\
+$HOME/python/scripts/bashhelpers/ColorizeOutput/:$HOME/python/Projects/termllama/termllama/:\
+$HOME/python/Projects/fsutils/:$HOME/python/Projects/fsutils/fsutils:\
+$HOME/python/libs/hwutils/hwutils/:$HOME/python/Projects/hwutils:\
+$HOME/python/Projects/hwutils/hwutils:$HOME/python/scripts/hass:\
+$HOME/python/scripts/bashhelpers/pacman
 
-export PATH="${PATH}:/cmdline-tools/latest/bin"
 export PATH=$HOME/.dotfiles/:$HOME/scripts/:$HOME/scripts/graphing/:\
-$HOME/scripts/git_scripts/:$HOME/.local/bin:$PATH:$PYTHONPATH
+$HOME/scripts/git_scripts/:$HOME/.local/bin:$HOME/scripts/shutdown:\
+$HOME/scripts/startup:$HOME/scripts/logging/:$PATH:$PYTHONPATH
 
 # Git
 # ---
-GIT_COMMITTER_NAME="J Mujunen"
-GIT_COMMITTER_EMAIL="jMujunen@github.com"
+export GIT_COMMITTER_NAME="J Mujunen"
+export GIT_COMMITTER_EMAIL="jMujunen@github.com"
 
 # ZSH
 # ---
 export HISTFILE=$ZDOTDIR/.zsh_history
+export ZSH_COMPDUMP=$ZSH/.zcompdump-arch-5.9
 
 # Wayland/Nvidia specific
 # ----------------------
@@ -30,7 +33,7 @@ export GBM_BACKEND=nvidia-drm
 export GDK_BACKEND=wayland
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export MOZ_ENABLE_WAYLAND=1
-export QSG_RENDERER_LOOP=basic
+export QSG_RENDERER_LOOP=basics
 export QT_ENABLE_HIGHDPI_SCALING=1
 export QT_QPA_PLATFORM=wayland
 export GLFW_IM_MODULE=ibus
@@ -64,14 +67,6 @@ export USE_EMOJI=false # pipx
 # Source dedicated alias file
 [[ -f $HOME/.bash_aliases ]] && . $HOME/.bash_aliases
 [[ -f $HOME/.dotfiles/.bash_aliases ]] && . $HOME/.dotfiles/.bash_aliases
-
-# Source .consts (seperated for privacy)
-[[ -f $HOME/.consts ]] && . $HOME/.consts
-[[ -f $HOME/.dotfiles/.consts ]] && . $HOME/.dotfiles/.consts
-
-# .bash_functions
-[[ -f $HOME/.bash_functions ]] && . $HOME/.bash_functions
-[[ -f $HOME/.dotfiles/.bash_functions ]] && . $HOME/.dotfiles/.bash_functions
 
 # --------------------------------------------------------------- #
 

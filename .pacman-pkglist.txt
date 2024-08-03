@@ -5,6 +5,7 @@ arduino-cli
 arduino-ide
 arduino-language-server
 ark
+awesome-terminal-fonts
 aws-checksums
 base
 base-devel
@@ -24,6 +25,8 @@ calc
 ccache
 cmake
 corectrl
+cpu-x
+cpupower
 cups
 discover
 dkms
@@ -44,7 +47,6 @@ flatpak-kcm
 fzf
 ghc
 git
-git-lfs
 github-cli
 glib
 glow
@@ -58,12 +60,12 @@ gst-plugin-pipewire
 gstreamer-vaapi
 hdparm
 htop
-ibus
 imagemagick
 inkscape
 intel-media-driver
 intel-ucode
 iotop
+ipython
 iwd
 kactivitymanagerd
 kalarm
@@ -104,6 +106,8 @@ lib32-libjpeg-turbo
 lib32-libpipewire
 lib32-libpulse
 lib32-libva
+lib32-libva-mesa-driver
+lib32-libva-vdpau-driver
 lib32-libxcomposite
 lib32-libxinerama
 lib32-lz4
@@ -113,7 +117,6 @@ lib32-openal
 lib32-readline
 lib32-sdl2
 lib32-v4l-utils
-libglibutil
 libjson
 libkscreen
 libliftoff
@@ -121,6 +124,9 @@ libnfs
 libplasma
 libpulse
 libqtxdg
+libutempter
+libva-mesa-driver
+libva-nvidia-driver
 libva-utils
 libvdpau-va-gl
 linux
@@ -163,6 +169,7 @@ pacutils
 pam_autologin
 passmark-performancetest-bin
 pastel
+perf
 pipewire
 pipewire-alsa
 pipewire-jack
@@ -172,9 +179,7 @@ pix
 plasma-activities
 plasma-activities-stats
 plasma-applet-window-buttons
-plasma-browser-integration
 plasma-desktop
-plasma-disks
 plasma-integration
 plasma-nm
 plasma-pa
@@ -188,8 +193,8 @@ plymouth-kcm
 pngcrush
 polkit-kde-agent
 powerline-fonts
+pre-commit
 print-manager
-pyright
 python
 python-black
 python-clipboard
@@ -209,7 +214,6 @@ python-plyer
 python-psutil
 python-pylint
 python-pytesseract
-python-pytest-ruff
 python-rich
 qqc2-breeze-style
 rawtherapee
@@ -217,18 +221,19 @@ ripgrep
 rpi-imager
 rssguard
 rsync
+ruff
 s
 sbctl
 schedtool
 sddm-kcm
-shell-color-scripts
 shfmt
 signal-desktop
 smartmontools
+smb4k
 sof-firmware
-source-highlight
 spectacle
 spotify
+sqlitebrowser
 squashfs-tools
 ssh-tools
 sshfs
@@ -239,11 +244,13 @@ sysstat
 system-config-printer
 systemd-ukify
 systemsettings
+task
 terminus-font
 tesseract-data-osd
 texlive-fontsextra
 texlive-latexextra
 thonny
+time
 timeshift
 tldr
 toastify
@@ -274,8 +281,6 @@ wireplumber
 wl-clipboard
 wlrctl
 xbindkeys
-xcolor
-xdg-desktop-portal-gtk
 xdg-desktop-portal-kde
 xdotool
 xinit-xsession
@@ -286,7 +291,6 @@ xorg-xinit
 xorg-xinput
 xorg-xrandr
 xorg-xwininfo
-xournalpp
 xterm
 yay
 yazi

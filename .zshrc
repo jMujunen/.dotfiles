@@ -79,7 +79,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git archlinux copybuffer poetry-env nmap)
+plugins=(git archlinux poetry-env nmap)
 # <---- Notes ---->
 # copybuffer: ctrl + o
 #
@@ -137,6 +137,8 @@ eval "$(register-python-argcomplete pipx)"
 autoload -U bashcompinit
 bashcompinit
 
+compinit -d $HOME/.oh-my-zsh/.zcompdump-$ZSH_VERSION
+
 export LS_COLORS=$LS_COLORS":ow=1;32;7:su=1;31;7:sg=1;30;43"
 source <(fzf --zsh)
 
@@ -148,15 +150,7 @@ setopt append_history
 setopt share_history
 # save each command's beginning timestamp and the duration to the history file
 setopt extended_history
-# If a new command line being added to the history list duplicates an older
-# one, the older command is removed from the list
-setopt histignorealldups
-# remove command lines from the history list when the first character on the
-# line is a space
-setopt histignorespace
-# in order to use #, ~ and ^ for filename generation grep word
-# *~(*.gz|*.bz|*.bz2|*.zip|*.Z) -> searches for word not in compressed files
-# don't forget to quote '^', '~' and '#'!
-# setopt extended_glob
 # display PID when suspending processes as well
 setopt longlistjobs
+
+

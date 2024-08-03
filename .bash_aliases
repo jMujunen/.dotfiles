@@ -1,32 +1,17 @@
 # -----------------------#
-# Helper for bash/zsh cross compatability
-shell_type=$(echo "$SHELL" | awk -F/ '{print $4}')
+# Ignore the following regex when calling `git diff``
 ignore_lines=(\"\|\'\|^\\s+\$)
 
-# TEMP
-#  Enable Wayland if not X11
-[[ "$XDG_SESSION_TYPE" = "wayland" ]] &&
-	enable_wayland="--enable-features=UseOzonePlatform,WaylandWindowDecorations \
---ozone-platform=wayland"
+# Private constant variables like API keys/tokens
+[[ -f $HOME/.dotfiles/.consts ]] && source "$HOME/.dotfiles/.consts"
 
-# Private consts
-[[ -f $HOME/.dotfiles/.consts ]] && . $HOME/.dotfiles/.consts
+[[ -f $HOME/.bash_functions ]] \
+	&& . "$HOME/.bash_functions"
+	# && alias rf='source $HOME/."${shell_type}"rc'
 
-[[ -f $HOME/.bash_functions ]] &&
-	. "$HOME/.bash_functions" &&
-	alias rf='source $HOME/."${shell_type}"rc'
-
-[[ -f $HOME/.dotfiles/.bash_functions ]] &&
-	. $HOME/.dotfiles/.bash_functions &&
-	alias rf='source $HOME/.dotfiles/."${shell_type}"rc'
-
-[[ "$TERM" == "xterm-kitty" ]] && kitten_aliases || alias diff='diff --color=auto'
-
-kitten_aliases() {
-	alias diff='kitten diff'
-	alias img='kitten icat'
-	alias ssh='kitten ssh'
-}
+[[ -f $HOME/.dotfiles/.bash_functions ]] \
+	&& source "$HOME/.dotfiles/.bash_functions"
+	# && alias rf='source $HOME/.dotfiles/."${shell_type}"rc'
 
 # -- Colors -- #
 alias ip='ip -c'
@@ -34,14 +19,12 @@ alias ip='ip -c'
 alias pacman='sudo pacman --color=always'
 alias ac='/usr/bin/python3 $HOME/python/Projects/termllama/termllama/auto_commit.py'
 alias bathelp='bat --plain --language=help'
-alias follow='batfollow'
 alias batless='bat --style=full --paging=always -pl less'
 alias pat='bat --style="plain"'
 alias lat='bat --style="auto" --pager=none'
 alias fat='bat --style="full"'
 alias aliases='alias | bat -l sh -p'
 alias back='cd "$OLDPWD"'
-alias bte="bte_function"
 alias cleansyslogs='sudo journalctl --vacuum-time=2d'
 alias cdl="cd_ls"
 alias cdpy="cd_py"
@@ -55,9 +38,9 @@ alias dl="cd_dl"
 alias docs="cd_docs"
 alias dus="du -ch | sort -h"
 alias free='python3 $HOME/python/scripts/bashhelpers/ColorizeOutput/free.py'
-alias find_='find . \( ! -path "**/__pycache__/" \) \( ! -path "**/venv/" \) \
-\( ! -path "**/*yarn*/" \) \( ! -path "**/.cargo/" \) \( ! -path "**/yay/" \) \
-\( ! -path "**/.venv/" \) \( ! -path "**/*conda*/" \) \( ! -path "**/*cache/" \)'
+alias find_='find . \( ! -path "**/__pycache__" \) \( ! -path "**/venv" \) \
+\( ! -path "**/*yarn*" \) \( ! -path "**/.cargo" \) \( ! -path "**/yay" \) \
+\( ! -path "**/.venv" \) \( ! -path "**/*conda*" \) \( ! -path "**/*cache" \)'
 
 alias feh="feh -g 1920x1080 -d -S filename --fullscreen --scale-down
 								--output-dir /home/joona/Picture/feh"
@@ -76,21 +59,21 @@ alias la="ls -lpha --group-directories-first"
 alias lg="ls -ph --group-directories-first"
 alias ll="ls -lph --group-directories-first"
 alias logs="cd_logs" # .bash_function
-alias lsd="ls -lAd */"
+alias lsd="ls -lAdh "
 alias lsblkc='python3 $HOME/python/scripts/bashhelpers/ColorizeOutput/lsblk.py'
 #alias ls="ls --color=auto"
 alias lss="ls -Alshr --group-directories-first"
 alias lt="ls -Altrh --time=mtime --group-directories-first"
 alias m="micro"
 alias mail="check_mail" # .bash_function
-alias man="man_color" # .bash_function
+alias man="man_color"   # .bash_function
 alias mv="mv -iv"
 alias nano="micro"
 alias notes="cd_notes" # .bash_function
 alias nset="nvidia-settings > /dev/null 2>&1 & disown && exit"
 alias md='obsidian > /dev/null 2>&1 & disown'
 alias open="xdg-open"
-alias osrshydra="osrs_hydra"  # .bash_function
+alias osrshydra="osrs_hydra" # .bash_function
 alias osrs="flatpak run com.jagexlauncher.JagexLauncher > /dev/null 2>&1 \
 								 & disown && exit"
 alias osrsping="gping -c cyan oldschool78.runescape.com"
@@ -131,18 +114,23 @@ alias rl='cd /home/joona/.var/app/com.jagexlauncher.JagexLauncher/data/user_home
 alias s='s --provider duckduckgo'
 alias root='sudo --preserve-env -s'
 
-alias l3='python3 $HOME/python/Projects/termllama/termllama/main.py'
-alias gitmsg='auto_git_msg'
 alias llamalog='journalctl --user -e -u ollama'
 alias llamaupdate='curl -fsSL https://ollama.com/install.sh | sh && sleep 2;
 					sudo systemctl disable --now ollama \
 					&& systemctl --user restart --now ollama'
 
 # Arch Linux Specific
+alias pac-info="pacman -Qq | fzf --preview 'pacman -Qil {}';
+	--layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
+alias pac-info-explicit="pacman -Qqe
+	| fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {}
+	| less)'"
 alias plist='[[ -d $HOME/.dotfiles/ ]] && pacman -Qqe > $HOME/.dotfiles/.pacman-pkglist.txt \
 								|| $HOME/.pacman-pkglist.txt'
 alias pcheck='sudo paccheck --sha256sum --quiet'
 alias pdeps='sudo pacman -Qtdq'
+alias update='sudo pacman -Syyu && yay -Syyu --answerclean A'
+alias up-noconfirm='sudo pacman -Syyu && yay -Syyu --answerclean A --noconfirm'
 
 # Systemd
 alias j='journalctl'
@@ -177,27 +165,20 @@ alias gdgs='git difftool --ignore-all-space --ignore-cr-at-eol \
 						--ignore-blank-lines --ignore-space-at-eol --staged'
 
 alias hist='omz_history -i'
-alias pdf='zathura'
 
 alias size='python3 -m size' # OVERWRITES BUILT-IN SHELL FUNCTION
 alias poet-require='xargs poetry add < requirements.txt'
-alias p='poetry'
-alias update='sudo pacman -Syyu && yay -Syyu --answerclean A'
-alias up-noconfirm='sudo pacman -Syyu && yay -Syyu --answerclean A --noconfirm'
-alias wp='$(ls /home/joona/.config/kitty/assets/ | shuf -n 1)'
+
 alias search='apropos'
-alias c='paste | wc'
-alias win_ssd='cd /mnt/win_ssd/Users/Joona/Videos/NVIDIA'
+alias c='paste | wc' # Perform [word|line|character] count on clipboard content
 alias tree='tree -a'
 alias mpv='mpv --fs'
-
+alias winssd='cd /mnt/win_ssd/Users/Joona/Videos/NVIDIA/ && ls -Alph --group-directories-first'
+alias clips='cd /mnt/ssd/OBS && ls -Alph --group-directories-first'
 # fzf
-alias pac-info="pacman -Qq | fzf --preview 'pacman -Qil {}';
---layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
-alias pac-info-explicit="pacman -Qqe | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
+alias dir="fzf --preview 'fzf-preview.sh {}'"
 
-alias dir="fzf --preview 'fzf-preview.sh {}"
-
+# dbus
 alias brightness='qdbus6 org.kde.Solid.PowerManagement \
 /org/kde/Solid/PowerManagement/Actions/BrightnessControl setBrightness'
 alias brightness_max='qdbus6 org.kde.Solid.PowerManagement \
