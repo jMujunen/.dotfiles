@@ -10,7 +10,8 @@ $HOME/python/scripts/bashhelpers/ColorizeOutput/:$HOME/python/Projects/termllama
 $HOME/python/Projects/fsutils/:$HOME/python/Projects/fsutils/fsutils:\
 $HOME/python/libs/hwutils/hwutils/:$HOME/python/Projects/hwutils:\
 $HOME/python/Projects/hwutils/hwutils:$HOME/python/scripts/hass:\
-$HOME/python/scripts/bashhelpers/pacman
+$HOME/python/scripts/bashhelpers/pacman:\
+$HOME/.local/share/pipx/venvs/poetry/lib/python3.12/site-packages/
 
 export PATH=$HOME/.dotfiles/:$HOME/scripts/:$HOME/scripts/graphing/:\
 $HOME/scripts/git_scripts/:$HOME/.local/bin:$HOME/scripts/shutdown:\
@@ -39,19 +40,23 @@ export QT_QPA_PLATFORM=wayland
 export GLFW_IM_MODULE=ibus
 
 # NVIDIA
-export LIBVA_DRIVER_NAME=nvidia
 export SDL_VIDEO_FULLSCREEN_HEAD=1
 export __GL_SYNC_TO_VBLANK=1
 export __GL_SYNC_DISPLAY_DEVICE=DP-2
 export VDPAU_NVIDIA_SYNC_DISPLAY_DEVICE=DP-2
 
-export MAKEFLAGS="-j$(nproc)"
+# Hardware Accel
+export LIBVA_DRIVER_NAME=nvidia
+export VDPAU_DRIVER=nvidia
 
 # Random
 # -----
+export MAKEFLAGS="-j$(nproc)"
 export QT_PLUGIN_PATH=/usr/lib/qt/plugins
 export TESSDATA_PREFIX=/usr/share/tessdata
 export DIFFPROG="kitty +kitten diff"
+export MOZ_DISABLE_RDD_SANDBOX=1
+
 # Ollama
 # ------
 export OLLAMA_KEEP_ALIVE=30
@@ -72,3 +77,5 @@ export USE_EMOJI=false # pipx
 
 #fastfetch --color 32 -c $HOME/.config/fastfetch/others/compact-mod.jsonc
 #printf "\033[97m%-*s\033[0m\033[31m FAILED\033[0m \033[33m@ %*s\033[0m\033[15;35m %-*s\033[0m\n" 10 ".shellrc" 2 "line 61:" 10 "xbindkeys" >> /var/spool/mail/joona/scripts.log
+
+

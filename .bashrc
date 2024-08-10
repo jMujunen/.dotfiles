@@ -124,3 +124,5 @@ fi
 
 # Use this file for configurations shared between zsh and bash
 [[ -f $HOME/.shellrc ]] && source $HOME/.shellrc || source $HOME/.dotfiles/.shellrc || error "No shellrc found"
+
+

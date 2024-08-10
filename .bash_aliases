@@ -52,7 +52,7 @@ alias ffs="s --provider duckduckgo"
 alias ffu="firefox --url"
 alias getweather='curl wttr.in'
 alias get_weather="python3 /home/joona/python/command_output/weather_widget.py"
-alias ipy="poetry run ipython --pprint --nosep --no-confirm-exit --profile=main --colors=Linux"
+alias ipy="poetry -C $HOME/ run ipython --pprint --nosep --no-confirm-exit --profile=main --colors=Linux"
 alias killwine='kill 997 1021 >/dev/null 2>&1;wineserver -k 15;echo done'
 alias kwinDebugConsole='qdbus6 org.kde.KWin /KWin org.kde.KWin.showDebugConsole'
 alias la="ls -lpha --group-directories-first"
@@ -93,23 +93,24 @@ alias sunset="openrgb -p sunset &"
 alias up="cd_up" # .bash_function
 #alias vdir="vdir --color=auto"
 alias venv='source venv/bin/activate'
-alias ws-notes='vscodium $HOME/Code/Workspace/Notes.code-workspace'
-alias ws-bash="vscodium $HOME/Code/Workspace/bashscripts.code-workspace && exit"
-alias workspaces="cd $HOME/Code/Workspace/ && ls -ltuph --group-directories-first"
-alias ws-cfg="vscodium $HOME/Code/Workspace/cfg.code-workspace && exit"
-alias ws-ella="vscodium $HOME/Code/Workspace/data_entry.code-workspace && exit"
-alias ws-html="vscodium $HOME/Code/Workspace/html.code-workspace && exit"
-alias ws-hwinfo="vscodium $HOME/Code/Workspace/py_hwinfo.code-workspace && exit"
-alias ws-pi="vscodium $HOME/Code/Workspace/RPi.code-workspace && exit"
-alias ws-python="vscodium $HOME/Code/Workspace/Python.code-workspace && exit"
-alias ws-modules="vscodium $HOME/Code/Workspace/PythonModules.code-workspace && exit"
-alias ws-general="vscodium $HOME/Code/Workspace/general.code-workspace && exit"
+alias ws-notes='vscodium -n $HOME/Code/Workspace/Notes.code-workspace'
+alias ws-bash="vscodium -n $HOME/Code/Workspace/bashscripts.code-workspace && exit"
+alias ws="cd $HOME/Code/Workspace/ && ls -ltuph --group-directories-first"
+alias ws-cfg="vscodium -n $HOME/Code/Workspace/cfg.code-workspace && exit"
+alias ws-ella="vscodium -n $HOME/Code/Workspace/data_entry.code-workspace && exit"
+alias ws-html="vscodium -n $HOME/Code/Workspace/html.code-workspace && exit"
+alias ws-hwinfo="vscodium -n $HOME/Code/Workspace/py_hwinfo.code-workspace && exit"
+alias ws-pi="vscodium -n $HOME/Code/Workspace/RPi.code-workspace && exit"
+alias ws-python="vscodium -n $HOME/Code/Workspace/Python.code-workspace && exit"
+alias ws-modules="vscodium -n $HOME/Code/Workspace/PythonModules.code-workspace && exit"
+alias ws-general="vscodium -n $HOME/Code/Workspace/general.code-workspace && exit"
 
 alias x="exit"
 alias yay="yay --color=always"
-
-alias fmtdate='cat /home/joona/Docs/Notes/Obsidian/All\ Notes/Code/strftime.md | glow'
-alias fmtprint='open /home/joona/Docs/Notes/HTML/Code/BASH'
+alias md='python3 -m rich.markdown'
+alias viewnotes='cd /home/joona/Docs/Exported\ Markdown/ && ls -Alh'
+alias fmtdate='python3 -m rich.markdown /home/joona/Docs/Notes/Obsidian/All\ Notes/Code/strftime.md'
+alias fmtprint='open /home/joona/Docs/Notes/HTML/Code/BASH/PRINTF - BASH'
 alias rl='cd /home/joona/.var/app/com.jagexlauncher.JagexLauncher/data/user_home/.runelite'
 alias s='s --provider duckduckgo'
 alias root='sudo --preserve-env -s'
@@ -177,6 +178,8 @@ alias winssd='cd /mnt/win_ssd/Users/Joona/Videos/NVIDIA/ && ls -Alph --group-dir
 alias clips='cd /mnt/ssd/OBS && ls -Alph --group-directories-first'
 # fzf
 alias dir="fzf --preview 'fzf-preview.sh {}'"
+# Kitty panel
+alias kp-ping="kitty +kitten panel --edge=background --config=/home/joona/.config/kitty/kitty.d/bgpanel.conf sh -c 'gping 10.0.0.1 -c cyan -b 180' >/dev/null 2>&1 & disown"
 
 # dbus
 alias brightness='qdbus6 org.kde.Solid.PowerManagement \
@@ -185,6 +188,7 @@ alias brightness_max='qdbus6 org.kde.Solid.PowerManagement \
 /org/kde/Solid/PowerManagement/Actions/BrightnessControl setBrightness 100'
 alias brightness_low='qdbus6 org.kde.Solid.PowerManagement \
 /org/kde/Solid/PowerManagement/Actions/BrightnessControl setBrightness 50'
+
 
 # alias kppower="nohup kitty +kitten panel --edge=background sh -c 'gpu_power.sh' >/dev/null 2>&1 &"
 # alias kp="kitty +kitten panel --edge=background sh -c '$1'"

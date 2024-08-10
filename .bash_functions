@@ -1,33 +1,40 @@
-#-------------------#
+# Depedancies: bat vscodium
 # ignore=(.\*\\\[+package.\*\?\\\]+\(\\s+\[\\w\\\{\\s=\"\.\*\\[,:\\}\>\<\@\]\))
 source "$ZDOTDIR"/.color_defs
 
 kitty_integration_custom() {
-  _panelcfg="/home/joona/.config/kitty/kitty.d/bgpanel.conf"
+  local _panelcfg="/home/joona/.config/kitty/kitty.d/bgpanel.conf"
   # -------------- #
+
+  # Define aliases for kitten commands
   alias diff_='kitten diff'
   alias img='kitten icat'
   alias ssh='kitten ssh'
   alias rglinks='kitty -T "Hyperlinked rip-grep" --hold kitten hyperlinked-grep'
+  alias kp=kitty_panel
+
+  # Define function for kitty panel configuration
   kitty_panel() {
-  	if [[ "$1" == "_panelcfg" ]] \
-  		|| [[ "$1" == "/home/joona/.config/kitty/kitty.d/bgpanel.conf" ]]; then
-  		shift
-		kitty +kitten panel --config="$_panelcfg" --edge=background sh -c "${cmd}"
+    if [[ "$1" == "$_panelcfg" ]] || [[ "$1" == "\$_panelcfg" ]] || [[ "$1" == "-c" ]]; then
+      shift
+		  kitty +kitten panel --config="$_panelcfg" --edge=background sh -c '$cmd'
+      return $?
 	fi
-    cmd="$*"
-    kitty +kitten panel --edge=background sh -c "${cmd}"
+
+    kitty +kitten panel --edge=background sh -c '$*'
   }
 
 }
 
+# Check if the terminal is kitty and run custom integration if true
 [[ "$TERM" == "xterm-kitty" ]] && kitty_integration_custom
 
 save_hist() {
   printhelp(){
-    echo
+    echo Usage
   }
   # Create file with timestamp as name
+  # Function to save scrollback history of Kitty terminal to a file
   timestamp=$(date +%F\ %H:%M)
   default_dir="$HOME/Logs/kitty"
   mkdir -p "$default_dir" > /dev/null 2>&1
@@ -40,56 +47,63 @@ save_hist() {
   fi
 
   # Create file if it doesn't exist already.
-  touch "$output_path"
+  touch "$output_path" >/dev/null 2>&1
 
   # Copy stdin to clipboard
-  kitten @ launch --type clipboard --stdin-source @screen_scrollback
-  # Save clipboard content to file
-  wl-paste > "${output_path}"
+  kitten @ launch --type clipboard --stdin-source @screen_scrollback \
+      &&  wl-paste >> "${output_path}"
 }
 
 cfg() {
+  local _CURRENTEDITOR
+  # Function to open and source configuration files in the .dotfiles directory
   # Make sure it exists.
   if [ ! -d "$HOME/.dotfiles/" ]; then
-    stdout.error "Error: Directory $HOME/.dotfiles/ doesn't exist"
+    error "Error: Directory $HOME/.dotfiles/ doesn't exist"
     return 1
+  fi
+  if [[ "$2" =~ "-c*|c*" ]]; then
+	_CURRENTEDITOR=vscodium
+  else
+  	_CURRENTEDITOR=$EDITOR
   fi
   # Open specified file in  $EDITOR
   case "$1" in
     z*)
-      $EDITOR "$HOME/.dotfiles/.zshrc" && source "$HOME"/.dotfiles/.zshrc
-      return 0
+      $_CURRENTEDITOR "$HOME/.dotfiles/.zshrc" && source "$HOME"/.dotfiles/.zshrc
+      # return 0
       ;;
     b*)
-      $EDITOR "$HOME/.dotfiles/.bashrc" && source "$HOME"/.dotfiles/.bashrc
-      return 0
+      $_CURRENTEDITOR "$HOME/.dotfiles/.bashrc" && source "$HOME"/.dotfiles/.bashrc
+      # return 0
       ;;
     a*)
-      $EDITOR "$HOME/.dotfiles/.bash_aliases" && source "$HOME"/.dotfiles/.bash_aliases
-      return 0
+      $_CURRENTEDITOR "$HOME/.dotfiles/.bash_aliases" && source "$HOME"/.dotfiles/.bash_aliases
+      # return 0
       ;;
     f*)
-      $EDITOR "$HOME/.dotfiles/.bash_functions" && source "$HOME"/.dotfiles/.bash_functions
-      return 0
+      $_CURRENTEDITOR"$HOME/.dotfiles/.bash_functions" && source "$HOME"/.dotfiles/.bash_functions
+      # return 0
       ;;
     s*)
-      $EDITOR "$HOME/.dotfiles/.shellrc" && source "$HOME"/.dotfiles/.shellrc
-      return 0
+      $_CURRENTEDITOR _CURRENTEDITOR"$HOME/.dotfiles/.shellrc" && source "$HOME"/.dotfiles/.shellrc
+      # return 0
       ;;
     k*)
-      $EDITOR "$HOME/.config/kitty/kitty.conf" \
+      $_CURRENTEDITOR "$HOME/.config/kitty/kitty.conf" \
         && kitten @ action load_config_file "/home/joona/.config/kitty/kitty.conf"
-      return 0
+      # return 0
       ;;
     cd)
       cd "$HOME/.dotfiles/" && ls -Altr --time=mtime
-      return 0
+      # return 0
       ;;
     *)
-      stdout.error "Argument must be one of [z* | b* | a* | f* | s* | cd | k*]"
-      return 1
+      error "Argument must be one of [z* | b* | a* | f* | s* | cd | k*]"
+      # return 1
       ;;
-  esac
+     esac
+   export $EDITOR=$_placeholder
 }
 render() {
   kitten icat "$1"
@@ -102,7 +116,7 @@ add() {
 get() {
   # Check type of command. If type == function, show the entire function
   if ! which "$1" > /dev/null; then
-    stdout.error "Command $1 not found."
+    error "Command $1 not found."
     return 1
   fi
   if [[ $(type "$1") =~ "function" ]]; then
@@ -204,7 +218,7 @@ cd_up() {
 
   while [[ "$levels" -gt 0 ]]; do
     cd .. || {
-      stdout.error "Failed to go up '$levels' directories"
+      error "Failed to go up '$levels' directories"
       return 1
     }
     levels=$((levels - 1))
@@ -213,7 +227,7 @@ cd_up() {
       printf "\033[1;33m%s\033[0m\n" "$cwd"
       ls -ltuph --group-directories-first
     else
-      stdout.error "Failed to get current directory after cd .."
+      error "Failed to get current directory after cd .."
       return 1
     fi
   done
@@ -308,20 +322,20 @@ bte() {
   }
 
   connect() {
-    stdout.info "Attempting to connect to $2"
+    info "Attempting to connect to $2"
     if ! bluetoothctl connect "$1" > /dev/null 2>&1; then
-      stdout.error "$2 not available"
+      error "$2 not available"
     else
-      stdout.success "Connected to $2"
+      success "Connected to $2"
     fi
   }
 
   disconnect() {
-    stdout.info "Attempting to disconnect from $2"
+    info "Attempting to disconnect from $2"
     if ! bluetoothctl disconnect "$1" > /dev/null 2>&1; then
-      stdout.error "Error disconnecting from $2"
+      error "Error disconnecting from $2"
     else
-      stdout.success "Disconnected from $2"
+      success "Disconnected from $2"
     fi
   }
   # Check for null pointer references and handle exceptions
@@ -355,7 +369,7 @@ bte() {
       disconnect "$address" "$device"
       ;;
     *)
-      stdout.error "$action not supported"
+      error "$action not supported"
       printhelp >&2 | bat -ppl help
       return 1
       ;;
@@ -382,7 +396,7 @@ clear_zsh_cache() {
   # Delete the completion cache
   rm "$ZSH_COMPDUMP"
   # Restart the zsh session
-  exec zsh && stdout.success "ZSH cache cleared and session restarted."
+  exec zsh && success "ZSH cache cleared and session restarted."
 }
 
 # Formatting man pages with bat
