@@ -36,7 +36,9 @@ indent-width = 4
 target-version = "py312"
 # Dont respect gitignore. Lint ignored files as well
 respect-gitignore = false
-
+fix = true
+# Enumerate all fixed violations.
+show-fixes = true
 extend-include = ["*.ipynb"]
 
 [format]
@@ -67,7 +69,9 @@ docstring-code-format = true
 docstring-code-line-length = "dynamic"
 
 [lint]
-select = ["E", "F", "C", 'W', "B", "UP"] # "W605", "W291", "W292", "N", "UP001", "UP032", "UP034", "PLE", "PLW",
+select = ["E", "F", "C", 'W', "B", "UP"] # "W605", "W291", "W292", "N", "UP001", "UP032", "UP034", "PLE", "PLW"
+
+fixable = ['ALL']
 
 ignore = ["E501", "N999", "N806"] #"D211", "D213", "W1514", "E701" E702]
 #   ---------------------------------------------------------------
@@ -84,6 +88,7 @@ extend-fixable = ["B"]
 unfixable = ["F401"] # Disable fix for unused imports (`F401`).
 
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
 
 # Comments starting with these tags will be ignored by commented-out code detection
 task-tags = ["TODO", "FIXME", "XXX", "- [ ]", "[ ]", "- [x]", "[x]", "NOTE"]
