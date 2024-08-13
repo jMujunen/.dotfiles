@@ -15,7 +15,8 @@ $HOME/.local/share/pipx/venvs/poetry/lib/python3.12/site-packages/
 
 export PATH=$HOME/.dotfiles/:$HOME/scripts/:$HOME/scripts/graphing/:\
 $HOME/scripts/git_scripts/:$HOME/.local/bin:$HOME/scripts/shutdown:\
-$HOME/scripts/startup:$HOME/scripts/logging/:$PATH:$PYTHONPATH
+$HOME/scripts/startup:$HOME/scripts/logging/:$HOME/Code/Workspace:\
+$PATH:$PYTHONPATH:
 
 # Git
 # ---
@@ -62,7 +63,6 @@ export MOZ_DISABLE_RDD_SANDBOX=1
 export OLLAMA_KEEP_ALIVE=30
 export OLLAMA_MODELS=/home/joona/.ollama/models/
 export OLLAMA_HOST=10.0.0.21:11434
-
 # Python
 # ------
 export USE_EMOJI=false # pipx

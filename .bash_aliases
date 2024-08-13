@@ -179,7 +179,7 @@ alias clips='cd /mnt/ssd/OBS && ls -Alph --group-directories-first'
 # fzf
 alias dir="fzf --preview 'fzf-preview.sh {}'"
 # Kitty panel
-alias kp-ping="kitty +kitten panel --edge=background --config=/home/joona/.config/kitty/kitty.d/bgpanel.conf sh -c 'gping 10.0.0.1 -c cyan -b 180' >/dev/null 2>&1 & disown"
+alias kp-ping="kitty +kitten panel --edge=background --config=/home/joona/.config/kitty/panel.d/bg_padded.conf sh -c 'gping 10.0.0.1 -c cyan -b 180' >/dev/null 2>&1 & disown"
 
 # dbus
 alias brightness='qdbus6 org.kde.Solid.PowerManagement \

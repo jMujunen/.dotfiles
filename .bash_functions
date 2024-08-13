@@ -3,7 +3,7 @@
 source "$ZDOTDIR"/.color_defs
 
 kitty_integration_custom() {
-  local _panelcfg="/home/joona/.config/kitty/kitty.d/bgpanel.conf"
+  local _panelcfg="/home/joona/.config/kitty/panel.d/bg_padded.conf"
   # -------------- #
 
   # Define aliases for kitten commands
@@ -62,8 +62,8 @@ cfg() {
     error "Error: Directory $HOME/.dotfiles/ doesn't exist"
     return 1
   fi
-  if [[ "$2" =~ "-c*|c*" ]]; then
-	_CURRENTEDITOR=vscodium
+  if [[ "$2" =~ "-c|c" ]]; then
+	  _CURRENTEDITOR=vscodium
   else
   	_CURRENTEDITOR=$EDITOR
   fi
@@ -82,7 +82,7 @@ cfg() {
       # return 0
       ;;
     f*)
-      $_CURRENTEDITOR"$HOME/.dotfiles/.bash_functions" && source "$HOME"/.dotfiles/.bash_functions
+      "$_CURRENTEDITOR""$HOME/.dotfiles/.bash_functions" && source "$HOME"/.dotfiles/.bash_functions
       # return 0
       ;;
     s*)
@@ -103,7 +103,6 @@ cfg() {
       # return 1
       ;;
      esac
-   export $EDITOR=$_placeholder
 }
 render() {
   kitten icat "$1"
