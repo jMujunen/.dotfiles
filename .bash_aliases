@@ -198,6 +198,8 @@ alias pac-info-explicit="pacman -Qqe | fzf --preview 'pacman -Qil {}' --layout=r
 
 alias dir="fzf --preview 'fzf-preview.sh {}"
 
+alias git_sync='git pull origin master --rebase'
+
 alias brightness='qdbus6 org.kde.Solid.PowerManagement \
 /org/kde/Solid/PowerManagement/Actions/BrightnessControl setBrightness'
 alias brightness_max='qdbus6 org.kde.Solid.PowerManagement \

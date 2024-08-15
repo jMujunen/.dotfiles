@@ -8,9 +8,9 @@ $HOME/python/:$HOME/python/scripts/bashhelpers/:$HOME/python/scripts/bashhelpers
 $HOME/python/Projects/termllama/termllama/:$HOME/python/Projects/fsutils/:\
 $HOME/python/Projects/fsutils/fsutils:$HOME/python/libs/hwutils/hwutils/:\
 $HOME/python/Projects/hwutils:$HOME/python/Projects/hwutils/hwutils:\
-$HOME/python/scripts/hass:$HOME/python/scripts/bashhelpers/pacman
+$HOME/python/scripts/hass:$HOME/python/scripts/bashhelpers/pacman:\
+$HOME/python/Projects/progress-bar/
 
-export PATH="${PATH}:/cmdline-tools/latest/bin"
 export PATH=$HOME/.dotfiles/:$HOME/scripts/:$HOME/scripts/graphing/:\
 $HOME/scripts/git_scripts/:$HOME/.local/bin:$PATH:$PYTHONPATH
 
@@ -21,43 +21,17 @@ GIT_COMMITTER_EMAIL="jMujunen@github.com"
 
 # ZSH
 # ---
+export ZDOTDIR=$HOME/.dotfiles
 export HISTFILE=$ZDOTDIR/.zsh_history
 
-# Wayland/Nvidia specific
-# ----------------------
-export ELECTRON_OZONE_PLATFORM_HINT=wayland
-export GBM_BACKEND=nvidia-drm
-export GDK_BACKEND=wayland
-export __GLX_VENDOR_LIBRARY_NAME=nvidia
-export MOZ_ENABLE_WAYLAND=1
-export QSG_RENDERER_LOOP=basic
-export QT_ENABLE_HIGHDPI_SCALING=1
-export QT_QPA_PLATFORM=wayland
-export GLFW_IM_MODULE=ibus
-
-# NVIDIA
-export LIBVA_DRIVER_NAME=nvidia
-export SDL_VIDEO_FULLSCREEN_HEAD=1
-export __GL_SYNC_TO_VBLANK=1
-export __GL_SYNC_DISPLAY_DEVICE=DP-2
-export VDPAU_NVIDIA_SYNC_DISPLAY_DEVICE=DP-2
 
 export MAKEFLAGS="-j$(nproc)"
 
-# Random
-# -----
-export QT_PLUGIN_PATH=/usr/lib/qt/plugins
-export TESSDATA_PREFIX=/usr/share/tessdata
-export DIFFPROG="kitty +kitten diff"
 # Ollama
 # ------
 export OLLAMA_KEEP_ALIVE=30
 export OLLAMA_MODELS=/home/joona/.ollama/models/
 export OLLAMA_HOST=10.0.0.21:11434
-
-# Python
-# ------
-export USE_EMOJI=false # pipx
 
 # --------------------------------------------------------------- #
 
@@ -74,6 +48,3 @@ export USE_EMOJI=false # pipx
 [[ -f $HOME/.dotfiles/.bash_functions ]] && . $HOME/.dotfiles/.bash_functions
 
 # --------------------------------------------------------------- #
-
-#fastfetch --color 32 -c $HOME/.config/fastfetch/others/compact-mod.jsonc
-#printf "\033[97m%-*s\033[0m\033[31m FAILED\033[0m \033[33m@ %*s\033[0m\033[15;35m %-*s\033[0m\n" 10 ".shellrc" 2 "line 61:" 10 "xbindkeys" >> /var/spool/mail/joona/scripts.log
