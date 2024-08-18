@@ -70,23 +70,23 @@ cfg() {
   # Open specified file in  $EDITOR
   case "$1" in
     z*)
-      $_CURRENTEDITOR "$HOME/.dotfiles/.zshrc" && source "$HOME"/.dotfiles/.zshrc
+      $_CURRENTEDITOR "$HOME/.dotfiles/.zshrc" && source "$HOME/.dotfiles/.zshrc"
       # return 0
       ;;
     b*)
-      $_CURRENTEDITOR "$HOME/.dotfiles/.bashrc" && source "$HOME"/.dotfiles/.bashrc
+      $_CURRENTEDITOR "$HOME/.dotfiles/.bashrc" && source "$HOME/.dotfiles/.bashrc"
       # return 0
       ;;
     a*)
-      $_CURRENTEDITOR "$HOME/.dotfiles/.bash_aliases" && source "$HOME"/.dotfiles/.bash_aliases
+      $_CURRENTEDITOR "$HOME/.dotfiles/.bash_aliases" && source "$HOME/.dotfiles/.bash_aliases"
       # return 0
       ;;
     f*)
-      "$_CURRENTEDITOR""$HOME/.dotfiles/.bash_functions" && source "$HOME"/.dotfiles/.bash_functions
+      $_CURRENTEDITOR "$HOME/.dotfiles/.bash_functions" && source "$HOME/.dotfiles/.bash_functions"
       # return 0
       ;;
     s*)
-      $_CURRENTEDITOR _CURRENTEDITOR"$HOME/.dotfiles/.shellrc" && source "$HOME"/.dotfiles/.shellrc
+      $_CURRENTEDITOR "$HOME/.dotfiles/.shellrc" && source "$HOME/.dotfiles/.shellrc"
       # return 0
       ;;
     k*)

@@ -69,7 +69,7 @@ alias mail="check_mail" # .bash_function
 alias man="man_color"   # .bash_function
 alias mv="mv -iv"
 alias nano="micro"
-alias notes="cd_notes" # .bash_function
+alias notes="firefox --url 0.0.0.0:8000/" # .bash_function
 alias nset="nvidia-settings > /dev/null 2>&1 & disown && exit"
 alias md='obsidian > /dev/null 2>&1 & disown'
 alias open="xdg-open"
@@ -93,8 +93,9 @@ alias sunset="openrgb -p sunset &"
 alias up="cd_up" # .bash_function
 #alias vdir="vdir --color=auto"
 alias venv='source venv/bin/activate'
+alias ws-cv='vscodium -n $HOME/Code/Workspace/cv.code-workspace'
 alias ws-notes='vscodium -n $HOME/Code/Workspace/Notes.code-workspace'
-alias ws-bash="vscodium -n $HOME/Code/Workspace/bashscripts.code-workspace && exit"
+alias ws-bash='vscodium -n $HOME/Code/Workspace/bashscripts.code-workspace && exit'
 alias ws="cd $HOME/Code/Workspace/ && ls -ltuph --group-directories-first"
 alias ws-cfg="vscodium -n $HOME/Code/Workspace/cfg.code-workspace && exit"
 alias ws-ella="vscodium -n $HOME/Code/Workspace/data_entry.code-workspace && exit"
@@ -181,6 +182,9 @@ alias dir="fzf --preview 'fzf-preview.sh {}'"
 # Kitty panel
 alias kp-ping="kitty +kitten panel --edge=background --config=/home/joona/.config/kitty/panel.d/bg_padded.conf sh -c 'gping 10.0.0.1 -c cyan -b 180' >/dev/null 2>&1 & disown"
 
+alias sort-webcam='/usr/bin/python3 /home/joona/python/scripts/files/dir_sort.py /mnt/hdd/webcam /mnt/hdd/.sorted'
+alias f='fastfetch --config ~/.config/fastfetch/paleofetch.jsonc'
+alias tree='tree -a --dirsfirst --gitfile=/home/joona/.gitignore_global'
 # dbus
 alias brightness='qdbus6 org.kde.Solid.PowerManagement \
 /org/kde/Solid/PowerManagement/Actions/BrightnessControl setBrightness'

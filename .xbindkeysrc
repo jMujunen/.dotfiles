@@ -62,34 +62,34 @@
 #  release+control+shift + a
 #
 ## Control + mouse button 2 release event starts rxvt
-#"rxvt"
+#"rxvt"*
 #  Control + b:2 + Release
 
 # Macro for mouse button 9 (or 4 according to SteelSeries)
-"/bin/bash ~/scripts/space_macro.sh"
- b:9
+# "sh -c 'kdialog --msgbox message optional_detailed_message'"
+# b:9
 # Open Firefox
-"firefox"
- Control + b:2
+"firefox --url http://10.0.0.50:8081"
+  Control + b:2
 
 # Printscreen for screenshots
 # PRNT - Capture entire screen
 "/bin/bash /home/joona/scripts/screenshots/capture.sh"
- Print
+  Print
 # CTRL + PRNT - Capture a selected area
 "/bin/bash /home/joona/scripts/screenshots/area_capture.sh"
- Control + Print
+  Control + Print
 # SHIFT + PRNT - Capture the selected window
-"/bin/bash /home/joona/scripts/screenshots/window_capture.sh"
- Shift + Print
+# "/bin/bash /home/joona/scripts/screenshots/window_capture.sh"
+#   Shift + Print
 
 # Send notifications for hydras spec attacks
-"/usr/bin/env python3 /home/joona/python/osrs/count_hydra_attacks.py"
- Shift + b:9
+# "/usr/bin/env python3 /home/joona/python/osrs/count_hydra_attacks.py"
+#   Shift + b:9
 
 # OCR - Image to text from selected area
-"/usr/bin/env python3 /home/joona/python/_examples_/img2txt.py"
- Pause
+"/usr/bin/env python3 /home/joona/python/scripts/img2txt.py"
+  Pause
 
 # <-- ALT_R, CTRL_R, SHIFT_R META_R/WIN_R --> #cd
 "openrgb -p sunset"

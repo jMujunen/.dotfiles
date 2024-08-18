@@ -12,12 +12,15 @@ base-devel
 bashtop
 bat
 bc
+beep
 bitwarden
+blas64
 bluedevil
 bluez
 bluez-mesh
 bluez-tools
 bluez-utils
+boost
 breeze
 breeze-gtk
 breeze-plymouth
@@ -27,6 +30,7 @@ cmake
 corectrl
 cpupower
 cuda
+cudnn
 cups
 discover
 dkms
@@ -122,6 +126,7 @@ lib32-sdl2
 lib32-v4l-utils
 libjson
 libkscreen
+liblas
 libliftoff
 libnfs
 libplasma
@@ -150,7 +155,6 @@ neofetch
 network-manager-applet
 networkmanager
 nfs-utils
-nlohmann-json
 nmap
 notification-daemon
 npm
@@ -163,9 +167,8 @@ obs-studio
 obsidian
 ocean-sound-theme
 ollama-cuda
+openblas
 opencl-nvidia
-opencv-cuda
-opencv-samples
 openmpi
 openrgb
 oxygen
@@ -178,6 +181,8 @@ pam_autologin
 passmark-performancetest-bin
 pastel
 perf
+phoronix-test-suite
+php
 pipewire
 pipewire-alsa
 pipewire-jack
@@ -200,7 +205,6 @@ plocate
 plymouth-kcm
 pngcrush
 polkit-kde-agent
-pomodoro
 powerline-fonts
 pre-commit
 print-manager
@@ -213,6 +217,7 @@ python-imagehash
 python-keyboard
 python-lsp-server
 python-matplotlib
+python-mpi4py
 python-numpy
 python-ollama
 python-pandas
@@ -224,6 +229,7 @@ python-psutil
 python-pytesseract
 python-pywayland
 python-rich
+python-tensorflow-cuda
 qqc2-breeze-style
 qt5-wayland
 rawtherapee
@@ -240,11 +246,10 @@ sddm-kcm
 shellcheck
 shfmt
 shotcut
+signal-cli
 signal-desktop
 smartmontools
 sof-firmware
-spectacle
-speech-dispatcher
 spotify
 sqlitebrowser
 squashfs-tools

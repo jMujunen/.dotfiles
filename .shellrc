@@ -16,7 +16,7 @@ $HOME/.local/share/pipx/venvs/poetry/lib/python3.12/site-packages/
 export PATH=$HOME/.dotfiles/:$HOME/scripts/:$HOME/scripts/graphing/:\
 $HOME/scripts/git_scripts/:$HOME/.local/bin:$HOME/scripts/shutdown:\
 $HOME/scripts/startup:$HOME/scripts/logging/:$HOME/Code/Workspace:\
-$PATH:$PYTHONPATH:
+$HOME/python/scripts/files/:$PATH:$PYTHONPATH:
 
 # Git
 # ---
