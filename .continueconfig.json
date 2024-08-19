@@ -209,7 +209,6 @@
       {
         "title": "Docstring",
         "prompt": "Write a docstring for this code. Do not change anything about the code itself.",
-        "sendToChat": true
       },
       {
         "title": "Fix grammar",
@@ -217,11 +216,24 @@
       },
       {
         "title": "Optimize",
-        "prompt": "Improve the performance of this code this code without changing its functionality."
+        "prompt": "Improve the performance of this code this code without changing the outcome. You should focus on improving time complexity, space complexity or both."
       },
       {
         "title": "Clean",
         "prompt": "Clean up this code for better readability without changing its functionality."
+      },
+      {
+        "title": "Bug Check",
+        "prompt": "Check and fix this code for any mistakes. You should check/fix the following, and be extremely vigilant:\n- Syntax errors\n- Logic errors\n- Security vulnerabilities\n- Performance issues\n- Anything else that looks wrong"
+      },
+      {
+        "title": "Type Hints",
+        "prompt": "Add type hints to this code without changing the core functionality"
+      },
+      {
+        "title": "Explain",
+        "prompt": "Anaylize the this code and explain what it's trying to acheive and how",
+        "sendToChat": true
       }
     ]
   },
