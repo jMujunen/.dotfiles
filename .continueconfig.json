@@ -58,7 +58,7 @@
       "provider": "ollama",
       "model": "deepseek-coder:6.7b",
       "apiBase": "http://10.0.0.21:11434",
-      "contextLength": 2048
+      "contextLength": 3000
     },
     {
       "title": "WizardCoder",
@@ -72,7 +72,7 @@
       "provider": "ollama",
       "model": "starcoder2:7b",
       "apiBase": "http://10.0.0.21:11434",
-      "contextLength": 8196
+      "contextLength": 6000
     },
     // {
     //   "title": "Deepseek Coder V2",
@@ -92,7 +92,6 @@
   "tabAutocompleteOptions": {
     "temperature": 0.2,
     "useCopyBuffer": false,
-    // "maxPromptTokens": 120,
     "multilineCompletions": "auto",
     "useCache": true,
     "useOtherFiles": true,
@@ -103,112 +102,29 @@
   "embeddingsProvider": {
     "provider": "ollama",
     "model": "mxbai-embed-large:latest",
-    "apiBase": "http://10.0.0.21:11434"
+    "apiBase": "http://10.0.0.21:11434",
+    "maxChunkSize": 768
   },
   "slashCommands": [
     {
+      "name": "edit",
+      "description": "Edit selected code"
+    },
+    {
       "name": "comment",
-      "description": "Add comment to the highlighted code"
+      "description": "Write comments for the selected code"
+    },
+    {
+      "name": "share",
+      "description": "Export the current chat session to markdown"
     },
     {
       "name": "cmd",
       "description": "Generate a shell command"
     },
     {
-      "name": "edit",
-      "description": "Edit the highlighted code",
-      "params": {
-        "recap": true
-      }
-    },
-    {
-      "name": "review",
-      "description": "Review the highlighted code snippet for potential improvements."
-    },
-    {
       "name": "commit",
-      "description": "Generate a commit message"
-    }
-  ],
-  "ui": {
-    "codeBlockToolbarPosition": "bottom",
-    "fontSize": 13,
-    "displayRawMarkdown": false
-  },
-  "experimental": {
-    "contextMenuPrompts": {
-      "comment": "Add comments for this code without modifying the code itself.",
-      "optimize": "Optimize this code",
-      "docstring": "Write a docstring for this code. Do not change anything about the code itself."
-    },
-    // "defaultContext": [
-    //   "activeFile"
-    // ],
-    "modelRoles": {
-      "inlineEdit": "comment"
-    },
-    // {
-    // "contextMenuPrompts": {
-    //   "docstring": "Write a docstring for this code. Do not change anything about the code itself.",
-    //   "optimize": "Optimize this code",
-    //   "comment": "Write comments for this code. Do not change anything about the code itself.",
-    //   "fix": "Fix this code",
-    //   "fixGrammar": "If there are any grammar or spelling mistakes in this writing, fix them. Do not make other large changes to the writing."
-    // },
-    "quickActions": [
-      {
-        "title": "Comment",
-        "prompt": "Add comments this code to explain each significant step"
-      },
-      {
-        "title": "Unit test",
-        "prompt": "Write a unit test for this code. Do not change anything about the code itself."
-      },
-      {
-        "title": "Docstring",
-        "prompt": "Write a docstring for this code. Do not change anything about the code itself."
-      },
-      {
-        "title": "Fix grammar",
-        "prompt": "If there are any grammatical errors in this code, fix them. Do not make other large changes to the code."
-      },
-      {
-        "title": "Optimize",
-        "prompt": "Improve this code without changing its functionality."
-      },
-      {
-        "title": "Clean",
-        "prompt": "Clean up this code for better readability  without changing its functionality."
-      }
-    ]
-  },
-  "contextProviders": [
-    {
-      "name": "diff"
-    },
-    {
-      "name": "docs"
-    },
-    {
-      "name": "codebase"
-    },
-    {
-      "name": "folder"
-    },
-    {
-      "name": "currentFile"
-    },
-    {
-      "name": "code"
-    },
-    {
-      "name": "open",
-      "params": {
-        "onlyPinned": false
-      }
-    },
-    {
-      "name": "url"
+      "description": "Generate a git commit message"
     }
   ],
   "customCommands": [
@@ -248,6 +164,66 @@
       "prompt": "{{{ input }}}\n\nPlease write a docstrings for each function, method and class in the highlighted code. The docstring should follow pep-287 which defines the reStructuredText formatting"
     }
   ],
-  "allowAnonymousTelemetry": false,
-  "docs": []
+  "ui": {
+    "codeBlockToolbarPosition": "bottom",
+    "fontSize": 13,
+    "displayRawMarkdown": false
+  },
+  "contextProviders": [
+    {
+      "name": "code",
+      "params": {}
+    },
+    {
+      "name": "docs",
+      "params": {}
+    },
+    {
+      "name": "diff",
+      "params": {}
+    },
+    {
+      "name": "terminal",
+      "params": {}
+    },
+    {
+      "name": "problems",
+      "params": {}
+    },
+    {
+      "name": "folder",
+      "params": {}
+    },
+    {
+      "name": "codebase",
+      "params": {}
+    }
+  ],
+  "experimental": {
+    "quickActions": [
+      {
+        "title": "Unit test",
+        "prompt": "Write a unit test for this code. Do not change anything about the code itself.",
+        "sendToChat": true
+      },
+      {
+        "title": "Docstring",
+        "prompt": "Write a docstring for this code. Do not change anything about the code itself.",
+        "sendToChat": true
+      },
+      {
+        "title": "Fix grammar",
+        "prompt": "If there are any grammatical errors in this code, fix them. Do not make other large changes to the code."
+      },
+      {
+        "title": "Optimize",
+        "prompt": "Improve the performance of this code this code without changing its functionality."
+      },
+      {
+        "title": "Clean",
+        "prompt": "Clean up this code for better readability without changing its functionality."
+      }
+    ]
+  },
+  "allowAnonymousTelemetry": false
 }
