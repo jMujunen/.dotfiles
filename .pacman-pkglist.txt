@@ -1,12 +1,10 @@
 alsa-utils
-ant
 appmenu-gtk-module
 arduino-builder
 arduino-cli
 arduino-language-server
 ark
 awesome-terminal-fonts
-aws-checksums
 base
 base-devel
 bashtop
@@ -14,7 +12,6 @@ bat
 bc
 beep
 bitwarden
-blas64
 bluedevil
 bluez
 bluez-mesh
@@ -34,8 +31,6 @@ cudnn
 cups
 discover
 dkms
-docker
-docker-compose
 dolphin
 dos2unix
 dunst
@@ -63,9 +58,6 @@ gperf
 gping
 gsm
 gst-plugin-pipewire
-gstreamer-vaapi
-gtk2
-gtkglext
 hdf5
 hdparm
 htop
@@ -76,7 +68,6 @@ intel-ucode
 iotop
 ipython
 iwd
-jdk-openjdk
 kactivitymanagerd
 kcolorpicker
 kde-cli-tools
@@ -105,10 +96,8 @@ kwin
 lan-mouse
 lapacke
 layer-shell-qt
-layer-shell-qt5
 less
 lib32-gnutls
-lib32-gst-plugins-base-libs
 lib32-gtk3
 lib32-libjpeg-turbo
 lib32-libpipewire
@@ -126,8 +115,6 @@ lib32-sdl2
 lib32-v4l-utils
 libjson
 libkscreen
-liblas
-libliftoff
 libnfs
 libplasma
 libpulse
@@ -148,7 +135,6 @@ meson
 micro
 milou
 mkinitcpio-firmware
-motion
 nano
 ncurses5-compat-libs
 neofetch
@@ -171,6 +157,9 @@ openblas
 opencl-nvidia
 openmpi
 openrgb
+openrgb-plugin-effects-git
+openrgb-plugin-hardware-sync-git
+openrgb-plugin-visual-map-git
 oxygen
 oxygen-sounds
 packagekit
@@ -181,8 +170,6 @@ pam_autologin
 passmark-performancetest-bin
 pastel
 perf
-phoronix-test-suite
-php
 pipewire
 pipewire-alsa
 pipewire-jack
@@ -216,6 +203,7 @@ python-flask
 python-imagehash
 python-keyboard
 python-lsp-server
+python-markdown
 python-matplotlib
 python-mpi4py
 python-numpy
@@ -229,12 +217,10 @@ python-psutil
 python-pytesseract
 python-pywayland
 python-rich
-python-tensorflow-cuda
 qqc2-breeze-style
 qt5-wayland
 rawtherapee
 ripgrep
-rmlint
 rpi-imager
 rssguard
 rsync
@@ -245,11 +231,11 @@ schedtool
 sddm-kcm
 shellcheck
 shfmt
-shotcut
-signal-cli
 signal-desktop
 smartmontools
 sof-firmware
+spectacle
+speedtest-cli
 spotify
 sqlitebrowser
 squashfs-tools
@@ -280,7 +266,6 @@ ttf-firacode-nerd
 ttf-jetbrains-mono
 ttf-liberation
 ttf-nerd-fonts-symbols
-ttf-nerd-fonts-symbols-mono
 ttyplot
 upd72020x-fw
 vdpauinfo
@@ -298,7 +283,6 @@ wine-staging
 winetricks
 wireplumber
 wl-clipboard
-wlrctl
 xbindkeys
 xdg-desktop-portal-kde
 xdotool
@@ -312,7 +296,6 @@ xorg-xrandr
 xorg-xwininfo
 xterm
 yay
-yazi
 zip
 znotes
 zram-generator

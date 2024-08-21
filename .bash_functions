@@ -127,6 +127,11 @@ get() {
   fi
 }
 
+pylint(){
+	ruff format --config=$HOME/.dotfiles/ruff.toml
+	ruff check --fix --config=$HOME/.dotfiles/ruff.toml --ignore-noqa
+}
+
 touch() {
   # Check if the file exists
   if [ -e "$1" ]; then
@@ -142,7 +147,7 @@ touch() {
       chmod +x "$1" && $EDITOR "$1"
       ;;
     *.sh)
-      # Add Shell hashbang and execute permissions
+      # Add Shell hashbang and execute permissions\
       echo "#!/bin/bash" > "$1"
       chmod +x "$1" && $EDITOR "$1"
       ;;

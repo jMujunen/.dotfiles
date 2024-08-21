@@ -74,11 +74,11 @@
 
 # Printscreen for screenshots
 # PRNT - Capture entire screen
-"/bin/bash /home/joona/scripts/screenshots/capture.sh"
-  Print
+# "/bin/bash /home/joona/scripts/screenshots/capture.sh"
+  # Print
 # CTRL + PRNT - Capture a selected area
-"/bin/bash /home/joona/scripts/screenshots/area_capture.sh"
-  Control + Print
+# "/bin/bash /home/joona/scripts/screenshots/area_capture.sh"
+  # Control + Print
 # SHIFT + PRNT - Capture the selected window
 # "/bin/bash /home/joona/scripts/screenshots/window_capture.sh"
 #   Shift + Print

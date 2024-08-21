@@ -71,7 +71,6 @@ alias mv="mv -iv"
 alias nano="micro"
 alias notes="firefox --url 0.0.0.0:8000/" # .bash_function
 alias nset="nvidia-settings > /dev/null 2>&1 & disown && exit"
-alias md='obsidian > /dev/null 2>&1 & disown'
 alias open="xdg-open"
 alias osrshydra="osrs_hydra" # .bash_function
 alias osrs="flatpak run com.jagexlauncher.JagexLauncher > /dev/null 2>&1 \
@@ -108,7 +107,7 @@ alias ws-general="vscodium -n $HOME/Code/Workspace/general.code-workspace && exi
 
 alias x="exit"
 alias yay="yay --color=always"
-alias md='python3 -m rich.markdown'
+alias md='python3 -m rich.markdown --code-theme material --width=90'
 alias viewnotes='cd /home/joona/Docs/Exported\ Markdown/ && ls -Alh'
 alias fmtdate='python3 -m rich.markdown /home/joona/Docs/Notes/Obsidian/All\ Notes/Code/strftime.md'
 alias fmtprint='open /home/joona/Docs/Notes/HTML/Code/BASH/PRINTF - BASH'
@@ -182,6 +181,8 @@ alias dir="fzf --preview 'fzf-preview.sh {}'"
 # Kitty panel
 alias kp-ping="kitty +kitten panel --edge=background --config=/home/joona/.config/kitty/panel.d/bg_padded.conf sh -c 'gping 10.0.0.1 -c cyan -b 180' >/dev/null 2>&1 & disown"
 
+
+alias wcam-today='cd /mnt/hdd/.sorted/$(date +%Y)/$(date +%B)/$(date +%d); ls -Altr'
 alias sort-webcam='/usr/bin/python3 /home/joona/python/scripts/files/dir_sort.py /mnt/hdd/webcam /mnt/hdd/.sorted'
 alias f='fastfetch --config ~/.config/fastfetch/paleofetch.jsonc'
 alias tree='tree -a --dirsfirst --gitfile=/home/joona/.gitignore_global'

@@ -57,6 +57,7 @@ export QT_PLUGIN_PATH=/usr/lib/qt/plugins
 export TESSDATA_PREFIX=/usr/share/tessdata
 export DIFFPROG="kitty +kitten diff"
 export MOZ_DISABLE_RDD_SANDBOX=1
+export USER_ZDOTDIR=$ZDOTDIR
 
 # Ollama
 # ------

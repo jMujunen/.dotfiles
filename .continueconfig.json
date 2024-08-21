@@ -208,7 +208,11 @@
       },
       {
         "title": "Docstring",
-        "prompt": "Write a docstring for this code. Do not change anything about the code itself.",
+        "prompt": "Write a docstring for this code. Do not change anything about the code itself."
+      },
+      {
+        "title": "Comment",
+        "prompt": "Write comments for this code"
       },
       {
         "title": "Fix grammar",
