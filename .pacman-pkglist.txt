@@ -29,6 +29,7 @@ cpupower
 cuda
 cudnn
 cups
+dcraw
 discover
 dkms
 dolphin
@@ -36,6 +37,7 @@ dos2unix
 dunst
 efibootmgr
 eigen
+electron
 esbuild
 expac
 fastfetch
@@ -113,9 +115,11 @@ lib32-openal
 lib32-readline
 lib32-sdl2
 lib32-v4l-utils
+libchamplain
 libjson
 libkscreen
 libnfs
+liboauth
 libplasma
 libpulse
 libqtxdg
@@ -174,6 +178,7 @@ pipewire
 pipewire-alsa
 pipewire-jack
 pipewire-pulse
+pipewire-session-manager
 pipewire-zeroconf
 pix
 plasma-activities
@@ -195,6 +200,7 @@ polkit-kde-agent
 powerline-fonts
 pre-commit
 print-manager
+pulse-native-provider
 python
 python-black
 python-clipboard
@@ -281,6 +287,7 @@ whois
 wine-mono
 wine-staging
 winetricks
+wireless-regdb
 wireplumber
 wl-clipboard
 xbindkeys
