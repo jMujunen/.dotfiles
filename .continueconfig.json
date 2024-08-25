@@ -74,6 +74,13 @@
       "apiBase": "http://10.0.0.21:11434",
       "contextLength": 6000
     },
+    {
+      "title": "Deepseek V2",
+      "provider": "ollama",
+      "model": "deepseek-coder-v2:latest",
+      "apiBase": "http://10.0.0.21:11434",
+      "contextLength": 2048
+    },
     // {
     //   "title": "Deepseek Coder V2",
     //   "provider": "ollama",

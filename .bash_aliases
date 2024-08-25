@@ -172,7 +172,6 @@ alias poet-require='xargs poetry add < requirements.txt'
 
 alias search='apropos'
 alias c='paste | wc' # Perform [word|line|character] count on clipboard content
-alias tree='tree -a'
 alias mpv='mpv --fs'
 alias winssd='cd /mnt/win_ssd/Users/Joona/Videos/NVIDIA/ && ls -Alph --group-directories-first'
 alias clips='cd /mnt/ssd/OBS && ls -Alph --group-directories-first'
@@ -185,7 +184,8 @@ alias kp-ping="kitty +kitten panel --edge=background --config=/home/joona/.confi
 alias wcam-today='cd /mnt/hdd/.sorted/$(date +%Y)/$(date +%B)/$(date +%d); ls -Altr'
 alias sort-webcam='/usr/bin/python3 /home/joona/python/scripts/files/dir_sort.py /mnt/hdd/webcam /mnt/hdd/.sorted'
 alias f='fastfetch --config ~/.config/fastfetch/paleofetch.jsonc'
-alias tree='tree -a --dirsfirst --gitfile=/home/joona/.gitignore_global'
+alias tree='tree -a --dirsfirst'
+alias treei='tree -a --dirsfirst --gitfile=/home/joona/.gitignore_global'
 # dbus
 alias brightness='qdbus6 org.kde.Solid.PowerManagement \
 /org/kde/Solid/PowerManagement/Actions/BrightnessControl setBrightness'
