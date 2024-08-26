@@ -182,7 +182,7 @@ alias kp-ping="kitty +kitten panel --edge=background --config=/home/joona/.confi
 
 
 alias wcam-today='cd /mnt/hdd/.sorted/$(date +%Y)/$(date +%B)/$(date +%d); ls -Altr'
-alias sort-webcam='/usr/bin/python3 /home/joona/python/scripts/files/dir_sort.py /mnt/hdd/webcam /mnt/hdd/.sorted'
+alias sort-webcam='/usr/bin/python3 /home/joona/python/scripts/files/dir_sort.py /mnt/hdd/webcam /mnt/hdd/sorted-webcam-clips'
 alias f='fastfetch --config ~/.config/fastfetch/paleofetch.jsonc'
 alias tree='tree -a --dirsfirst'
 alias treei='tree -a --dirsfirst --gitfile=/home/joona/.gitignore_global'
