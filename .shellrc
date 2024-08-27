@@ -11,7 +11,8 @@ $HOME/python/Projects/fsutils/:$HOME/python/Projects/fsutils/fsutils:\
 $HOME/python/libs/hwutils/hwutils/:$HOME/python/Projects/hwutils:\
 $HOME/python/Projects/hwutils/hwutils:$HOME/python/scripts/hass:\
 $HOME/python/scripts/bashhelpers/pacman:\
-$HOME/.local/share/pipx/venvs/poetry/lib/python3.12/site-packages/
+$HOME/.local/share/pipx/venvs/poetry/lib/python3.12/site-packages:\
+$HOME/python/Projects/fsutils/scripts
 
 export PATH=$HOME/.dotfiles/:$HOME/scripts/:$HOME/scripts/graphing/:\
 $HOME/scripts/git_scripts/:$HOME/.local/bin:$HOME/scripts/shutdown:\

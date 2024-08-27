@@ -83,7 +83,7 @@ alias pyp='cd $HOME/python/Projects/ && ls -alph --group-directories-first'
 alias psg="ps aux | grep -E"
 alias psm='ps_sorted membuff'
 alias py='python3'
-alias rg='rg --no-ignore --hidden'
+alias rg='rg --no-ignore --hidden --ignore-file=/home/joona/.dotfiles/.ripgrep_ignore'
 alias rmr='rm -rf'
 alias rm="rm -I"
 alias sms="python3 $HOME/python/modules/kdeConnect.py"
@@ -186,6 +186,8 @@ alias sort-webcam='/usr/bin/python3 /home/joona/python/scripts/files/dir_sort.py
 alias f='fastfetch --config ~/.config/fastfetch/paleofetch.jsonc'
 alias tree='tree -a --dirsfirst'
 alias treei='tree -a --dirsfirst --gitfile=/home/joona/.gitignore_global'
+alias namegrep='rg --files | rg'
+
 # dbus
 alias brightness='qdbus6 org.kde.Solid.PowerManagement \
 /org/kde/Solid/PowerManagement/Actions/BrightnessControl setBrightness'

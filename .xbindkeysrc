@@ -88,7 +88,7 @@
 #   Shift + b:9
 
 # OCR - Image to text from selected area
-"/usr/bin/env python3 /home/joona/python/scripts/rng.py" #img2txt.py"
+"poetry -C /home/joona/ run python3 /home/joona/python/scripts/img2txt.py"
   Pause
 
 # <-- ALT_R, CTRL_R, SHIFT_R META_R/WIN_R --> #cd
