@@ -104,7 +104,8 @@
     "useOtherFiles": true,
     "disable": false,
     "useSuffix": true,
-    "maxSuffixPercentage": 20
+    "maxSuffixPercentage": 20,
+    "debounceDelay": 100
   },
   "embeddingsProvider": {
     "provider": "ollama",
@@ -113,6 +114,10 @@
     "maxChunkSize": 768
   },
   "slashCommands": [
+    {
+      "name": "commit",
+      "description": "Task: Based on the provided git diff, generate a title and optional description. Ensure that it includes a precise and informative subject line that succinctly summarizes the crux of the changes. If the provided git diff is complex, follow with an explanatory body. This explanatory body will provide insight into the nature of the changes, the reasoning behind them, and any significant consequences or considerations arising from them. Constraints: You should strictly output the commit message without any additional information or comments. The output should only contain the commit message itself.\nGuidelines:\n- Succinctly summarizes the crux of the changes\n- Title should be a single line and under 40 characters long.\n- Focus on the changes as a whole instead of independant changes.\n- Limit the line length to 80 characters.\n- Use the body of the commit message to provide more detailed information if necessary"
+    },
     {
       "name": "edit",
       "description": "Edit selected code"
@@ -168,7 +173,7 @@
     {
       "name": "formattedDocstrings",
       "description": "reStructured text formmated docstring generator",
-      "prompt": "{{{ input }}}\n\nPlease write a docstrings for each function, method and class in the highlighted code. The docstring should follow pep-287 which defines the reStructuredText formatting"
+      "prompt": "{{{ input }}}\n\nPlease write a docstrings for each function, method and class in the highlighted code. The docstring should follow pep-287 which defines the google docstring format markdown formatting"
     }
   ],
   "ui": {
@@ -177,6 +182,10 @@
     "displayRawMarkdown": false
   },
   "contextProviders": [
+    {
+      "name": "outline",
+      "params": {}
+    },
     {
       "name": "code",
       "params": {}
@@ -215,7 +224,7 @@
       },
       {
         "title": "Docstring",
-        "prompt": "Write a docstring for this code. Do not change anything about the code itself."
+        "prompt": "Write a docstrings for this code. The docstring should follow pep-287 which defines the google docstring markdown format . Do not change anything about the code itself."
       },
       {
         "title": "Comment",
@@ -228,10 +237,6 @@
       {
         "title": "Optimize",
         "prompt": "Improve the performance of this code this code without changing the outcome. You should focus on improving time complexity, space complexity or both."
-      },
-      {
-        "title": "Clean",
-        "prompt": "Clean up this code for better readability without changing its functionality."
       },
       {
         "title": "Bug Check",
