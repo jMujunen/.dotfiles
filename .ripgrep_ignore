@@ -1,0 +1,10 @@
+**/__pycache__/
+**/venv/
+**/.venv/
+**/kitty/
+**/.vscode
+**/.git
+**/.*cache/
+**/dist/
+**/build/
+**/assets/

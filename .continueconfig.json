@@ -45,12 +45,12 @@
   ],
   "completionOptions": {
     "temperature": 0.4,
-    // "mirostat": 1,
+    "mirostat": 1,
     "keepAlive": 60,
     "numThreads": 10,
-    "maxTokens": 1024
-    // "topK": 10,
-    // "topP": 0.9
+    // "maxTokens": 1024
+    "topK": 5,
+    "topP": 0.9
   },
   "tabAutocompleteModel": [
     {
@@ -93,7 +93,11 @@
       "provider": "ollama",
       "model": "codegeex4:9b",
       "apiBase": "http://10.0.0.21:11434",
-      "contextLength": 2024
+      "contextLength": 2024,
+      "completionOptions": {
+        "temperature": 0.1,
+        "maxTokens": 600
+      }
     }
   ],
   "tabAutocompleteOptions": {
@@ -104,7 +108,8 @@
     "useOtherFiles": true,
     "disable": false,
     "useSuffix": true,
-    "maxSuffixPercentage": 20,
+    "useFileSuffix": true,
+    "maxSuffixPercentage": 30,
     "debounceDelay": 100
   },
   "embeddingsProvider": {
