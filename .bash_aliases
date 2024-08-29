@@ -104,6 +104,7 @@ alias ws-pi="vscodium -n $HOME/Code/Workspace/RPi.code-workspace && exit"
 alias ws-python="vscodium -n $HOME/Code/Workspace/Python.code-workspace && exit"
 alias ws-modules="vscodium -n $HOME/Code/Workspace/PythonModules.code-workspace && exit"
 alias ws-general="vscodium -n $HOME/Code/Workspace/general.code-workspace && exit"
+alias ws-fsutils="vscodium -n $HOME/Code/Workspace/fsutils.code-workspace && exit"
 
 alias x="exit"
 alias yay="yay --color=always"

@@ -45,12 +45,12 @@
   ],
   "completionOptions": {
     "temperature": 0.4,
-    "mirostat": 1,
+    // "mirostat": 1,
     "keepAlive": 60,
-    "numThreads": 10,
+    "numThreads": 10
     // "maxTokens": 1024
-    "topK": 5,
-    "topP": 0.9
+    // "topK": 5,
+    // "topP": 0.9
   },
   "tabAutocompleteModel": [
     {
@@ -95,8 +95,8 @@
       "apiBase": "http://10.0.0.21:11434",
       "contextLength": 2024,
       "completionOptions": {
-        "temperature": 0.1,
-        "maxTokens": 600
+        "temperature": 0.2
+        // "maxTokens": 600
       }
     }
   ],
