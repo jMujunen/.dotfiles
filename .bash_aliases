@@ -84,8 +84,8 @@ alias psg="ps aux | grep -E"
 alias psm='ps_sorted membuff'
 alias py='python3'
 alias rg='rg --no-ignore --hidden --ignore-file=/home/joona/.dotfiles/.ripgrep_ignore'
-alias rmr='rm -rf'
-alias rm="rm -I"
+alias rmf='rm -rf'
+alias rm="rm -d"
 alias sms="python3 $HOME/python/modules/kdeConnect.py"
 alias sizeof="python3 $HOME/python/scripts/bashhelpers/sizeof.py"
 alias sunset="openrgb -p sunset &"
@@ -111,11 +111,12 @@ alias yay="yay --color=always"
 alias md='python3 -m rich.markdown --code-theme material --width=90'
 alias viewnotes='cd /home/joona/Docs/Exported\ Markdown/ && ls -Alh'
 alias fmtdate='python3 -m rich.markdown /home/joona/Docs/Notes/Obsidian/All\ Notes/Code/strftime.md'
-alias fmtprint='open /home/joona/Docs/Notes/HTML/Code/BASH/PRINTF - BASH'
+alias fmtprint='open "/home/joona/Docs/Notes/HTML/Code/BASH/PRINTF - BASH.html"'
 alias rl='cd /home/joona/.var/app/com.jagexlauncher.JagexLauncher/data/user_home/.runelite'
 alias s='s --provider duckduckgo'
 alias root='sudo --preserve-env -s'
 
+alias llamalist='ollama list | sort -nk'
 alias llamalog='journalctl --user -e -u ollama'
 alias llamaupdate='curl -fsSL https://ollama.com/install.sh | sh && sleep 2;
 					sudo systemctl disable --now ollama \
@@ -188,7 +189,7 @@ alias f='fastfetch --config ~/.config/fastfetch/paleofetch.jsonc'
 alias tree='tree -a --dirsfirst'
 alias treei='tree -a --dirsfirst --gitfile=/home/joona/.gitignore_global'
 alias namegrep='rg --files | rg'
-
+alias trash='send2trash'
 # dbus
 alias brightness='qdbus6 org.kde.Solid.PowerManagement \
 /org/kde/Solid/PowerManagement/Actions/BrightnessControl setBrightness'

@@ -141,7 +141,8 @@
     },
     {
       "name": "commit",
-      "description": "Generate a git commit message"
+      "description": "Generate a git commit message",
+      "params": {}
     }
   ],
   "customCommands": [
@@ -169,11 +170,6 @@
       "name": "improveperformance",
       "description": "Improve performance of this code",
       "prompt": "{{{ input }}}\n\nPlease review the highlighted code and suggest ways to improve its performance. You should focus on improving time complexity, space complexity or both."
-    },
-    {
-      "name": "suggestimprovements",
-      "description": "Suggest improvements to this code",
-      "prompt": "{{{ input }}}\n\nPlease review the highlighted code and suggest ways to make it better. You should focus on improving readability, maintainability or both."
     },
     {
       "name": "formattedDocstrings",
@@ -233,7 +229,7 @@
       },
       {
         "title": "Comment",
-        "prompt": "Write comments for this code"
+        "prompt": "Read the code and determine where you should insert a comment or a docstring. Prioritize comments that describe why the code is there, or in otherwords, why is the code written this way. Never add comments to describe what the code does, assume that part is obvious: Never append the comment at the end of a line. Always comment on a newline before the code itsself"
       },
       {
         "title": "Fix grammar",

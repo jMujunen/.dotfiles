@@ -35,13 +35,16 @@ line-length = 100
 indent-width = 4
 target-version = "py312"
 # Dont respect gitignore. Lint ignored files as well
-respect-gitignore = false
-fix = true
+respect-gitignore = true
+fix-only = true
 # Enumerate all fixed violations.
 show-fixes = true
 extend-include = ["*.ipynb"]
 
+src = ["src", "fsutils", "hwutils","termllama", "graphs", "narration", "pyimagesearch"]
+
 [format]
+
 # Like Black, use double quotes for strings.
 quote-style = "double"
 
@@ -122,6 +125,8 @@ combine-as-imports = true
 
 [lint.pycodestyle]
 max-line-length = 100 # E501 reports lines that exceed the length of 100.
+
+[lint.pydocstyle]
 # convention = "google"  # Accepts: "google", "numpy", or "pep257".
 
 

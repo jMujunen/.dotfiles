@@ -10,15 +10,15 @@ $HOME/python/scripts/bashhelpers/ColorizeOutput/:$HOME/python/Projects/termllama
 $HOME/python/Projects/fsutils/:$HOME/python/Projects/fsutils/fsutils:\
 $HOME/python/libs/hwutils/hwutils/:$HOME/python/Projects/hwutils:\
 $HOME/python/Projects/hwutils/hwutils:$HOME/python/scripts/hass:\
-$HOME/python/scripts/bashhelpers/pacman:\
-$HOME/.local/share/pipx/venvs/poetry/lib/python3.12/site-packages:\
-$HOME/python/Projects/fsutils/scripts
+$HOME/python/scripts/bashhelpers/pacman
 
 export PATH=$HOME/.dotfiles/:$HOME/scripts/:$HOME/scripts/graphing/:\
 $HOME/scripts/git_scripts/:$HOME/.local/bin:$HOME/scripts/shutdown:\
 $HOME/scripts/startup:$HOME/scripts/logging/:$HOME/Code/Workspace:\
-$HOME/python/scripts/files/:$PATH:$PYTHONPATH:
+$HOME/Android/Sdk/build-tools/35.0.0:$HOME/Android/Sdk/platform-tools:\
+$HOME/python/scripts/files/:$PATH:$PYTHONPATH
 
+export PYTHONPATH=$PYTHONPATH:$HOME/python/Projects/fsutils/scripts
 # Git
 # ---
 export GIT_COMMITTER_NAME="J Mujunen"

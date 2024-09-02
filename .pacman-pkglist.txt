@@ -1,4 +1,8 @@
 alsa-utils
+android-file-transfer
+android-sdk-platform-tools
+android-tools
+android-udev
 appmenu-gtk-module
 arch-audit
 arduino-builder
@@ -23,6 +27,7 @@ boost
 breeze
 breeze-gtk
 breeze-plymouth
+btop
 calc
 ccache
 corectrl
@@ -33,6 +38,7 @@ cups
 dcraw
 discover
 dkms
+docker-compose
 dolphin
 dos2unix
 dosfstools
@@ -61,6 +67,7 @@ glow
 gnuplot
 gpick
 gping
+graphviz
 gsm
 gst-libav
 gst-plugin-gtk
@@ -69,7 +76,6 @@ gtk2
 hdf5
 hdparm
 htop
-ibus
 imagemagick
 inkscape
 intel-media-driver
@@ -98,6 +104,7 @@ kitty-shell-integration-shade-transparency-patch
 kitty-terminfo
 kmenuedit
 kpipewire
+kruler
 kscreen
 kscreenlocker
 ksystemstats
@@ -129,6 +136,7 @@ lib32-v4l-utils
 libjson
 libkscreen
 libnfs
+libnvidia-container
 liboauth
 libplasma
 libpulse
@@ -142,6 +150,8 @@ libvdpau-va-gl
 linux
 linux-firmware
 linux-headers
+lld
+lldb
 lzop
 man-db
 meson
@@ -149,6 +159,7 @@ micro
 milou
 mkinitcpio-firmware
 nano
+nccl
 ncurses5-compat-libs
 neofetch
 network-manager-applet
@@ -159,6 +170,7 @@ notification-daemon
 npm
 ntfs-3g
 nvidia-cg-toolkit
+nvidia-container-toolkit
 nvidia-dkms
 nvidia-settings
 nvtop
@@ -186,6 +198,7 @@ pandoc-plot
 passmark-performancetest-bin
 pastel
 perf
+perl-image-exiftool
 pipewire
 pipewire-alsa
 pipewire-jack
@@ -210,6 +223,8 @@ plymouth-kcm
 powerline-fonts
 pre-commit
 print-manager
+proton-mail
+proton-vpn-gtk-app
 python
 python-clipboard
 python-devtools
@@ -221,6 +236,7 @@ python-matplotlib
 python-mpi4py
 python-numpy
 python-ollama
+python-opengl
 python-pandas
 python-pickleshare
 python-ping
@@ -238,10 +254,12 @@ ripgrep
 rpi-imager
 rssguard
 rsync
+ruff
 rustup
 s
 sbctl
 sbsigntools
+scrcpy
 sddm-kcm
 shellcheck
 shfmt
@@ -250,6 +268,7 @@ smartmontools
 sof-firmware
 spectacle
 speedtest-cli
+spicetify-cli
 spotify
 sqlitebrowser
 squashfs-tools
@@ -272,6 +291,7 @@ timeshift
 tldr
 toastify
 traceroute
+trash-cli
 tree
 ttf-fantasque-nerd
 ttf-fira-code
