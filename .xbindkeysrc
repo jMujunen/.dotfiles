@@ -1,4 +1,4 @@
-# For the benefit of emacs users: -*- shell-script -*-
+116;9u# For the benefit of emacs users: -*- shell-script -*-
 ###########################
 # xbindkeys configuration #
 ###########################
@@ -88,8 +88,8 @@
 #   Shift + b:9
 
 # OCR - Image to text from selected area
-"poetry -C /home/joona/ run python3 /home/joona/python/scripts/img2txt.py"
-  Pause
+" /home/joona/.local/bin/poetry -C /home/joona/ run python3 /home/joona/python/scripts/img2txt.py"
+  m:0x10 + c:127
 
 # <-- ALT_R, CTRL_R, SHIFT_R META_R/WIN_R --> #cd
 "openrgb -p sunset"

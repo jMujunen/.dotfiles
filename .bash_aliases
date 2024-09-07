@@ -17,7 +17,7 @@ ignore_lines=(\"\|\'\|^\\s+\$)
 alias ip='ip -c'
 # alias less='less --use-color'
 alias pacman='sudo pacman --color=always'
-alias ac='/usr/bin/python3 $HOME/python/Projects/termllama/termllama/auto_commit.py'
+alias ac='poetry -C $HOME/ run python3 $HOME/python/Projects/termllama/termllama/auto_commit.py'
 alias bathelp='bat --plain --language=help'
 alias batless='bat --style=full --paging=always -pl less'
 alias pat='bat --style="plain"'
@@ -80,6 +80,7 @@ alias paste="wl-paste"
 alias pics='cd_pics' # .bash_function
 alias printenv="/bin/sh $HOME/scripts/printenv_color.sh | sort"
 alias pyp='cd $HOME/python/Projects/ && ls -alph --group-directories-first'
+alias python='poetry -C /home/joona run python3'
 alias psg="ps aux | grep -E"
 alias psm='ps_sorted membuff'
 alias py='python3'
@@ -183,8 +184,11 @@ alias dir="fzf --preview 'fzf-preview.sh {}'"
 alias kp-ping="kitty +kitten panel --edge=background --config=/home/joona/.config/kitty/panel.d/bg_padded.conf sh -c 'gping 10.0.0.1 -c cyan -b 180' >/dev/null 2>&1 & disown"
 
 
-alias wcam-today='cd /mnt/hdd/.sorted/$(date +%Y)/$(date +%B)/$(date +%d); ls -Altr'
-alias sort-webcam='/usr/bin/python3 /home/joona/python/scripts/files/dir_sort.py /mnt/hdd/webcam /mnt/hdd/sorted-webcam-clips'
+alias wcam-today='poetry -C /home/joona run python3 /home/joona/python/scripts/files/dir_sort.py \
+	/mnt/hdd/webcam /mnt/hdd/sorted-webcam-clips && \
+	cd /mnt/hdd/sorted-webcam-clips/$(date +%Y)/$(date +%B)/$(date +%-d) && ls -Altr'
+alias sort-webcam='poetry -C /home/joona run python3 /home/joona/python/scripts/files/dir_sort.py \
+	/mnt/hdd/webcam /mnt/hdd/sorted-webcam-clips'
 alias f='fastfetch --config ~/.config/fastfetch/paleofetch.jsonc'
 alias tree='tree -a --dirsfirst'
 alias treei='tree -a --dirsfirst --gitfile=/home/joona/.gitignore_global'
@@ -197,9 +201,12 @@ alias brightness_max='qdbus6 org.kde.Solid.PowerManagement \
 /org/kde/Solid/PowerManagement/Actions/BrightnessControl setBrightness 100'
 alias brightness_low='qdbus6 org.kde.Solid.PowerManagement \
 /org/kde/Solid/PowerManagement/Actions/BrightnessControl setBrightness 50'
+alias goto-notes='cd "$HOME/Docs/Notes/Obsidian/All Notes" && ls -Al --group-directories-first'
+
+alias server='kitten ssh -t server "cd /home/joona && zsh"'
 
 
-# alias kppower="nohup kitty +kitten panel --edge=background sh -c 'gpu_power.sh' >/dev/null 2>&1 &"
+alias kppower="nohup kitty +kitten panel --edge=background sh -c 'gpu_power.sh' >/dev/null 2>&1 &"
 # alias kp="kitty +kitten panel --edge=background sh -c '$1'"
 # alias xclip="xclip -selection clipboard"
 # TODO: See below

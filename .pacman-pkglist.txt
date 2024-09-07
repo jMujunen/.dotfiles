@@ -13,7 +13,6 @@ asciiquarium
 awesome-terminal-fonts
 base
 base-devel
-bashtop
 bat
 bc
 beep
@@ -30,6 +29,7 @@ breeze-plymouth
 btop
 calc
 ccache
+cheat
 corectrl
 cpupower
 cuda
@@ -64,6 +64,7 @@ github-cli
 glew
 glib
 glow
+gnome-break-timer
 gnuplot
 gpick
 gping
@@ -104,6 +105,7 @@ kitty-shell-integration-shade-transparency-patch
 kitty-terminfo
 kmenuedit
 kpipewire
+krita
 kruler
 kscreen
 kscreenlocker
@@ -158,7 +160,9 @@ meson
 micro
 milou
 mkinitcpio-firmware
+movit
 nano
+navi
 nccl
 ncurses5-compat-libs
 neofetch
@@ -250,6 +254,7 @@ qqc2-breeze-style
 qt5-wayland
 rawtherapee
 rdma-core
+remind
 ripgrep
 rpi-imager
 rssguard
@@ -282,6 +287,7 @@ system-config-printer
 systemd-ukify
 systemsettings
 task
+taskwarrior-tui
 terminus-font
 tesseract-data-osd
 texlive-fontsextra

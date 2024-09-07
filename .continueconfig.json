@@ -12,7 +12,7 @@
       "provider": "ollama",
       "model": "codegeex4:9b",
       "apiBase": "http://10.0.0.21:11434",
-      "contextLength": 2048
+      "contextLength": 4096
     },
     {
       "title": "WizardCoder",
@@ -44,7 +44,7 @@
     }
   ],
   "completionOptions": {
-    "temperature": 0.4,
+    "temperature": 0.2,
     // "mirostat": 1,
     "keepAlive": 60,
     "numThreads": 10
@@ -91,12 +91,12 @@
     {
       "title": "codegeex4:9b",
       "provider": "ollama",
-      "model": "codegeex4:9b",
+      "model": "codegeex4:2048",
       "apiBase": "http://10.0.0.21:11434",
-      "contextLength": 2024,
+      "contextLength": 1600,
       "completionOptions": {
-        "temperature": 0.2
-        // "maxTokens": 600
+        "temperature": 0.2,
+        "maxTokens": 128
       }
     }
   ],
@@ -104,6 +104,7 @@
     "temperature": 0.2,
     "useCopyBuffer": false,
     "multilineCompletions": "auto",
+    "maxPromptTokens": 256,
     "useCache": true,
     "useOtherFiles": true,
     "disable": false,
@@ -129,7 +130,7 @@
     },
     {
       "name": "comment",
-      "description": "Write comments for the selected code"
+      "description": "Write well-formatted comments for the given code, including both multi-line and single-line comments"
     },
     {
       "name": "share",
@@ -143,7 +144,7 @@
       "name": "commit",
       "description": "Generate a git commit message",
       "params": {}
-    }
+    },
   ],
   "customCommands": [
     {
@@ -160,11 +161,6 @@
       "name": "check for bugs",
       "description": "Check for mistakes in my code",
       "prompt": "{{{ input }}}\n\nPlease read the highlighted code and check for any mistakes. You should look for the following, and be extremely vigilant:\n- Syntax errors\n- Logic errors\n- Security vulnerabilities\n- Performance issues\n- Anything else that looks wrong\n\nOnce you find an error, please explain it as clearly as possible, but without using extra words. For example, instead of saying 'I think there is a syntax error on line 5', you should say 'Syntax error on line 5'. Give your answer as one bullet point per mistake found."
-    },
-    {
-      "name": "customcomment",
-      "description": "Comment this code",
-      "prompt": "{{{ input }}}\n\nPlease read the highlighted code and determine where you should insert a comment or a docstring. Prioritize comments that describe why the code is there, or in otherwords, why is the code written this way. Never add comments to describe what the code does, assume that part is obvious:For example:\nInstead of writing '# Iterate through the files' write '# Determine number of files for (some_purpose) to initialze progress bar'"
     },
     {
       "name": "improveperformance",
@@ -216,6 +212,22 @@
       "params": {}
     }
   ],
+  "docs": [
+    {
+      "title": "Continue",
+      "startUrl": "https://docs.continue.dev/intro",
+      "rootUrl": "https://docs.continue.dev",
+      "faviconUrl": "https://docs.continue.dev/favicon.ico",
+      "maxDepth": 3
+    },
+    {
+      "title": "Kitty",
+      "startUrl": "https://sw.kovidgoyal.net/kitty/overview",
+      "rootUrl": "https://sw.kovidgoyal.net/kitty/",
+      "maxDepth": 3,
+      "favicon": "https://sw.kovidgoyal.net/kitty/_static/kitty.svg"
+    }
+  ],
   "experimental": {
     "quickActions": [
       {
@@ -229,15 +241,7 @@
       },
       {
         "title": "Comment",
-        "prompt": "Read the code and determine where you should insert a comment or a docstring. Prioritize comments that describe why the code is there, or in otherwords, why is the code written this way. Never add comments to describe what the code does, assume that part is obvious: Never append the comment at the end of a line. Always comment on a newline before the code itsself"
-      },
-      {
-        "title": "Fix grammar",
-        "prompt": "If there are any grammatical errors in this code, fix them. Do not make other large changes to the code."
-      },
-      {
-        "title": "Optimize",
-        "prompt": "Improve the performance of this code this code without changing the outcome. You should focus on improving time complexity, space complexity or both."
+        "prompt": "Write well-formatted comments for the given code, including both multi-line and single-line comments"
       },
       {
         "title": "Bug Check",
@@ -246,11 +250,6 @@
       {
         "title": "Type Hints",
         "prompt": "Add type hints to this code without changing the core functionality"
-      },
-      {
-        "title": "Explain",
-        "prompt": "Anaylize the this code and explain what it's trying to acheive and how",
-        "sendToChat": true
       }
     ]
   },

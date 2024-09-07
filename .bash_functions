@@ -324,7 +324,9 @@ bte() {
     echo -e "\t buds    : Sony XM4 Earphones"
     echo -e "\t speaker : Marley Get Together"
   }
-
+  if ! bluetoothctl power on; then
+  	echo -e "\033[31mError powering on bluetooth module\033[0m"
+  fi
   connect() {
     info "Attempting to connect to $2"
     if ! bluetoothctl connect "$1" > /dev/null 2>&1; then
@@ -388,11 +390,11 @@ fdisk_less_verbose() {
 }
 osrs_hydra() {
   cd /home/joona/python/macros/ || return 1
-  sudo python3 count_hydra_attacks.py
+  sudo poetry -C /home/joona/ run python3 count_hydra_attacks.py
 }
 
 disk_usage() {
-  /usr/bin/python3 "$HOME/python/scripts/bashhelpers/ColorizeOutput/df.py"
+  poetry -C /home/joona/ run python3 "$HOME/python/scripts/bashhelpers/ColorizeOutput/df.py"
   # df -Ph | awk '{printf "%-16s %-8s %-10s\n", $1, $5, $6}' - Depreciated
 }
 
