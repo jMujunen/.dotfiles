@@ -27,6 +27,7 @@ breeze
 breeze-gtk
 breeze-plymouth
 btop
+buho
 calc
 ccache
 cheat
@@ -64,7 +65,6 @@ github-cli
 glew
 glib
 glow
-gnome-break-timer
 gnuplot
 gpick
 gping
@@ -74,6 +74,7 @@ gst-libav
 gst-plugin-gtk
 gst-plugin-pipewire
 gtk2
+gwenview
 hdf5
 hdparm
 htop
@@ -154,13 +155,20 @@ linux-firmware
 linux-headers
 lld
 lldb
+losslesscut-bin
 lzop
 man-db
+maui-agenda
+maui-shelf
+mauikit-calendar
+mauikit-documents
+mauikit-filebrowsing
 meson
 micro
 milou
 mkinitcpio-firmware
 movit
+mpvqt
 nano
 navi
 nccl
@@ -251,10 +259,10 @@ python-pytesseract
 python-pywayland
 python-rich
 qqc2-breeze-style
+qt5-quickcontrols-nemo
 qt5-wayland
 rawtherapee
 rdma-core
-remind
 ripgrep
 rpi-imager
 rssguard
@@ -287,7 +295,6 @@ system-config-printer
 systemd-ukify
 systemsettings
 task
-taskwarrior-tui
 terminus-font
 tesseract-data-osd
 texlive-fontsextra
@@ -311,6 +318,8 @@ ttyplot
 upd72020x-fw
 vdpauinfo
 vi
+vidcutter
+vivid
 vlc
 vscodium
 vtk

@@ -184,7 +184,7 @@ alias dir="fzf --preview 'fzf-preview.sh {}'"
 alias kp-ping="kitty +kitten panel --edge=background --config=/home/joona/.config/kitty/panel.d/bg_padded.conf sh -c 'gping 10.0.0.1 -c cyan -b 180' >/dev/null 2>&1 & disown"
 
 
-alias wcam-today='poetry -C /home/joona run python3 /home/joona/python/scripts/files/dir_sort.py \
+alias cam='poetry -C /home/joona run python3 /home/joona/python/scripts/files/dir_sort.py \
 	/mnt/hdd/webcam /mnt/hdd/sorted-webcam-clips && \
 	cd /mnt/hdd/sorted-webcam-clips/$(date +%Y)/$(date +%B)/$(date +%-d) && ls -Altr'
 alias sort-webcam='poetry -C /home/joona run python3 /home/joona/python/scripts/files/dir_sort.py \
@@ -202,7 +202,7 @@ alias brightness_max='qdbus6 org.kde.Solid.PowerManagement \
 alias brightness_low='qdbus6 org.kde.Solid.PowerManagement \
 /org/kde/Solid/PowerManagement/Actions/BrightnessControl setBrightness 50'
 alias goto-notes='cd "$HOME/Docs/Notes/Obsidian/All Notes" && ls -Al --group-directories-first'
-
+alias reboot='systemctl reboot'
 alias server='kitten ssh -t server "cd /home/joona && zsh"'
 
 
