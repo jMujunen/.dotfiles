@@ -58,7 +58,10 @@
       "provider": "ollama",
       "model": "deepseek-coder:6.7b",
       "apiBase": "http://10.0.0.21:11434",
-      "contextLength": 2048
+      "contextLength": 2048,
+      "completionOptions": {
+        "maxTokens": 128
+      }
     },
     {
       "title": "WizardCoder",
@@ -79,11 +82,7 @@
       "provider": "ollama",
       "model": "deepseek-coder-v2:latest",
       "apiBase": "http://10.0.0.21:11434",
-      "contextLength": 2048,
-      "completionOptions": {
-        "temperature": 0.2,
-        "maxTokens": 64
-      }
+      "contextLength": 2048
     },
     // {
     //   "title": "Deepseek Coder V2",

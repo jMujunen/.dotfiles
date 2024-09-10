@@ -28,13 +28,14 @@ exclude = [
     "venv",
     ".venv",
     "__pycache__",
-    "*conda*"
+    "*conda*",
+    "**/TODO/kitty"
 ]
 cache-dir = "~/.cache/ruff"
 line-length = 100
 indent-width = 4
 target-version = "py312"
-# Dont respect gitignore. Lint ignored files as well
+# Tespect gitignore
 respect-gitignore = true
 fix-only = true
 # Enumerate all fixed violations.
@@ -72,7 +73,7 @@ docstring-code-format = true
 docstring-code-line-length = "dynamic"
 
 [lint]
-select = ["E", "F", "C", 'W', "B", "UP", "D107", "D104","D301","D401","D400","ANN201", "ANN206", "S103", "S105", "S108", "S112", "S110", "A", "EXE", "PIE", "RET", "SIM", "PLR", "PLW", "RUF"] # 'D' Django, 'ANN' annotations, 'S' built-ins, 'A', 'EXE', 'PIE', 'RET', 'SIM', 'PLR', 'PLW', 'RUF' ruff-lint ,'C' codesmell, 'E' convention, 'F' error, 'B' bug, 'UP' unused variables, 'W' warning.
+select = ["E", "F", "C", 'W', "B", "UP", "D107", "D104","D301","D401","D400","ANN201", "ANN206", "S103", "S105", "S112", "S110", "A", "EXE", "PIE", "RET", "SIM", "PLR", "PLW", "RUF"] # 'D' Django, 'ANN' annotations, 'S' built-ins, 'A', 'EXE', 'PIE', 'RET', 'SIM', 'PLR', 'PLW', 'RUF' ruff-lint ,'C' codesmell, 'E' convention, 'F' error, 'B' bug, 'UP' unused variables, 'W' warning.
 
 fixable = ['ALL']
 
@@ -87,8 +88,9 @@ ignore = ["E501", "N999", "N806"] #"D211", "D213", "W1514", "E701" E702]
 #   - N806: Name should be uppercase (deprecated)
 #   ----------------------------------------------------------------
 
-extend-fixable = ["B", "D400", "D401", "ANN201",  "RET504", "EXE", "ANN"]
-unfixable = ["F401"] # Disable fix for unused imports (`F401`).
+extend-fixable = ["B", "D400", "D401", "ANN201",  "RET504", "EXE", "ANN", 'SIM108', 'SIM115', 'SIM117', 'SIM105']
+# Disable fix for unused imports (`F401`) and unused variables (`F841`) in tests.
+unfixable = ["F401", 'F841']
 
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 
@@ -126,7 +128,7 @@ combine-as-imports = true
 [lint.pycodestyle]
 max-line-length = 100 # E501 reports lines that exceed the length of 100.
 
-[lint.pydocstyle]
+# [lint.pydocstyle]
 # convention = "google"  # Accepts: "google", "numpy", or "pep257".
 
 

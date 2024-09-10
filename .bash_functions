@@ -3,7 +3,7 @@
 source "$ZDOTDIR"/.color_defs
 
 kitty_integration_custom() {
-  local _panelcfg="/home/joona/.config/kitty/panel.d/bg_padded.conf"
+
   # -------------- #
 
   # Define aliases for kitten commands
@@ -15,29 +15,31 @@ kitty_integration_custom() {
 
   # Define function for kitty panel configuration
   kitty_panel() {
-    if [[ "$1" == "$_panelcfg" ]] || [[ "$1" == "\$_panelcfg" ]] || [[ "$1" == "-c" ]]; then
+    local _panelcfg="/home/joona/.config/kitty/panel.d/bg_padded.conf"
+    case "$1" in
+    *plain | --no* | *default)
       shift
-		  kitty +kitten panel --config="$_panelcfg" --edge=background sh -c '$cmd'
+      kitty +kitten panel --edge=background "$*"
       return $?
-	fi
-
-    kitty +kitten panel --edge=background sh -c '$*'
+      ;;
+    *)
+      kitty +kitten panel --config="$_panelcfg" --edge=background "$*"
+      ;;
+    esac
   }
-
 }
-
 # Check if the terminal is kitty and run custom integration if true
 [[ "$TERM" == "xterm-kitty" ]] && kitty_integration_custom
 
 save_hist() {
-  printhelp(){
+  printhelp() {
     echo Usage
   }
   # Create file with timestamp as name
   # Function to save scrollback history of Kitty terminal to a file
   timestamp=$(date +%F\ %H:%M)
   default_dir="$HOME/Logs/kitty"
-  mkdir -p "$default_dir" > /dev/null 2>&1
+  mkdir -p "$default_dir" >/dev/null 2>&1
 
   # Handle optional argument for filename
   if [[ -z $1 ]]; then
@@ -50,8 +52,8 @@ save_hist() {
   touch "$output_path" >/dev/null 2>&1
 
   # Copy stdin to clipboard
-  kitten @ launch --type clipboard --stdin-source @screen_scrollback \
-      &&  wl-paste >> "${output_path}"
+  kitten @ launch --type clipboard --stdin-source @screen_scrollback &&
+    wl-paste >>"${output_path}"
 }
 
 cfg() {
@@ -63,46 +65,46 @@ cfg() {
     return 1
   fi
   if [[ "$2" =~ "-c|c" ]]; then
-	  _CURRENTEDITOR=vscodium
+    _CURRENTEDITOR=vscodium
   else
-  	_CURRENTEDITOR=$EDITOR
+    _CURRENTEDITOR=$EDITOR
   fi
   # Open specified file in  $EDITOR
   case "$1" in
-    z*)
-      $_CURRENTEDITOR "$HOME/.dotfiles/.zshrc" && source "$HOME/.dotfiles/.zshrc"
-      # return 0
-      ;;
-    b*)
-      $_CURRENTEDITOR "$HOME/.dotfiles/.bashrc" && source "$HOME/.dotfiles/.bashrc"
-      # return 0
-      ;;
-    a*)
-      $_CURRENTEDITOR "$HOME/.dotfiles/.bash_aliases" && source "$HOME/.dotfiles/.bash_aliases"
-      # return 0
-      ;;
-    f*)
-      $_CURRENTEDITOR "$HOME/.dotfiles/.bash_functions" && source "$HOME/.dotfiles/.bash_functions"
-      # return 0
-      ;;
-    s*)
-      $_CURRENTEDITOR "$HOME/.dotfiles/.shellrc" && source "$HOME/.dotfiles/.shellrc"
-      # return 0
-      ;;
-    k*)
-      $_CURRENTEDITOR "$HOME/.config/kitty/kitty.conf" \
-        && kitten @ action load_config_file "/home/joona/.config/kitty/kitty.conf"
-      # return 0
-      ;;
-    cd)
-      cd "$HOME/.dotfiles/" && ls -Altr --time=mtime
-      # return 0
-      ;;
-    *)
-      error "Argument must be one of [z* | b* | a* | f* | s* | cd | k*]"
-      # return 1
-      ;;
-     esac
+  z*)
+    $_CURRENTEDITOR "$HOME/.dotfiles/.zshrc" && source "$HOME/.dotfiles/.zshrc"
+    # return 0
+    ;;
+  b*)
+    $_CURRENTEDITOR "$HOME/.dotfiles/.bashrc" && source "$HOME/.dotfiles/.bashrc"
+    # return 0
+    ;;
+  a*)
+    $_CURRENTEDITOR "$HOME/.dotfiles/.bash_aliases" && source "$HOME/.dotfiles/.bash_aliases"
+    # return 0
+    ;;
+  f*)
+    $_CURRENTEDITOR "$HOME/.dotfiles/.bash_functions" && source "$HOME/.dotfiles/.bash_functions"
+    # return 0
+    ;;
+  s*)
+    $_CURRENTEDITOR "$HOME/.dotfiles/.shellrc" && source "$HOME/.dotfiles/.shellrc"
+    # return 0
+    ;;
+  k*)
+    $_CURRENTEDITOR "$HOME/.config/kitty/kitty.conf" &&
+      kitten @ action load_config_file "/home/joona/.config/kitty/kitty.conf"
+    # return 0
+    ;;
+  cd)
+    cd "$HOME/.dotfiles/" && ls -Altr --time=mtime
+    # return 0
+    ;;
+  *)
+    error "Argument must be one of [z* | b* | a* | f* | s* | cd | k*]"
+    # return 1
+    ;;
+  esac
 }
 render() {
   kitten icat "$1"
@@ -114,7 +116,7 @@ add() {
 
 get() {
   # Check type of command. If type == function, show the entire function
-  if ! which "$1" > /dev/null; then
+  if ! which "$1" >/dev/null; then
     error "Command $1 not found."
     return 1
   fi
@@ -127,9 +129,9 @@ get() {
   fi
 }
 
-pylint(){
-	ruff format --config=$HOME/.dotfiles/ruff.toml
-	ruff check --fix --config=$HOME/.dotfiles/ruff.toml --ignore-noqa
+pylint() {
+  ruff format --config=$HOME/.dotfiles/ruff.toml
+  ruff check --fix --config=$HOME/.dotfiles/ruff.toml --ignore-noqa
 }
 
 touch() {
@@ -141,19 +143,19 @@ touch() {
 
   # Check if the extension is .py or .sh
   case "$1" in
-    *.py)
-      # Add Python hashbang and execute permissions
-      echo "#!/usr/bin/env python3" > "$1"
-      chmod +x "$1" && $EDITOR "$1"
-      ;;
-    *.sh)
-      # Add Shell hashbang and execute permissions\
-      echo "#!/bin/bash" > "$1"
-      chmod +x "$1" && $EDITOR "$1"
-      ;;
-    *)
-      echo > "$1"
-      ;;
+  *.py)
+    # Add Python hashbang and execute permissions
+    echo "#!/usr/bin/env python3" >"$1"
+    chmod +x "$1" && $EDITOR "$1"
+    ;;
+  *.sh)
+    # Add Shell hashbang and execute permissions
+    echo "#!/bin/bash" >"$1"
+    chmod +x "$1" && $EDITOR "$1"
+    ;;
+  *)
+    echo >"$1"
+    ;;
   esac
   return 0
 
@@ -161,10 +163,10 @@ touch() {
 # Sort ps aux output in various preset formats
 ps_sorted() {
   case "$1" in
-    membuff)
-      # Buffered cache
-      ps aux | awk '{print $6/1024 " MB\t\t" $11}' | sort -n
-      ;;
+  membuff)
+    # Buffered cache
+    ps aux | awk '{print $6/1024 " MB\t\t" $11}' | sort -n
+    ;;
 
   esac
   return 0
@@ -181,7 +183,7 @@ check_mail() {
 
     # ZSH compatibility
     if [[ $reply =~ "[yY]|^$" ]]; then
-      echo "" > "$1"
+      echo "" >"$1"
     fi
   }
   # Check if the services log file exists and is not empty
@@ -278,28 +280,28 @@ cd_pics() {
 p() {
   # Poetry alias/function
   case "$1" in
-    add)
-      shift
-      poetry add "$@"
-      poetry update
-      ;;
-    require*)
-      # Parse requirements file and add each line to poetry as a requirement.
-      poetry init
-      xargs poetry add < requirements.txt
-      poetry update
-      ;;
-    rm|remove)
-      shift
-      poetry remove "$@"
-      ;;
-    *)
-      poetry "$@"
-      ;;
+  add)
+    shift
+    poetry add "$@"
+    poetry update
+    ;;
+  require*)
+    # Parse requirements file and add each line to poetry as a requirement.
+    poetry init
+    xargs poetry add <requirements.txt
+    poetry update
+    ;;
+  rm | remove)
+    shift
+    poetry remove "$@"
+    ;;
+  *)
+    poetry "$@"
+    ;;
   esac
 }
 
-rf(){
+rf() {
   source "$ZDOTDIR"/.shellrc
   source "$ZDOTDIR"/.bash_functions
   source "$ZDOTDIR"/.bash_aliases
@@ -325,11 +327,11 @@ bte() {
     echo -e "\t speaker : Marley Get Together"
   }
   if ! bluetoothctl power on; then
-  	echo -e "\033[31mError powering on bluetooth module\033[0m"
+    echo -e "\033[31mError powering on bluetooth module\033[0m"
   fi
   connect() {
     info "Attempting to connect to $2"
-    if ! bluetoothctl connect "$1" > /dev/null 2>&1; then
+    if ! bluetoothctl connect "$1" >/dev/null 2>&1; then
       error "$2 not available"
     else
       success "Connected to $2"
@@ -338,7 +340,7 @@ bte() {
 
   disconnect() {
     info "Attempting to disconnect from $2"
-    if ! bluetoothctl disconnect "$1" > /dev/null 2>&1; then
+    if ! bluetoothctl disconnect "$1" >/dev/null 2>&1; then
       error "Error disconnecting from $2"
     else
       success "Disconnected from $2"
@@ -353,32 +355,32 @@ bte() {
   device="$2"
 
   case $device in
-    bud*)
-      device="Sony XM4"
-      address="$buds"
-      ;;
-    speaker*)
-      device="Marley Get Together"
-      address="$speaker"
-      ;;
-    *)
-      device="Sony XM4"
-      address="$buds"
-      ;;
+  bud*)
+    device="Sony XM4"
+    address="$buds"
+    ;;
+  speaker*)
+    device="Marley Get Together"
+    address="$speaker"
+    ;;
+  *)
+    device="Sony XM4"
+    address="$buds"
+    ;;
   esac
 
   case "$action" in
-    connect)
-      connect "$address" "$device"
-      ;;
-    disconnect)
-      disconnect "$address" "$device"
-      ;;
-    *)
-      error "$action not supported"
-      printhelp >&2 | bat -ppl help
-      return 1
-      ;;
+  connect)
+    connect "$address" "$device"
+    ;;
+  disconnect)
+    disconnect "$address" "$device"
+    ;;
+  *)
+    error "$action not supported"
+    printhelp >&2 | bat -ppl help
+    return 1
+    ;;
   esac
 }
 
@@ -447,8 +449,8 @@ update_python_path() {
     \( ! -path "**/.anaconda/**" \) \( ! -path "**/.venv/**" \) \( ! -path "**/*conda*/**" \) \
     \( ! -path "**/TODO/**" \) \( ! -path "**/__main__/**" \) \( ! -path "**/.git*/**" \) \
     \( ! -path "**/.graveyard/**" \) \( ! -path "**/*[tT]est*/**" \) \
-    \( ! -path "**/[fF]lask*/**" \) -type d -name -print0 \
-      | xargs -0 -I _ echo ":_")
+    \( ! -path "**/[fF]lask*/**" \) -type d -name -print0 |
+    xargs -0 -I _ echo ":_")
   # export PYTHONPATH="$PYTHONPATH$path_parts"
   # export PATH="$PATH:$PYTHONPATH"
   echo "$path_parts"

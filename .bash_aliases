@@ -42,8 +42,11 @@ alias find_='find . \( ! -path "**/__pycache__" \) \( ! -path "**/venv" \) \
 \( ! -path "**/*yarn*" \) \( ! -path "**/.cargo" \) \( ! -path "**/yay" \) \
 \( ! -path "**/.venv" \) \( ! -path "**/*conda*" \) \( ! -path "**/*cache" \)'
 
-alias feh="feh -g 1920x1080 -d -S filename --fullscreen --scale-down
-								--output-dir /home/joona/Picture/feh"
+alias feh="feh -g 1920x1080 --draw-filename --draw-exif --draw-tinted \
+-S filename --scale-down --output-dir /home/joona/Picture/feh \
+--quiet --borderless -C /usr/share/fonts/TTF/ --title-font=FantasqueSansMNerdFontMono-Regular/12"
+alias montage='feh --montage --thumb-width 426 --thumb-height 240 --limit-width 1920 --limit-height 1080 \
+--borderless --stretch --output=/tmp/montage.png -C /usr/share/fonts/TTF/ --title-font=FantasqueSansMNerdFontMono-Regular/12'
 alias ff="cd $HOME/.mozilla/firefox/$ffid"
 alias ffp="firefox --private-window &"
 alias ff_profile="firefox --ProfileManager &"
@@ -203,8 +206,8 @@ alias brightness_low='qdbus6 org.kde.Solid.PowerManagement \
 /org/kde/Solid/PowerManagement/Actions/BrightnessControl setBrightness 50'
 alias goto-notes='cd "$HOME/Docs/Notes/Obsidian/All Notes" && ls -Al --group-directories-first'
 alias reboot='systemctl reboot'
-alias server='kitten ssh -t server "cd /home/joona && zsh"'
-
+alias ssh-server='kitten ssh -t server "cd /home/joona && zsh"'
+alias ssh-kodi='unalias ssh && ssh kodi'
 
 alias kppower="nohup kitty +kitten panel --edge=background sh -c 'gpu_power.sh' >/dev/null 2>&1 &"
 # alias kp="kitty +kitten panel --edge=background sh -c '$1'"
