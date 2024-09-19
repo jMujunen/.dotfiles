@@ -86,12 +86,13 @@ HIST_STAMPS="yyyy-mm-dd"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(pipenv virtualenv git archlinux poetry-env nmap taskwarrior)
+plugins=(pipenv virtualenv git archlinux nmap taskwarrior)
 # <---- Notes ---->
 # copybuffer: ctrl + o
 #
 # Depreciated:
 #	aliases
+#	poetry-env
 
 # source $ZSH/custom/plugins/zsh-autoswitch-virtualenv/autoswitch_virtualenv.plugin.zsh
 

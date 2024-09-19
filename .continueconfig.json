@@ -34,13 +34,6 @@
       "model": "mistral-nemo:12b",
       "apiBase": "http://10.0.0.21:11434",
       "contextLength": 2048
-    },
-    {
-      "title": "Codegemma-Code 7B",
-      "provider": "ollama",
-      "model": "codegemma:7b-code",
-      "apiBase": "http://10.0.0.21:11434",
-      "contextLength": 2048
     }
   ],
   "completionOptions": {
@@ -58,10 +51,10 @@
       "provider": "ollama",
       "model": "deepseek-coder:6.7b",
       "apiBase": "http://10.0.0.21:11434",
-      "contextLength": 2048,
-      "completionOptions": {
-        "maxTokens": 128
-      }
+      "contextLength": 2048
+      // "completionOptions": {
+      // "maxTokens": 128
+      // }
     },
     {
       "title": "WizardCoder",
@@ -107,7 +100,7 @@
     "temperature": 0.2,
     "useCopyBuffer": false,
     "multilineCompletions": "auto",
-    "maxPromptTokens": 256,
+    // "maxPromptTokens": 256,
     "useCache": true,
     "useOtherFiles": true,
     "disable": false,
@@ -147,7 +140,7 @@
       "name": "commit",
       "description": "Generate a git commit message",
       "params": {}
-    },
+    }
   ],
   "customCommands": [
     {
@@ -174,6 +167,11 @@
       "name": "formattedDocstrings",
       "description": "reStructured text formmated docstring generator",
       "prompt": "{{{ input }}}\n\nPlease write a docstrings for each function, method and class in the highlighted code. The docstring should follow pep-287 which defines the google docstring format markdown formatting"
+    },
+    {
+      "name": "Suggest Improvments",
+      "description": "Suggest general high level improvments",
+      "prompt": "Review this code and suggest ways to improve it. You should focus on improving time complexity, space complexity, readability, conventions, bad practices, among others"
     }
   ],
   "ui": {
@@ -212,6 +210,10 @@
     },
     {
       "name": "codebase",
+      "params": {}
+    },
+    {
+      "name": "stagedCommit",
       "params": {}
     }
   ],

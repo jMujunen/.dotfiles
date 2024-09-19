@@ -11,6 +11,7 @@ $HOME/python/Projects/fsutils/:$HOME/python/Projects/fsutils/fsutils:\
 $HOME/python/libs/hwutils/hwutils/:$HOME/python/Projects/hwutils:\
 $HOME/python/Projects/hwutils/hwutils:$HOME/python/scripts/hass:\
 $HOME/python/scripts/bashhelpers/pacman:$HOME/python/Projects/fsutils/scripts:\
+$HOME/python/utils
 
 export PATH=$HOME/.dotfiles/:$HOME/scripts/:$HOME/scripts/graphing/:\
 $HOME/scripts/git_scripts/:$HOME/.local/bin:$HOME/scripts/shutdown:\
@@ -18,7 +19,7 @@ $HOME/scripts/startup:$HOME/scripts/logging/:$HOME/Code/Workspace:\
 $HOME/Android/Sdk/build-tools/35.0.0:$HOME/Android/Sdk/platform-tools:\
 $HOME/python/scripts/files/:$PATH:$PYTHONPATH
 
-export PYTHONPATH=${PYTHONPATH}:$HOME/.local/share/pipx/venvs/poetry/lib/python3.12/site-packages
+# export PYTHONPATH=${PYTHONPATH}:$HOME/.local/share/pipx/venvs/poetry/lib/python3.12/site-packages
 # Git
 # ---
 export GIT_COMMITTER_NAME="J Mujunen"
@@ -37,7 +38,7 @@ export GDK_BACKEND=wayland
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export MOZ_ENABLE_WAYLAND=1
 export QSG_RENDERER_LOOP=basics
-export QT_ENABLE_HIGHDPI_SCALING=1
+# export QT_ENABLE_HIGHDPI_SCALING=1
 export QT_QPA_PLATFORM=wayland
 export GLFW_IM_MODULE=ibus
 
@@ -68,7 +69,7 @@ export OLLAMA_HOST=10.0.0.21:11434
 # Python
 # ------
 export USE_EMOJI=false # pipx
-
+UV_CACHE_DIR=$HOME/.cache/uv
 # --------------------------------------------------------------- #
 
 # Source dedicated alias file

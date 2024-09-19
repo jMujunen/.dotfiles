@@ -17,7 +17,7 @@ ignore_lines=(\"\|\'\|^\\s+\$)
 alias ip='ip -c'
 # alias less='less --use-color'
 alias pacman='sudo pacman --color=always'
-alias ac='poetry -C $HOME/ run python3 $HOME/python/Projects/termllama/termllama/auto_commit.py'
+alias ac='uv run $HOME/python/Projects/termllama/termllama/auto_commit.py'
 alias bathelp='bat --plain --language=help'
 alias batless='bat --style=full --paging=always -pl less'
 alias pat='bat --style="plain"'
@@ -55,7 +55,7 @@ alias ffs="s --provider duckduckgo"
 alias ffu="firefox --url"
 alias getweather='curl wttr.in'
 alias get_weather="python3 /home/joona/python/command_output/weather_widget.py"
-alias ipy="poetry -C $HOME/ run ipython --pprint --nosep --no-confirm-exit --profile=main --colors=Linux"
+alias ipy="source $HOME/.venv/bin/activate && uv run ipython --pprint --nosep --no-confirm-exit --profile=main --colors=Linux"
 alias killwine='kill 997 1021 >/dev/null 2>&1;wineserver -k 15;echo done'
 alias kwinDebugConsole='qdbus6 org.kde.KWin /KWin org.kde.KWin.showDebugConsole'
 alias la="ls -lpha --group-directories-first"
@@ -83,7 +83,7 @@ alias paste="wl-paste"
 alias pics='cd_pics' # .bash_function
 alias printenv="/bin/sh $HOME/scripts/printenv_color.sh | sort"
 alias pyp='cd $HOME/python/Projects/ && ls -alph --group-directories-first'
-alias python='poetry -C /home/joona run python3'
+alias python='source $HOME/.venv/bin/activate && python3'
 alias psg="ps aux | grep -E"
 alias psm='ps_sorted membuff'
 alias py='python3'
@@ -95,7 +95,7 @@ alias sizeof="python3 $HOME/python/scripts/bashhelpers/sizeof.py"
 alias sunset="openrgb -p sunset &"
 alias up="cd_up" # .bash_function
 #alias vdir="vdir --color=auto"
-alias venv='source venv/bin/activate'
+alias venv='source .venv/bin/activate'
 alias ws-cv='vscodium -n $HOME/Code/Workspace/cv.code-workspace'
 alias ws-notes='vscodium -n $HOME/Code/Workspace/Notes.code-workspace'
 alias ws-bash='vscodium -n $HOME/Code/Workspace/bashscripts.code-workspace && exit'
@@ -120,7 +120,7 @@ alias rl='cd /home/joona/.var/app/com.jagexlauncher.JagexLauncher/data/user_home
 alias s='s --provider duckduckgo'
 alias root='sudo --preserve-env -s'
 
-alias llamalist='ollama list | sort -nk'
+alias llamalist='python3 -m ollama_list'
 alias llamalog='journalctl --user -e -u ollama'
 alias llamaupdate='curl -fsSL https://ollama.com/install.sh | sh && sleep 2;
 					sudo systemctl disable --now ollama \
@@ -178,14 +178,15 @@ alias poet-require='xargs poetry add < requirements.txt'
 
 alias search='apropos'
 alias c='paste | wc' # Perform [word|line|character] count on clipboard content
-alias mpv='mpv --fs'
+alias mpv='mpv --fs --profile=speed --profile=big-cache'
+# alias mpvt='mpv -hwdec=auto-safe --cuda-decode-device=0 --hr-seek=no --vd=hevc,hevc_v4l2m2m,h264,hevc_cuvid,h264_cuvid --profile=sw-fast --audio=no'
+alias mpvt='mpv --profile=term'
 alias winssd='cd /mnt/win_ssd/Users/Joona/Videos/NVIDIA/ && ls -Alph --group-directories-first'
 alias clips='cd /mnt/ssd/OBS && ls -Alph --group-directories-first'
 # fzf
 alias dir="fzf --preview 'fzf-preview.sh {}'"
 # Kitty panel
 alias kp-ping="kitty +kitten panel --edge=background --config=/home/joona/.config/kitty/panel.d/bg_padded.conf sh -c 'gping 10.0.0.1 -c cyan -b 180' >/dev/null 2>&1 & disown"
-
 
 alias cam='poetry -C /home/joona run python3 /home/joona/python/scripts/files/dir_sort.py \
 	/mnt/hdd/webcam /mnt/hdd/sorted-webcam-clips && \
@@ -208,8 +209,11 @@ alias goto-notes='cd "$HOME/Docs/Notes/Obsidian/All Notes" && ls -Al --group-dir
 alias reboot='systemctl reboot'
 alias ssh-server='kitten ssh -t server "cd /home/joona && zsh"'
 alias ssh-kodi='unalias ssh && ssh kodi'
-
+alias kittycam='mpv http://10.0.0.50:8081 --profile=big-cache --profile=network >/dev/null 2>&1 & disown'
+alias kittycam-term='kitty +kitten panel --config="/home/joona/.config/kitty/panel.d/bg_padded.conf" --edge=background  mpv http://10.0.0.50:8081 --profile=big-cache --profile=network --profile=term >/dev/null 2>&1'
 alias kppower="nohup kitty +kitten panel --edge=background sh -c 'gpu_power.sh' >/dev/null 2>&1 &"
+
+alias pacrecent="expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort | tail -n 20"
 # alias kp="kitty +kitten panel --edge=background sh -c '$1'"
 # alias xclip="xclip -selection clipboard"
 # TODO: See below

@@ -2,6 +2,52 @@
 # ignore=(.\*\\\[+package.\*\?\\\]+\(\\s+\[\\w\\\{\\s=\"\.\*\\[,:\\}\>\<\@\]\))
 source "$ZDOTDIR"/.color_defs
 
+rsync_helper() {
+    printhelp() {
+        echo "Usage: rsync-helpers [OPTION]... SRC DEST"
+        echo -e "Options:"
+        echo -e "\tup*            - upload files from local to remote"
+        echo -e "\tmetadata | meta* - get metadata of a file or directory without transferring actual data"
+        echo -e "\t--help, -h     - display this help and exit"
+        echo -e "\t--list, -l     - list all available options"
+        return 0
+    }
+	case "$1" in
+	--h* | -h* | -l | --l*)
+        printhelp
+        return $?
+        ;;
+    up* | --up*)
+        shift
+        src="$1"
+        dest="$2"
+	    if [[ -z "$src" ]] || [[ -z "$dest" ]]; then
+            echo "Source and Destination are required."
+            printhelp
+      fi
+	    rsync -auihXP --compress-choice=none "$1" "$2" | tqdm --bytes  > /dev/null
+	    return $?
+        ;;
+    metadata | --meta*)
+        shift
+        if [[ -z "$src" ]] || [[ -z "$dest" ]]; then
+            echo "Source and Destination are required."
+            printhelp
+        fi
+        src="$1"
+        dest="$2"
+	    rsync -aihXP --compress-choice=none "$1"  "$2" | tqdm --bytes  > /dev/null
+        return $?
+        ;;
+    esac
+}
+
+# # ffmpeg helper until I remember the specific commands
+# ffmpeg_helper() {
+# 	cmd="$1"
+# 	case "$cmd" i
+# }
+
 kitty_integration_custom() {
 
   # -------------- #
@@ -32,9 +78,7 @@ kitty_integration_custom() {
 [[ "$TERM" == "xterm-kitty" ]] && kitty_integration_custom
 
 save_hist() {
-  printhelp() {
-    echo Usage
-  }
+
   # Create file with timestamp as name
   # Function to save scrollback history of Kitty terminal to a file
   timestamp=$(date +%F\ %H:%M)
@@ -282,21 +326,15 @@ p() {
   case "$1" in
   add)
     shift
-    poetry add "$@"
-    poetry update
-    ;;
-  require*)
-    # Parse requirements file and add each line to poetry as a requirement.
-    poetry init
-    xargs poetry add <requirements.txt
-    poetry update
+    uv add "$@"
+    uv sync
     ;;
   rm | remove)
     shift
-    poetry remove "$@"
+    uv remove "$@"
     ;;
   *)
-    poetry "$@"
+    uv "$@"
     ;;
   esac
 }
