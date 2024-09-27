@@ -2,6 +2,8 @@
 # -------
 export EDITOR=micro
 export MICRO_TRUECOLOR=1
+export CALCHISTFILE=$HOME/.cache/.calc_history
+
 
 export PYTHONPYCACHEPREFIX=$HOME/.cache/__pycache__
 export PYTHONPATH=$HOME/.ipython/profile_main/:$HOME/python/modules/:\
@@ -11,13 +13,12 @@ $HOME/python/Projects/fsutils/:$HOME/python/Projects/fsutils/fsutils:\
 $HOME/python/libs/hwutils/hwutils/:$HOME/python/Projects/hwutils:\
 $HOME/python/Projects/hwutils/hwutils:$HOME/python/scripts/hass:\
 $HOME/python/scripts/bashhelpers/pacman:$HOME/python/Projects/fsutils/scripts:\
-$HOME/python/utils
 
 export PATH=$HOME/.dotfiles/:$HOME/scripts/:$HOME/scripts/graphing/:\
 $HOME/scripts/git_scripts/:$HOME/.local/bin:$HOME/scripts/shutdown:\
 $HOME/scripts/startup:$HOME/scripts/logging/:$HOME/Code/Workspace:\
 $HOME/Android/Sdk/build-tools/35.0.0:$HOME/Android/Sdk/platform-tools:\
-$HOME/python/scripts/files/:$PATH:$PYTHONPATH
+$HOME/python/scripts/files/:/home/joona/.local/bin/:$PATH:$PYTHONPATH
 
 # export PYTHONPATH=${PYTHONPATH}:$HOME/.local/share/pipx/venvs/poetry/lib/python3.12/site-packages
 # Git

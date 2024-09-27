@@ -86,7 +86,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(pipenv virtualenv git archlinux nmap taskwarrior)
+plugins=(pipenv git archlinux nmap taskwarrior)
 # <---- Notes ---->
 # copybuffer: ctrl + o
 #
@@ -94,7 +94,6 @@ plugins=(pipenv virtualenv git archlinux nmap taskwarrior)
 #	aliases
 #	poetry-env
 
-# source $ZSH/custom/plugins/zsh-autoswitch-virtualenv/autoswitch_virtualenv.plugin.zsh
 
 source $ZSH/oh-my-zsh.sh
 
@@ -162,3 +161,8 @@ setopt extended_history
 setopt longlistjobs
 
 
+if [[ -d $(pwd)/.venv ]]; then
+	source ./.venv/bin/activate
+else
+	source /home/joona/.venv/bin/activate
+fi

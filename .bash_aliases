@@ -17,7 +17,7 @@ ignore_lines=(\"\|\'\|^\\s+\$)
 alias ip='ip -c'
 # alias less='less --use-color'
 alias pacman='sudo pacman --color=always'
-alias ac='uv run $HOME/python/Projects/termllama/termllama/auto_commit.py'
+alias ac='$HOME/.venv/bin/python3 $HOME/python/Projects/termllama/termllama/auto_commit.py'
 alias bathelp='bat --plain --language=help'
 alias batless='bat --style=full --paging=always -pl less'
 alias pat='bat --style="plain"'
@@ -54,8 +54,7 @@ alias ffsafe="firefox --safe-mode &"
 alias ffs="s --provider duckduckgo"
 alias ffu="firefox --url"
 alias getweather='curl wttr.in'
-alias get_weather="python3 /home/joona/python/command_output/weather_widget.py"
-alias ipy="source $HOME/.venv/bin/activate && uv run ipython --pprint --nosep --no-confirm-exit --profile=main --colors=Linux"
+alias ipy="/home/joona/.venv/bin/ipython3 --pprint --nosep --pylab --no-confirm-exit --profile=main --colors=Linux"
 alias killwine='kill 997 1021 >/dev/null 2>&1;wineserver -k 15;echo done'
 alias kwinDebugConsole='qdbus6 org.kde.KWin /KWin org.kde.KWin.showDebugConsole'
 alias la="ls -lpha --group-directories-first"
@@ -63,7 +62,7 @@ alias lg="ls -ph --group-directories-first"
 alias ll="ls -lph --group-directories-first"
 alias logs="cd_logs" # .bash_function
 alias lsd="ls -lAdh "
-alias lsblkc='python3 $HOME/python/scripts/bashhelpers/ColorizeOutput/lsblk.py'
+alias lsblkc='/home/joona/.venv/bin/python3 $HOME/python/scripts/bashhelpers/ColorizeOutput/lsblk.py'
 #alias ls="ls --color=auto"
 alias lss="ls -Alshr --group-directories-first"
 alias lt="ls -Altrh --time=mtime --group-directories-first"
@@ -86,16 +85,17 @@ alias pyp='cd $HOME/python/Projects/ && ls -alph --group-directories-first'
 alias python='source $HOME/.venv/bin/activate && python3'
 alias psg="ps aux | grep -E"
 alias psm='ps_sorted membuff'
-alias py='python3'
+alias py='uv run python3'
 alias rg='rg --no-ignore --hidden --ignore-file=/home/joona/.dotfiles/.ripgrep_ignore'
 alias rmf='rm -rf'
 alias rm="rm -d"
-alias sms="python3 $HOME/python/modules/kdeConnect.py"
-alias sizeof="python3 $HOME/python/scripts/bashhelpers/sizeof.py"
+alias sms="/home/joona/.venv/bin/python3 $HOME/python/modules/kdeConnect.py"
+alias sizeof="/home/joona/.venv/bin/python3 $HOME/python/scripts/bashhelpers/sizeof.py"
 alias sunset="openrgb -p sunset &"
 alias up="cd_up" # .bash_function
 #alias vdir="vdir --color=auto"
 alias venv='source .venv/bin/activate'
+alias gvenv='source /home/joona/.venv/bin/activate'
 alias ws-cv='vscodium -n $HOME/Code/Workspace/cv.code-workspace'
 alias ws-notes='vscodium -n $HOME/Code/Workspace/Notes.code-workspace'
 alias ws-bash='vscodium -n $HOME/Code/Workspace/bashscripts.code-workspace && exit'
@@ -188,7 +188,7 @@ alias dir="fzf --preview 'fzf-preview.sh {}'"
 # Kitty panel
 alias kp-ping="kitty +kitten panel --edge=background --config=/home/joona/.config/kitty/panel.d/bg_padded.conf sh -c 'gping 10.0.0.1 -c cyan -b 180' >/dev/null 2>&1 & disown"
 
-alias cam='poetry -C /home/joona run python3 /home/joona/python/scripts/files/dir_sort.py \
+alias cam='source $HOME/.venv/bin/activate && python3 /home/joona/python/scripts/files/dir_sort.py \
 	/mnt/hdd/webcam /mnt/hdd/sorted-webcam-clips && \
 	cd /mnt/hdd/sorted-webcam-clips/$(date +%Y)/$(date +%B)/$(date +%-d) && ls -Altr'
 alias sort-webcam='poetry -C /home/joona run python3 /home/joona/python/scripts/files/dir_sort.py \
@@ -213,6 +213,7 @@ alias kittycam='mpv http://10.0.0.50:8081 --profile=big-cache --profile=network 
 alias kittycam-term='kitty +kitten panel --config="/home/joona/.config/kitty/panel.d/bg_padded.conf" --edge=background  mpv http://10.0.0.50:8081 --profile=big-cache --profile=network --profile=term >/dev/null 2>&1'
 alias kppower="nohup kitty +kitten panel --edge=background sh -c 'gpu_power.sh' >/dev/null 2>&1 &"
 
+alias everforest='cat $HOME/.themes/**/* | copy && parse_and_render_colors.py --simple'
 alias pacrecent="expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort | tail -n 20"
 # alias kp="kitty +kitten panel --edge=background sh -c '$1'"
 # alias xclip="xclip -selection clipboard"

@@ -15,26 +15,12 @@
       "contextLength": 4096
     },
     {
-      "title": "WizardCoder",
-      "provider": "ollama",
-      "model": "wizardcoder:4096",
-      "apiBase": "http://10.0.0.21:11434",
-      "contextLength": 4096
-    },
-    {
       "title": "Deepseek V2",
       "provider": "ollama",
       "model": "deepseek-coder-v2:latest",
       "apiBase": "http://10.0.0.21:11434",
-      "contextLength": 2048
+      "contextLength": 2560
     },
-    {
-      "title": "Mistral Nemo:12b",
-      "provider": "ollama",
-      "model": "mistral-nemo:12b",
-      "apiBase": "http://10.0.0.21:11434",
-      "contextLength": 2048
-    }
   ],
   "completionOptions": {
     "temperature": 0.2,

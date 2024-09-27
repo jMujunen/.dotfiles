@@ -51,8 +51,6 @@ flatpak
 flatpak-builder
 flatpak-kcm
 fzf
-gap
-gcc-fortran
 ghc
 git
 github-cli
@@ -157,9 +155,6 @@ lldb
 losslesscut-bin
 lzop
 man-db
-mauikit-calendar
-mauikit-documents
-mauikit-filebrowsing
 mediainfo
 meson
 micro
@@ -311,11 +306,11 @@ ttf-liberation
 ttf-nerd-fonts-symbols
 ttyplot
 upd72020x-fw
-valgrind
 vdpauinfo
 vi
 vivid
 vlc
+vncdotool
 vscodium
 vtk
 wayland-protocols

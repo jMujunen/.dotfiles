@@ -88,7 +88,7 @@
 #   Shift + b:9
 
 # OCR - Image to text from selected area
-"uv run /home/joona/python/scripts/img2txt.py"
+"/home/joona/.venv/bin/python3 /home/joona/python/scripts/img2txt.py"
   m:0x10 + c:127
 
 # <-- ALT_R, CTRL_R, SHIFT_R META_R/WIN_R --> #cd

@@ -77,6 +77,20 @@ kitty_integration_custom() {
 # Check if the terminal is kitty and run custom integration if true
 [[ "$TERM" == "xterm-kitty" ]] && kitty_integration_custom
 
+cdl() {
+  # Check for virtual environment when cd-ing into a directory
+  cd "$*"
+  if [[ -d .venv ]]; then
+    source .venv/bin/activate
+  fi
+  # Deactive project venv and reactivate global venv ($HOME/.venv) when exiting the directory
+  _exit_venv() {
+    deactivate
+    source $HOME/.venv/bin/activate
+  }
+  trap '_exit_venv' EXIT
+}
+
 save_hist() {
 
   # Create file with timestamp as name

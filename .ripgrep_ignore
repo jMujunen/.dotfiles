@@ -10,3 +10,10 @@
 **/assets/
 **/*.lock
 **/pyproject.toml
+**/VSCodium/
+
+*.css
+*.lua
+*.js
+*.html
+*.pdf
