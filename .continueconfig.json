@@ -21,13 +21,20 @@
       "apiBase": "http://10.0.0.21:11434",
       "contextLength": 2560
     },
+    {
+      "title": "qwen2.5",
+      "provider": "ollama",
+      "model": "qwen2.5-coder:latest",
+      "apiBase": "http://10.0.0.21:11434",
+      "contextLength": 2048
+    }
   ],
   "completionOptions": {
     "temperature": 0.2,
     // "mirostat": 1,
     "keepAlive": 60,
-    "numThreads": 10
-    // "maxTokens": 1024
+    "numThreads": 10,
+    "maxTokens": 1024
     // "topK": 5,
     // "topP": 0.9
   },
@@ -37,24 +44,17 @@
       "provider": "ollama",
       "model": "deepseek-coder:6.7b",
       "apiBase": "http://10.0.0.21:11434",
-      "contextLength": 2048
+      "contextLength": 2560
       // "completionOptions": {
       // "maxTokens": 128
       // }
     },
     {
-      "title": "WizardCoder",
+      "title": "qwen2.5",
       "provider": "ollama",
-      "model": "wizardcoder:4096",
+      "model": "qwen2.5-coder:latest",
       "apiBase": "http://10.0.0.21:11434",
       "contextLength": 2048
-    },
-    {
-      "title": "StarCoder2 7B",
-      "provider": "ollama",
-      "model": "starcoder2:7b",
-      "apiBase": "http://10.0.0.21:11434",
-      "contextLength": 6000
     },
     {
       "title": "Deepseek V2",
@@ -117,15 +117,6 @@
     {
       "name": "share",
       "description": "Export the current chat session to markdown"
-    },
-    {
-      "name": "cmd",
-      "description": "Generate a shell command"
-    },
-    {
-      "name": "commit",
-      "description": "Generate a git commit message",
-      "params": {}
     }
   ],
   "customCommands": [
@@ -163,7 +154,8 @@
   "ui": {
     "codeBlockToolbarPosition": "bottom",
     "fontSize": 13,
-    "displayRawMarkdown": false
+    "displayRawMarkdown": false,
+    "showChatScrollbar": true
   },
   "contextProviders": [
     {
@@ -220,6 +212,14 @@
     }
   ],
   "experimental": {
+    "readResponseTTS": true,
+    "contextMenuPrompts": {
+      "comment": "Write comments for this code. Do not change anything about the code itself.",
+      "docstring": "Write a docstring for this code. Do not change anything about the code itself.",
+      "fix": "Fix this code",
+      "fixGrammar": "If there are any grammar or spelling mistakes in this writing, fix them. Do not make other large changes to the writing.",
+      "optimize": "Optimize this code"
+    },
     "quickActions": [
       {
         "title": "Unit test",

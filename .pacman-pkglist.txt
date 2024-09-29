@@ -31,6 +31,7 @@ cpupower
 cuda
 cudnn
 cups
+darktable
 dcraw
 direnv
 discover
@@ -75,6 +76,7 @@ hyprland
 hyprlock
 icoutils
 imagemagick
+inkscape
 intel-media-driver
 intel-ucode
 iotop
@@ -103,7 +105,6 @@ kitty-terminfo
 kmenuedit
 kommit
 kpipewire
-krita
 kruler
 kscreen
 kscreenlocker
@@ -310,7 +311,6 @@ vdpauinfo
 vi
 vivid
 vlc
-vncdotool
 vscodium
 vtk
 wayland-protocols

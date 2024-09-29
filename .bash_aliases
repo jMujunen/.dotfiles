@@ -26,7 +26,7 @@ alias fat='bat --style="full"'
 alias aliases='alias | bat -l sh -p'
 alias back='cd "$OLDPWD"'
 alias cleansyslogs='sudo journalctl --vacuum-time=2d'
-alias cdl="cd_ls"
+#alias cdl="cd_ls"
 alias cdpy="cd_py"
 alias cls="clear"
 alias code="vscodium"
@@ -82,7 +82,6 @@ alias paste="wl-paste"
 alias pics='cd_pics' # .bash_function
 alias printenv="/bin/sh $HOME/scripts/printenv_color.sh | sort"
 alias pyp='cd $HOME/python/Projects/ && ls -alph --group-directories-first'
-alias python='source $HOME/.venv/bin/activate && python3'
 alias psg="ps aux | grep -E"
 alias psm='ps_sorted membuff'
 alias py='uv run python3'
@@ -121,7 +120,7 @@ alias s='s --provider duckduckgo'
 alias root='sudo --preserve-env -s'
 
 alias llamalist='python3 -m ollama_list'
-alias llamalog='journalctl --user -e -u ollama'
+alias llamalog='journalctl -e -u ollama'
 alias llamaupdate='curl -fsSL https://ollama.com/install.sh | sh && sleep 2;
 					sudo systemctl disable --now ollama \
 					&& systemctl --user restart --now ollama'
