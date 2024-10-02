@@ -54,12 +54,13 @@ alias ffsafe="firefox --safe-mode &"
 alias ffs="s --provider duckduckgo"
 alias ffu="firefox --url"
 alias getweather='curl wttr.in'
-alias ipy="/home/joona/.venv/bin/ipython3 --pprint --nosep --pylab --no-confirm-exit --profile=main --colors=Linux"
+alias ipy="ipython3 --pprint --nosep --pylab --no-confirm-exit --profile=main --colors=Linux"
 alias killwine='kill 997 1021 >/dev/null 2>&1;wineserver -k 15;echo done'
 alias kwinDebugConsole='qdbus6 org.kde.KWin /KWin org.kde.KWin.showDebugConsole'
-alias la="ls -lpha --group-directories-first"
-alias lg="ls -ph --group-directories-first"
-alias ll="ls -lph --group-directories-first"
+alias la="ls -lphvA --group-directories-first"
+alias lg="ls -phv --group-directories-first"
+alias ll="ls -lphv --group-directories-first"
+alias l="ls -hlApSr --group-directories-first"
 alias logs="cd_logs" # .bash_function
 alias lsd="ls -lAdh "
 alias lsblkc='/home/joona/.venv/bin/python3 $HOME/python/scripts/bashhelpers/ColorizeOutput/lsblk.py'
@@ -87,7 +88,7 @@ alias psm='ps_sorted membuff'
 alias py='/home/joona/.venv/bin/python3'
 alias rg='rg --no-ignore --hidden --ignore-file=/home/joona/.dotfiles/.ripgrep_ignore'
 alias rmf='rm -rf'
-alias rm="rm -d"
+alias rm="rm -dIv"
 alias sms="/home/joona/.venv/bin/python3 $HOME/python/modules/kdeConnect.py"
 alias sizeof="/home/joona/.venv/bin/python3 $HOME/python/scripts/bashhelpers/sizeof.py"
 alias sunset="openrgb -p sunset &"
@@ -211,9 +212,9 @@ alias ssh-kodi='unalias ssh && ssh kodi'
 alias kittycam='mpv http://10.0.0.50:8081 --profile=big-cache --profile=network >/dev/null 2>&1 & disown'
 alias kittycam-term='kitty +kitten panel --config="/home/joona/.config/kitty/panel.d/bg_padded.conf" --edge=background  mpv http://10.0.0.50:8081 --profile=big-cache --profile=network --profile=term >/dev/null 2>&1'
 alias kppower="nohup kitty +kitten panel --edge=background sh -c 'gpu_power.sh' >/dev/null 2>&1 &"
-
 alias everforest='cat $HOME/.themes/**/* | copy && parse_and_render_colors.py --simple'
 alias pacrecent="expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort | tail -n 20"
+alias stop-all='docker ps -q | xargs docker stop'
 # alias kp="kitty +kitten panel --edge=background sh -c '$1'"
 # alias xclip="xclip -selection clipboard"
 # TODO: See below

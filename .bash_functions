@@ -1,6 +1,5 @@
 # Depedancies: bat vscodium
 # ignore=(.\*\\\[+package.\*\?\\\]+\(\\s+\[\\w\\\{\\s=\"\.\*\\[,:\\}\>\<\@\]\))
-source $ZSHDOTDIR/.color_defs
 rsync_update(){
   rsync -auihXP --compress-choice=none "$1" "$2" | tqdm  > /dev/null
 }
@@ -146,16 +145,6 @@ get() {
   fi
 }
 
-pylint() {
-  case "$1" in
-  f*)
-    ruff format --config=$HOME/.dotfiles/ruff.toml
-    ;;
-  c*)
-    ruff check --fix --config=$HOME/.dotfiles/ruff.toml --ignore-noqa
-    ;;
-  esac
-}
 
 touch() {
   # Check if the file exists
@@ -290,52 +279,10 @@ cd_ls() {
   ls -ltupho --group-directories-first
 }
 
-# cd to commonly used directories
-# [ ] : Use a case or other methods to clean this up.
-cd_notes() {
-  cd "$HOME"/Docs/Notes/Obsidian/All\ Notes/ || return 1
-  ls -ltuph --group-directories-first
-}
-cd_logs() {
-  cd "$HOME"/Logs/ || return 1
-  ls -ltuph --group-directories-first
-}
-cd_docs() {
-  cd "$HOME"/Docs/ || return 1
-  ls -ltuph --group-directories-first
-}
-cd_dl() {
-  cd "$HOME"/Downloads/ || return 1
-  ls -ltuph --group-directories-first
-}
-cd_pics() {
-  cd "$HOME"/Pictures/ || return 1
-  ls -ltuph --group-directories-first
-}
-
-p() {
-  # Poetry alias/function
-  case "$1" in
-  add)
-    shift
-    uv add "$@"
-    uv sync
-    ;;
-  rm | remove)
-    shift
-    uv remove "$@"
-    ;;
-  *)
-    uv "$@"
-    ;;
-  esac
-}
-
 rf() {
   source "$ZDOTDIR"/.shellrc
   source "$ZDOTDIR"/.bash_functions
   source "$ZDOTDIR"/.bash_aliases
-  source "$ZDOTDIR"/.consts
   clear
 }
 
@@ -412,10 +359,6 @@ bte() {
     ;;
   esac
 }
-osrs_hydra() {
-  cd /home/joona/python/macros/ || return 1
-  sudo poetry -C /home/joona/ run python3 count_hydra_attacks.py
-}
 
 clear_zsh_cache() {
   # Delete the completion cache
@@ -439,45 +382,3 @@ man_color() {
   /usr/bin/man "$1" | bat -pl man && return 0
   return 1
 }
-
-git_diff() {
-  # NOTE - Work in progress
-  local ignore_lines=(\"\|\'\|^\\s+\$)
-  if [[ "$1" == "staged" ]]; then
-    name_status=$(git diff --staged --name-status --diff-filter=AMD)
-    diff=$(git diff --patch-with-stat --ignore-all-space --ignore-cr-at-eol --ignore-blank-lines \
-      --ignore-space-at-eol --ignore-matching-lines="$ignore_lines" \
-      --staged --diff-filter=M)
-    return 0
-  fi
-  name_status=$(git diff --staged --name-status --diff-filter=AMD)
-  diff=$(git diff --patch-with-stat --ignore-all-space --ignore-cr-at-eol --ignore-blank-lines \
-    --ignore-space-at-eol --ignore-matching-lines="$ignore_lines" \
-    --staged --diff-filter=M)
-
-  return 0
-  # git diff --diff-filter=AMD --name-status
-}
-
-update_python_path() {
-  path_prefix="$HOME/python"
-  path_parts=$(find "$path_prefix" \( ! -path "**/__pycache__/**" \) \( ! -path "**/venv/**" \) \
-    \( ! -path "**/*yarn*/**" \) \( ! -path "**/.cargo/**" \) \( ! -path "**/yay/**" \) \
-    \( ! -path "**/.anaconda/**" \) \( ! -path "**/.venv/**" \) \( ! -path "**/*conda*/**" \) \
-    \( ! -path "**/TODO/**" \) \( ! -path "**/__main__/**" \) \( ! -path "**/.git*/**" \) \
-    \( ! -path "**/.graveyard/**" \) \( ! -path "**/*[tT]est*/**" \) \
-    \( ! -path "**/[fF]lask*/**" \) -type d -name -print0 |
-    xargs -0 -I _ echo ":_")
-  # export PYTHONPATH="$PYTHONPATH$path_parts"
-  # export PATH="$PATH:$PYTHONPATH"
-  echo "$PYTHONPATH:$path_parts"
-}
-
-# TODO IMPLEMENT
-# ? Update the time in shell prompt
-# update_prompt_time() {
-#   local cols=$(tput cols)
-#   local time=$(date "+%H:%M")
-#   tput cup $((0)) $((cols - 5))
-#   echo -n $time
-# }

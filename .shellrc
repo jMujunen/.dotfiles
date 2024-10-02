@@ -28,44 +28,19 @@ export GIT_COMMITTER_EMAIL="jMujunen@github.com"
 
 # ZSH
 # ---
-export HISTFILE=$ZDOTDIR/.zsh_history
+export HISTFILE=/home/joona/.dotfiles/.zsh_history
 export ZSH_COMPDUMP=$ZSH/.zcompdump-arch-5.9
-
-# Wayland/Nvidia specific
-# ----------------------
-export ELECTRON_OZONE_PLATFORM_HINT=wayland
-export GBM_BACKEND=nvidia-drm
-export GDK_BACKEND=wayland
-export __GLX_VENDOR_LIBRARY_NAME=nvidia
-export MOZ_ENABLE_WAYLAND=1
-export QSG_RENDERER_LOOP=basics
-# export QT_ENABLE_HIGHDPI_SCALING=1
-export QT_QPA_PLATFORM=wayland
-export GLFW_IM_MODULE=ibus
-
-# NVIDIA
-export SDL_VIDEO_FULLSCREEN_HEAD=1
-export __GL_SYNC_TO_VBLANK=1
-export __GL_SYNC_DISPLAY_DEVICE=DP-2
-export VDPAU_NVIDIA_SYNC_DISPLAY_DEVICE=DP-2
-
-# Hardware Accel
-export LIBVA_DRIVER_NAME=nvidia
-export VDPAU_DRIVER=nvidia
 
 # Random
 # -----
 export MAKEFLAGS="-j$(nproc)"
-export QT_PLUGIN_PATH=/usr/lib/qt/plugins
 export TESSDATA_PREFIX=/usr/share/tessdata
 export DIFFPROG="kitty +kitten diff"
-export MOZ_DISABLE_RDD_SANDBOX=1
 export USER_ZDOTDIR=$ZDOTDIR
 
 # Ollama
 # ------
 export OLLAMA_KEEP_ALIVE=30
-export OLLAMA_MODELS=/home/joona/.ollama/models/
 export OLLAMA_HOST=10.0.0.21:11434
 # Python
 # ------
