@@ -1,6 +1,6 @@
 # Depedancies: bat vscodium
 # ignore=(.\*\\\[+package.\*\?\\\]+\(\\s+\[\\w\\\{\\s=\"\.\*\\[,:\\}\>\<\@\]\))
-source "$ZDOTDIR"/.color_defs
+source $ZSHDOTDIR/.color_defs
 rsync_update(){
   rsync -auihXP --compress-choice=none "$1" "$2" | tqdm  > /dev/null
 }
@@ -336,7 +336,6 @@ rf() {
   source "$ZDOTDIR"/.bash_functions
   source "$ZDOTDIR"/.bash_aliases
   source "$ZDOTDIR"/.consts
-  source "$ZDOTDIR"/.color_defs
   clear
 }
 
