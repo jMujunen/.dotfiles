@@ -70,7 +70,7 @@ export OLLAMA_HOST=10.0.0.21:11434
 # Python
 # ------
 export USE_EMOJI=false # pipx
-UV_CACHE_DIR=$HOME/.cache/uv
+export UV_CACHE_DIR=$HOME/.cache/uv
 # --------------------------------------------------------------- #
 
 # Source dedicated alias file

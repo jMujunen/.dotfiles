@@ -1,53 +1,12 @@
 # Depedancies: bat vscodium
 # ignore=(.\*\\\[+package.\*\?\\\]+\(\\s+\[\\w\\\{\\s=\"\.\*\\[,:\\}\>\<\@\]\))
 source "$ZDOTDIR"/.color_defs
-
-rsync_helper() {
-    printhelp() {
-        echo "Usage: rsync-helpers [OPTION]... SRC DEST"
-        echo -e "Options:"
-        echo -e "\tup*            - upload files from local to remote"
-        echo -e "\tmetadata | meta* - get metadata of a file or directory without transferring actual data"
-        echo -e "\t--help, -h     - display this help and exit"
-        echo -e "\t--list, -l     - list all available options"
-        return 0
-    }
-	case "$1" in
-	--h* | -h* | -l | --l*)
-        printhelp
-        return $?
-        ;;
-    up* | --up*)
-        shift
-        src="$1"
-        dest="$2"
-	    if [[ -z "$src" ]] || [[ -z "$dest" ]]; then
-            echo "Source and Destination are required."
-            printhelp
-      fi
-	    rsync -auihXP --compress-choice=none "$1" "$2" | tqdm --bytes  > /dev/null
-	    return $?
-        ;;
-    metadata | --meta*)
-        shift
-        if [[ -z "$src" ]] || [[ -z "$dest" ]]; then
-            echo "Source and Destination are required."
-            printhelp
-        fi
-        src="$1"
-        dest="$2"
-	    rsync -aihXP --compress-choice=none "$1"  "$2" | tqdm --bytes  > /dev/null
-        return $?
-        ;;
-    esac
+rsync_update(){
+  rsync -auihXP --compress-choice=none "$1" "$2" | tqdm  > /dev/null
 }
-
-# # ffmpeg helper until I remember the specific commands
-# ffmpeg_helper() {
-# 	cmd="$1"
-# 	case "$cmd" i
-# }
-
+rsync_metadata(){
+  rsync -aihXP --compress-choice=none "$1"  "$2" | tqdm  > /dev/null
+}
 kitty_integration_custom() {
 
   # -------------- #
@@ -188,8 +147,14 @@ get() {
 }
 
 pylint() {
-  ruff format --config=$HOME/.dotfiles/ruff.toml
-  ruff check --fix --config=$HOME/.dotfiles/ruff.toml --ignore-noqa
+  case "$1" in
+  f*)
+    ruff format --config=$HOME/.dotfiles/ruff.toml
+    ;;
+  c*)
+    ruff check --fix --config=$HOME/.dotfiles/ruff.toml --ignore-noqa
+    ;;
+  esac
 }
 
 touch() {
@@ -203,7 +168,22 @@ touch() {
   case "$1" in
   *.py)
     # Add Python hashbang and execute permissions
-    echo "#!/usr/bin/env python3" >"$1"
+    echo "#!/usr/bin/env python3" > "$1"
+	echo """
+import sys
+import os
+from Color import cprint
+
+def main() -> None:
+	pass
+
+if __name__ == '__main__':
+	try:
+		main()
+	except Exception as e:
+		cprint.error(f'{e!r}')
+		sys.exit(1)
+	sys.exit(0)""" >> "$1"
     chmod +x "$1" && $EDITOR "$1"
     ;;
   *.sh)
@@ -247,15 +227,13 @@ check_mail() {
   # Check if the services log file exists and is not empty
   if [[ -n "$(cat "$MAIL/services.log")" ]]; then
     process "$MAIL/services.log"
-  else
-    echo -e "\033[32;2mThe services log is empty.\033[0m"
   fi
   if [[ -n "$(cat "$MAIL/script_failure-notification.sh")" ]]; then
     process "$MAIL/script_failure-notification.sh"
-  else
-    echo -e "\033[32;2mThe script failure log is empty.\033[0m"
   fi
-
+  if [[ -n "$(cat "$MAIL/user_services.log")" ]]; then
+    process "$MAIL/user_services.log"
+  fi
   # BASH compatibility
   # if [[ $reply =~ ^[Yy]?$|^$ ]]; then
   #  echo "" >$MAIL/services.log
@@ -435,21 +413,9 @@ bte() {
     ;;
   esac
 }
-
-fdisk_less_verbose() {
-  sudo fdisk -l --output Device,Size,Type
-  # TODO
-  # * Colorize output
-
-}
 osrs_hydra() {
   cd /home/joona/python/macros/ || return 1
   sudo poetry -C /home/joona/ run python3 count_hydra_attacks.py
-}
-
-disk_usage() {
-  poetry -C /home/joona/ run python3 "$HOME/python/scripts/bashhelpers/ColorizeOutput/df.py"
-  # df -Ph | awk '{printf "%-16s %-8s %-10s\n", $1, $5, $6}' - Depreciated
 }
 
 clear_zsh_cache() {
@@ -505,7 +471,7 @@ update_python_path() {
     xargs -0 -I _ echo ":_")
   # export PYTHONPATH="$PYTHONPATH$path_parts"
   # export PATH="$PATH:$PYTHONPATH"
-  echo "$path_parts"
+  echo "$PYTHONPATH:$path_parts"
 }
 
 # TODO IMPLEMENT

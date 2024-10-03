@@ -93,12 +93,17 @@
 
 # <-- ALT_R, CTRL_R, SHIFT_R META_R/WIN_R --> #cd
 "openrgb -p sunset"
-  m:0x18 + c:39
-  Alt+Mod2 + s
+  m:0x1d + c:39
+  Control+Shift+Alt+Mod2 + s
+
+  # m:0x18 + c:39
+  # Alt+Mod2 + s
 
 "openrgb -p off"
-  m:0x18 + c:32
-  Alt+Mod2 + o
+  m:0x1d + c:32
+  Control+Shift+Alt+Mod2 + o
+  # m:0x18 + c:32
+  # Alt+Mod2 + o
 
 ##################################
 # End of xbindkeys configuration #

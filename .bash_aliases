@@ -45,8 +45,8 @@ alias find_='find . \( ! -path "**/__pycache__" \) \( ! -path "**/venv" \) \
 alias feh="feh -g 1920x1080 --draw-filename --draw-exif --draw-tinted \
 -S filename --scale-down --output-dir /home/joona/Picture/feh \
 --quiet --borderless -C /usr/share/fonts/TTF/ --title-font=FantasqueSansMNerdFontMono-Regular/12"
-alias montage='feh --montage --thumb-width 426 --thumb-height 240 --limit-width 1920 --limit-height 1080 \
---borderless --stretch --output=/tmp/montage.png -C /usr/share/fonts/TTF/ --title-font=FantasqueSansMNerdFontMono-Regular/12'
+alias montage='feh --montage --thumb-width 160 --limit-width 3840 --limit-height 1080 \
+--borderless --stretch --output=montage.png -C /usr/share/fonts/TTF/ --title-font=FantasqueSansMNerdFontMono-Regular/12'
 alias ff="cd $HOME/.mozilla/firefox/$ffid"
 alias ffp="firefox --private-window &"
 alias ff_profile="firefox --ProfileManager &"
@@ -84,7 +84,7 @@ alias printenv="/bin/sh $HOME/scripts/printenv_color.sh | sort"
 alias pyp='cd $HOME/python/Projects/ && ls -alph --group-directories-first'
 alias psg="ps aux | grep -E"
 alias psm='ps_sorted membuff'
-alias py='uv run python3'
+alias py='/home/joona/.venv/bin/python3'
 alias rg='rg --no-ignore --hidden --ignore-file=/home/joona/.dotfiles/.ripgrep_ignore'
 alias rmf='rm -rf'
 alias rm="rm -d"
@@ -120,7 +120,7 @@ alias s='s --provider duckduckgo'
 alias root='sudo --preserve-env -s'
 
 alias llamalist='python3 -m ollama_list'
-alias llamalog='journalctl -e -u ollama'
+alias llamalog='journalctl --user -e -u ollama'
 alias llamaupdate='curl -fsSL https://ollama.com/install.sh | sh && sleep 2;
 					sudo systemctl disable --now ollama \
 					&& systemctl --user restart --now ollama'
@@ -195,7 +195,7 @@ alias sort-webcam='poetry -C /home/joona run python3 /home/joona/python/scripts/
 alias f='fastfetch --config ~/.config/fastfetch/paleofetch.jsonc'
 alias tree='tree -a --dirsfirst'
 alias treei='tree -a --dirsfirst --gitfile=/home/joona/.gitignore_global'
-alias namegrep='rg --files | rg'
+alias find_='rg --files | rg'
 alias trash='send2trash'
 # dbus
 alias brightness='qdbus6 org.kde.Solid.PowerManagement \
