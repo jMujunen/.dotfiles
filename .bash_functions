@@ -1,11 +1,11 @@
-# Depedancies: bat vscodium
+# Depedancies: bat, vscodium
 # ignore=(.\*\\\[+package.\*\?\\\]+\(\\s+\[\\w\\\{\\s=\"\.\*\\[,:\\}\>\<\@\]\))
 source "$ZDOTDIR"/.color_defs
 rsync_update(){
-  rsync -auihXP --compress-choice=none "$1" "$2" | tqdm  > /dev/null
+  rsync -auihXv --partial --compress-choice=none "$1" "$2" | python3 -m ProgressBar $(find "$1" -type f | wc) > /dev/null
 }
 rsync_metadata(){
-  rsync -aihXP --compress-choice=none "$1"  "$2" | tqdm  > /dev/null
+  rsync -aihXv --partial --compress-choice=none "$1"  "$2" | python3 -m ProgressBar $(find "$1" -type f | wc) > /dev/null
 }
 kitty_integration_custom() {
 
@@ -24,11 +24,11 @@ kitty_integration_custom() {
     case "$1" in
     *plain | --no* | *default)
       shift
-      kitty +kitten panel --edge=background "$*"
+      kitty +kitten panel --edge=background $*
       return $?
       ;;
     *)
-      kitty +kitten panel --config="$_panelcfg" --edge=background "$*"
+      kitty +kitten panel --config="$_panelcfg" --edge=background $*
       ;;
     esac
   }
@@ -219,7 +219,9 @@ check_mail() {
     read -r reply
     # If the user confirms or provides no input, clear the log file.
 
-    # ZSH compatibility
+    # BASH compatibility
+    # if [[ $reply =~ ^[Yy]?$|^$ ]]; then
+
     if [[ $reply =~ "[yY]|^$" ]]; then
       echo "" >"$1"
     fi
@@ -234,11 +236,7 @@ check_mail() {
   if [[ -n "$(cat "$MAIL/user_services.log")" ]]; then
     process "$MAIL/user_services.log"
   fi
-  # BASH compatibility
-  # if [[ $reply =~ ^[Yy]?$|^$ ]]; then
-  #  echo "" >$MAIL/services.log
-  #  echo "Log cleared"
-  # fi
+
 }
 
 help() {
@@ -342,9 +340,8 @@ rf() {
 
 # Auto Bluetooth Connections
 bte() {
-  local action device if_status buds speaker
+  local action device buds speaker
   # Define constants for status and devices
-  if_status=$(rfkill | grep bluetooth | awk '{print $4"\n"$5}')
   buds="F8:4E:17:B5:0E:8D"    # SonyXM4Earphones
   speaker="E8:07:BF:66:25:FB" # Marley Get Together
 
@@ -356,28 +353,11 @@ bte() {
     echo -e "\t buds    : Sony XM4 Earphones"
     echo -e "\t speaker : Marley Get Together"
   }
-  if ! bluetoothctl power on; then
+  if ! bluetoothctl power on &>/dev/null; then
     echo -e "\033[31mError powering on bluetooth module\033[0m"
   fi
-  connect() {
-    info "Attempting to connect to $2"
-    if ! bluetoothctl connect "$1" >/dev/null 2>&1; then
-      error "$2 not available"
-    else
-      success "Connected to $2"
-    fi
-  }
-
-  disconnect() {
-    info "Attempting to disconnect from $2"
-    if ! bluetoothctl disconnect "$1" >/dev/null 2>&1; then
-      error "Error disconnecting from $2"
-    else
-      success "Disconnected from $2"
-    fi
-  }
   # Check for null pointer references and handle exceptions
-  if [[ -z "$1" ]]; then
+  if [[ -z "$1" ]] || [[ "$1" == "help" ]]; then
     printhelp | bat -ppl help
     return 1
   fi
@@ -401,10 +381,24 @@ bte() {
 
   case "$action" in
   connect)
-    connect "$address" "$device"
+    info "Attempting to connect to $device"
+    if ! bluetoothctl connect "$address" >/dev/null 2>&1; then
+      error "$2 not available"
+    else
+      success "Connected to $device"
+    fi
     ;;
   disconnect)
-    disconnect "$address" "$device"
+    info "Attempting to disconnect from $device"
+    if ! bluetoothctl disconnect "$address" >/dev/null 2>&1; then
+      error "Error disconnecting from $device"
+    else
+      success "Disconnected from $device"
+    fi
+    ;;
+  bat*)
+    battery=$(bluetoothctl info | grep  -oP "(?:0x14)\s\(\d+\)" | sed -E "s/.*\(([0-9]+)\).*/\1/")
+    echo -e "\033[34m$battery%\033[0m"
     ;;
   *)
     error "$action not supported"
