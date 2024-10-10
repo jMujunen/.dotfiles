@@ -35,10 +35,12 @@ inverse='\033[7m'
 # Convinience functions for output.
 info() {
     echo -e "${blue}Info:${RESET} $*"
+    return 0
 }
 
 warn() {
     echo -e "${yellow}Warning:${RESET} $*"
+    return 0
 }
 
 # stdout.debug() {
@@ -49,13 +51,15 @@ warn() {
 
 success() {
     echo -e "${green}Success:${RESET} $*"
+    return 0
 }
 
 error() {
     echo -e "${red}Error:${RESET} $*" >&2
+    return 1
 }
 
 fatal() {
     echo -e "${red}${underline}Fatal Error:${RESET} ${red}$*" >&2
-    exit 1
+    return 1
 }
