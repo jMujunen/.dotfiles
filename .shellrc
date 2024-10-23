@@ -5,7 +5,7 @@ export MICRO_TRUECOLOR=1
 export CALCHISTFILE=$HOME/.cache/.calc_history
 
 
-export PYTHONPYCACHEPREFIX=$HOME/.cache/__pycache__
+# export PYTHONPYCACHEPREFIX=$HOME/.cache/__pycache__
 export PYTHONPATH=$HOME/.ipython/profile_main/:$HOME/python/modules/:\
 $HOME/python/scripts/:$HOME/python/:$HOME/python/scripts/bashhelpers/:\
 $HOME/python/scripts/bashhelpers/ColorizeOutput/:$HOME/python/Projects/termllama/termllama/:\
@@ -13,7 +13,7 @@ $HOME/python/Projects/fsutils/:$HOME/python/Projects/fsutils/fsutils:\
 $HOME/python/libs/hwutils/hwutils/:$HOME/python/Projects/hwutils:\
 $HOME/python/Projects/hwutils/hwutils:$HOME/python/scripts/hass:\
 $HOME/python/scripts/bashhelpers/pacman:$HOME/python/Projects/fsutils/scripts:\
-$HOME/python/Projects/Momentis/src
+$HOME/python/Projects/Momentis:$HOME/python/Projects/Momentis/momentis:$HOME/python/libs/
 
 export PATH=$HOME/.dotfiles/:$HOME/scripts/:$HOME/scripts/graphing/:\
 $HOME/scripts/git_scripts/:$HOME/.local/bin:$HOME/scripts/shutdown:\
@@ -25,11 +25,11 @@ $HOME/python/scripts/files/:/home/joona/.local/bin/:$PATH:$PYTHONPATH
 # ---
 export GIT_COMMITTER_NAME="J Mujunen"
 export GIT_COMMITTER_EMAIL="jMujunen@github.com"
-
+export GIT_CONFIG_GLOBAL="$HOME/.config/git/.gitconfig"
 # ZSH
 # ---
 export HISTFILE=$ZDOTDIR/.zsh_history
-export ZSH_COMPDUMP=$ZSH/.zcompdump-arch-5.9
+# export ZSH_COMPDUMP=$ZSH/.zcompdump-arch-5.9
 
 # Wayland/Nvidia specific
 # ----------------------
@@ -38,9 +38,9 @@ export GBM_BACKEND=nvidia-drm
 export GDK_BACKEND=wayland
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export MOZ_ENABLE_WAYLAND=1
-export QSG_RENDERER_LOOP=basics
+# export QSG_RENDERER_LOOP=basics
 # export QT_ENABLE_HIGHDPI_SCALING=1
-# export QT_PLUGIN_PATH=/usr/lib/qt/plugins:/usr/lib/qt6/plugins
+export QT_PLUGIN_PATH=/usr/lib/qt/plugins:/usr/lib/qt6/plugins
 export QT_QPA_PLATFORM=wayland
 
 # NVIDIA
@@ -56,7 +56,6 @@ export VDPAU_DRIVER=nvidia
 # Random
 # -----
 export MAKEFLAGS="-j$(nproc)"
-# export QT_PLUGIN_PATH=/usr/lib/qt6/plugins
 export TESSDATA_PREFIX=/usr/share/tessdata
 export DIFFPROG="kitty +kitten diff"
 export MOZ_DISABLE_RDD_SANDBOX=1
@@ -70,8 +69,8 @@ export OLLAMA_HOST=10.0.0.21:11434
 # Python
 # ------
 export USE_EMOJI=false # pipx
-export UV_CACHE_DIR=$HOME/.cache/uv
-export MYPY_CACHE_DIR=$HOME/.cache/.mypy_cache
+# export UV_CACHE_DIR=$HOME/.cache/uv
+# export MYPY_CACHE_DIR=$HOME/.cache/.mypy_cache
 # --------------------------------------------------------------- #
 
 # Source dedicated alias file
