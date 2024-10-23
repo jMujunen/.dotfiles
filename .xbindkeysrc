@@ -42,34 +42,11 @@
 "xbindkeys_show"
   control+shift + q
 
-# set directly keycode (here control + f with my keyboard)
-#"xterm"
-#  c:41 + m:0x4
-
-# specify a mouse button
-#"xterm"
-#  control + b:2
-
-#"xterm -geom 50x20+20+20"
-#   Shift+Mod2+alt + s
-#
-## set directly keycode (here control+alt+mod2 + f with my keyboard)
-#"xterm"
-#  alt + c:0x29 + m:4 + mod2
-#
-## Control+Shift+a  release event starts rxvt
-#"rxvt"
-#  release+control+shift + a
-#
-## Control + mouse button 2 release event starts rxvt
-#"rxvt"*
-#  Control + b:2 + Release
-
 # Macro for mouse button 9 (or 4 according to SteelSeries)
 # "sh -c 'kdialog --msgbox message optional_detailed_message'"
 # b:9
 # Open Firefox
-"firefox --url http://10.0.0.50:8081"
+"firefox --url http://10.0.0.50:2283"
   Control + b:2
 
 # Printscreen for screenshots

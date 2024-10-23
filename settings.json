@@ -465,7 +465,7 @@
     "editor.guides.indentation": true,
     "editor.codeActionsOnSave": {
       "source.fixAll.shellcheck": "explicit"
-    },
+    }
   },
   "[sh]": {
     "editor.defaultFormatter": "foxundermoon.shell-format",
@@ -478,7 +478,7 @@
     "editor.guides.highlightActiveIndentation": true,
     "editor.guides.bracketPairs": true,
     "editor.guides.bracketPairsHorizontal": false,
-    "editor.guides.indentation": true,
+    "editor.guides.indentation": true
   },
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -533,13 +533,13 @@
       "source.fixAll.ruff": "explicit"
     },
     "editor.fontVariations": true,
-    "diffEditor.ignoreTrimWhitespace": false,
+    "diffEditor.ignoreTrimWhitespace": false
   },
   // Python specific settings
   "pyright.disableTaggedHints": false,
   "python.analysis.exclude": [
     "**/__init__/",
-    "**/.ipython/**",
+    "**/.ipython/**"
   ],
   "python.languageServer": "None",
   "python.analysis.logLevel": "Warning",
@@ -564,7 +564,7 @@
     "enable": true
   },
   "ruff.codeAction.fixViolation": {
-    "enable": true,
+    "enable": true
   },
   "ruff.exclude": [
     "/home/joona/.ipython/**"
@@ -626,7 +626,7 @@
   "shfmt.executableArgs": [
     "--binary-next-line",
     "--case-indent",
-    "--space-redirects",
+    "--space-redirects"
   ],
   // <- Extentions ->
   // ---------------
@@ -691,7 +691,7 @@
     ],
     "LIST": [
       "[ ]",
-      "- [ ]",
+      "- [ ]"
     ]
   },
   "todo-tree.highlights.defaultHighlight": {
@@ -905,8 +905,8 @@
     // { "tag": ["todo", "to-do"], "color": "#FF8C00" },
     {
       "tag": " - ",
-      "color": "#7EBAB2",
-    },
+      "color": "#7EBAB2"
+    }
   ],
   "scm.inputFontSize": 14,
   "files.associations": {
@@ -914,7 +914,7 @@
     "*.gitconfig": "ini",
     "*.consts": "shellscript",
     "*.color_defs": "shellscript",
-    "*.ipynb": "python",
+    "*.ipynb": "python"
     // "*.ini": "properties"
   },
   "search.searchEditor.singleClickBehaviour": "peekDefinition",
@@ -1047,7 +1047,7 @@
     "hosts",
     "ignore",
     "gitignore",
-    "properties",
+    "properties"
   ],
   "diffEditor.experimental.showMoves": true,
   "diffEditor.experimental.useTrueInlineView": true,
@@ -1136,7 +1136,7 @@
       "compare": true,
       "remote": true,
       "history": true,
-      "blame": true,
+      "blame": true
     },
     "editorTab": {
       "clipboard": true,
@@ -1154,7 +1154,7 @@
   "gitlens.views.fileHistory.files.layout": "tree",
   "gitlens.heatmap.locations": [
     "gutter",
-    "overview",
+    "overview"
   ],
   "gitlens.statusBar.enabled": false,
   "gitlens.views.fileHistory.avatars": false,
@@ -1218,7 +1218,7 @@
   "inline-parameters.enabled": true,
   "window.customTitleBarVisibility": "auto",
   "window.menuBarVisibility": "compact",
-  "workbench.activityBar.location": "hidden",
+  "workbench.activityBar.location": "hidden"
 }
 // "markdown-pdf.outputDirectory": "/home/joona/Notes/PDF/",
 // "highlight.regexes": {

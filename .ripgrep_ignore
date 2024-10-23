@@ -11,7 +11,7 @@
 **/*.lock
 **/pyproject.toml
 **/VSCodium/
-
+**/.obsidian/
 *.css
 *.lua
 *.js

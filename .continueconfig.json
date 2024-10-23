@@ -19,7 +19,7 @@
       "provider": "ollama",
       "model": "deepseek-coder-v2:latest",
       "apiBase": "http://10.0.0.21:11434",
-      "contextLength": 2560
+      "contextLength": 4096
     },
     {
       "title": "qwen2.5",
@@ -32,9 +32,9 @@
   "completionOptions": {
     "temperature": 0.2,
     // "mirostat": 1,
-    "keepAlive": 60,
+    "keepAlive": 30,
     "numThreads": 10,
-    "maxTokens": 1024
+    "maxTokens": 1500
     // "topK": 5,
     // "topP": 0.9
   },
@@ -44,32 +44,28 @@
       "provider": "ollama",
       "model": "deepseek-coder:6.7b",
       "apiBase": "http://10.0.0.21:11434",
-      "contextLength": 2560
-      // "completionOptions": {
-      // "maxTokens": 128
-      // }
+      "contextLength": 2560,
     },
     {
       "title": "qwen2.5",
       "provider": "ollama",
       "model": "qwen2.5-coder:latest",
       "apiBase": "http://10.0.0.21:11434",
-      "contextLength": 2048
+      "contextLength": 2048,
+      "completionOptions": {
+        "maxTokens": 64
+      }
     },
     {
       "title": "Deepseek V2",
       "provider": "ollama",
       "model": "deepseek-coder-v2:latest",
       "apiBase": "http://10.0.0.21:11434",
-      "contextLength": 2048
+      "contextLength": 1024,
+      "completionOptions": {
+        "maxTokens": 64
+      }
     },
-    // {
-    //   "title": "Deepseek Coder V2",
-    //   "provider": "ollama",
-    //   "model": "deepseek-coder-v2:16b-lite-instruct-q2_K",
-    //   "apiBase": "http://10.0.0.21:11434",
-    //   "contextLength": 512
-    // },
     {
       "title": "codegeex4:9b",
       "provider": "ollama",
@@ -78,7 +74,7 @@
       "contextLength": 1600,
       "completionOptions": {
         "temperature": 0.2,
-        "maxTokens": 128
+        "maxTokens": 64
       }
     }
   ],
