@@ -2,10 +2,10 @@
 # ignore=(.\*\\\[+package.\*\?\\\]+\(\\s+\[\\w\\\{\\s=\"\.\*\\[,:\\}\>\<\@\]\))
 source "$ZDOTDIR"/.color_defs
 rsync_update(){
-  rsync -auihXv --partial --compress-choice=none "$1" "$2" | python3 -m ProgressBar $(find "$1" -type f | wc) > /dev/null
+  rsync -auXv "$1" "$2" | python3 -m ProgressBar $(find "$1" | wc -l)
 }
 rsync_metadata(){
-  rsync -aihXv --partial --compress-choice=none "$1"  "$2" | python3 -m ProgressBar $(find "$1" -type f | wc) > /dev/null
+  rsync -aXv "$1"  "$2" | python3 -m ProgressBar $(find "$1"| wc -l)
 }
 kitty_integration_custom() {
 
