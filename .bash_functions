@@ -42,7 +42,7 @@ cdl() {
   if [[ -d .venv ]]; then
     source .venv/bin/activate
   fi
-  # Deactive project venv and reactivate global venv ($HOME/.venv) when exiting the directory
+  # Deactivate project venv and reactivate global venv ($HOME/.venv) when exiting the directory
   _exit_venv() {
     deactivate
     source $HOME/.venv/bin/activate
@@ -276,10 +276,32 @@ cd_up() {
 batfollow() {
   file="$1"
   lang=csv
-  if [[ $# -gt 1 ]] && [[ $2 =~ "-l|--language" ]]; then
-    lang=$3
-  fi
-  tail -f "$file" | bat -ppl "$lang"
+  num=10
+
+  case "$2" in
+  -l)
+    shift
+    lang=$2
+    ;;
+  -n)
+    shift
+    num=$2
+    ;;
+  *)
+    num=10
+  esac
+
+  case $3 in
+   -n)
+     shift
+     num=$3
+    ;;
+  -l)
+    shift
+     lang=$3
+     ;;
+  esac
+  tail -f "$file" -n $num | bat -ppl "$lang"
 }
 
 # Change dir, then list dir contents
