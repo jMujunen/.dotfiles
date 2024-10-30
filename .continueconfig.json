@@ -197,7 +197,7 @@
       "startUrl": "https://docs.continue.dev/intro",
       "rootUrl": "https://docs.continue.dev",
       "faviconUrl": "https://docs.continue.dev/favicon.ico",
-      "maxDepth": 3
+      "maxDepth": 5
     },
     {
       "title": "Kitty",

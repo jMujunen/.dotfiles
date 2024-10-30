@@ -196,9 +196,6 @@
     "strings": true
   },
   "editor.copyWithSyntaxHighlighting": true,
-  // "editor.codeActionsOnSave": {
-  //   "source": "explicit"
-  // },
   "git.suggestSmartCommit": true,
   // Explorer
   "explorer.confirmDragAndDrop": false,
@@ -530,7 +527,7 @@
     "editor.guides.indentation": true,
     "editor.codeActionsOnSave": {
       "source.organizeImports": "explicit",
-      "source.fixAll.ruff": "explicit"
+      "source.fixAll.ruff": "explicit",
     },
     "editor.fontVariations": true,
     "diffEditor.ignoreTrimWhitespace": false
@@ -576,6 +573,12 @@
     "reportOptionalIterable",
     "reportOptionalMemberAccess",
     "reportIncompatibleMethodOverride"
+  ],
+  "ruff.lint.args": [
+    "--extend-select=UP"
+  ],
+  "ruff.format.args": [
+    "--ignore-noqa",
   ],
   "pyright.disableLanguageServices": false,
   "pyright.disableOrganizeImports": true,

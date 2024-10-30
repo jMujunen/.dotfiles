@@ -13,7 +13,8 @@ $HOME/python/Projects/fsutils/:$HOME/python/Projects/fsutils/fsutils:\
 $HOME/python/libs/hwutils/hwutils/:$HOME/python/Projects/hwutils:\
 $HOME/python/Projects/hwutils/hwutils:$HOME/python/scripts/hass:\
 $HOME/python/scripts/bashhelpers/pacman:$HOME/python/Projects/fsutils/scripts:\
-$HOME/python/Projects/Momentis:$HOME/python/Projects/Momentis/momentis:$HOME/python/libs/
+$HOME/python/Projects/Momentis:$HOME/python/Projects/Momentis/momentis:\
+$HOME/python/cython:$HOME/python/libs/
 
 export PATH=$HOME/.dotfiles/:$HOME/scripts/:$HOME/scripts/graphing/:\
 $HOME/scripts/git_scripts/:$HOME/.local/bin:$HOME/scripts/shutdown:\
