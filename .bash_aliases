@@ -74,8 +74,8 @@ alias nano="micro"
 alias notes="nohup firefox --url 0.0.0.0:8000/ &>/dev/null && exit"
 alias open="xdg-open"
 alias osrshydra="osrs_hydra" # .bash_function
-alias osrs="nohup flatpak run com.jagexlauncher.JagexLauncher &>/dev/null & disown && kitty +kitten panel --edge=background --config=/home/joona/.config/kitty/panel.d/bg_padded.conf gping 10.0.0.1 -c cyan -b 180 &>/dev/null & disown"
-alias osrsping="gping -c cyan oldschool78.runescape.com"
+alias osrs="nohup flatpak run com.jagexlauncher.JagexLauncher &>/dev/null & disown && kitty +kitten panel --edge=background --config=/home/joona/.config/kitty/panel.d/bg_padded.conf gping 10.0.0.1 -b 180 -c '#a7c080' &>/dev/null & disown"
+alias osrsping="gping -c '#a7c080' oldschool78.runescape.com"
 alias paste="wl-paste"
 alias pics='cd_pics' # .bash_function
 alias printenv="/bin/sh $HOME/scripts/printenv_color.sh | sort"
@@ -181,7 +181,7 @@ alias clips='cd /mnt/ssd/OBS && ls -Alph --group-directories-first'
 # fzf
 alias dir="fzf --preview 'fzf-preview.sh {}'"
 # Kitty panel
-alias kp-ping="kitty +kitten panel --edge=background --config=/home/joona/.config/kitty/panel.d/bg_padded.conf gping 10.0.0.1 -c cyan -b 180 &>/dev/null & disown"
+alias kp-ping="kitty +kitten panel --edge=background --config=/home/joona/.config/kitty/panel.d/bg_padded.conf gping 10.0.0.1 -c '#a7c080' -b 180 &>/dev/null & disown"
 alias cam='source $HOME/.venv/bin/activate && python3 /home/joona/python/scripts/files/dir_sort.py \
 	/mnt/hdd/webcam /mnt/hdd/sorted-webcam-clips && \
 	cd /mnt/hdd/sorted-webcam-clips/$(date +%Y)/$(date +%B)/$(date +%-d) && ls -Altr'
@@ -211,6 +211,7 @@ alias pacrecent="expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort | tail -n 20"
 alias cwd='pwd | tee /dev/tty | copy'
 alias splot='systemd-analyze plot > /tmp/plot.svg && firefox /tmp/plot.svg'
 alias lsc='ls -1 | wc -l'
+
 
 # alias kp="kitty +kitten panel --edge=background sh -c '$1'"r
 # alias xclip="xclip -selection clipboard"
