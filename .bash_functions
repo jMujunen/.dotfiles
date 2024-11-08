@@ -1,6 +1,9 @@
 # Depedancies: bat, vscodium
 # ignore=(.\*\\\[+package.\*\?\\\]+\(\\s+\[\\w\\\{\\s=\"\.\*\\[,:\\}\>\<\@\]\))
 source "$ZDOTDIR"/.color_defs
+
+
+
 rsync_update(){
   rsync -auXv "$1" "$2" | python3 -m ProgressBar $(find "$1" | wc -l)
 }
@@ -35,6 +38,18 @@ kitty_integration_custom() {
 }
 # Check if the terminal is kitty and run custom integration if true
 [[ "$TERM" == "xterm-kitty" ]] && kitty_integration_custom
+
+function iplot {
+    cat <<EOF | gnuplot
+    set terminal pngcairo enhanced font 'Fira Sans,10'
+    set autoscale
+    set samples 1000
+    set output '|kitten icat --stdin yes'
+    set object 1 rectangle from screen 0,0 to screen 1,1 fillcolor rgb"#fdf6e3" behind
+    plot $@
+    set output '/dev/null'
+EOF
+}
 
 cdl() {
   # Check for virtual environment when cd-ing into a directory
@@ -333,23 +348,19 @@ cd_pics() {
   ls -ltuph --group-directories-first
 }
 
-p() {
-  # Poetry alias/function
-  case "$1" in
-  add)
-    shift
-    uv add "$@"
-    uv sync
-    ;;
-  rm | remove)
-    shift
-    uv remove "$@"
-    ;;
-  *)
-    uv "$@"
-    ;;
-  esac
-}
+# uv_init() {
+# 	path="$1"
+# 	shift
+# 	if [ -z "$path" ]; then
+# 		path="$(pwd)"
+# 	fi
+#     uv init --color=always --no-workspace --no-pin-python --author-from=git --vcs=git "$@" && \
+# 		rm "./$path/hello.py" >&/dev/null || \
+# 	    echo -e "\033[31mError:\033[0m Failed to remove ./$path/hello.py \t\t\t \033[30m.bash_functions.uv-init(357)\033[0m"
+# 	else
+# 		"\033[31mError:\033[0m uv init failed! args=$* \t\t\t \033[30m.bash_functions.uv-init(360)\033[0m"
+# 	fi
+# }
 
 rf() {
   source "$ZDOTDIR"/.shellrc

@@ -44,7 +44,7 @@
       "provider": "ollama",
       "model": "deepseek-coder:6.7b",
       "apiBase": "http://10.0.0.21:11434",
-      "contextLength": 2560,
+      "contextLength": 2560
     },
     {
       "title": "qwen2.5",
