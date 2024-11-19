@@ -1,39 +1,45 @@
 {
   "models": [
     {
-      "title": "Deepseek Coder 6.7B",
+      "title": "Deepseek Coder 6.7B:6000",
       "provider": "ollama",
       "model": "deepseek-coder:6.7b",
       "apiBase": "http://10.0.0.21:11434",
-      "contextLength": 6000
+      "contextLength": 4000
     },
     {
-      "title": "CodeGeex4",
+      "title": "CodeGeex4:4096",
       "provider": "ollama",
       "model": "codegeex4:9b",
       "apiBase": "http://10.0.0.21:11434",
       "contextLength": 4096
     },
     {
-      "title": "Deepseek V2",
+      "title": "Deepseek V2:4096",
       "provider": "ollama",
       "model": "deepseek-coder-v2:latest",
       "apiBase": "http://10.0.0.21:11434",
       "contextLength": 4096
     },
     {
-      "title": "qwen2.5",
+      "title": "qwen2.5-code:4096",
       "provider": "ollama",
       "model": "qwen2.5-coder:latest",
       "apiBase": "http://10.0.0.21:11434",
-      "contextLength": 2048
+      "contextLength": 4096
+    },
+    {
+      "title": "Ollama",
+      "provider": "ollama",
+      "model": "AUTODETECT",
+      "apiBase": "http://10.0.0.21:11434"
     }
   ],
   "completionOptions": {
     "temperature": 0.2,
     // "mirostat": 1,
     "keepAlive": 30,
-    "numThreads": 10,
+    "numThreads": 18,
     "maxTokens": 1500
     // "topK": 5,
     // "topP": 0.9
@@ -47,11 +53,21 @@
       "contextLength": 2560
     },
     {
-      "title": "qwen2.5",
+      "title": "qwen2.5-7B:2048",
       "provider": "ollama",
       "model": "qwen2.5-coder:latest",
       "apiBase": "http://10.0.0.21:11434",
       "contextLength": 2048,
+      "completionOptions": {
+        "maxTokens": 64
+      }
+    },
+    {
+      "title": "qwen2.5-7B_base_Q5:2048",
+      "provider": "ollama",
+      "model": "qwen2.5-coder:7b-base-q5_K_M",
+      "apiBase": "http://10.0.0.21:11434",
+      "contextLength": 1024,
       "completionOptions": {
         "maxTokens": 64
       }
@@ -79,14 +95,12 @@
     }
   ],
   "tabAutocompleteOptions": {
-    "temperature": 0.2,
     "useCopyBuffer": false,
     "multilineCompletions": "auto",
     // "maxPromptTokens": 256,
     "useCache": true,
     "useOtherFiles": true,
     "disable": false,
-    "useSuffix": true,
     "useFileSuffix": true,
     "maxSuffixPercentage": 30,
     "debounceDelay": 100

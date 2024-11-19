@@ -1,4 +1,4 @@
-# Depedancies: bat, vscodium
+# Depedancies: bat, vscodium --profile=Base
 # ignore=(.\*\\\[+package.\*\?\\\]+\(\\s+\[\\w\\\{\\s=\"\.\*\\[,:\\}\>\<\@\]\))
 source "$ZDOTDIR"/.color_defs
 
@@ -97,7 +97,7 @@ cfg() {
     return 1
   fi
   if [[ "$2" =~ "-c|c" ]]; then
-    _CURRENTEDITOR=vscodium
+    _CURRENTEDITOR=vscodium --profile=Base
   else
     _CURRENTEDITOR=$EDITOR
   fi
@@ -143,7 +143,7 @@ render() {
   printf "%*s\n" "50" "$1"
 }
 add() {
-  vscodium --add "$@"
+  vscodium --profile=Base --add "$@"
 }
 
 get() {
@@ -500,7 +500,9 @@ update_python_path() {
   # export PATH="$PATH:$PYTHONPATH"
   echo "$PYTHONPATH:$path_parts"
 }
-
+ollama_show() {
+  ollama show "$1" --modelfile | bat --style=full --paging=always -pl asm
+}
 # TODO IMPLEMENT
 # ? Update the time in shell prompt
 # update_prompt_time() {

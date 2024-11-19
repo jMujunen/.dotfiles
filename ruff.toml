@@ -73,11 +73,11 @@ docstring-code-format = true
 docstring-code-line-length = "dynamic"
 
 [lint]
-select = ["E", "F", "C", 'W', "B", "UP", "D107", "D104","D301","D401","D400","ANN201", "ANN206", "S103", "S105", "S112", "S110", "A", "EXE", "PIE", "RET", "SIM", "PLR", "PLW", "RUF", "PTH","D417","D406","FBT","PERF","D212"] # 'D' Django, 'ANN' annotations, 'S' built-ins, 'A', 'EXE', 'PIE', 'RET', 'SIM', 'PLR', 'PLW', 'RUF' ruff-lint ,'C' codesmell, 'E' convention, 'F' error, 'B' bug, 'UP' unused variables, 'W' warning.
+select = ["E", "F", "C", 'W', "B", "UP", "D107", "D104","D301","D401","D400","ANN201", "ANN206", "S103", "S105", "S112", "S110", "A", "EXE", "PIE", "RET", "SIM", "PLR", "PLW", "RUF", "PTH","D406","FBT","PERF","D212"] # 'D' Django, 'ANN' annotations, 'S' built-ins, 'A', 'EXE', 'PIE', 'RET', 'SIM', 'PLR', 'PLW', 'RUF' ruff-lint ,'C' codesmell, 'E' convention, 'F' error, 'B' bug, 'UP' unused variables, 'W' warning.
 
 fixable = ['ALL']
 
-ignore = ["E501", "N999", "N806", "FBT002", 'D417'] #"D211", "D213", "W1514", "E701" E702]
+ignore = ["E501", "N999", "N806", "FBT002", 'D417', 'E501', 'E303'] #"D211", "D213", "W1514", "E701" E702]
 #   ---------------------------------------------------------------
 #   - E501: Line too long
 #   - E701: Multiple statements on one line
@@ -88,7 +88,7 @@ ignore = ["E501", "N999", "N806", "FBT002", 'D417'] #"D211", "D213", "W1514", "E
 #   - N806: Name should be uppercase (deprecated)
 #   ----------------------------------------------------------------
 
-extend-fixable = ["B", "D400", "D401", "ANN201",  "RET504", "EXE", "ANN", 'SIM108', 'SIM115', 'SIM117', 'SIM105', "PERF", "PTH","RUF"]
+extend-fixable = ["B", "D","ANN201",  "RET504", "EXE", "ANN", 'SIM108', 'SIM115', 'SIM117', 'SIM105', "PERF", "PTH","RUF","E"]
 # Disable fix for unused imports (`F401`) and unused variables (`F841`) in tests.
 unfixable = ["F401", 'F841']
 

@@ -29,7 +29,7 @@ alias cleansyslogs='sudo journalctl --vacuum-time=2d'
 #alias cdl="cd_ls"
 alias cdpy="cd_py"
 alias cls="clear"
-alias code="vscodium"
+alias code="vscodium --profile=Base"
 alias copy="wl-copy"
 alias cp="cp -Piv"
 alias dadjoke='curl https://icanhazdadjoke.com && printf "\n"'
@@ -93,20 +93,20 @@ alias up="cd_up" # .bash_function
 #alias vdir="vdir --color=auto"
 alias venv='source .venv/bin/activate'
 alias gvenv='source /home/joona/.venv/bin/activate'
-alias ws-cv='vscodium -n $HOME/Code/Workspace/cv.code-workspace'
-alias ws-notes='vscodium -n $HOME/Code/Workspace/Notes.code-workspace'
-alias ws-bash='vscodium -n $HOME/Code/Workspace/bashscripts.code-workspace && exit'
+alias ws-cv='vscodium --profile=Base -n $HOME/Code/Workspace/cv.code-workspace'
+alias ws-notes='vscodium --profile=Base -n $HOME/Code/Workspace/Notes.code-workspace'
+alias ws-bash='vscodium --profile=Base -n $HOME/Code/Workspace/bashscripts.code-workspace && exit'
 alias ws="cd $HOME/Code/Workspace/ && ls -ltuph --group-directories-first"
-alias ws-cfg="vscodium -n $HOME/Code/Workspace/cfg.code-workspace && exit"
-alias ws-ella="vscodium -n $HOME/Code/Workspace/data_entry.code-workspace && exit"
-alias ws-html="vscodium -n $HOME/Code/Workspace/html.code-workspace && exit"
-alias ws-hwinfo="vscodium -n $HOME/Code/Workspace/py_hwinfo.code-workspace && exit"
-alias ws-pi="vscodium -n $HOME/Code/Workspace/RPi.code-workspace && exit"
-alias ws-python="vscodium -n $HOME/Code/Workspace/Python.code-workspace && exit"
-alias ws-modules="vscodium -n $HOME/Code/Workspace/PythonModules.code-workspace && exit"
-alias ws-general="vscodium -n $HOME/Code/Workspace/general.code-workspace && exit"
-alias ws-fsutils="vscodium -n $HOME/Code/Workspace/fsutils.code-workspace && exit"
-alias ws-termllama="vscodium -n $HOME/Code/Workspace/termllama.code-workspace && exit"
+alias ws-cfg="vscodium --profile=Base -n $HOME/Code/Workspace/cfg.code-workspace && exit"
+alias ws-ella="vscodium --profile=Base -n $HOME/Code/Workspace/data_entry.code-workspace && exit"
+alias ws-html="vscodium --profile=Base -n $HOME/Code/Workspace/html.code-workspace && exit"
+alias ws-hwinfo="vscodium --profile=Base -n $HOME/Code/Workspace/py_hwinfo.code-workspace && exit"
+alias ws-pi="vscodium --profile=Base -n $HOME/Code/Workspace/RPi.code-workspace && exit"
+alias ws-python="vscodium --profile=Base -n $HOME/Code/Workspace/Python.code-workspace && exit"
+alias ws-modules="vscodium --profile=Base -n $HOME/Code/Workspace/PythonModules.code-workspace && exit"
+alias ws-general="vscodium --profile=Base -n $HOME/Code/Workspace/general.code-workspace && exit"
+alias ws-fsutils="vscodium --profile=Base -n $HOME/Code/Workspace/fsutils.code-workspace && exit"
+alias ws-termllama="vscodium --profile=Base -n $HOME/Code/Workspace/termllama.code-workspace && exit"
 
 alias x="exit"
 alias yay="yay --color=always"
@@ -140,7 +140,8 @@ alias jp='journalctl -b --priority'
 alias logu='journalctl --user -e -u'
 alias log='journalctl -e -u'
 
-alias restart='sudo systemctl start reboot.target'
+alias reboot-to-windows='mv /tmp/hwinfo.csv /home/joona/Logs/hwinfo/$(date +%Y-%m-%d_%H).csv && systemctl reboot --boot-loader-entry=auto-windows'
+alias restart='mv /tmp/hwinfo.csv /home/joona/Logs/hwinfo/$(date +%Y-%m-%d_%H).csv && sudo systemctl reboot'
 alias sctluser='systemctl --user'
 alias sctl='systemctl'
 alias report='systemctl status --all && systemctl --list-all-units'
@@ -187,7 +188,7 @@ alias cam='source $HOME/.venv/bin/activate && python3 /home/joona/python/scripts
 	cd /mnt/hdd/sorted-webcam-clips/$(date +%Y)/$(date +%B)/$(date +%-d) && ls -Altr'
 alias f='fastfetch --config ~/.config/fastfetch/paleofetch.jsonc'
 alias tree='tree -a --dirsfirst'
-alias treei='tree -a --dirsfirst --gitfile=/home/joona/.gitignore_global'
+alias treei='tree -a --dirsfirst --gitfile=/home/joona/.config/git/.gitignore_global'
 alias find_='rg --files | rg'
 alias trash='send2trash'
 # dbus
@@ -199,10 +200,8 @@ alias brightness_low='qdbus6 org.kde.Solid.PowerManagement \
 /org/kde/Solid/PowerManagement/Actions/BrightnessControl setBrightness 50'
 alias goto-notes='cd "$HOME/Docs/Notes/Obsidian/All Notes" && ls -Al --group-directories-first'
 alias reboot='systemctl reboot'
-alias ssh-server='kitten ssh -t server "cd /home/joona && zsh"'
-alias ssh-kodi="kitten ssh -t root@10.0.0.87 'source ./.shrc && ll'"
-alias kittycam="mpv http://10.0.0.50:8081 --profile=big-cache --profile=network &>/dev/null && exit"
-alias kittycam-term='nohup kitty +kitten panel --config="/home/joona/.config/kitty/panel.d/bg_padded.conf" --edge=background  mpv http://10.0.0.50:8081 --profile=big-cache --profile=network --profile=term &>/dev/null & disown && exit'
+alias kittycam="mpv http://10.0.0.245:8081 --profile=big-cache --profile=network &>/dev/null && exit"
+alias kittycam-term='nohup kitty +kitten panel --config="/home/joona/.config/kitty/panel.d/bg_padded.conf" --edge=background  mpv http://10.0.0.245:8081 --profile=big-cache --profile=network --profile=term &>/dev/null & disown && exit'
 alias kppower="nohup kitty +kitten panel --config='/home/joona/.config/kitty/panel.d/bg_padded.conf' \
 --edge=background sh -c 'gpu_power.sh' &>/dev/null & disown && exit"
 # alias nmap='nmap -F -T5 --min-rate 10 --host-timeout 5s'
@@ -211,8 +210,11 @@ alias pacrecent="expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort | tail -n 20"
 alias cwd='pwd | tee /dev/tty | copy'
 alias splot='systemd-analyze plot > /tmp/plot.svg && firefox /tmp/plot.svg'
 alias lsc='ls -1 | wc -l'
-
-
+alias bat-preview-themes='bat --list-themes | fzf --preview="man echo | bat --theme={} --color=always -l man --plain"'
+alias gping='gping -c "#a7c080" -b 180'
+alias send='kdeconnect-cli -d 90b6a362_3256_4d0e_b22c_3df8a48b2061 --share'
+alias ports='lsof -Pn -i4'
+# alias
 # alias kp="kitty +kitten panel --edge=background sh -c '$1'"r
 # alias xclip="xclip -selection clipboard"
 # TODO: See below
