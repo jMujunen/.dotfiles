@@ -148,7 +148,7 @@
     {
       "name": "improveperformance",
       "description": "Improve performance of this code",
-      "prompt": "{{{ input }}}\n\nPlease review the highlighted code and suggest ways to improve its performance. You should focus on improving time complexity, space complexity or both."
+      "prompt": "{{{ input }}}\n\nPlease review the highlighted code and suggest ways to improve its performance. You should focus on improving time complexity, space complexity or both. Converting to cython which uses C data structures to improve performance is allowed"
     },
     {
       "name": "formattedDocstrings",
@@ -168,10 +168,10 @@
     "showChatScrollbar": true
   },
   "contextProviders": [
-    {
-      "name": "outline",
-      "params": {}
-    },
+    // {
+    //   "name": "outline",
+    //   "params": {}
+    // },
     {
       "name": "code",
       "params": {}
@@ -199,20 +199,9 @@
     {
       "name": "codebase",
       "params": {}
-    },
-    {
-      "name": "stagedCommit",
-      "params": {}
     }
   ],
   "docs": [
-    {
-      "title": "Continue",
-      "startUrl": "https://docs.continue.dev/intro",
-      "rootUrl": "https://docs.continue.dev",
-      "faviconUrl": "https://docs.continue.dev/favicon.ico",
-      "maxDepth": 5
-    },
     {
       "title": "Kitty",
       "startUrl": "https://sw.kovidgoyal.net/kitty/overview",
@@ -222,7 +211,6 @@
     }
   ],
   "experimental": {
-    "readResponseTTS": true,
     "contextMenuPrompts": {
       "comment": "Write comments for this code. Do not change anything about the code itself.",
       "docstring": "Write a docstring for this code. Do not change anything about the code itself.",
@@ -230,6 +218,7 @@
       "fixGrammar": "If there are any grammar or spelling mistakes in this writing, fix them. Do not make other large changes to the writing.",
       "optimize": "Optimize this code"
     },
+    "readResponseTTS": true,
     "quickActions": [
       {
         "title": "Unit test",

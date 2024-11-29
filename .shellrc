@@ -15,13 +15,14 @@ $HOME/python/Projects/hwutils/hwutils:$HOME/python/scripts/hass:\
 $HOME/python/scripts/bashhelpers/pacman:$HOME/python/Projects/fsutils/scripts:\
 $HOME/python/cython:$HOME/python/Projects/cython_fsutils:$HOME/python/libs/:\
 $HOME/python/Projects/python-modules/progress-bar:\
-$HOME/.local/bin/hyperfine/scripts:$HOME/python/scripts/files
+$HOME/.local/bin/hyperfine/scripts:$HOME/python/scripts/io
 
 export PATH=$HOME/.dotfiles/:$HOME/scripts/:$HOME/scripts/graphing/:\
 $HOME/scripts/git_scripts/:$HOME/.local/bin:$HOME/scripts/shutdown:\
 $HOME/scripts/startup:$HOME/scripts/logging/:$HOME/Code/Workspace:\
 $HOME/Android/Sdk/build-tools/35.0.0:$HOME/Android/Sdk/platform-tools:\
-$HOME/python/scripts/files/:/home/joona/.local/bin/:\
+$HOME/python/scripts/io/:/home/joona/.local/bin/:\
+$HOME/scripts/fzf:\
 $HOME/.local/bin/hyperfine/scripts:$PATH:$PYTHONPATH
 
 # Git

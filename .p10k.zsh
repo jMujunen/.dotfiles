@@ -85,7 +85,7 @@
     #nordvpn                 # nordvpn connection status, linux only (https://nordvpn.com/)
     #ranger                  # ranger shell (https://github.com/ranger/ranger)
     yazi                    # yazi shell (https://github.com/sxyazi/yazi)
-    nnn                     # nnn shell (https://github.com/jarun/nnn)
+    # nnn                     # nnn shell (https://github.com/jarun/nnn)
     # lf                      # lf shell (https://github.com/gokcehan/lf)
     # xplr                    # xplr shell (https://github.com/sayanarijit/xplr)
     #vim_shell               # vim shell indicator (:sh)
@@ -96,10 +96,10 @@
     # vpn_ip                # virtual private network indicator
     #load                  # CPU load
     #disk_usage            # disk usage
-    #ram                   # free RAM
+    # ram                   # free RAM
     #swap                  # used swap
     todo                    # todo items (https://github.com/todotxt/todo.txt-cli)
-    timewarrior             # timewarrior tracking status (https://timewarrior.net/)
+    # timewarrior             # timewarrior tracking status (https://timewarrior.net/)
     taskwarrior             # taskwarrior task count (https://taskwarrior.org/)
     # per_directory_history   # Oh My Zsh per-directory-history local/global indicator
     # cpu_arch              # CPU architecture
@@ -222,7 +222,7 @@
 
   ##################################[ dir: current directory ]##################################
   # Default current directory color.
-  typeset -g POWERLEVEL9K_DIR_FOREGROUND=31
+  typeset -g POWERLEVEL9K_DIR_FOREGROUND=004
   # If directory is too long, shorten some of its segments to the shortest possible unique
   # prefix. The shortened directory can be tab-completed to the original.
   typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
@@ -273,7 +273,7 @@
   # respectively.
   typeset -g POWERLEVEL9K_DIR_TRUNCATE_BEFORE_MARKER=last:0
   # Don't shorten this many last directory segments. They are anchors.
-  typeset -g POWERLEVEL9K_SHORTEN_DIR_LENGTH=82
+  typeset -g POWERLEVEL9K_SHORTEN_DIR_LENGTH=80
   # Shorten directory if it's longer than this even if there is space for it. The value can
   # be either absolute (e.g., '80') or a percentage of terminal width (e.g, '50%'). If empty,
   # directory will be shortened only when prompt doesn't fit or when other parameters demand it

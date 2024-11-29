@@ -12,6 +12,7 @@
 **/pyproject.toml
 **/VSCodium/
 **/.obsidian/
+**/lib/
 *.css
 *.lua
 *.js

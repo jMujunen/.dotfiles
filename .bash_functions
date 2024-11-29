@@ -27,11 +27,11 @@ kitty_integration_custom() {
     case "$1" in
     *plain | --no* | *default)
       shift
-      kitty +kitten panel --edge=background $*
+      kitty +kitten panel --edge=background "$*"
       return $?
       ;;
     *)
-      kitty +kitten panel --config="$_panelcfg" --edge=background $*
+      kitty +kitten panel --config="$_panelcfg" --edge=background "$*"
       ;;
     esac
   }
@@ -51,16 +51,49 @@ function iplot {
 EOF
 }
 
+
+compile() {
+    if [ -z "$1" ]; then
+        python ./setup.py build_ext --inplace --parallel=20 --cython-c-in-temp \
+          --cython-gen-pxi --build-temp /tmp
+        return
+    fi
+
+    case "$1" in
+    *fs*)
+        target="$HOME/python/Projects/fsutils/fsutils/compiled/setup.py"
+        python "$target" build_ext --inplace --parallel=20 --cython-c-in-temp --cython-gen-pxi --build-temp /tmp
+        return
+        ;;
+    *)
+    query="$1.*.pyx"
+    results="$(rg --files | rg "$query")"
+    for result in "${results[@]}"; do
+        targetdir="$(dirname "$result")"
+        for setup_file in $(ls -1 $targetdir | grep "setup*.py"); do
+            target_path="$(pwd)/$targetdir/$setup_file)"
+            echo -e "\033[1;33m$target_path\033[0m"
+            python "$target_path" build_ext --inplace --parallel=20 --cython-c-in-temp --cython-gen-pxi --build-temp /tmp
+        done
+    done
+    ;;
+    esac
+}
+
+
+
+
+
 cdl() {
   # Check for virtual environment when cd-ing into a directory
-  cd "$*"
+  cd "$*" || exit
   if [[ -d .venv ]]; then
     source .venv/bin/activate
   fi
   # Deactivate project venv and reactivate global venv ($HOME/.venv) when exiting the directory
   _exit_venv() {
     deactivate
-    source $HOME/.venv/bin/activate
+    source "$HOME"/.venv/bin/activate
   }
   trap '_exit_venv' EXIT
 }
@@ -164,10 +197,10 @@ get() {
 pylint() {
   case "$1" in
   f*)
-    ruff format --config=$HOME/.dotfiles/ruff.toml
+    ruff format --config="$HOME"/.dotfiles/ruff.toml
     ;;
   c*)
-    ruff check --fix --config=$HOME/.dotfiles/ruff.toml --ignore-noqa
+    ruff check --fix --config="$HOME"/.dotfiles/ruff.toml --ignore-noqa
     ;;
   esac
 }
@@ -316,7 +349,7 @@ batfollow() {
      lang=$3
      ;;
   esac
-  tail -f "$file" -n $num | bat -ppl "$lang"
+  tail -f "$file" -n "$num" | bat -ppl "$lang"
 }
 
 # Change dir, then list dir contents
