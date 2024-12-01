@@ -82,7 +82,6 @@ alias notes="nohup firefox --url 0.0.0.0:8000/ &>/dev/null && exit"
 alias open="xdg-open"
 alias osrshydra="osrs_hydra"
 alias osrs='gamescope  --backend wayland  --xwayland-count 1  --adaptive-sync --fullscreen --grab   --force-composition --expose-wayland -w 2160 -h 1440 -r 144 -W 1920 -H 1080 -F nis -S fit -- flatpak run com.jagexlauncher.JagexLauncher &>/dev/null & disown && kitty +kitten panel --edge=background --config=/home/joona/.config/kitty/panel.d/bg_padded.conf gping 10.0.0.1 -b 180 -c "#a7c080" &>/dev/null & disown'
-alias osrs="nohup flatpak run com.jagexlauncher.JagexLauncher &>/dev/null & disown && kitty +kitten panel --edge=background --config=/home/joona/.config/kitty/panel.d/bg_padded.conf gping 10.0.0.1 -b 180 -c '#a7c080' &>/dev/null & disown"
 alias osrsping="gping -c '#a7c080' oldschool78.runescape.com"
 alias paste="wl-paste"
 alias pics='cd_pics'
@@ -206,8 +205,6 @@ alias find_='rg --files | rg'
 alias trash='send2trash'
 
 # * dbus
-alias brightness='qdbus6 org.kde.Solid.PowerManagement \
-    /org/kde/Solid/PowerManagement/Actions/BrightnessControl setBrightness'
 alias brightness_max='qdbus6 org.kde.Solid.PowerManagement \
     /org/kde/Solid/PowerManagement/Actions/BrightnessControl setBrightness 100'
 alias brightness_low='qdbus6 org.kde.Solid.PowerManagement \
@@ -229,7 +226,6 @@ alias kp-ping='kitty +kitten panel --edge=background \
     gping 10.0.0.1 -c "#a7c080" -b 180 &>/dev/null & disown'
 
 
-
 alias everforest='cat $HOME/.themes/**/* | copy && parse_and_render_colors.py --simple'
 alias pacrecent="expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort | tail -n 20"
 alias cwd='pwd | tee /dev/tty | copy'
@@ -242,6 +238,8 @@ alias ports='lsof -Pn -i4'
 alias rm_saved='cat mpv_gallery_flagged | xargs -d "\n" rm && rm mpv_gallery_flagged'
 alias dps='docker ps --all --format "table {{.Names}}\t{{.Command}}\t{{.Status}}\t{{.Ports}}"'
 alias buildfs='cd $HOME/python/Projects/fsutils/fsutils/compiled && python3 setup.py build_ext --inplace --parallel=20 --cython-c-in-temp --cython-gen-pxi --build-temp /tmp'
+
+alias getinfo='$HOME/.venv/bin/python3 -m fsutils.dir describe'
 # if [[ -e $HOME/.dotfiles/.auto_aliases ]]; then
 	# source $HOME/.dotfiles/.auto_aliases
 # fi

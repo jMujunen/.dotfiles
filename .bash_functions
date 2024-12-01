@@ -51,6 +51,10 @@ function iplot {
 EOF
 }
 
+brightness() {
+    value=$1
+    ddcutil --display 1 setvcp 10 $value & ddcutil --display 2 setvcp 10 $value
+}
 
 compile() {
     if [ -z "$1" ]; then
