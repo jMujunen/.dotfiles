@@ -1,5 +1,4 @@
 # -----------------------#
-# -----------------------#
 # Ignore the following regex when calling `git diff``
 ignore_lines=(\"\|\'\|^\\s+\$)
 
@@ -94,7 +93,6 @@ alias rg='rg --no-ignore --hidden --ignore-file=/home/joona/.dotfiles/.ripgrep_i
 alias rmf='rm -rf'
 alias rm="rm -d --verbose"
 alias sms="/home/joona/.venv/bin/python3 $HOME/python/modules/kdeConnect.py"
-alias sizeof="/home/joona/.venv/bin/python3 $HOME/python/scripts/bashhelpers/sizeof.py"
 alias sunset="openrgb -p sunset &"
 alias up="cd_up"
 #alias vdir="vdir --color=auto"
@@ -239,7 +237,7 @@ alias rm_saved='cat mpv_gallery_flagged | xargs -d "\n" rm && rm mpv_gallery_fla
 alias dps='docker ps --all --format "table {{.Names}}\t{{.Command}}\t{{.Status}}\t{{.Ports}}"'
 alias buildfs='cd $HOME/python/Projects/fsutils/fsutils/compiled && python3 setup.py build_ext --inplace --parallel=20 --cython-c-in-temp --cython-gen-pxi --build-temp /tmp'
 
-alias getinfo='$HOME/.venv/bin/python3 -m fsutils.dir describe'
+alias build='cython -I/usr/include/python3.12 -L/usr/lib  -lpython3.12 -ldl -lm --embed -3'
 # if [[ -e $HOME/.dotfiles/.auto_aliases ]]; then
 	# source $HOME/.dotfiles/.auto_aliases
 # fi

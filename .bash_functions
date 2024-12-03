@@ -53,39 +53,21 @@ EOF
 
 brightness() {
     value=$1
-    ddcutil --display 1 setvcp 10 $value & ddcutil --display 2 setvcp 10 $value
+    ddcutil --display 1 setvcp 10 "$value" & ddcutil --display 2 setvcp 10 "$value"
 }
 
 compile() {
-    if [ -z "$1" ]; then
-        python ./setup.py build_ext --inplace --parallel=20 --cython-c-in-temp \
-          --cython-gen-pxi --build-temp /tmp
+    file="$1"
+    if [ ! -n $file ]; then
+        echo -e "Supply a .pyx file to compile"
         return
     fi
-
-    case "$1" in
-    *fs*)
-        target="$HOME/python/Projects/fsutils/fsutils/compiled/setup.py"
-        python "$target" build_ext --inplace --parallel=20 --cython-c-in-temp --cython-gen-pxi --build-temp /tmp
-        return
-        ;;
-    *)
-    query="$1.*.pyx"
-    results="$(rg --files | rg "$query")"
-    for result in "${results[@]}"; do
-        targetdir="$(dirname "$result")"
-        for setup_file in $(ls -1 $targetdir | grep "setup*.py"); do
-            target_path="$(pwd)/$targetdir/$setup_file)"
-            echo -e "\033[1;33m$target_path\033[0m"
-            python "$target_path" build_ext --inplace --parallel=20 --cython-c-in-temp --cython-gen-pxi --build-temp /tmp
-        done
-    done
-    ;;
-    esac
+    c_file="$(echo $file | cut -d. --fields=1).c"
+    output_binary="$(echo $file | cut -d. --fields=1)"
+    cython --embed -3 "$file" \
+    && gcc "$c_file" -I/usr/include/python3.12 -L/usr/lib -lpython3.12 -ldl -lm -o "$output_binary" \
+    && echo -e "\033[32m Success! \033[0m"
 }
-
-
-
 
 
 cdl() {

@@ -15,7 +15,8 @@ $HOME/python/Projects/hwutils/hwutils:$HOME/python/scripts/hass:\
 $HOME/python/scripts/bashhelpers/pacman:$HOME/python/Projects/fsutils/scripts:\
 $HOME/python/cython:$HOME/python/Projects/cython_fsutils:$HOME/python/libs/:\
 $HOME/python/Projects/python-modules/progress-bar:\
-$HOME/.local/bin/hyperfine/scripts:$HOME/python/scripts/io
+$HOME/.local/bin/hyperfine/scripts:$HOME/python/scripts/io:\
+$HOME/python/Projects/python-modules/progress-bar/
 
 export PATH=$HOME/.dotfiles/:$HOME/scripts/:$HOME/scripts/graphing/:\
 $HOME/scripts/git_scripts/:$HOME/.local/bin:$HOME/scripts/shutdown:\
