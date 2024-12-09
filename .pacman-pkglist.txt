@@ -14,6 +14,7 @@ base-devel
 bat
 bc
 bind
+bitwarden
 blueman
 bluez
 bluez-mesh
@@ -31,6 +32,7 @@ chkservice
 clipboard
 cliphist
 cmake
+code
 cpupower
 cuda
 cudnn
@@ -41,6 +43,7 @@ dfu-util
 direnv
 discover
 dkms
+dnsmasq
 docker
 docker-compose
 dolphin
@@ -49,6 +52,8 @@ dosfstools
 efibootmgr
 egl-wayland
 entr
+ethtool
+eww
 exfatprogs
 expac
 eza
@@ -57,6 +62,7 @@ fd
 feh
 ffmpeg
 ffmpegthumbnailer
+ffmpegthumbs
 ffnvcodec-headers
 firefox
 flatpak
@@ -73,8 +79,10 @@ github-cli
 glew
 glib
 glow
+gnome-themes-extra
 gnuplot
 gparted
+gperf
 gpick
 gping
 graphviz
@@ -84,12 +92,15 @@ gsm
 gst-libav
 gst-plugin-gtk
 gst-plugin-pipewire
+gtk-engine-murrine
 gtk2
 hdf5
 hdparm
 htop
 hunspell-en_ca
+hyde-cli-git
 hyperfine
+hyprgui
 hypridle
 hyprland
 hyprlock
@@ -120,13 +131,15 @@ kitty-img
 kitty-shell-integration-shade-transparency-patch
 kitty-terminfo
 kmenuedit
-kommit
 kruler
 kscreen
 ksshaskpass
+kvantum
+kvantum-qt5
 kwallet-pam
 kwayland-integration
 lapacke
+latex2html
 layer-shell-qt5
 ldns
 less
@@ -149,6 +162,7 @@ libnfs
 libnvidia-container
 liboauth
 libpulse
+libreoffice-still
 libspelling
 libutempter
 libva-intel-driver
@@ -159,6 +173,7 @@ linux-firmware
 linux-headers
 lld
 lldb
+lolcat
 losslesscut-bin
 lzip
 lzop
@@ -168,9 +183,11 @@ mesa-utils
 meson
 micro
 mkinitcpio-firmware
+mkpdf
 mkvtoolnix-cli
 ml4w-hyprland
 mlt
+most
 motion
 movit
 mpv
@@ -186,6 +203,7 @@ neofetch
 neovim
 network-manager-applet
 networkmanager
+networkmanager-dmenu-git
 nfs-utils
 ngrep
 nmap
@@ -199,6 +217,7 @@ nwg-displays
 nwg-look
 nwg-panel
 obsidian
+oh-my-zsh-git
 ollama-cuda
 openblas
 opencl-nvidia
@@ -214,9 +233,11 @@ pacman-contrib
 pacman-pstatus
 pacutils
 pam_autologin
+pamixer
 pandoc-cli
 pandoc-plot
 papirus-icon-theme
+parallel
 pastel
 pavucontrol
 perf
@@ -239,10 +260,14 @@ plasma-systemmonitor
 plasma-wayland-protocols
 plocate
 plymouth-kcm
+pokemon-colorscripts-git
+polkit-gnome
 polkit-kde-agent
 powerline-fonts
 print-manager
 proton-mail
+proton-vpn-gtk-app
+psutils
 python
 python-clipboard
 python-devtools
@@ -259,6 +284,7 @@ python-ping
 python-pipx
 python-plyer
 python-psutil
+python-pyamdgpuinfo
 python-pysnmp
 python-pytesseract
 python-pywal
@@ -269,7 +295,13 @@ python-toml
 python-tzlocal
 python-virtualenv
 python-yaml
+qbittorrent
+qt5-graphicaleffects
+qt5-imageformats
+qt5-quickcontrols
+qt5-quickcontrols2
 qt5-wayland
+qt5ct
 qt6ct
 rawtherapee
 rdma-core
@@ -280,11 +312,13 @@ rsync
 ruff
 rustup
 s
+sassc
 sbctl
 sbsigntools
 screenfetch
 sddm-kcm
 shell-color-scripts-git
+shellcheck
 shfmt
 signal-desktop
 slurp
@@ -298,8 +332,12 @@ spotify
 sqlitebrowser
 squashfs-tools
 ssh-tools
+sssd
 steam
 strace
+swappy
+swaylock-effects-git
+swww
 sysstat
 system-config-printer
 systemd-ukify
@@ -309,6 +347,8 @@ termdown
 terminus-font
 tesseract-data-osd
 testdisk
+texlive-binextra
+texlive-latex
 thonny
 time
 timeshift
@@ -328,6 +368,7 @@ ttf-liberation
 ttf-nerd-fonts-symbols
 ttyplot
 uchardet
+udiskie
 upd72020x-fw
 vdpauinfo
 vi
@@ -370,3 +411,4 @@ zram-generator
 zsh
 zsh-completions
 zsh-syntax-highlighting
+zsh-theme-powerlevel10k-git
