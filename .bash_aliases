@@ -61,6 +61,7 @@ alias ffsafe="nohup firefox --safe-mode &>/dev/null && exit"
 alias ffs="s --provider duckduckgo"
 alias ffu="nohup firefox --url &>/dev/null && exit"
 alias getweather='curl wttr.in'
+alias getinfo='python3 -m getinfo'
 alias ipy="/home/joona/.venv/bin/ipython3 --pprint --nosep --no-confirm-exit --profile=main --colors=Linux"
 alias killwine='kill 997 1021 >/dev/null 2>&1;wineserver -k 15;echo done'
 alias kwinDebugConsole='qdbus6 org.kde.KWin /KWin org.kde.KWin.showDebugConsole'
@@ -80,7 +81,8 @@ alias nano="micro"
 alias notes="nohup firefox --url 0.0.0.0:8000/ &>/dev/null && exit"
 alias open="xdg-open"
 alias osrshydra="osrs_hydra"
-alias osrs='gamescope  --backend wayland  --xwayland-count 1  --adaptive-sync --fullscreen --grab   --force-composition --expose-wayland -w 2160 -h 1440 -r 144 -W 1920 -H 1080 -F nis -S fit -- flatpak run com.jagexlauncher.JagexLauncher &>/dev/null & disown && kitty +kitten panel --edge=background --config=/home/joona/.config/kitty/panel.d/bg_padded.conf gping 10.0.0.1 -b 180 -c "#a7c080" &>/dev/null & disown'
+alias osrs='gamescope  --expose-wayland -w 1920 -h 1080 -r 144 -W 2160  -H 1440 -F nis -- flatpak run --env=EXTRA_RUNELITE_ARGS="--configure" com.jagexlauncher.JagexLauncher  >&/dev/null & disown && kitty +kitten panel --edge=background --config=/home/joona/.config/kitty/panel.d/bg_padded.conf gping 10.0.0.1 -b 180 -c "#a7c080" &>/dev/null & disown'
+# alias osrs='gamescope  --backend wayland  --xwayland-count 1  --adaptive-sync --fullscreen --grab   --force-composition --expose-wayland -w 2160 -h 1440 -r 144 -W 1920 -H 1080 -F nis -S fit -- flatpak run com.jagexlauncher.JagexLauncher &>/dev/null & disown && kitty +kitten panel --edge=background --config=/home/joona/.config/kitty/panel.d/bg_padded.conf gping 10.0.0.1 -b 180 -c "#a7c080" &>/dev/null & disown'
 alias osrsping="gping -c '#a7c080' oldschool78.runescape.com"
 alias paste="wl-paste"
 alias pics='cd_pics'
@@ -125,7 +127,7 @@ alias root='sudo --preserve-env -s'
 
 alias llamalist='python3 -m ollama_list'
 alias llamaupdate='curl -fsSL https://ollama.com/install.sh | sh && sleep 2;
-    sudo systemctl disable --now ollama; systemctl --user restart ollama'
+    sudo systemctl restart ollama'
 
 # Arch Linux Specific
 alias pac-info="pacman -Qq \
@@ -196,7 +198,7 @@ alias cam='ssh server -t "source /home/joona/.dotfiles/.shellrc && \
 	&& cd /mnt/hdd/sorted-webcam-clips/$(date +%Y)/$(date +%B)/$(date +%-d);
 	ls -A1tr *.mp4'
 
-alias f='fastfetch --config ~/.config/fastfetch/paleofetch.jsonc'
+alias f='fastfetch' # --config ~/.config/fastfetch/paleofetch.jsonc
 alias tree='tree -a --dirsfirst'
 alias treei='tree -a --dirsfirst --gitfile=/home/joona/.config/git/.gitignore_global'
 alias find_='rg --files | rg'
@@ -235,7 +237,7 @@ alias send='kdeconnect-cli -d 90b6a362_3256_4d0e_b22c_3df8a48b2061 --share'
 alias ports='lsof -Pn -i4'
 alias rm_saved='cat mpv_gallery_flagged | xargs -d "\n" rm && rm mpv_gallery_flagged'
 alias dps='docker ps --all --format "table {{.Names}}\t{{.Command}}\t{{.Status}}\t{{.Ports}}"'
-alias buildfs='cd $HOME/python/Projects/fsutils/fsutils/compiled && python3 setup.py build_ext --inplace --parallel=20 --cython-c-in-temp --cython-gen-pxi --build-temp /tmp'
+alias buildfs='cd $HOME/python/Projects/fsutils/fsutils/compiled && python3 setup.py build_ext --inplace --parallel=20 --cython-c-in-temp --build-temp /tmp'
 
 alias build='cython -I/usr/include/python3.12 -L/usr/lib  -lpython3.12 -ldl -lm --embed -3'
 # if [[ -e $HOME/.dotfiles/.auto_aliases ]]; then

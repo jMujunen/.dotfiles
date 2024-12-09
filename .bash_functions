@@ -1,14 +1,14 @@
-# Depedancies: bat, vscodium --profile=Base
+# dependencies: bat, vscodium --profile=Base
 # ignore=(.\*\\\[+package.\*\?\\\]+\(\\s+\[\\w\\\{\\s=\"\.\*\\[,:\\}\>\<\@\]\))
 source "$ZDOTDIR"/.color_defs
 
 
 
 rsync_update(){
-  rsync -auXv "$1" "$2" | python3 -m ProgressBar $(find "$1" | wc -l)
+  rsync -auXv "$1" "$2" | /home/joona/.local/share/bin/PB "$(find "$1" | wc -l)"
 }
 rsync_metadata(){
-  rsync -aXv "$1"  "$2" | python3 -m ProgressBar $(find "$1"| wc -l)
+  rsync -aXv "$1"  "$2" | /home/joona/.local/share/bin/PB "$(find "$1" | wc -l)"
 }
 kitty_integration_custom() {
 
@@ -58,12 +58,12 @@ brightness() {
 
 compile() {
     file="$1"
-    if [ ! -n $file ]; then
+    if [ ! -n "$file" ]; then
         echo -e "Supply a .pyx file to compile"
         return
     fi
-    c_file="$(echo $file | cut -d. --fields=1).c"
-    output_binary="$(echo $file | cut -d. --fields=1)"
+    c_file="$(echo "$file" | cut -d. --fields=1).c"
+    output_binary="$(echo "$file" | cut -d. --fields=1)"
     cython --embed -3 "$file" \
     && gcc "$c_file" -I/usr/include/python3.12 -L/usr/lib -lpython3.12 -ldl -lm -o "$output_binary" \
     && echo -e "\033[32m Success! \033[0m"
@@ -116,7 +116,7 @@ cfg() {
     return 1
   fi
   if [[ "$2" =~ "-c|c" ]]; then
-    _CURRENTEDITOR=vscodium --profile=Base
+    _CURRENTEDITOR=$(vscodium --profile=Base)
   else
     _CURRENTEDITOR=$EDITOR
   fi
@@ -449,19 +449,18 @@ bte() {
     fi
     ;;
   bat*)
-    battery=$(bluetoothctl info | grep  -oP "(?:0x14)\s\(\d+\)" | sed -E "s/.*\(([0-9]+)\).*/\1/")
+    battery=$(bluetoothctl info \
+        | grep  -oP "(?:Battery Percentage:\s0x..\b)\s\(\d+\)" \
+        | sed -E "s/.*\(([0-9]+)\).*/\1/")
+
     echo -e "\033[34m$battery%\033[0m"
     ;;
   *)
     error "$action not supported"
-    printhelp >&2 | bat -ppl help
+    pbte rinthelp >&2 | bat -ppl help
     return 1
     ;;
   esac
-}
-osrs_hydra() {
-  cd /home/joona/python/macros/ || return 1
-  sudo poetry -C /home/joona/ run python3 count_hydra_attacks.py
 }
 
 clear_zsh_cache() {
@@ -519,7 +518,7 @@ update_python_path() {
   # export PATH="$PATH:$PYTHONPATH"
   echo "$PYTHONPATH:$path_parts"
 }
-ollama_show() {
+llamashow() {
   ollama show "$1" --modelfile | bat --style=full --paging=always -pl asm
 }
 # TODO IMPLEMENT
