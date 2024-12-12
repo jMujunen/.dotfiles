@@ -1,4 +1,5 @@
 # -----------------------#
+# -----------------------#
 # Ignore the following regex when calling `git diff``
 ignore_lines=(\"\|\'\|^\\s+\$)
 
@@ -81,7 +82,7 @@ alias nano="micro"
 alias notes="nohup firefox --url 0.0.0.0:8000/ &>/dev/null && exit"
 alias open="xdg-open"
 alias osrshydra="osrs_hydra"
-alias osrs='gamescope  --expose-wayland -w 1920 -h 1080 -r 144 -W 2160  -H 1440 -F nis -- flatpak run --env=EXTRA_RUNELITE_ARGS="--configure" com.jagexlauncher.JagexLauncher  >&/dev/null & disown && kitty +kitten panel --edge=background --config=/home/joona/.config/kitty/panel.d/bg_padded.conf gping 10.0.0.1 -b 180 -c "#a7c080" &>/dev/null & disown'
+alias osrs='gamescope --adaptive-sync --expose-wayland -w 1920 -h 1080 -r 144 -W 2160  -H 1440 -F nis -- flatpak run --env=EXTRA_RUNELITE_ARGS="--configure" com.jagexlauncher.JagexLauncher  >&/dev/null & disown && kitty +kitten panel --edge=background --config=/home/joona/.config/kitty/panel.d/bg_padded.conf gping 10.0.0.1 -b 180 -c "#a7c080" &>/dev/null & disown'
 # alias osrs='gamescope  --backend wayland  --xwayland-count 1  --adaptive-sync --fullscreen --grab   --force-composition --expose-wayland -w 2160 -h 1440 -r 144 -W 1920 -H 1080 -F nis -S fit -- flatpak run com.jagexlauncher.JagexLauncher &>/dev/null & disown && kitty +kitten panel --edge=background --config=/home/joona/.config/kitty/panel.d/bg_padded.conf gping 10.0.0.1 -b 180 -c "#a7c080" &>/dev/null & disown'
 alias osrsping="gping -c '#a7c080' oldschool78.runescape.com"
 alias paste="wl-paste"
@@ -237,9 +238,16 @@ alias send='kdeconnect-cli -d 90b6a362_3256_4d0e_b22c_3df8a48b2061 --share'
 alias ports='lsof -Pn -i4'
 alias rm_saved='cat mpv_gallery_flagged | xargs -d "\n" rm && rm mpv_gallery_flagged'
 alias dps='docker ps --all --format "table {{.Names}}\t{{.Command}}\t{{.Status}}\t{{.Ports}}"'
-alias buildfs='cd $HOME/python/Projects/fsutils/fsutils/compiled && python3 setup.py build_ext --inplace --parallel=20 --cython-c-in-temp --build-temp /tmp'
 
-alias build='cython -I/usr/include/python3.12 -L/usr/lib  -lpython3.12 -ldl -lm --embed -3'
+
+
+alias buildfs='\
+cd $HOME/python/Projects/fsutils/fsutils/compiled \
+    && python3 setup.py build_ext --inplace --parallel=20 --cython-c-in-temp --build-temp /tmp'
+
+alias build='cython -I/usr/include/python3.12 -L/usr/lib -lpython3.12 -ldl -lm --embed -3'
+
+
 # if [[ -e $HOME/.dotfiles/.auto_aliases ]]; then
 	# source $HOME/.dotfiles/.auto_aliases
 # fi

@@ -51,6 +51,37 @@ function iplot {
 EOF
 }
 
+sshkeygen() {
+    printhelp() {
+       echo -e "Usage: sshkeygen <hostname> <filename>"
+       echo -e "\nGenerates an SSH keypair for the specified hostname,"
+       echo -e "saves it to the .ssh directory, and copies the key to the host"
+       echo -e "\nExample:"
+       echo -e "\tsshkeygen joona@10.0.0.50 server_id_rsa"
+
+    }
+
+    # Parse args
+    if [[ "$#" -ne 2 ]]; then
+      printhelp
+      return 1
+    elif [[ "$1" == "-h" ]] || [[ "$2" == "--help" ]]; then
+      printhelp
+      return 0
+    fi
+
+    printhelp
+    host=$1
+    filename=$2
+
+    filepath="$HOME/.ssh/$filename"
+
+    eval "$(ssh-agent -s)";
+    ssh-keygen -t ed25519 -a 32 -f "$filepath"
+    ssh-add "$filepath"
+    ssh-copy-id "$host"
+}
+
 brightness() {
     value=$1
     ddcutil --display 1 setvcp 10 "$value" & ddcutil --display 2 setvcp 10 "$value"
@@ -116,7 +147,7 @@ cfg() {
     return 1
   fi
   if [[ "$2" =~ "-c|c" ]]; then
-    _CURRENTEDITOR=$(vscodium --profile=Base)
+    _CURRENTEDITOR=$(vscodium)
   else
     _CURRENTEDITOR=$EDITOR
   fi
