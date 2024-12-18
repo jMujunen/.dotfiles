@@ -205,10 +205,23 @@ get() {
   if [[ $(type "$1") =~ "function" ]]; then
     which "$1" | bat -pl sh
     return 0
+  fi
+
+  if [[ $(type "$1") =~ ".sh" ]]; then
+    filepath=$(which "$1" | cut -d ' ' -f 3)
+    bat -pl sh "$filepath"
+    return 0
+
+  elif [[ $(type "$1") =~ ".py" ]]; then
+    filepath=$(which "$1" | cut -d ' ' -f 3)
+    bat -pl py "$filepath"
+    return 0
+
   else
     # Print normal output otherwise
-    printf "%s\n" "$(type "$1")"
+    printf "%s\n" "$(type "$1")" | bat -pl sh
   fi
+  return 0
 }
 
 pylint() {
