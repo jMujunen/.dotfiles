@@ -1,0 +1,10 @@
+# Global
+concurrent-builds = 18
+concurrent-downloads = 75
+preview = true
+python-preference = "only-managed"
+# upgrade = true
+
+[pip]
+compile-bytecode = true
+upgrade = true

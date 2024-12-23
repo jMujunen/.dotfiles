@@ -73,7 +73,7 @@ docstring-code-format = true
 docstring-code-line-length = "dynamic"
 
 [lint]
-select = ["E", "F", "C", 'W', "B", "UP", "D107", "D104","D301","D401","D400","ANN201", "ANN206", "S103", "S105", "S112", "S110", "A", "EXE", "PIE", "RET", "SIM", "PLR", "PLW", "RUF", "PTH","D406","FBT","PERF","D212"] # 'D' Django, 'ANN' annotations, 'S' built-ins, 'A', 'EXE', 'PIE', 'RET', 'SIM', 'PLR', 'PLW', 'RUF' ruff-lint ,'C' codesmell, 'E' convention, 'F' error, 'B' bug, 'UP' unused variables, 'W' warning.
+select = ["E", "F", "C", 'W', "B", "UP", "D107", "D104","D301","D401","D400","ANN201", "ANN206", "S103", "S105", "S112", "S110", "A", "EXE", "PIE", "RET", "SIM", "PLR", "PLW", "RUF","D406","FBT","PERF","D212"] # 'D' Django, 'ANN' annotations, 'S' built-ins, 'A', 'EXE', 'PIE', 'RET', 'SIM', 'PLR', 'PLW', 'RUF' ruff-lint ,'C' codesmell, 'E' convention, 'F' error, 'B' bug, 'UP' unused variables, 'W' warning.
 
 fixable = ['ALL']
 
