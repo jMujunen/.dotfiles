@@ -1,3 +1,5 @@
+7zip
+aichat
 alsa-utils
 android-sdk-platform-tools
 appmenu-gtk-module
@@ -26,11 +28,14 @@ btop
 calc
 ccache
 chafa
+chezmoi
 chkservice
 clipboard
 cliphist
 cmake
 code
+code-features
+code-marketplace
 cuda
 cudnn
 cups
@@ -63,7 +68,6 @@ ffnvcodec-headers
 firefox
 flatpak
 flatpak-kcm
-flatseal
 foremost
 fzf
 gamemode
@@ -100,6 +104,7 @@ hyperfine
 hyprgui
 hypridle
 hyprland
+hyprland-qtutils
 hyprlock
 hyprpicker
 hyprshade
@@ -175,6 +180,7 @@ man-db
 mediainfo
 mesa-utils
 meson
+meson-python
 micro
 mkinitcpio-firmware
 mkpdf
@@ -221,7 +227,6 @@ otf-cascadia-code
 otf-font-awesome
 oxygen
 oxygen-sounds
-p7zip
 packagekit
 pacman-contrib
 pacman-pstatus
@@ -230,7 +235,6 @@ pam_autologin
 pamixer
 pandoc-cli
 pandoc-plot
-papirus-icon-theme
 parallel
 pastel
 pavucontrol
@@ -257,14 +261,12 @@ polkit-gnome
 polkit-kde-agent
 powerline-fonts
 print-manager
-proton-mail
 proton-vpn-gtk-app
 psutils
 python
 python-clipboard
 python-devtools
 python-flask
-python-imagehash
 python-keyboard
 python-markdown
 python-matplotlib
@@ -303,7 +305,6 @@ rpi-imager
 rsync
 ruff
 rustup
-s
 samba
 sassc
 sbctl
@@ -320,10 +321,10 @@ sof-firmware
 speedtest-cli
 spicetify-cli
 spotify
+spotify-tui
 sqlitebrowser
 squashfs-tools
 ssh-tools
-sssd
 steam
 steam-native-runtime
 strace
@@ -366,6 +367,8 @@ vi
 vivid
 vlc
 vscodium
+vscodium-features
+vscodium-marketplace
 vtk
 waybar
 wayland-protocols
@@ -388,7 +391,6 @@ xdg-desktop-portal-gtk
 xorg-server
 xorg-xdm
 xorg-xev
-xorg-xhost
 xorg-xinit
 xorg-xinput
 xorg-xrandr
@@ -396,6 +398,7 @@ yay
 yazi
 zathura
 zathura-pdf-poppler
+zenity
 zip
 znotes
 zram-generator

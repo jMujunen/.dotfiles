@@ -127,8 +127,7 @@ alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 [[ ! -f ~/.dotfiles/.p10k.zsh ]] || source ~/.dotfiles/.p10k.zsh
 
 # Use this file for configurations shared between zsh and bash
-[[ -f ~/.shellrc ]] && source ~/.shellrc \
-              || source ~/.dotfiles/.shellrc \
+[[ -f $HOME/.dotfiles/.env ]] && source ~/.dotfiles/.env \
               || /usr/bin/custom/script_failure-notification.sh \
               .zshrc 131 "Failed to source .shellrc from $HOME/ | $HOME/.dotfiles/"
 
@@ -166,8 +165,10 @@ setopt longlistjobs
 if [[ -d $(pwd)/.venv ]]; then
 	source ./.venv/bin/activate
 else
-	source /home/joona/.venv/bin/activate
+	if ! source /home/joona/.venv/bin/activate; then
+	    echo -e "\033[31mError:\033[0m Activating python venv failed"
+	    echo -e "\033[33m ~/.dotfiles/.zshrc\033[0m @ line \033[35m 168\033[0m"
+	fi
 fi
 
 source $HOME/scripts/fzf/fzf-git.sh
-

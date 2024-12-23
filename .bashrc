@@ -124,6 +124,6 @@ if ! shopt -oq posix; then
 fi
 
 # Use this file for configurations shared between zsh and bash
-[[ -f $HOME/.shellrc ]] && source $HOME/.shellrc || source $HOME/.dotfiles/.shellrc || error "No shellrc found"
+[[ -f $HOME/.dotfiles/.env ]] && source $HOME/.dotfiles/.env || error "'~/.dotfiles/.env' not found"
 
 

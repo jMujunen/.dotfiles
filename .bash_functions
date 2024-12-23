@@ -1,6 +1,6 @@
 # dependencies: bat, vscodium --profile=Base
 # ignore=(.\*\\\[+package.\*\?\\\]+\(\\s+\[\\w\\\{\\s=\"\.\*\\[,:\\}\>\<\@\]\))
-source "$ZDOTDIR"/.color_defs
+source "$ZDOTDIR"/.color_defs.sh
 
 
 
@@ -96,7 +96,7 @@ compile() {
     c_file="$(echo "$file" | cut -d. --fields=1).c"
     output_binary="$(echo "$file" | cut -d. --fields=1)"
     cython --embed -3 "$file" \
-    && gcc "$c_file" -I/usr/include/python3.12 -L/usr/lib -lpython3.12 -ldl -lm -o "$output_binary" \
+    && gcc "$c_file" -I/usr/include/python3.13 -L/usr/lib -lpython3.13 -ldl -lm -o "$output_binary" \
     && echo -e "\033[32m Success! \033[0m"
 }
 
@@ -114,7 +114,14 @@ cdl() {
   }
   trap '_exit_venv' EXIT
 }
-
+rf() {
+  source "$ZDOTDIR"/.env
+  source "$ZDOTDIR"/.bash_functions
+  source "$ZDOTDIR"/.bash_aliases
+  source "$ZDOTDIR"/.consts
+  source "$ZDOTDIR"/.color_defs.sh
+  clear
+}
 save_hist() {
 
   # Create file with timestamp as name
@@ -154,32 +161,34 @@ cfg() {
   # Open specified file in  $EDITOR
   case "$1" in
   z*)
-    $_CURRENTEDITOR "$HOME/.dotfiles/.zshrc" && source "$HOME/.dotfiles/.zshrc"
+    $_CURRENTEDITOR "$HOME/.dotfiles/.zshrc"
     # return 0
     ;;
   b*)
-    $_CURRENTEDITOR "$HOME/.dotfiles/.bashrc" && source "$HOME/.dotfiles/.bashrc"
+    $_CURRENTEDITOR "$HOME/.dotfiles/.bashrc"
     # return 0
     ;;
   a*)
-    $_CURRENTEDITOR "$HOME/.dotfiles/.bash_aliases" && source "$HOME/.dotfiles/.bash_aliases"
+    $_CURRENTEDITOR "$HOME/.dotfiles/.bash_aliases"
     # return 0
     ;;
   f*)
-    $_CURRENTEDITOR "$HOME/.dotfiles/.bash_functions" && source "$HOME/.dotfiles/.bash_functions"
+    $_CURRENTEDITOR "$HOME/.dotfiles/.bash_functions"
+    source "$HOME/.dotfiles/.bash_functions"
     # return 0
     ;;
   s*)
-    $_CURRENTEDITOR "$HOME/.dotfiles/.shellrc" && source "$HOME/.dotfiles/.shellrc"
+    $_CURRENTEDITOR "$HOME/.dotfiles/.shellrc"
     # return 0
     ;;
   k*)
-    $_CURRENTEDITOR "$HOME/.config/kitty/kitty.conf" &&
-      kitten @ action load_config_file "/home/joona/.config/kitty/kitty.conf"
+    $_CURRENTEDITOR "$HOME/.config/kitty/kitty.conf"
+    kitten @ action load_config_file "/home/joona/.config/kitty/kitty.conf"
     # return 0
     ;;
   cd)
-    cd "$HOME/.dotfiles/" && ls -Altr --time=mtime
+    cd "$HOME/.dotfiles/" || return 1
+    ls -Altr --time=mtime
     # return 0
     ;;
   *)
@@ -187,6 +196,7 @@ cfg() {
     # return 1
     ;;
   esac
+  rf
 }
 render() {
   kitten icat "$1"
@@ -207,12 +217,12 @@ get() {
     return 0
   fi
 
-  if [[ $(type "$1") =~ ".sh" ]]; then
+  if [[ $(type "$1") =~ ".sh$" ]]; then
     filepath=$(which "$1" | cut -d ' ' -f 3)
     bat -pl sh "$filepath"
     return 0
 
-  elif [[ $(type "$1") =~ ".py" ]]; then
+  elif [[ $(type "$1") =~ ".py$" ]]; then
     filepath=$(which "$1" | cut -d ' ' -f 3)
     bat -pl py "$filepath"
     return 0
@@ -425,14 +435,7 @@ cd_pics() {
 # 	fi
 # }
 
-rf() {
-  source "$ZDOTDIR"/.shellrc
-  source "$ZDOTDIR"/.bash_functions
-  source "$ZDOTDIR"/.bash_aliases
-  source "$ZDOTDIR"/.consts
-  source "$ZDOTDIR"/.color_defs
-  clear
-}
+
 
 # Auto Bluetooth Connections
 bte() {

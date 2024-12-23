@@ -245,7 +245,7 @@ alias buildfs='\
 cd $HOME/python/Projects/fsutils/fsutils/compiled \
     && python3 setup.py build_ext --inplace --parallel=20 --cython-c-in-temp --build-temp /tmp'
 
-alias build='cython -I/usr/include/python3.12 -L/usr/lib -lpython3.12 -ldl -lm --embed -3'
+alias build='cython -I/usr/include/python3.13 -L/usr/lib -lpython3.13 -ldl -lm --embed -3'
 
 
 # if [[ -e $HOME/.dotfiles/.auto_aliases ]]; then
