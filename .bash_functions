@@ -1,18 +1,16 @@
 # dependencies: bat, vscodium --profile=Base
+
 # ignore=(.\*\\\[+package.\*\?\\\]+\(\\s+\[\\w\\\{\\s=\"\.\*\\[,:\\}\>\<\@\]\))
+
 source "$ZDOTDIR"/.color_defs.sh
 
-
-
 rsync_update(){
-  rsync -auXv "$1" "$2" | /home/joona/.local/share/bin/PB "$(find "$1" | wc -l)"
+  rsync -auXv "$1" "$2" | /home/joona/.local/share/bin/ProgressBar "$(find "$1" | wc -l)"
 }
 rsync_metadata(){
-  rsync -aXv "$1"  "$2" | /home/joona/.local/share/bin/PB "$(find "$1" | wc -l)"
+  rsync -aXv "$1"  "$2" | /home/joona/.local/share/bin/ProgressBar "$(find "$1" | wc -l)"
 }
 kitty_integration_custom() {
-
-  # -------------- #
 
   # Define aliases for kitten commands
   alias diff_='kitten diff'
@@ -35,23 +33,29 @@ kitty_integration_custom() {
       ;;
     esac
   }
+
+    function iplot {
+      cat <<EOF | gnuplot
+      set terminal pngcairo enhanced font 'Fira Sans,10'
+      set autoscale
+      set samples 1000
+      set output '|kitten icat --stdin yes'
+      set object 1 rectangle from screen 0,0 to screen 1,1 fillcolor rgb"#fdf6e3" behind
+      plot $@
+      set output '/dev/null'
+EOF
+  }
+
+  render() {
+    printf "%*s\n" "50" "$1"
+    kitten icat "$1"
+  }
 }
 # Check if the terminal is kitty and run custom integration if true
 [[ "$TERM" == "xterm-kitty" ]] && kitty_integration_custom
 
-function iplot {
-    cat <<EOF | gnuplot
-    set terminal pngcairo enhanced font 'Fira Sans,10'
-    set autoscale
-    set samples 1000
-    set output '|kitten icat --stdin yes'
-    set object 1 rectangle from screen 0,0 to screen 1,1 fillcolor rgb"#fdf6e3" behind
-    plot $@
-    set output '/dev/null'
-EOF
-}
-
 sshkeygen() {
+  # Generate SSH keys and copy them to a host
     printhelp() {
        echo -e "Usage: sshkeygen <hostname> <filename>"
        echo -e "\nGenerates an SSH keypair for the specified hostname,"
@@ -114,6 +118,7 @@ cdl() {
   }
   trap '_exit_venv' EXIT
 }
+
 rf() {
   source "$ZDOTDIR"/.env
   source "$ZDOTDIR"/.bash_functions
@@ -122,13 +127,13 @@ rf() {
   source "$ZDOTDIR"/.color_defs.sh
   clear
 }
-save_hist() {
 
+save_hist() {
   # Create file with timestamp as name
   # Function to save scrollback history of Kitty terminal to a file
   timestamp=$(date +%F\ %H:%M)
   default_dir="$HOME/Logs/kitty"
-  mkdir -p "$default_dir" >/dev/null 2>&1
+  mkdir -p "$default_dir"  >&/dev/null
 
   # Handle optional argument for filename
   if [[ -z $1 ]]; then
@@ -138,11 +143,12 @@ save_hist() {
   fi
 
   # Create file if it doesn't exist already.
-  touch "$output_path" >/dev/null 2>&1
+  touch "$output_path"  >&/dev/null
 
   # Copy stdin to clipboard
-  kitten @ launch --type clipboard --stdin-source @screen_scrollback &&
-    wl-paste >>"${output_path}"
+  kitten @ launch --type clipboard --stdin-source @screen_scrollback && \
+    wl-paste >>"${output_path}" && \
+    echo "Saved scrollback history to $output_path"
 }
 
 cfg() {
@@ -198,40 +204,38 @@ cfg() {
   esac
   rf
 }
-render() {
-  kitten icat "$1"
-  printf "%*s\n" "50" "$1"
-}
+
 add() {
   vscodium --profile=Base --add "$@"
 }
 
 get() {
   # Check type of command. If type == function, show the entire function
+
   if ! which "$1" >/dev/null; then
     error "Command $1 not found."
     return 1
   fi
-  if [[ $(type "$1") =~ "function" ]]; then
-    which "$1" | bat -pl sh
-    return 0
-  fi
 
-  if [[ $(type "$1") =~ ".sh$" ]]; then
+  cmdType="$(type $1)"
+
+  case "$cmdType" in
+  *function*|*alias*)
+    which "$1" | bat -pl sh
+    ;;
+  *sh)
     filepath=$(which "$1" | cut -d ' ' -f 3)
     bat -pl sh "$filepath"
-    return 0
-
-  elif [[ $(type "$1") =~ ".py$" ]]; then
+    ;;
+  *py)
     filepath=$(which "$1" | cut -d ' ' -f 3)
     bat -pl py "$filepath"
-    return 0
+    ;;
+  *)
+    printf "%s\n" "$(type $1)" | bat -pl sh
+    ;;
+  esac
 
-  else
-    # Print normal output otherwise
-    printf "%s\n" "$(type "$1")" | bat -pl sh
-  fi
-  return 0
 }
 
 pylint() {
@@ -258,20 +262,13 @@ touch() {
     # Add Python hashbang and execute permissions
     echo "#!/usr/bin/env python3" > "$1"
 	echo """
-import sys
-import os
-from Color import cprint
 
 def main() -> None:
 	pass
 
 if __name__ == '__main__':
-	try:
 		main()
-	except Exception as e:
-		cprint.error(f'{e!r}')
-		sys.exit(1)
-	sys.exit(0)""" >> "$1"
+    """ >> "$1"
     chmod +x "$1" && $EDITOR "$1"
     ;;
   *.sh)
@@ -286,8 +283,8 @@ if __name__ == '__main__':
   return 0
 
 }
-# Sort ps aux output in various preset formats
 ps_sorted() {
+  # Sort ps aux output in various preset formats
   case "$1" in
   membuff)
     # Buffered cache
@@ -297,8 +294,9 @@ ps_sorted() {
   esac
   return 0
 }
-# for viewing and clearing the failed services log.
 check_mail() {
+  # for viewing and clearing the failed services log.
+
   process() {
     # Display the contents of the file using 'bat'.
     bat --style=auto --paging=always "$1"

@@ -1,5 +1,4 @@
 # -----------------------#
-# -----------------------#
 # Ignore the following regex when calling `git diff``
 ignore_lines=(\"\|\'\|^\\s+\$)
 
@@ -49,11 +48,13 @@ alias feh="feh -g 1920x1080 --draw-filename --draw-exif --draw-tinted \
 --quiet --borderless -C /usr/share/fonts/TTF/ --title-font=FantasqueSansMNerdFontMono-Regular/12"
 
 alias montage='feh -m --thumb-width=640 --thumb-height=640 --stretch \
---limit-width 3840=--limit-height=1080 --borderless -C /usr/share/fonts/TTF \
---title-font=FantasqueSansMNerdFontMono-Regular/32 --index-info "%f\n%n" --preload --output=montage.png'
+--limit-width=3840 --limit-height=1080 --borderless -C /usr/share/fonts/TTF \
+--title-font=FantasqueSansMNerdFontMono-Regular/32 --index-info "%f\n%n" \
+--preload --output=montage.png'
 
-alias _montage='feh -m --stretch --limit-width 3840 --limit-height 1440 --borderless -C /usr/share/fonts/TTF \
---title-font=FantasqueSansMNerdFontMono-Regular/32 --index-info "%f\n%n" --preload --output=montage.png'
+alias _montage='feh -m --stretch --limit-width 1920 --limit-height 1080 \
+--borderless -C /usr/share/fonts/TTF --title-font=FantasqueSansMNerdFontMono-Regular/32 \
+--index-info "%f\n%n" --preload --output=montage.png'
 
 alias ff="cd $HOME/.mozilla/firefox/$ffid"
 alias ffp="nohup firefox --private-window &>/dev/null && exit"
@@ -82,7 +83,12 @@ alias nano="micro"
 alias notes="nohup firefox --url 0.0.0.0:8000/ &>/dev/null && exit"
 alias open="xdg-open"
 alias osrshydra="osrs_hydra"
-alias osrs='gamescope --adaptive-sync --expose-wayland -w 1920 -h 1080 -r 144 -W 2160  -H 1440 -F nis -- flatpak run --env=EXTRA_RUNELITE_ARGS="--configure" com.jagexlauncher.JagexLauncher  >&/dev/null & disown && kitty +kitten panel --edge=background --config=/home/joona/.config/kitty/panel.d/bg_padded.conf gping 10.0.0.1 -b 180 -c "#a7c080" &>/dev/null & disown'
+alias osrs='gamescope --adaptive-sync --expose-wayland -w 1920 -h 1080 -r 144 \
+-W 2160  -H 1440 -F nis -- flatpak run --env=EXTRA_RUNELITE_ARGS=--configure \
+com.jagexlauncher.JagexLauncher  >&/dev/null & disown && \
+    kitty +kitten panel --edge=background \
+    --config=/home/joona/.config/kitty/panel.d/bg_padded.conf \
+    gping 10.0.0.1 -b 180 -c "#a7c080" &>/dev/null & disown'
 # alias osrs='gamescope  --backend wayland  --xwayland-count 1  --adaptive-sync --fullscreen --grab   --force-composition --expose-wayland -w 2160 -h 1440 -r 144 -W 1920 -H 1080 -F nis -S fit -- flatpak run com.jagexlauncher.JagexLauncher &>/dev/null & disown && kitty +kitten panel --edge=background --config=/home/joona/.config/kitty/panel.d/bg_padded.conf gping 10.0.0.1 -b 180 -c "#a7c080" &>/dev/null & disown'
 alias osrsping="gping -c '#a7c080' oldschool78.runescape.com"
 alias paste="wl-paste"
@@ -137,12 +143,21 @@ alias pac-info="pacman -Qq \
 alias pac-info-explicit="pacman -Qqe \
 	| fzf --preview 'pacman -Qil {}' --layout=reverse --wrap --bind \
 	'enter:execute(pacman -Rsn {} | less)'"
+
 alias plist='[[ -d $HOME/.dotfiles/ ]] && pacman -Qqe > $HOME/.dotfiles/.pacman-pkglist.txt \
-								|| $HOME/.pacman-pkglist.txt'
+				|| $HOME/.pacman-pkglist.txt'
+
 alias pcheck='sudo paccheck --sha256sum --quiet'
 alias pdeps='sudo pacman -Qtdq'
-alias update='deactivate; sudo pacman -Syyu && yay -Syyu --answerclean A; source /home/joona/.venv/bin/activate'
-alias up-noconfirm='deactivate;sudo pacman -Syyu && yay -Syyu --answerclean A --noconfirm; source /home/joona/.venv/bin/activate'
+
+alias update='deactivate;
+    sudo pacman -Syyu && \
+    yay -Syyu --answerclean A;
+    source /home/joona/.venv/bin/activate'
+
+alias up-noconfirm='deactivate;
+    sudo pacman -Syyu && \
+    yay -Syyu --answerclean A --noconfirm; source /home/joona/.venv/bin/activate'
 
 # Systemd
 alias j='journalctl'
@@ -150,7 +165,9 @@ alias jp='journalctl -b --priority'
 alias logu='journalctl --user -e -u'
 alias log='journalctl -e -u'
 
-alias reboot-to-windows='mv /tmp/hwinfo.csv /home/joona/Logs/hwinfo/$(date +%Y-%m-%d_%H).csv && systemctl reboot --boot-loader-entry=auto-windows'
+alias reboot-to-windows='mv /tmp/hwinfo.csv /home/joona/Logs/hwinfo/$(date +%Y-%m-%d_%H).csv && \
+    systemctl reboot --boot-loader-entry=auto-windows'
+
 alias restart='mv /tmp/hwinfo.csv /home/joona/Logs/hwinfo/$(date +%Y-%m-%d_%H).csv && sudo systemctl reboot'
 alias sctlu='systemctl --user'
 alias sctl='systemctl'
@@ -214,7 +231,8 @@ alias brightness_low='qdbus6 org.kde.Solid.PowerManagement \
 alias goto-notes='cd "$HOME/Docs/Notes/Obsidian/All Notes" && ls -Al --group-directories-first'
 alias reboot='systemctl reboot'
 
-alias kittycam='mpv http://10.0.0.132:8081 --profile=big-cache --profile=network &>/dev/null && exit'
+alias kittycam='mpv http://10.0.0.132:8081 --profile=big-cache --profile=network &>/dev/null \
+    && exit'
 alias kittycam-term='nohup kitty +kitten panel --config=/home/joona/.config/kitty/panel.d/bg_padded.conf \
     --edge=background  mpv http://10.0.0.132:8081 --profile=big-cache --profile=network --profile=term \
     &>/dev/null & disown && exit'
@@ -232,18 +250,20 @@ alias pacrecent="expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort | tail -n 20"
 alias cwd='pwd | tee /dev/tty | copy'
 alias splot='systemd-analyze plot > /tmp/plot.svg && firefox /tmp/plot.svg  2>&/dev/null & disown'
 alias lsc='ls -1 | wc -l'
-alias bat-preview-themes='bat --list-themes | fzf --preview="man echo | bat --theme={} --color=always -l man --plain"'
+alias bat-preview-themes='bat --list-themes \
+    | fzf --preview="man echo \
+    | bat --theme={} --color=always -l man --plain"'
 alias gping='gping -c "#a7c080" -b 180'
 alias send='kdeconnect-cli -d 90b6a362_3256_4d0e_b22c_3df8a48b2061 --share'
 alias ports='lsof -Pn -i4'
-alias rm_saved='cat mpv_gallery_flagged | xargs -d "\n" rm && rm mpv_gallery_flagged'
+alias rm_saved='cat mpv_gallery_flagged \
+    | xargs -d "\n" rm && rm mpv_gallery_flagged'
 alias dps='docker ps --all --format "table {{.Names}}\t{{.Command}}\t{{.Status}}\t{{.Ports}}"'
 
 
 
-alias buildfs='\
-cd $HOME/python/Projects/fsutils/fsutils/compiled \
-    && python3 setup.py build_ext --inplace --parallel=20 --cython-c-in-temp --build-temp /tmp'
+alias buildfs='cd $HOME/python/Projects/fsutils/fsutils/ && \
+    python3 setup.py build_ext --inplace --parallel=20 --cython-c-in-temp --build-temp /tmp'
 
 alias build='cython -I/usr/include/python3.13 -L/usr/lib -lpython3.13 -ldl -lm --embed -3'
 
