@@ -63,7 +63,7 @@ alias ffsafe="nohup firefox --safe-mode &>/dev/null && exit"
 alias ffs="s --provider duckduckgo"
 alias ffu="nohup firefox --url &>/dev/null && exit"
 alias getweather='curl wttr.in'
-alias getinfo='python3 -m getinfo'
+alias getinfo='python3 -m fsutils.dir describe'
 alias ipy="/home/joona/.venv/bin/ipython3 --pprint --nosep --no-confirm-exit --profile=main --colors=Linux"
 alias killwine='kill 997 1021 >/dev/null 2>&1;wineserver -k 15;echo done'
 alias kwinDebugConsole='qdbus6 org.kde.KWin /KWin org.kde.KWin.showDebugConsole'

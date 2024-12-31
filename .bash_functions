@@ -1,15 +1,15 @@
-# dependencies: bat, vscodium --profile=Base
+# dependencies: bat, vscodium
 
 # ignore=(.\*\\\[+package.\*\?\\\]+\(\\s+\[\\w\\\{\\s=\"\.\*\\[,:\\}\>\<\@\]\))
 
 source "$ZDOTDIR"/.color_defs.sh
 
 rsync_update(){
-  rsync -auXv "$1" "$2" | /home/joona/.local/share/bin/ProgressBar "$(find "$1" | wc -l)"
+  rsync -arXv --checksum --existing  --ignore-existing --partial --progress "$1" "$2" | \
+    /home/joona/.local/share/bin/ProgressBar "$(find "$1" | wc -l)"
 }
-rsync_metadata(){
-  rsync -aXv "$1"  "$2" | /home/joona/.local/share/bin/ProgressBar "$(find "$1" | wc -l)"
-}
+
+
 kitty_integration_custom() {
 
   # Define aliases for kitten commands
