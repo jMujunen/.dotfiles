@@ -1,7 +1,6 @@
 7zip
 aichat
 alsa-utils
-android-sdk-platform-tools
 appmenu-gtk-module
 archlinux-appstream-data
 ark
@@ -34,8 +33,6 @@ clipboard
 cliphist
 cmake
 code
-code-features
-code-marketplace
 cuda
 cudnn
 cups
@@ -50,6 +47,7 @@ docker-compose
 dolphin
 dos2unix
 dosfstools
+dunst
 efibootmgr
 egl-wayland
 entr
@@ -99,13 +97,13 @@ hdf5
 hdparm
 htop
 hunspell-en_ca
-hyde-cli-git
 hyperfine
 hyprgui
 hypridle
 hyprland
 hyprland-qtutils
 hyprlock
+hyprpaper
 hyprpicker
 hyprshade
 hyprshot
@@ -126,8 +124,6 @@ kdegraphics-thumbnailers
 kdenlive
 kdiskmark
 kitty
-kitty-img
-kitty-shell-integration-shade-transparency-patch
 kitty-terminfo
 kmenuedit
 kodi
@@ -154,6 +150,7 @@ lib32-ocl-icd
 lib32-openal
 lib32-sdl2
 lib32-v4l-utils
+lib32-vulkan-mesa-layers
 libiconv
 libjson
 libnfs
@@ -172,11 +169,11 @@ linux-headers
 lld
 lldb
 lolcat
-losslesscut-bin
 lostfiles
 lzip
 lzop
 man-db
+man-pages
 mediainfo
 mesa-utils
 meson
@@ -185,7 +182,6 @@ micro
 mkinitcpio-firmware
 mkpdf
 mkvtoolnix-cli
-ml4w-hyprland
 mlt
 most
 motion
@@ -229,9 +225,7 @@ oxygen
 oxygen-sounds
 packagekit
 pacman-contrib
-pacman-pstatus
 pacutils
-pam_autologin
 pamixer
 pandoc-cli
 pandoc-plot
@@ -275,15 +269,18 @@ python-numpy
 python-pandas
 python-pickleshare
 python-ping
+python-pip
 python-pipx
 python-plyer
 python-psutil
 python-pyamdgpuinfo
+python-pylint
 python-pysnmp
 python-pytesseract
 python-pywal
 python-rich
 python-screeninfo
+python-send2trash
 python-setuptools
 python-toml
 python-tzlocal
@@ -294,9 +291,11 @@ qt5-graphicaleffects
 qt5-imageformats
 qt5-quickcontrols
 qt5-quickcontrols2
+qt5-tools
 qt5-wayland
 qt5ct
 qt6ct
+raw-thumbnailer
 rawtherapee
 rdma-core
 ripgrep
@@ -311,7 +310,6 @@ sbctl
 sbsigntools
 screenfetch
 sddm-kcm
-shell-color-scripts-git
 shfmt
 signal-desktop
 slurp
@@ -327,6 +325,7 @@ squashfs-tools
 ssh-tools
 steam
 steam-native-runtime
+stow
 strace
 swappy
 swaylock-effects-git
@@ -342,9 +341,9 @@ tesseract-data-osd
 testdisk
 texlive-binextra
 texlive-latex
-thonny
 time
 timeshift
+tk
 tldr
 traceroute
 trash-cli
@@ -356,6 +355,7 @@ ttf-fira-mono
 ttf-fira-sans
 ttf-firacode-nerd
 ttf-jetbrains-mono
+ttf-jetbrains-mono-nerd
 ttf-liberation
 ttf-nerd-fonts-symbols
 ttyplot
@@ -364,6 +364,8 @@ udiskie
 upd72020x-fw
 vdpauinfo
 vi
+vim
+vim-runtime
 vivid
 vlc
 vscodium
@@ -388,6 +390,7 @@ wofi
 xbindkeys
 xclip
 xdg-desktop-portal-gtk
+xdg-desktop-portal-hyprland
 xorg-server
 xorg-xdm
 xorg-xev
@@ -400,7 +403,6 @@ zathura
 zathura-pdf-poppler
 zenity
 zip
-znotes
 zram-generator
 zsh
 zsh-completions
