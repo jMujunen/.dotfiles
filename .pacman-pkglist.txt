@@ -38,10 +38,11 @@ cudnn
 cups
 darktable
 dcraw
+ddcui
+describeimage
 dfu-util
 direnv
 dkms
-dnsmasq
 docker
 docker-compose
 dolphin
@@ -114,6 +115,7 @@ inkscape
 intel-media-driver
 intel-ucode
 intel-undervolt
+iotas
 ipython
 iwd
 jedi-language-server
@@ -148,7 +150,7 @@ lib32-libxinerama
 lib32-lz4
 lib32-ocl-icd
 lib32-openal
-lib32-sdl2
+lib32-sdl2-compat
 lib32-v4l-utils
 lib32-vulkan-mesa-layers
 libiconv
@@ -168,7 +170,6 @@ linux-firmware
 linux-headers
 lld
 lldb
-lolcat
 lostfiles
 lzip
 lzop
@@ -316,7 +317,6 @@ slurp
 smartmontools
 sndio
 sof-firmware
-speedtest-cli
 spicetify-cli
 spotify
 spotify-tui
@@ -327,7 +327,6 @@ steam
 steam-native-runtime
 stow
 strace
-swappy
 swaylock-effects-git
 swww
 sysstat
@@ -403,6 +402,7 @@ zathura
 zathura-pdf-poppler
 zenity
 zip
+zoom
 zram-generator
 zsh
 zsh-completions

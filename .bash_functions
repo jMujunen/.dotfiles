@@ -5,7 +5,7 @@
 source "$ZDOTDIR"/.color_defs.sh
 
 rsync_update(){
-  rsync -arXv --checksum --existing  --ignore-existing --partial --progress "$1" "$2" | \
+  rsync -av --update --ignore-existing --partial --progress "$1/" "$2" | \
     /home/joona/.local/share/bin/ProgressBar "$(find "$1" | wc -l)"
 }
 

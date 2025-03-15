@@ -29,7 +29,7 @@ exclude = [
     ".venv",
     "__pycache__",
     "*conda*",
-    "**/TODO/kitty"
+    "**/TODO/kitty",
 ]
 cache-dir = "~/.cache/ruff"
 line-length = 100
@@ -74,7 +74,7 @@ docstring-code-line-length = "dynamic"
 
 [lint]
 select = ["E", "F", "C", 'W', "B", "UP", "D107", "D104","D301","D401","D400","ANN201", "ANN206", "S103", "S105", "S112", "S110", "A", "EXE", "PIE", "RET", "SIM", "PLR", "PLW", "RUF","D406","FBT","PERF","D212"] # 'D' Django, 'ANN' annotations, 'S' built-ins, 'A', 'EXE', 'PIE', 'RET', 'SIM', 'PLR', 'PLW', 'RUF' ruff-lint ,'C' codesmell, 'E' convention, 'F' error, 'B' bug, 'UP' unused variables, 'W' warning.
-
+exclude = ["*test*.py", '*.pyx']
 fixable = ['ALL']
 
 ignore = ["E501", "N999", "N806", "FBT002", 'D417', 'E501', 'E303'] #"D211", "D213", "W1514", "E701" E702]

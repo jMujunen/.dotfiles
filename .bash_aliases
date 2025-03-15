@@ -83,17 +83,20 @@ alias nano="micro"
 alias notes="nohup firefox --url 0.0.0.0:8000/ &>/dev/null && exit"
 alias open="xdg-open"
 alias osrshydra="osrs_hydra"
-alias osrs='gamescope --adaptive-sync --expose-wayland -w 1920 -h 1080 -r 144 \
--W 2160  -H 1440 -F nis -- flatpak run --env=EXTRA_RUNELITE_ARGS=--configure \
-com.jagexlauncher.JagexLauncher  >&/dev/null & disown && \
-    kitty +kitten panel --edge=background \
-    --config=/home/joona/.config/kitty/panel.d/bg_padded.conf \
-    gping 10.0.0.1 -b 180 -c "#a7c080" &>/dev/null & disown'
+alias osrs="flatpak run --env=EXTRA_RUNELITE_ARGS=--configure com.jagexlauncher.JagexLauncher  >&/dev/null & disown &&
+kitty +kitten panel --edge=background --config=$KITTY_PANEL_CFG gping 10.0.0.1-b 180 -c '#a7c080' &>/dev/null & disown"
+# alias osrs='gamescope --adaptive-sync --expose-wayland -w 1920 -h 1080 -r 144 \
+# -W 2160  -H 1440 -F nis -- flatpak run --env=EXTRA_RUNELITE_ARGS=--configure \
+# com.jagexlauncher.JagexLauncher  >&/dev/null & disown && \
+    # kitty +kitten panel --edge=background \
+    # --config=/home/joona/.config/kitty/panel.d/bg_padded.conf \
+    # gping 10.0.0.1 -b 180 -c "#a7c080" &>/dev/null & disown'
+
 # alias osrs='gamescope  --backend wayland  --xwayland-count 1  --adaptive-sync --fullscreen --grab   --force-composition --expose-wayland -w 2160 -h 1440 -r 144 -W 1920 -H 1080 -F nis -S fit -- flatpak run com.jagexlauncher.JagexLauncher &>/dev/null & disown && kitty +kitten panel --edge=background --config=/home/joona/.config/kitty/panel.d/bg_padded.conf gping 10.0.0.1 -b 180 -c "#a7c080" &>/dev/null & disown'
 alias osrsping="gping -c '#a7c080' oldschool78.runescape.com"
 alias paste="wl-paste"
 alias pics='cd_pics'
-alias printenv="/bin/sh $HOME/scripts/printenv_color.sh | sort"
+alias printenv="$HOME/python/scripts/printenv.py | sort"
 alias pyp='cd $HOME/python/Projects/ && ls -alph --group-directories-first'
 alias psg="ps x | grep -iP"
 alias psm='ps_sorted membuff'
@@ -200,7 +203,7 @@ alias size='python3 -m size' # OVERWRITES BUILT-IN SHELL FUNCTION
 alias poet-require='xargs poetry add < requirements.txt'
 
 alias search='apropos'
-alias c='paste | wc' # Perform [word|line|character] count on clipboard content
+# alias c='paste | wc' # Perform [word|line|character] count on clipboard content
 alias mpv='mpv --fs --profile=speed-with-audio --profile=big-cache'
 # alias mpvt='mpv -hwdec=auto-safe --cuda-decode-device=0 --hr-seek=no --vd=hevc,hevc_v4l2m2m,h264,hevc_cuvid,h264_cuvid --profile=sw-fast --audio=no'
 alias mpvt='mpv --profile=term'
@@ -267,6 +270,7 @@ alias buildfs='cd $HOME/python/Projects/fsutils/fsutils/ && \
 
 alias build='cython -I/usr/include/python3.13 -L/usr/lib -lpython3.13 -ldl -lm --embed -3'
 
+alias kill_kitten='pgrep --full "kitten panel" | xargs kill -9'
 
 # if [[ -e $HOME/.dotfiles/.auto_aliases ]]; then
 	# source $HOME/.dotfiles/.auto_aliases
