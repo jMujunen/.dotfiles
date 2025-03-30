@@ -162,6 +162,12 @@ setopt extended_history
 # display PID when suspending processes as well
 setopt longlistjobs
 
+# Traditional '#' comments
+setopt INTERACTIVE_COMMENTS
+
+
+
+bindkey "^Q" push-input
 
 if [[ -d $(pwd)/.venv ]]; then
 	source ./.venv/bin/activate

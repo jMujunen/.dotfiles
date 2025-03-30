@@ -1,7 +1,6 @@
 **/__pycache__/
 **/venv/
 **/.venv/
-**/kitty/
 **/.vscode
 **/.git
 **/.*cache/
@@ -18,3 +17,4 @@
 *.js
 *.html
 *.pdf
+!.py

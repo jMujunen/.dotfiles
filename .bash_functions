@@ -100,7 +100,7 @@ compile() {
     c_file="$(echo "$file" | cut -d. --fields=1).c"
     output_binary="$(echo "$file" | cut -d. --fields=1)"
     cython --embed -3 "$file" \
-    && gcc "$c_file" -I/usr/include/python3.13 -L/usr/lib -lpython3.13 -ldl -lm -o "$output_binary" \
+    && gcc "$c_file" -O3 -I/usr/include/python3.13 -L/usr/lib -lpython3.13 -ldl -lm -o "$output_binary" \
     && echo -e "\033[32m Success! \033[0m"
 }
 

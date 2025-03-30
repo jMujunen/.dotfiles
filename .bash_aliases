@@ -38,7 +38,7 @@ alias dl="cd_dl"
 alias docs="cd_docs"
 alias dus="du -ch | sort -h"
 alias free='python3 $HOME/python/scripts/bashhelpers/ColorizeOutput/free.py'
-
+alias ffmpeg='ffmpeg -stats -v warning'
 alias _find='find . \( ! -path "**/__pycache__" \) \( ! -path "**/venv" \) \
 \( ! -path "**/*yarn*" \) \( ! -path "**/.cargo" \) \( ! -path "**/yay" \) \
 \( ! -path "**/.venv" \) \( ! -path "**/*conda*" \) \( ! -path "**/*cache" \)'
@@ -63,7 +63,7 @@ alias ffsafe="nohup firefox --safe-mode &>/dev/null && exit"
 alias ffs="s --provider duckduckgo"
 alias ffu="nohup firefox --url &>/dev/null && exit"
 alias getweather='curl wttr.in'
-alias getinfo='python3 -m fsutils.dir describe'
+# alias getinfo='python3 -m fsutils.dir describe'
 alias ipy="/home/joona/.venv/bin/ipython3 --pprint --nosep --no-confirm-exit --profile=main --colors=Linux"
 alias killwine='kill 997 1021 >/dev/null 2>&1;wineserver -k 15;echo done'
 alias kwinDebugConsole='qdbus6 org.kde.KWin /KWin org.kde.KWin.showDebugConsole'
@@ -84,7 +84,7 @@ alias notes="nohup firefox --url 0.0.0.0:8000/ &>/dev/null && exit"
 alias open="xdg-open"
 alias osrshydra="osrs_hydra"
 alias osrs="flatpak run --env=EXTRA_RUNELITE_ARGS=--configure com.jagexlauncher.JagexLauncher  >&/dev/null & disown &&
-kitty +kitten panel --edge=background --config=$KITTY_PANEL_CFG gping 10.0.0.1-b 180 -c '#a7c080' &>/dev/null & disown"
+kitty +kitten panel --edge=background --config=$KITTY_PANEL_CFG gping 10.0.0.1 -b 180 -c '#a7c080' &>/dev/null & disown"
 # alias osrs='gamescope --adaptive-sync --expose-wayland -w 1920 -h 1080 -r 144 \
 # -W 2160  -H 1440 -F nis -- flatpak run --env=EXTRA_RUNELITE_ARGS=--configure \
 # com.jagexlauncher.JagexLauncher  >&/dev/null & disown && \
@@ -215,9 +215,9 @@ alias dir="fzf --preview 'fzf-preview.sh {}'"
 
 alias cam='ssh server -t "source /home/joona/.dotfiles/.shellrc && \
 	/home/joona/.venv/bin/python3 /home/joona/python/scripts/io/dir_sort.py \
-    /mnt/hdd/webcam /mnt/hdd/sorted-webcam-clips" \
+    /mnt/hdd/.webcam /mnt/hdd/sorted-webcam-clips" \
 	&& cd /mnt/hdd/sorted-webcam-clips/$(date +%Y)/$(date +%B)/$(date +%-d);
-	ls -A1tr *.mp4'
+	ls -A1tr'
 
 alias f='fastfetch' # --config ~/.config/fastfetch/paleofetch.jsonc
 alias tree='tree -a --dirsfirst'
