@@ -27,14 +27,14 @@ alias aliases='alias | bat -l sh -p'
 alias back='cd "$OLDPWD"'
 alias cleansyslogs='sudo journalctl --vacuum-time=2d'
 #alias cdl="cd_ls"
-alias cdpy="cd_py"
+alias cdpy="cd_py" # Remove
 alias cls="clear"
 alias code="vscodium --profile=Default"
 alias copy="wl-copy"
 alias cp="cp -Piv"
 alias dadjoke='curl https://icanhazdadjoke.com && printf "\n"'
 alias df='python3 $HOME/python/scripts/bashhelpers/ColorizeOutput/df.py'
-alias dl="cd_dl"
+alias dl="cd $HOME/Downloads/ && eza -ltuh --group-directories-first"
 alias docs="cd_docs"
 alias dus="du -ch | sort -h"
 alias free='python3 $HOME/python/scripts/bashhelpers/ColorizeOutput/free.py'
@@ -67,12 +67,12 @@ alias getweather='curl wttr.in'
 alias ipy="/home/joona/.venv/bin/ipython3 --pprint --nosep --no-confirm-exit --profile=main --colors=Linux"
 alias killwine='kill 997 1021 >/dev/null 2>&1;wineserver -k 15;echo done'
 alias kwinDebugConsole='qdbus6 org.kde.KWin /KWin org.kde.KWin.showDebugConsole'
-
-alias la="ls -lphAv --group-directories-first"
-alias ll="ls -lphv --group-directories-first"
-alias l="ls -hlApSr --group-directories-first"
-alias lt="ls -Altrh --time=mtime --group-directories-first"
-alias lsd="ls -lAdh */"
+alias ls='eza -lA --group-directories-first --sort=size -h'
+alias la="eza -lhA --group-directories-first"
+alias ll="eza -lh --group-directories-first"
+alias l="eza -hlASr --group-directories-first"
+alias lt="eza -Alh --time=modified --sort=modified --group-directories-first"
+alias lsd="eza -lAdh --time=modified --sort=modified */"
 alias spotify='spotify >&/dev/null & disown'
 alias logs="cd $HOME/Logs/"
 alias lsblkc='/home/joona/.venv/bin/python3 $HOME/python/scripts/bashhelpers/ColorizeOutput/lsblk.py'
@@ -252,7 +252,7 @@ alias everforest='cat $HOME/.themes/**/* | copy && parse_and_render_colors.py --
 alias pacrecent="expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort | tail -n 20"
 alias cwd='pwd | tee /dev/tty | copy'
 alias splot='systemd-analyze plot > /tmp/plot.svg && firefox /tmp/plot.svg  2>&/dev/null & disown'
-alias lsc='ls -1 | wc -l'
+alias lsc='eza -1 | wc -l'
 alias bat-preview-themes='bat --list-themes \
     | fzf --preview="man echo \
     | bat --theme={} --color=always -l man --plain"'

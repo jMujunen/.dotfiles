@@ -11,7 +11,7 @@ rsync_update(){
 
 cv(){
   CWD="/home/joona/opencv-cuda/opencv_build"
-  cd $CWD
+  cd $CWD || exit || exit
   if cp -fn flags.sh .env /tmp; then
     if rm -rf --interactive=never /home/joona/opencv-cuda/opencv_build/*; then
       mv /tmp/.env /tmp/flags.sh ./ && ./flags.sh
@@ -208,7 +208,7 @@ cfg() {
     ;;
   cd)
     cd "$HOME/.dotfiles/" || return 1
-    ls -Altr --time=mtime
+    eza -Alr --sort=modified --group-directories-first
     # return 0
     ;;
   *)
@@ -365,7 +365,7 @@ cd_up() {
     local cwd
     if cwd=$(pwd); then
       printf "\033[1;33m%s\033[0m\n" "$cwd"
-      ls -ltuph --group-directories-first
+      eza -luhr --sort=modified --group-directories-first
     else
       error "Failed to get current directory after cd .."
       return 1
@@ -422,10 +422,6 @@ cd_logs() {
 }
 cd_docs() {
   cd "$HOME"/Docs/ || return 1
-  ls -ltuph --group-directories-first
-}
-cd_dl() {
-  cd "$HOME"/Downloads/ || return 1
   ls -ltuph --group-directories-first
 }
 cd_pics() {
