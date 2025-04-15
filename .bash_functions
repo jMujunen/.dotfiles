@@ -9,6 +9,20 @@ rsync_update(){
     /home/joona/.local/share/bin/ProgressBar "$(find "$1" | wc -l)"
 }
 
+cv(){
+  CWD="/home/joona/opencv-cuda/opencv_build"
+  cd $CWD
+  if cp -fn flags.sh .env /tmp; then
+    if rm -rf --interactive=never /home/joona/opencv-cuda/opencv_build/*; then
+      mv /tmp/.env /tmp/flags.sh ./ && ./flags.sh
+    else
+      echo -e "\033[31mError removing files\033[0m"
+      return 1
+    fi
+  else
+    return 1
+  fi
+}
 
 kitty_integration_custom() {
 

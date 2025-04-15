@@ -47,12 +47,12 @@ alias feh="feh -g 1920x1080 --draw-filename --draw-exif --draw-tinted \
 -S filename --scale-down --cache-size=1024 --output-dir=/home/joona/Pictures/feh \
 --quiet --borderless -C /usr/share/fonts/TTF/ --title-font=FantasqueSansMNerdFontMono-Regular/12"
 
-alias montage='feh -m --thumb-width=640 --thumb-height=640 --stretch \
---limit-width=3840 --limit-height=1080 --borderless -C /usr/share/fonts/TTF \
+alias montage='feh -m --thumb-width=320 --thumb-height=320 --stretch \
+--limit-height=2160 --borderless -C /usr/share/fonts/TTF \
 --title-font=FantasqueSansMNerdFontMono-Regular/32 --index-info "%f\n%n" \
 --preload --output=montage.png'
 
-alias _montage='feh -m --stretch --limit-width 1920 --limit-height 1080 \
+alias _montage='feh -m --stretch --limit-height 1080 \
 --borderless -C /usr/share/fonts/TTF --title-font=FantasqueSansMNerdFontMono-Regular/32 \
 --index-info "%f\n%n" --preload --output=montage.png'
 
