@@ -169,13 +169,11 @@ setopt INTERACTIVE_COMMENTS
 
 bindkey "^Q" push-input
 
-if [[ -d $(pwd)/.venv ]]; then
-	source ./.venv/bin/activate
-else
-	if ! source /home/joona/.venv/bin/activate; then
-	    echo -e "\033[31mError:\033[0m Activating python venv failed"
-	    echo -e "\033[33m ~/.dotfiles/.zshrc\033[0m @ line \033[35m 168\033[0m"
-	fi
-fi
+# if [[ -d $(pwd)/.venv ]]; then
+	# source ./.venv/bin/activate
+# else
+	# source /home/joona/.venv/bin/activate
+# fi
 
-source $HOME/scripts/fzf/fzf-git.sh
+# source $HOME/scripts/fzf/fzf-git.sh
+
