@@ -5,7 +5,7 @@ source "$ZDOTDIR"/.color_defs
 
 
 rsync_update(){
-  rsync -auXv "$1" "$2" | /home/joona/.local/share/bin/PB "$(find "$1" | wc -l)"
+  rsync -auXv "$1" "$2" | /home/joona/.local/share/bin/ProgressBar "$(find "$1" | wc -l)"
 }
 rsync_metadata(){
   rsync -aXv "$1"  "$2" | /home/joona/.local/share/bin/PB "$(find "$1" | wc -l)"
