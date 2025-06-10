@@ -5,30 +5,29 @@
 source "$ZDOTDIR"/.color_defs.sh
 
 rsync_update(){
-  rsync -av --update --ignore-existing --partial --progress "$1/" "$2" | \
-    /home/joona/.local/share/bin/ProgressBar "$(find "$1" | wc -l)"
+  rsync -av --update --ignore-existing --partial "$1/" "$2" | \
+    ProgressBar "$(find "$1" | wc -l)"
+}
+rsync_full(){
+  rsync -av --partial "$1/" "$2" | \
+    ProgressBar "$(find "$1" | wc -l)"
 }
 
-cv(){
-  CWD="/home/joona/opencv-cuda/opencv_build"
-  cd $CWD || exit || exit
-  if cp -fn flags.sh .env /tmp; then
-    if rm -rf --interactive=never /home/joona/opencv-cuda/opencv_build/*; then
-      mv /tmp/.env /tmp/flags.sh ./ && ./flags.sh
-    else
-      echo -e "\033[31mError removing files\033[0m"
-      return 1
-    fi
-  else
-    return 1
-  fi
+colorize_diff() {
+    while IFS= read -r line; do
+        if [[ $line == "+"* ]]; then
+            echo -e "\033[32m$line\033[0m"  # Green for additions
+        elif [[ $line == "-"* ]]; then
+            echo -e "\033[31m$line\033[0m"  # Red for deletions
+        else
+            echo -e "\033[90m$line\033[0m"  # Gray for context
+        fi
+    done <<< "$1"
 }
 
 kitty_integration_custom() {
-
   # Define aliases for kitten commands
   alias diff_='kitten diff'
-  alias img='kitten icat'
   alias ssh='kitten ssh'
   alias rglinks='kitty -T "Hyperlinked rip-grep" --hold kitten hyperlinked-grep'
   alias kp=kitty_panel
@@ -61,11 +60,11 @@ EOF
   }
 
   render() {
-    printf "%*s\n" "50" "$1"
-    kitten icat "$1"
+    printf "%*s\n" "40" "$1"
+    kitten icat --use-window-size 50,50,512,50 "$1"
   }
 }
-# Check if the terminal is kitty and run custom integration if true
+# Check [the terminal is kitty and run custom integration if true
 [[ "$TERM" == "xterm-kitty" ]] && kitty_integration_custom
 
 sshkeygen() {
@@ -182,41 +181,39 @@ cfg() {
   case "$1" in
   z*)
     $_CURRENTEDITOR "$HOME/.dotfiles/.zshrc"
-    # return 0
+    source "$HOME/.dotfiles/.zshrc"
     ;;
   b*)
     $_CURRENTEDITOR "$HOME/.dotfiles/.bashrc"
-    # return 0
+    source "$HOME/.dotfiles/.bashrc"
+
     ;;
   a*)
     $_CURRENTEDITOR "$HOME/.dotfiles/.bash_aliases"
-    # return 0
+    source "$HOME/.dotfiles/.bash_aliases"
     ;;
   f*)
     $_CURRENTEDITOR "$HOME/.dotfiles/.bash_functions"
     source "$HOME/.dotfiles/.bash_functions"
-    # return 0
     ;;
-  s*)
-    $_CURRENTEDITOR "$HOME/.dotfiles/.shellrc"
-    # return 0
+  e*)
+    $_CURRENTEDITOR "$HOME/.dotfiles/.env"
+    source "$HOME/.dotfiles/.env"
     ;;
   k*)
     $_CURRENTEDITOR "$HOME/.config/kitty/kitty.conf"
     kitten @ action load_config_file "/home/joona/.config/kitty/kitty.conf"
-    # return 0
     ;;
   cd)
     cd "$HOME/.dotfiles/" || return 1
-    eza -Alr --sort=modified --group-directories-first
-    # return 0
+    eza --git -Alr --sort=modified --group-directories-first
     ;;
   *)
     error "Argument must be one of [z* | b* | a* | f* | s* | cd | k*]"
-    # return 1
+    return 1
     ;;
   esac
-  rf
+  return 0
 }
 
 add() {
@@ -263,7 +260,7 @@ pylint() {
   esac
 }
 
-touch() {
+touchs() {
   # Check if the file exists
   if [ -e "$1" ]; then
     echo "Error: File $1 already exists."
@@ -296,17 +293,6 @@ if __name__ == '__main__':
   esac
   return 0
 
-}
-ps_sorted() {
-  # Sort ps aux output in various preset formats
-  case "$1" in
-  membuff)
-    # Buffered cache
-    ps aux | awk '{print $6/1024 " MB\t\t" $11}' | sort -n
-    ;;
-
-  esac
-  return 0
 }
 check_mail() {
   # for viewing and clearing the failed services log.
@@ -365,7 +351,7 @@ cd_up() {
     local cwd
     if cwd=$(pwd); then
       printf "\033[1;33m%s\033[0m\n" "$cwd"
-      eza -luhr --sort=modified --group-directories-first
+      eza --git -luhr --sort=modified --group-directories-first
     else
       error "Failed to get current directory after cd .."
       return 1
@@ -543,7 +529,7 @@ man_color() {
 
 git_diff() {
   # NOTE - Work in progress
-  local ignore_lines=(\"\|\'\|^\\s+\$)
+  local ignore_lines=(^\\s+\$)
   if [[ "$1" == "staged" ]]; then
     name_status=$(git diff --staged --name-status --diff-filter=AMD)
     diff=$(git diff --patch-with-stat --ignore-all-space --ignore-cr-at-eol --ignore-blank-lines \

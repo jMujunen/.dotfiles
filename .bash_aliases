@@ -1,6 +1,6 @@
 # -----------------------#
 # Ignore the following regex when calling `git diff``
-ignore_lines=(\"\|\'\|^\\s+\$)
+ignore_lines=(^\\s+\$)
 
 # Private constant variables like API keys/tokens
 [[ -f $HOME/.dotfiles/.consts ]] && source "$HOME/.dotfiles/.consts"
@@ -34,7 +34,7 @@ alias copy="wl-copy"
 alias cp="cp -Piv"
 alias dadjoke='curl https://icanhazdadjoke.com && printf "\n"'
 alias df='python3 $HOME/python/scripts/bashhelpers/ColorizeOutput/df.py'
-alias dl="cd $HOME/Downloads/ && eza -ltuh --group-directories-first"
+alias dl="cd $HOME/Downloads/ && eza --git -luh --git --sort=modified --group-directories-first"
 alias docs="cd_docs"
 alias dus="du -ch | sort -h"
 alias free='python3 $HOME/python/scripts/bashhelpers/ColorizeOutput/free.py'
@@ -67,12 +67,12 @@ alias getweather='curl wttr.in'
 alias ipy="/home/joona/.venv/bin/ipython3 --pprint --nosep --no-confirm-exit --profile=main --colors=Linux"
 alias killwine='kill 997 1021 >/dev/null 2>&1;wineserver -k 15;echo done'
 alias kwinDebugConsole='qdbus6 org.kde.KWin /KWin org.kde.KWin.showDebugConsole'
-alias ls='eza -lA --group-directories-first --sort=size -h'
-alias la="eza -lhA --group-directories-first"
-alias ll="eza -lh --group-directories-first"
-alias l="eza -hlASr --group-directories-first"
-alias lt="eza -Alh --time=modified --sort=modified --group-directories-first"
-alias lsd="eza -lAdh --time=modified --sort=modified */"
+alias ls='eza --git -lA --group-directories-first --sort=size -h'
+alias la="eza --git -lhA --group-directories-first"
+alias ll="eza --git -lh --group-directories-first"
+alias l="eza --git -hlASr --group-directories-first"
+alias lt="eza --git -Alh --time=modified --sort=modified --group-directories-first"
+alias lsd="eza --git -lAdh --time=modified --sort=modified */"
 alias spotify='spotify >&/dev/null & disown'
 alias logs="cd $HOME/Logs/"
 alias lsblkc='/home/joona/.venv/bin/python3 $HOME/python/scripts/bashhelpers/ColorizeOutput/lsblk.py'
@@ -99,9 +99,10 @@ alias pics='cd_pics'
 alias printenv="$HOME/python/scripts/printenv.py | sort"
 alias pyp='cd $HOME/python/Projects/ && ls -alph --group-directories-first'
 alias psg="ps x | grep -iP"
-alias psm='ps_sorted membuff'
+alias psm=ps aux | awk '{print $6/1024 " MB\t\t" $11}' | sort -n | tail
 alias py='/home/joona/.venv/bin/python3'
-alias rg='rg --no-ignore --hidden --ignore-file=/home/joona/.dotfiles/.ripgrep_ignore'
+alias rg='rg --no-ignore --max-columns=150 --max-columns-preview \
+--hidden --ignore-file=/home/joona/.dotfiles/.ripgrep_ignore'
 alias rmf='rm -rf'
 alias rm="rm -d --verbose"
 alias sms="/home/joona/.venv/bin/python3 $HOME/python/modules/kdeConnect.py"
@@ -128,7 +129,7 @@ alias ws-hypr="vscodium --profile=Default -n $HOME/Code/Workspace/hyprland.code-
 
 alias x="exit"
 alias yay="yay --color=always"
-alias md='python3 -m rich.markdown --code-theme material --width=90'
+alias md='python3 -m rich.markdown --code-theme material --width=90 -i bash'
 alias fmtdate='python3 -m rich.markdown /home/joona/Docs/Notes/Obsidian/All\ Notes/Code/strftime.md'
 alias fmtprint='open "/home/joona/Docs/Notes/HTML/Code/BASH/PRINTF - BASH.html"'
 alias rl='cd /home/joona/.var/app/com.jagexlauncher.JagexLauncher/data/user_home/.runelite'
@@ -140,13 +141,14 @@ alias llamaupdate='curl -fsSL https://ollama.com/install.sh | sh && sleep 2;
     sudo systemctl restart ollama'
 
 # Arch Linux Specific
-alias pac-info="pacman -Qq \
-	| fzf --preview 'pacman -Qil {}' --layout=reverse --wrap --bind \
+alias pac-info="sudo pacman -Qq \
+	| fzf --sync --preview 'pacman -Qil {}' --layout=reverse --wrap --bind \
 	'enter:execute(pacman -Rsn {} )'"
-alias pac-info-explicit="pacman -Qqe \
-	| fzf --preview 'pacman -Qil {}' --layout=reverse --wrap --bind \
+alias pac-info-explicit="sudo pacman -Qqe \
+	| fzf --sync --preview 'pacman -Qil {}' --layout=reverse --wrap --bind \
 	'enter:execute(pacman -Rsn {} | less)'"
 
+alias pacfind="pacman -Slq | fzf --sync --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
 alias plist='[[ -d $HOME/.dotfiles/ ]] && pacman -Qqe > $HOME/.dotfiles/.pacman-pkglist.txt \
 				|| $HOME/.pacman-pkglist.txt'
 
@@ -193,7 +195,8 @@ alias gds='git diff --patch-with-stat --ignore-all-space --ignore-cr-at-eol --ig
 						 --staged --diff-filter=M'
 
 alias gdg='git difftool --ignore-all-space --ignore-cr-at-eol \
-						--ignore-blank-lines --ignore-space-at-eol'
+						--ignore-blank-lines --ignore-space-at-eol \
+						--diff-filter=M'
 alias gdgs='git difftool --ignore-all-space --ignore-cr-at-eol \
 						--ignore-blank-lines --ignore-space-at-eol --staged'
 
@@ -207,8 +210,8 @@ alias search='apropos'
 alias mpv='mpv --fs --profile=speed-with-audio --profile=big-cache'
 # alias mpvt='mpv -hwdec=auto-safe --cuda-decode-device=0 --hr-seek=no --vd=hevc,hevc_v4l2m2m,h264,hevc_cuvid,h264_cuvid --profile=sw-fast --audio=no'
 alias mpvt='mpv --profile=term'
-alias winssd='cd /mnt/win_ssd/Users/Joona/Videos/NVIDIA/ && ls -Alph --group-directories-first'
-alias clips='cd /mnt/ssd/OBS && ls -Alph --group-directories-first'
+alias winssd='cd /mnt/win_ssd/Users/Joona/Videos/NVIDIA/ && ls -Alh --group-directories-first'
+alias clips='cd /mnt/ssd/OBS && eza --git -Alh --group-directories-first'
 # fzf
 alias dir="fzf --preview 'fzf-preview.sh {}'"
 # Kitty panel
@@ -220,10 +223,11 @@ alias cam='ssh server -t "source /home/joona/.dotfiles/.shellrc && \
 	ls -A1tr'
 
 alias f='fastfetch' # --config ~/.config/fastfetch/paleofetch.jsonc
-alias tree='tree -a --dirsfirst'
+# alias tree='tree -a --dirsfirst'
+alias tree='eza --tree --group-directories-first -A'
 alias treei='tree -a --dirsfirst --gitfile=/home/joona/.config/git/.gitignore_global'
 alias find_='rg --files | rg'
-alias trash='send2trash'
+# alias trash='send2trash'
 
 # * dbus
 alias brightness_max='qdbus6 org.kde.Solid.PowerManagement \
@@ -252,7 +256,7 @@ alias everforest='cat $HOME/.themes/**/* | copy && parse_and_render_colors.py --
 alias pacrecent="expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort | tail -n 20"
 alias cwd='pwd | tee /dev/tty | copy'
 alias splot='systemd-analyze plot > /tmp/plot.svg && firefox /tmp/plot.svg  2>&/dev/null & disown'
-alias lsc='eza -1 | wc -l'
+alias lsc='eza --git -1 | wc -l'
 alias bat-preview-themes='bat --list-themes \
     | fzf --preview="man echo \
     | bat --theme={} --color=always -l man --plain"'
@@ -265,13 +269,19 @@ alias dps='docker ps --all --format "table {{.Names}}\t{{.Command}}\t{{.Status}}
 
 
 
-alias buildfs='cd $HOME/python/Projects/fsutils/fsutils/ && \
+alias buildfs='cd $HOME/python/Projects/fsutils/ && \
     python3 setup.py build_ext --inplace --parallel=20 --cython-c-in-temp --build-temp /tmp'
 
 alias build='cython -I/usr/include/python3.13 -L/usr/lib -lpython3.13 -ldl -lm --embed -3'
 
 alias kill_kitten='pgrep --full "kitten panel" | xargs kill -9'
 
+alias sudo='sudo '
+alias ffprobe='ffprobe -v error -show_streams -show_format -output_format json'
+alias regex='pcre2grep'
+alias commit='ollama run SlyOtis/git-auto-message:latest "$(git diff --staged)"'
+alias meowlog='ssh --kitten interpreter=sh kodi pastekodi | xargs curl > /tmp/kodi.log && bat -p /tmp/kodi.log'
+alias z='zathura'
 # if [[ -e $HOME/.dotfiles/.auto_aliases ]]; then
 	# source $HOME/.dotfiles/.auto_aliases
 # fi
