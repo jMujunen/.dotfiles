@@ -861,7 +861,7 @@
   "shellcheck.ignorePatterns": {
     "**/*.bashrc": true,
     "**/*.shellrc": true,
-    "**/*.consts": true,
+    "**/*.secret*": true,
     "**/*.bash_aliases": true
   },
   "terminal.integrated.profiles.linux": {
@@ -915,7 +915,7 @@
   "files.associations": {
     "*.Modelfile": "hla",
     "*.gitconfig": "ini",
-    "*.consts": "shellscript",
+    "*.secrets": "shellscript",
     "*.color_defs": "shellscript",
     "*.ipynb": "python"
     // "*.ini": "properties"

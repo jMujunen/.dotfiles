@@ -26,6 +26,9 @@ colorize_diff() {
 }
 
 kitty_integration_custom() {
+  img() {
+    kitten icat --use
+  }
   # Define aliases for kitten commands
   alias diff_='kitten diff'
   alias ssh='kitten ssh'
@@ -136,8 +139,6 @@ rf() {
   source "$ZDOTDIR"/.env
   source "$ZDOTDIR"/.bash_functions
   source "$ZDOTDIR"/.bash_aliases
-  source "$ZDOTDIR"/.consts
-  source "$ZDOTDIR"/.color_defs.sh
   clear
 }
 

@@ -2,9 +2,6 @@
 # Ignore the following regex when calling `git diff``
 ignore_lines=(^\\s+\$)
 
-# Private constant variables like API keys/tokens
-[[ -f $HOME/.dotfiles/.consts ]] && source "$HOME/.dotfiles/.consts"
-
 [[ -f $HOME/.bash_functions ]] \
 	&& . "$HOME/.bash_functions"
 	# && alias rf='source $HOME/."${shell_type}"rc'
