@@ -96,7 +96,7 @@ kitty +kitten panel --edge=background --config=$KITTY_PANEL_CFG gping 10.0.0.1 -
 alias osrsping="gping -c '#a7c080' oldschool78.runescape.com"
 alias paste="wl-paste"
 alias pics='cd_pics'
-alias printenv="$HOME/python/scripts/printenv.py | sort"
+alias printenv="$HOME/python/scripts/bashhelpers/printenv.py | sort"
 alias pyp='cd $HOME/python/Projects/ && ls -alph --group-directories-first'
 alias psg="ps x | grep -iP"
 alias psm=ps aux | awk '{print $6/1024 " MB\t\t" $11}' | sort -n | tail
