@@ -2,36 +2,26 @@
 
 # ignore=(.\*\\\[+package.\*\?\\\]+\(\\s+\[\\w\\\{\\s=\"\.\*\\[,:\\}\>\<\@\]\))
 
-source "$ZDOTDIR"/.color_defs.sh
-
 rsync_update(){
-  rsync -auXv "$1" "$2" | /home/joona/.local/share/bin/ProgressBar "$(find "$1" | wc -l)"
-}
-
-cv(){
-  CWD="/home/joona/opencv-cuda/opencv_build"
-  cd $CWD || exit || exit
-  if cp -fn flags.sh .env /tmp; then
-    if rm -rf --interactive=never /home/joona/opencv-cuda/opencv_build/*; then
-      mv /tmp/.env /tmp/flags.sh ./ && ./flags.sh
-    else
-      echo -e "\033[31mError removing files\033[0m"
-      return 1
-    fi
-  else
-    return 1
-  fi
+  rsync -av --update --ignore-existing "$1/" "$2" | \
+    ProgressBar "$(find "$1" | wc -l)"
 }
 
 kitty_integration_custom() {
-
+  KITTY_CONF_DIR="/home/joona/.config/kitty"
   # Define aliases for kitten commands
   alias diff_='kitten diff'
   alias img='kitten icat'
   alias ssh='kitten ssh'
   alias rglinks='kitty -T "Hyperlinked rip-grep" --hold kitten hyperlinked-grep'
   alias kp=kitty_panel
-
+  alias kp_bat="kitty +kitten panel --config=$KITTY_CONF_DIR/panel.d/bg_padded.conf \
+    --margin-top=100 --margin-bottom=100 --margin-left=150 --margin-right=150 \
+    --edge=background /home/joona/scripts/graphing/power/battery.sh \
+        & disown"
+  alias kp_btop="kitty +kitten panel --config=$KITTY_CONF_DIR/panel.d/btop.c \
+    --margin-top=100 --margin-bottom=100 --margin-left=150 --margin-right=150 \
+    --edge=background btop & disown"
   # Define function for kitty panel configuration
   kitty_panel() {
     local _panelcfg="/home/joona/.config/kitty/panel.d/bg_padded.conf"

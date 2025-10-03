@@ -1,4 +1,4 @@
-# Exclude a variety of commonly ignored directories.
+# Exclude a va90ety of commonly ignored directories.
 exclude = [
     ".bzr",
     ".direnv",
@@ -32,7 +32,7 @@ exclude = [
     "**/TODO/kitty",
 ]
 cache-dir = "~/.cache/ruff"
-line-length = 100
+line-length = 90
 indent-width = 4
 target-version = "py312"
 # Tespect gitignore
