@@ -1,9 +1,6 @@
 # -----------------------#
 # Ignore the following regex when calling `git diff``
-ignore_lines=(\"\|\'\|^\\s+\$)
-
-# Private constant variables like API keys/tokens
-[[ -f $HOME/.dotfiles/.consts ]] && source "$HOME/.dotfiles/.consts"
+ignore_lines=(^\\s+\$)
 
 [[ -f $HOME/.bash_functions ]] \
 	&& . "$HOME/.bash_functions"
@@ -104,9 +101,10 @@ alias pics='cd_pics'
 alias printenv="$HOME/python/scripts/printenv.py | sort"
 alias pyp='cd $HOME/python/Projects/ && ls -alph '
 alias psg="ps x | grep -iP"
-alias psm='ps_sorted membuff'
+alias psm=ps aux | awk '{print $6/1024 " MB\t\t" $11}' | sort -n | tail
 alias py='/home/joona/.venv/bin/python3'
-alias rg='rg --no-ignore --hidden --ignore-file=/home/joona/.dotfiles/.ripgrep_ignore'
+alias rg='rg --no-ignore --max-columns=150 --max-columns-preview \
+--hidden --ignore-file=/home/joona/.dotfiles/.ripgrep_ignore'
 alias rmf='rm -rf'
 alias rm="rm -d --verbose"
 alias sunset="openrgb -p sunset &"
@@ -198,7 +196,8 @@ alias gds='git diff --patch-with-stat --ignore-all-space --ignore-cr-at-eol --ig
 						 --staged --diff-filter=M'
 
 alias gdg='git difftool --ignore-all-space --ignore-cr-at-eol \
-						--ignore-blank-lines --ignore-space-at-eol'
+						--ignore-blank-lines --ignore-space-at-eol \
+						--diff-filter=M'
 alias gdgs='git difftool --ignore-all-space --ignore-cr-at-eol \
 						--ignore-blank-lines --ignore-space-at-eol --staged'
 
@@ -221,7 +220,7 @@ alias f='fastfetch' # --config ~/.config/fastfetch/paleofetch.jsonc
 alias tree='eza --tree -a'
 alias treei='eza --tree -a --gitfile=/home/joona/.config/git/.gitignore_global'
 alias find_='rg --files | rg'
-alias trash='send2trash'
+# alias trash='send2trash'
 
 # * dbus
 alias brightness_max='qdbus6 org.kde.Solid.PowerManagement \
@@ -250,7 +249,7 @@ alias everforest='cat $HOME/.themes/**/* | copy && parse_and_render_colors.py --
 alias pacrecent="expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort | tail -n 20"
 alias cwd='pwd | tee /dev/tty | copy'
 alias splot='systemd-analyze plot > /tmp/plot.svg && firefox /tmp/plot.svg  2>&/dev/null & disown'
-alias lsc='eza -1 | wc -l'
+alias lsc='eza --git -1 | wc -l'
 alias bat-preview-themes='bat --list-themes \
     | fzf --preview="man echo \
     | bat --theme={} --color=always -l man --plain"'
@@ -263,7 +262,7 @@ alias dps='docker ps --all --format "table {{.Names}}\t{{.Command}}\t{{.Status}}
 
 
 
-alias buildfs='cd $HOME/python/Projects/fsutils/fsutils/ && \
+alias buildfs='cd $HOME/python/Projects/fsutils/ && \
     python3 setup.py build_ext --inplace --parallel=20 --cython-c-in-temp --build-temp /tmp'
 
 alias build='cython -I/usr/include/python3.13 -L/usr/lib -lpython3.13 -ldl -lm --embed -3'

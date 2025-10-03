@@ -178,6 +178,7 @@ usbutils
 uv
 uwsm
 vi
+vid.stab
 vim
 vscodium
 vscodium-marketplace

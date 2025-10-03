@@ -11,10 +11,12 @@
 **/pyproject.toml
 **/VSCodium/
 **/.obsidian/
+**/TODO/
 **/lib/
 *.css
 *.lua
 *.js
 *.html
 *.pdf
+
 !.py
