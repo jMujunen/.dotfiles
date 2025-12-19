@@ -1,5 +1,7 @@
-# -----------------------#
+#-----------------------#
 # Ignore the following regex when calling `git diff``
+BATTHEME=
+
 ignore_lines=(^\\s+\$)
 
 [[ -f $HOME/.bash_functions ]] \
@@ -9,11 +11,25 @@ ignore_lines=(^\\s+\$)
 [[ -f $HOME/.dotfiles/.bash_functions ]] \
 	&& source "$HOME/.dotfiles/.bash_functions"
 	# && alias rf='source $HOME/.dotfiles/."${shell_type}"rc'
+if [[ $TERM == linux ]]; then
+    alias bat='bat --theme=auto'
+    alias micro='micro -colorscheme cmc-16'
+fi
 
 # -- Colors -- #
+alias eza='eza --git -l --group-directories-first --color-scale=age,size \
+    --color-scale-mode=gradient --icons=auto -H'
+alias ls='eza --git -lA --group-directories-first --sort=size -h'
+alias la="eza --git -lhA"
+alias ll="eza --git -lh "
+alias l="eza --git -hlASr "
+alias lt="eza --git -Alh --time=modified --sort=modified"
+alias lsd="eza --git -lAdh --time=modified --sort=modified */"
+
 alias ip='ip -c'
 # alias less='less --use-color'
 alias pacman='sudo pacman --color=always'
+alias pacinfo='sudo pacman -Qil'
 alias ac='$HOME/.venv/bin/python3 $HOME/python/Projects/termllama/termllama/auto_commit.py'
 alias bathelp='bat --plain --language=help'
 alias batless='bat --style=full --paging=always -pl less'
@@ -26,19 +42,19 @@ alias cleansyslogs='sudo journalctl --vacuum-time=2d'
 #alias cdl="cd_ls"
 alias cdpy="cd_py" # Remove
 alias cls="clear"
-alias code="vscodium --profile=Default"
+alias code="vscodium"
 alias copy="wl-copy"
 alias cp="cp -Piv"
 alias dadjoke='curl https://icanhazdadjoke.com && printf "\n"'
 alias df='python3 $HOME/python/scripts/bashhelpers/ColorizeOutput/df.py'
-alias dl="cd $HOME/Downloads/ && eza --git -luh --git --sort=modified --group-directories-first"
+alias dl="cd $HOME/Downloads/ && eza --git -luh --git --sort=modified "
 alias docs="cd_docs"
 alias dus="du -ch | sort -h"
 alias free='python3 $HOME/python/scripts/bashhelpers/ColorizeOutput/free.py'
 alias ffmpeg='ffmpeg -stats -v warning'
-alias _find='find . \( ! -path "**/__pycache__" \) \( ! -path "**/venv" \) \
-\( ! -path "**/*yarn*" \) \( ! -path "**/.cargo" \) \( ! -path "**/yay" \) \
-\( ! -path "**/.venv" \) \( ! -path "**/*conda*" \) \( ! -path "**/*cache" \)'
+alias _find='find . \( ! -path "**/__pycache__/**" \) \( ! -path "**/venv/**" \) \
+\( ! -path "**/*yarn*" \) \( ! -path "**/.cargo/**" \) \( ! -path "**/yay/**" \) \
+\( ! -path "**/.venv/**" \) \( ! -path "**/*conda*" \) \( ! -path "**/*cache/**" \)'
 
 alias feh="feh -g 1920x1080 --draw-filename --draw-exif --draw-tinted \
 -S filename --scale-down --cache-size=1024 --output-dir=/home/joona/Pictures/feh \
@@ -54,7 +70,7 @@ alias _montage='feh -m --stretch --limit-height 1080 \
 --index-info "%f\n%n" --preload --output=montage.png'
 
 alias ff="cd $HOME/.mozilla/firefox/$ffid"
-alias ffp="nohup firefox --private-window &>/dev/null && exit"
+alias ffp="firefox -P private &>/dev/null & disown; exit"
 alias ff_profile="nohup firefox --ProfileManager &>/dev/null && exit"
 alias ffsafe="nohup firefox --safe-mode &>/dev/null && exit"
 alias ffs="s --provider duckduckgo"
@@ -64,20 +80,14 @@ alias getweather='curl wttr.in'
 alias ipy="/home/joona/.venv/bin/ipython3 --pprint --nosep --no-confirm-exit --profile=main --colors=Linux"
 alias killwine='kill 997 1021 >/dev/null 2>&1;wineserver -k 15;echo done'
 alias kwinDebugConsole='qdbus6 org.kde.KWin /KWin org.kde.KWin.showDebugConsole'
-alias ls='eza --git -lA --group-directories-first --sort=size -h'
-alias la="eza --git -lhA --group-directories-first"
-alias ll="eza --git -lh --group-directories-first"
-alias l="eza --git -hlASr --group-directories-first"
-alias lt="eza --git -Alh --time=modified --sort=modified --group-directories-first"
-alias lsd="eza --git -lAdh --time=modified --sort=modified */"
+
 alias spotify='spotify >&/dev/null & disown'
 alias logs="cd $HOME/Logs/"
 alias lsblkc='/home/joona/.venv/bin/python3 $HOME/python/scripts/bashhelpers/ColorizeOutput/lsblk.py'
 alias mail="check_mail"
-alias man="man_color"
 alias mv="mv -iv"
 alias nano="micro"
-alias notes="nohup firefox --url 0.0.0.0:8000/ &>/dev/null && exit"
+# alias notes="nohup firefox --url 0.0.0.0:8000/ &>/dev/null && exit"
 alias open="xdg-open"
 alias osrshydra="osrs_hydra"
 alias osrs="flatpak run --env=EXTRA_RUNELITE_ARGS=--configure com.jagexlauncher.JagexLauncher  >&/dev/null & disown &&
@@ -94,24 +104,23 @@ alias osrsping="gping -c '#a7c080' oldschool78.runescape.com"
 alias paste="wl-paste"
 alias pics='cd_pics'
 alias printenv="$HOME/python/scripts/bashhelpers/printenv.py | sort"
-alias pyp='cd $HOME/python/Projects/ && ls -alph --group-directories-first'
+alias pyp='cd $HOME/python/Projects/ && ls -alph'
 alias psg="ps x | grep -iP"
-alias psm=ps aux | awk '{print $6/1024 " MB\t\t" $11}' | sort -n | tail
+alias psm='ps aux | awk '\''{print $6/1024 " MB\t\t" $11}'\'' | sort -n'
 alias py='/home/joona/.venv/bin/python3'
-alias rg='rg --no-ignore --max-columns=150 --max-columns-preview \
+alias rg='rg --no-ignore --max-columns=120 --max-columns-preview \
 --hidden --ignore-file=/home/joona/.dotfiles/.ripgrep_ignore'
 alias rmf='rm -rf'
 alias rm="rm -d --verbose"
 alias sms="/home/joona/.venv/bin/python3 $HOME/python/modules/kdeConnect.py"
 alias sunset="openrgb -p sunset &"
-alias up="cd_up"
 #alias vdir="vdir --color=auto"
 alias venv='source .venv/bin/activate'
 alias gvenv='source /home/joona/.venv/bin/activate'
 alias ws-cv='vscodium --profile=Default -n $HOME/Code/Workspace/cv.code-workspace'
 alias ws-notes='vscodium --profile=Default -n $HOME/Code/Workspace/Notes.code-workspace'
 alias ws-bash='vscodium --profile=Default -n $HOME/Code/Workspace/bashscripts.code-workspace && exit'
-alias ws="cd $HOME/Code/Workspace/ && ls -ltuph --group-directories-first"
+alias ws="cd $HOME/Code/Workspace/ && ls -ltuph"
 alias ws-cfg='vscodium --profile="Shell Scripting" -n $HOME/Code/Workspace/cfg.code-workspace && exit'
 alias ws-ella="vscodium --profile=Default -n $HOME/Code/Workspace/data_entry.code-workspace && exit"
 alias ws-html="vscodium --profile=Default -n $HOME/Code/Workspace/html.code-workspace && exit"
@@ -139,8 +148,8 @@ alias llamaupdate='curl -fsSL https://ollama.com/install.sh | sh && sleep 2;
 
 # Arch Linux Specific
 alias pac-info="sudo pacman -Qq \
-	| fzf --sync --preview 'pacman -Qil {}' --layout=reverse --wrap --bind \
-	'enter:execute(pacman -Rsn {} )'"
+	| sudo fzf --sync --preview 'pacman -Qil {}' --layout=reverse --wrap --bind \
+	'enter:execute(sudo pacman -Rc {} )'"
 alias pac-info-explicit="sudo pacman -Qqe \
 	| fzf --sync --preview 'pacman -Qil {}' --layout=reverse --wrap --bind \
 	'enter:execute(pacman -Rsn {} | less)'"
@@ -207,22 +216,23 @@ alias search='apropos'
 alias mpv='mpv --fs --profile=speed-with-audio --profile=big-cache'
 # alias mpvt='mpv -hwdec=auto-safe --cuda-decode-device=0 --hr-seek=no --vd=hevc,hevc_v4l2m2m,h264,hevc_cuvid,h264_cuvid --profile=sw-fast --audio=no'
 alias mpvt='mpv --profile=term'
-alias winssd='cd /mnt/win_ssd/Users/Joona/Videos/NVIDIA/ && ls -Alh --group-directories-first'
-alias clips='cd /mnt/ssd/OBS && eza --git -Alh --group-directories-first'
+alias winssd='cd /mnt/win_ssd/Users/Joona/Videos/NVIDIA/ && ls -Alh '
+alias clips='cd /mnt/ssd/OBS && eza --git -Alh '
 # fzf
 alias dir="fzf --preview 'fzf-preview.sh {}'"
 # Kitty panel
 
-alias cam='ssh server -t "source /home/joona/.dotfiles/.shellrc && \
-	/home/joona/.venv/bin/python3 /home/joona/python/scripts/io/dir_sort.py \
-    /mnt/hdd/.webcam /mnt/hdd/sorted-webcam-clips" \
-	&& cd /mnt/hdd/sorted-webcam-clips/$(date +%Y)/$(date +%B)/$(date +%-d);
-	ls -A1tr'
-
+# alias cam='ssh server -t "source /home/joona/.dotfiles/.shellrc && \
+	# /home/joona/.venv/bin/python3 /home/joona/python/scripts/io/dir_sort.py \
+    # /mnt/hdd/.webcam /mnt/hdd/sorted-webcam-clips" \
+	# && cd /mnt/hdd/sorted-webcam-clips/$(date +%Y)/$(date +%B)/$(date +%-d);
+	# ls -A1tr'
+alias cam='cd /mnt/hdd/.webcam/$(date "+%Y/%m/%d")'
 alias f='fastfetch' # --config ~/.config/fastfetch/paleofetch.jsonc
-# alias tree='tree -a --dirsfirst'
-alias tree='eza --tree --group-directories-first -A'
-alias treei='tree -a --dirsfirst --gitfile=/home/joona/.config/git/.gitignore_global'
+alias tree='eza --tree  -A'
+alias treei='eza --tree -A --git-ignore'
+alias treed='tree -D'
+# --gitfile=/home/joona/.config/git/.gitignore_global'
 alias find_='rg --files | rg'
 # alias trash='send2trash'
 
@@ -232,7 +242,7 @@ alias brightness_max='qdbus6 org.kde.Solid.PowerManagement \
 alias brightness_low='qdbus6 org.kde.Solid.PowerManagement \
     /org/kde/Solid/PowerManagement/Actions/BrightnessControl setBrightness 50'
 
-alias goto-notes='cd "$HOME/Docs/Notes/Obsidian/All Notes" && ls -Al --group-directories-first'
+alias goto-notes='cd "$HOME/Docs/Notes/Obsidian/All Notes" && ls -Al '
 alias reboot='systemctl reboot'
 
 alias kittycam='mpv http://10.0.0.132:8081 --profile=big-cache --profile=network &>/dev/null \
@@ -279,6 +289,24 @@ alias regex='pcre2grep'
 alias commit='ollama run SlyOtis/git-auto-message:latest "$(git diff --staged)"'
 alias meowlog='ssh --kitten interpreter=sh kodi pastekodi | xargs curl > /tmp/kodi.log && bat -p /tmp/kodi.log'
 alias z='zathura'
-# if [[ -e $HOME/.dotfiles/.auto_aliases ]]; then
-	# source $HOME/.dotfiles/.auto_aliases
-# fi
+alias tldr='tldr --short-options'
+alias llamawatch="kitty +kitten panel --lines=4 --edge=top watch -d 'ollama ps'  >&/dev/null& disown"
+alias show_keys='xev | grep -P "(\dx\d{2,3},\s(keycode\s\d+|button\s\d+)|(?<=\(keysym\s\dx\w{0,10},\s)\w+)"'
+
+alias off="openrgb -p off.orp & hyprctl dispatch dpms off"
+alias on="openrgb -p sunset2"
+
+alias cpu_perf='sudo cpupower --cpu all frequency-set --governor performance'
+alias cpu_powersave='sudo cpupower --cpu all frequency-set --governor powersave'
+alias cpu_normal='sudo cpupower --cpu all frequency-set --governor ondemand'
+alias cpugov="sudo cpupower --cpu all frequency-info --policy \
+    | grep gov \
+    | head -1 \
+    | awk '{print \$3}'"
+
+alias dmesg='dmesg --color=always'
+alias pygment-preview='pygmentize -L styles \
+    | grep "\*" \
+    | tr -d "*: " \
+    | fzf --preview="python3 -m rich.syntax --force -t={} \
+        /home/joona/scripts/timeshift-create.sh"'

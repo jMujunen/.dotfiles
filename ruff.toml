@@ -29,7 +29,7 @@ exclude = [
     ".venv",
     "__pycache__",
     "*conda*",
-    "**/TODO/kitty",
+    "/home/joona/python/TODO/kitty/**/**",
 ]
 cache-dir = "~/.cache/ruff"
 line-length = 90
@@ -38,6 +38,8 @@ target-version = "py312"
 # Tespect gitignore
 respect-gitignore = true
 fix-only = true
+
+unsafe-fixes = true
 # Enumerate all fixed violations.
 show-fixes = true
 extend-include = ["*.ipynb", "*.pyx"]
@@ -62,7 +64,7 @@ skip-magic-trailing-comma = false
 # # Like Black, automatically detect the appropriate line ending.
 line-ending = "auto"
 
-# Enable auto-formatting of code blokcs in docstrings. Supports Md, rST
+# Enable auto-formatting of code blocks in docstrings. Supports Md, rST
 docstring-code-format = true
 
 # # Set the line length limit used when formatting code snippets in
@@ -76,7 +78,7 @@ docstring-code-line-length = "dynamic"
 select = ["E", "F", "C", 'W', "B", "UP", "D107", "D104","D301","D401","D400","ANN201", "ANN206", "S103", "S105", "S112", "S110", "A", "EXE", "PIE", "RET", "SIM", "PLR", "PLW", "RUF","D406","FBT","PERF","D212", "DOC501", "TRY003", "EM102",] # 'D' Django, 'ANN' annotations, 'S' built-ins, 'A', 'EXE', 'PIE', 'RET', 'SIM', 'PLR', 'PLW', 'RUF' ruff-lint ,'C' codesmell, 'E' convention, 'F' error, 'B' bug, 'UP' unused variables, 'W' warning.
 exclude = ["*test*.py", '*.pyx']
 fixable = ['ALL']
-
+preview = true
 ignore = ["E501", "N999", "N806", "FBT002", 'D417', 'E501', 'E303'] #"D211", "D213", "W1514", "E701" E702]
 #   ---------------------------------------------------------------
 #   - E501: Line too long
@@ -88,7 +90,11 @@ ignore = ["E501", "N999", "N806", "FBT002", 'D417', 'E501', 'E303'] #"D211", "D2
 #   - N806: Name should be uppercase (deprecated)
 #   ----------------------------------------------------------------
 
-extend-fixable = ["B", "D","ANN201",  "RET504", "EXE", "ANN", 'SIM108', 'SIM115', 'SIM117', 'SIM105', "PERF", "PTH","RUF","E"]
+extend-fixable = ["B", "D","ANN201",  "RET504", "EXE", "ANN", 'SIM108', 'SIM115', 'SIM117', 'SIM105', "PERF", "PTH","RUF","E", "PLW", "PLW1514", "E722", 'E402']
+
+extend-unsafe-fixes = ["PLW", "E722", 'E402']
+
+
 # Disable fix for unused imports (`F401`) and unused variables (`F841`) in tests.
 unfixable = ["F401", 'F841']
 

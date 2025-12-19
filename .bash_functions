@@ -2,7 +2,9 @@
 
 # ignore=(.\*\\\[+package.\*\?\\\]+\(\\s+\[\\w\\\{\\s=\"\.\*\\[,:\\}\>\<\@\]\))
 
-source "$ZDOTDIR"/.color_defs.sh
+if [ -e "$ZDOTDIR"/.color_defs.sh ]; then
+    source "$ZDOTDIR"/.color_defs.sh
+fi
 
 rsync_update(){
   rsync -av --update --ignore-existing --partial "$1/" "$2" | \
@@ -25,27 +27,34 @@ colorize_diff() {
     done <<< "$1"
 }
 
+
+
+
 kitty_integration_custom() {
   img() {
-    kitten icat --use
+    echo "$@"
+    for image in "$@"; do
+      echo $image
+      echo -e "\033[4m$image\033[0m"
+      kitten icat --use-window-size 100,100,560,100 $image
+    done
   }
   # Define aliases for kitten commands
   alias diff_='kitten diff'
   alias ssh='kitten ssh'
   alias rglinks='kitty -T "Hyperlinked rip-grep" --hold kitten hyperlinked-grep'
-  alias kp=kitty_panel
 
   # Define function for kitty panel configuration
-  kitty_panel() {
+  kp() {
     local _panelcfg="/home/joona/.config/kitty/panel.d/bg_padded.conf"
     case "$1" in
     *plain | --no* | *default)
       shift
-      kitty +kitten panel --edge=background "$*"
+      kitty +kitten panel --edge=background $* &
       return $?
       ;;
     *)
-      kitty +kitten panel --config="$_panelcfg" --edge=background "$*"
+      nohup kitty +kitten panel --config="$_panelcfg" --edge=background $* > /dev/null & disown
       ;;
     esac
   }
@@ -104,7 +113,8 @@ sshkeygen() {
 
 brightness() {
     value=$1
-    ddcutil --display 1 setvcp 10 "$value" & ddcutil --display 2 setvcp 10 "$value"
+    ddcutil --skip-ddc-checks --display 1 setvcp 10 "$value" &
+    ddcutil --skip-ddc-checks --display 2 setvcp 10 "$value"
 }
 
 compile() {
@@ -223,7 +233,7 @@ add() {
 
 get() {
   # Check type of command. If type == function, show the entire function
-
+  HELPER="$HOME/python/scripts/bashhelpers/which.py"
   if ! which "$1" >/dev/null; then
     error "Command $1 not found."
     return 1
@@ -233,18 +243,21 @@ get() {
 
   case "$cmdType" in
   *function*|*alias*)
-    which "$1" | bat -pl sh
+    $HELPER "$1" | bat -pl sh
     ;;
   *sh)
     filepath=$(which "$1" | cut -d ' ' -f 3)
     bat -pl sh "$filepath"
+    return 0
     ;;
   *py)
     filepath=$(which "$1" | cut -d ' ' -f 3)
     bat -pl py "$filepath"
+    return 0
     ;;
   *)
-    printf "%s\n" "$(type $1)" | bat -pl sh
+    result="$(type $1)"
+    # printf "%s\n" "$(type $1)" | bat -pl sh
     ;;
   esac
 
@@ -340,7 +353,7 @@ help() {
 }
 
 # Move 'up' in the directory tree $1 amount of times and print pwd each interation
-cd_up() {
+up() {
   local levels="${1:-1}" # default to 1 if no argument is provided
 
   while [[ "$levels" -gt 0 ]]; do
@@ -358,6 +371,11 @@ cd_up() {
       return 1
     fi
   done
+}
+
+batpreview(){
+        fp="$1"
+        bat --list-languages | awk -F: '{print $1}' | fzf --preview="bat $fp -l {} --color=always"
 }
 
 batfollow() {
@@ -519,12 +537,12 @@ man_color() {
 
   # Preserve `k` option for searching man pages
   if [[ "$#" -eq 1 ]] && [[ "$1" == "-k" ]]; then
-    /usr/bin/man -k "$@" | bat -l man -p
+    /usr/bin/man -k "$@" | bat -l man -p --theme=ansi
   fi
 
-  [[ "$#" -gt 1 ]] && /usr/bin/man "$@" | bat -l man -p && return 0
+  [[ "$#" -gt 1 ]] && /usr/bin/man "$@" | bat -l man -p --theme=ansi && return 0
 
-  /usr/bin/man "$1" | bat -pl man && return 0
+  /usr/bin/man "$1" | bat -pl man --theme=ansi && return 0
   return 1
 }
 
