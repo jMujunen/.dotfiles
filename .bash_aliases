@@ -135,7 +135,7 @@ alias ws-hypr="vscodium --profile=Default -n $HOME/Code/Workspace/hyprland.code-
 
 alias x="exit"
 alias yay="yay --color=always"
-alias md='python3 -m rich.markdown --code-theme material --width=90 -i bash'
+alias md='python3 -m rich.markdown --code-theme material -i bash'
 alias fmtdate='python3 -m rich.markdown /home/joona/Docs/Notes/Obsidian/All\ Notes/Code/strftime.md'
 alias fmtprint='open "/home/joona/Docs/Notes/HTML/Code/BASH/PRINTF - BASH.html"'
 alias rl='cd /home/joona/.var/app/com.jagexlauncher.JagexLauncher/data/user_home/.runelite'

@@ -50,7 +50,7 @@ plugins=(
     zsh-syntax-highlighting
     zsh-completion-generator
     zsh-256color
-    zsh-notes
+    notes
     zcolors
 )
 
@@ -64,7 +64,7 @@ plugins=(
 #	poetry-env
 
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 
 # User configuration
@@ -124,8 +124,25 @@ setopt inc_append_history
 # group results by category
 zstyle ':completion:*' group-name ''
 
+# If unset, ~/Notes is used as default.
+# zstyle :notes home  ''
+
+# When set, exits the notes widget after one use.
+zstyle :notes:widget once no
+
+# Choose the picker used by the widget. Supported values: fzf, skim, fzy.
+zstyle :notes:widget picker fzf
+# Alt -N: Open the notes selector.
+bindkey '^[N' notes-edit-widget
+bindkey "^[^N" notes-edit-widget
+
 bindkey "^Q" push-input
 
+# Enable preview panel. Disabled by default.
+zstyle :notes:widget:preview enabled yes
+
+# Alternative using mdcat:
+zstyle :notes:widget:preview command python3 -m rich.markdown --code-theme material -i bash
 
 unalias run-help
 autoload run-help
@@ -194,3 +211,6 @@ ZSH_HIGHLIGHT_STYLES[assign]=none
 ZSH_AUTOSUGGEST_STRATEGY=(completion history)
 
 autoload -U compinit && compinit
+
+
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
